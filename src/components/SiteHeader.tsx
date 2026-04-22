@@ -4,6 +4,7 @@ import { Menu, X } from "lucide-react";
 import { Container } from "./Container";
 import { NAV } from "@/lib/site";
 import { cn } from "@/lib/utils";
+import logo from "@/assets/logo-cosmotech.png";
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
@@ -12,11 +13,12 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-40 border-b border-border/60 bg-background/85 backdrop-blur supports-[backdrop-filter]:bg-background/70">
       <Container className="flex h-16 items-center justify-between">
-        <Link to="/" className="flex items-center gap-2" aria-label="Cosmotech home">
-          <span className="inline-block h-2.5 w-2.5 rounded-full bg-cobalt" />
-          <span className="text-[15px] font-semibold tracking-[0.18em] text-foreground">
-            COSMOTECH
-          </span>
+        <Link to="/" className="flex items-center" aria-label="Cosmotech Philippines home">
+          <img
+            src={logo}
+            alt="Cosmotech Philippines"
+            className="h-8 w-auto md:h-9"
+          />
         </Link>
 
         <nav className="hidden items-center gap-7 md:flex" aria-label="Primary">
@@ -72,7 +74,7 @@ export function SiteHeader() {
             <Link
               to="/contact"
               onClick={() => setOpen(false)}
-              className="mt-2 inline-flex h-10 items-center justify-center rounded-full bg-foreground px-4 text-sm font-medium text-background"
+              className="mt-2 inline-flex h-10 items-center justify-center rounded-full bg-brass px-4 text-sm font-medium text-ink hover:brightness-95"
             >
               Talk to our team
             </Link>
