@@ -55,10 +55,7 @@ function HomePage() {
         />
         <Container className="relative pt-16 pb-0 sm:pt-20">
           <div className="mx-auto max-w-3xl text-center">
-            <Eyebrow className="justify-center text-bone/70">
-              <span className="text-bone/70">Cosmotech Philippines · Since 1994</span>
-            </Eyebrow>
-            <h1 className="mt-6 text-4xl font-semibold leading-[1.05] tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
+            <h1 className="text-4xl font-semibold leading-[1.05] tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
               People management software for{" "}
               <span className="text-bone/95">
                 Philippine government & private companies
