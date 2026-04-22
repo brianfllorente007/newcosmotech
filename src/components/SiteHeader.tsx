@@ -4,7 +4,7 @@ import { Menu, X } from "lucide-react";
 import { Container } from "./Container";
 import { NAV } from "@/lib/site";
 import { cn } from "@/lib/utils";
-import logo from "@/assets/logo-cosmotech.png";
+import logo from "@/assets/cosmotech-logo.png";
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
@@ -17,7 +17,7 @@ export function SiteHeader() {
           <img
             src={logo}
             alt="Cosmotech Philippines"
-            className="h-8 w-auto md:h-9"
+            className="h-10 w-auto md:h-12"
           />
         </Link>
 

@@ -133,22 +133,6 @@ function HomePage() {
             </Link>
           </div>
 
-          {/* paper -> digital motif */}
-          <div className="reveal mt-14 grid grid-cols-2 gap-4 sm:grid-cols-4">
-            {[
-              "Paper forms",
-              "Manual filing",
-              "Phone follow-ups",
-              "Spreadsheets",
-            ].map((item, i) => (
-              <div key={item} className="rounded-xl border border-white/10 p-5 text-sm">
-                <p className="text-bone/55 line-through">{item}</p>
-                <p className="mt-2 font-medium text-bone">
-                  {["Smart forms", "QR-tracked docs", "Auto SLAs", "Live dashboards"][i]}
-                </p>
-              </div>
-            ))}
-          </div>
         </Container>
       </section>
 
