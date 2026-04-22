@@ -7,11 +7,11 @@ import { SuiteTabs } from "@/components/SuiteTabs";
 import { ProjectCard } from "@/components/ProjectCard";
 import { CtaBand } from "@/components/CtaBand";
 import { LogoWall } from "@/components/LogoWall";
-import { HrisMock, QueueMock, HelpdeskMock } from "@/components/ProductMock";
 import { useReveal } from "@/hooks/use-reveal";
 import { PROJECTS } from "@/lib/site";
 import { ALL_CLIENT_LOGOS } from "@/lib/logos";
 import heroBg from "@/assets/hero-bg.mp4";
+import heroImage from "@/assets/hero-image.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -53,10 +53,9 @@ function HomePage() {
           muted
           playsInline
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-40"
+          className="pointer-events-none absolute inset-0 h-full w-full object-cover"
         />
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-ink/60 via-ink/50 to-ink/80" />
-        <Container className="relative pt-20 pb-24 sm:pt-28 sm:pb-32">
+        <Container className="relative pt-20 pb-0 sm:pt-28">
           <div className="mx-auto max-w-3xl text-center">
             <Eyebrow className="justify-center text-bone/70">
               <span className="text-bone/70">Cosmotech Philippines · Since 1994</span>
@@ -88,25 +87,11 @@ function HomePage() {
             </div>
           </div>
 
-          {/* Floating product mocks */}
-          <div className="relative mt-16 hidden lg:block">
-            <div className="absolute -left-6 top-0 w-[280px] rotate-[-4deg]">
-              <QueueMock />
-            </div>
-            <div className="absolute -right-4 top-6 w-[320px] rotate-[3deg]">
-              <HelpdeskMock />
-            </div>
-            <div className="mx-auto w-[420px]">
-              <HrisMock />
-            </div>
-            <div className="h-[260px]" />
-          </div>
-
-          {/* Mobile single mock */}
-          <div className="mt-14 lg:hidden">
-            <div className="mx-auto max-w-sm">
-              <HrisMock />
-            </div>
+            <img
+              src={heroImage}
+              alt="IntegraHRIS Government dashboard preview"
+              className="mt-12 sm:mt-16 mx-auto block w-full max-w-5xl h-auto"
+            />
           </div>
         </Container>
       </section>
