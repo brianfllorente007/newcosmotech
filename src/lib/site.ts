@@ -34,6 +34,7 @@ export type Product = {
   deployedAt?: string[];
   logoLight?: string;
   logoDark?: string;
+  screenshot?: string;
 };
 
 export const PRODUCTS: Product[] = [
