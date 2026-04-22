@@ -55,6 +55,7 @@ export const PRODUCTS: Product[] = [
     ],
     logoLight: integrahris365Light,
     logoDark: integrahris365Dark,
+    screenshot: shotIntegra365,
   },
   {
     slug: "integrahris-government",
@@ -74,6 +75,7 @@ export const PRODUCTS: Product[] = [
     deployedAt: ["Bureau of Customs", "PDIC", "National Telecommunications Commission"],
     logoLight: integrahrisGovtLight,
     logoDark: integrahrisGovtDark,
+    screenshot: shotIntegraGovt,
   },
   {
     slug: "qmaster",
@@ -93,6 +95,7 @@ export const PRODUCTS: Product[] = [
     deployedAt: ["GSIS — 42 branches nationwide", "Multiple LTO offices"],
     logoLight: qmasterLight,
     logoDark: qmasterDark,
+    screenshot: shotQmaster,
   },
   {
     slug: "helpdesk",
@@ -111,6 +114,7 @@ export const PRODUCTS: Product[] = [
     ],
     logoLight: helpdeskLight,
     logoDark: helpdeskDark,
+    screenshot: shotHelpdesk,
   },
   {
     slug: "docutrakr",
@@ -127,6 +131,7 @@ export const PRODUCTS: Product[] = [
       "Automated escalations for stalled documents",
       "Mobile scanning from any device",
     ],
+    screenshot: shotDocutrakr,
   },
   {
     slug: "urateme",
@@ -145,6 +150,7 @@ export const PRODUCTS: Product[] = [
     ],
     logoLight: uratemeLight,
     logoDark: uratemeDark,
+    screenshot: shotUrateme,
   },
   {
     slug: "horion",

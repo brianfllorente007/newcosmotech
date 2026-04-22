@@ -3,27 +3,8 @@ import { Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { PRODUCTS } from "@/lib/site";
 import { FeatureCheckList } from "./FeatureCheckList";
-import { HrisMock, QueueMock, HelpdeskMock, DocMock } from "./ProductMock";
+import { DocMock } from "./ProductMock";
 import { cn } from "@/lib/utils";
-
-function mockFor(slug: string) {
-  switch (slug) {
-    case "qmaster":
-      return <QueueMock />;
-    case "helpdesk":
-      return <HelpdeskMock />;
-    case "docutrakr":
-      return <DocMock />;
-    case "urateme":
-      return <HelpdeskMock />;
-    case "horion":
-      return <DocMock />;
-    case "integrahris-government":
-      return <HrisMock />;
-    default:
-      return <HrisMock />;
-  }
-}
 
 export function SuiteTabs() {
   const [active, setActive] = useState<string>(PRODUCTS[0].slug);
@@ -73,12 +54,12 @@ export function SuiteTabs() {
         />
       </div>
 
-      {/* Animated content card */}
+      {/* Animated content card — 60/40 split on lg */}
       <div
         key={active}
-        className="animate-slide-up-fade mt-8 grid gap-10 overflow-hidden rounded-3xl border border-border bg-card p-6 sm:p-10 lg:grid-cols-2"
+        className="animate-slide-up-fade mt-8 grid gap-10 overflow-hidden rounded-3xl border border-border bg-card p-6 sm:p-10 lg:grid-cols-5 lg:gap-0"
       >
-        <div className="flex flex-col">
+        <div className="flex flex-col lg:col-span-3 lg:pr-10">
           <p className="text-xs font-medium uppercase tracking-[0.2em] text-cobalt">
             {product.name}
           </p>
@@ -95,7 +76,24 @@ export function SuiteTabs() {
             Learn more <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
-        <div className="flex items-center justify-center">{mockFor(product.slug)}</div>
+
+        {/* Media panel — full-bleed to card edges (40%) */}
+        <div className="relative -m-6 sm:-m-10 lg:m-0 lg:col-span-2 lg:-mr-10 lg:-my-10">
+          {product.screenshot ? (
+            <div className="relative h-full min-h-[280px] overflow-hidden bg-muted/30 aspect-[16/10] lg:aspect-auto">
+              <img
+                src={product.screenshot}
+                alt=""
+                aria-hidden="true"
+                className="absolute inset-0 h-full w-full object-cover object-left-top"
+              />
+            </div>
+          ) : (
+            <div className="flex h-full min-h-[280px] items-center justify-center bg-muted/30 p-6">
+              <DocMock />
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
