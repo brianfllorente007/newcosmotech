@@ -11,6 +11,7 @@ import { HrisMock, QueueMock, HelpdeskMock } from "@/components/ProductMock";
 import { useReveal } from "@/hooks/use-reveal";
 import { PROJECTS } from "@/lib/site";
 import { ALL_CLIENT_LOGOS } from "@/lib/logos";
+import heroBg from "@/assets/hero-bg.mp4";
 
 export const Route = createFileRoute("/")({
   head: () => ({
