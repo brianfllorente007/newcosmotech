@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Container } from "./Container";
 import { PRODUCTS, SITE } from "@/lib/site";
+import logo from "@/assets/logo-cosmotech.png";
 
 export function SiteFooter() {
   const year = new Date().getFullYear();
@@ -9,10 +10,11 @@ export function SiteFooter() {
       <Container className="py-16">
         <div className="grid gap-10 md:grid-cols-4">
           <div>
-            <div className="flex items-center gap-2">
-              <span className="inline-block h-2.5 w-2.5 rounded-full bg-cobalt" />
-              <span className="text-sm font-semibold tracking-[0.18em]">COSMOTECH</span>
-            </div>
+            <img
+              src={logo}
+              alt="Cosmotech Philippines"
+              className="h-7 w-auto"
+            />
             <p className="mt-4 max-w-xs text-sm text-ink-foreground/70">
               People management, queueing, helpdesk, and document tracking software — built in the
               Philippines, since 1994.

@@ -1,3 +1,14 @@
+import integrahris365Light from "@/assets/logos/products/integrahris365-light.png";
+import integrahris365Dark from "@/assets/logos/products/integrahris365-dark.png";
+import integrahrisGovtLight from "@/assets/logos/products/integrahris-govt-light.png";
+import integrahrisGovtDark from "@/assets/logos/products/integrahris-govt-dark.png";
+import qmasterLight from "@/assets/logos/products/qmaster-light.png";
+import qmasterDark from "@/assets/logos/products/qmaster-dark.png";
+import helpdeskLight from "@/assets/logos/products/helpdesk-light.png";
+import helpdeskDark from "@/assets/logos/products/helpdesk-dark.png";
+import uratemeLight from "@/assets/logos/products/urateme-light.png";
+import uratemeDark from "@/assets/logos/products/urateme-dark.png";
+
 export const SITE = {
   name: "Cosmotech Philippines",
   tagline: "People Management Software for Philippine Government & Enterprise",
@@ -15,6 +26,8 @@ export type Product = {
   description: string;
   features: string[];
   deployedAt?: string[];
+  logoLight?: string;
+  logoDark?: string;
 };
 
 export const PRODUCTS: Product[] = [
@@ -33,6 +46,8 @@ export const PRODUCTS: Product[] = [
       "Compliant with Philippine labor and tax regulations",
       "Self-service portal for employees",
     ],
+    logoLight: integrahris365Light,
+    logoDark: integrahris365Dark,
   },
   {
     slug: "integrahris-government",
@@ -50,6 +65,8 @@ export const PRODUCTS: Product[] = [
       "Audit-ready reporting and role-based access",
     ],
     deployedAt: ["Bureau of Customs", "PDIC", "National Telecommunications Commission"],
+    logoLight: integrahrisGovtLight,
+    logoDark: integrahrisGovtDark,
   },
   {
     slug: "qmaster",
@@ -67,6 +84,8 @@ export const PRODUCTS: Product[] = [
       "Centralized reporting across branches",
     ],
     deployedAt: ["GSIS — 42 branches nationwide", "Multiple LTO offices"],
+    logoLight: qmasterLight,
+    logoDark: qmasterDark,
   },
   {
     slug: "helpdesk",
@@ -83,6 +102,8 @@ export const PRODUCTS: Product[] = [
       "Full audit trail for every ticket",
       "Customer-facing self-service portal",
     ],
+    logoLight: helpdeskLight,
+    logoDark: helpdeskDark,
   },
   {
     slug: "docutrakr",
@@ -115,6 +136,24 @@ export const PRODUCTS: Product[] = [
       "Integrates with QMaster and HelpDesk",
       "Exportable reports for management review",
     ],
+    logoLight: uratemeLight,
+    logoDark: uratemeDark,
+  },
+  {
+    slug: "horion",
+    name: "Horion Interactive Display",
+    tagline: "Smart interactive displays for modern workspaces.",
+    short:
+      "Interactive flat-panel displays for meeting rooms, classrooms, and command centers — built for collaboration.",
+    description:
+      "Horion Interactive Display brings touch-driven collaboration to meeting rooms, classrooms, and command centers. Built for modern Philippine workplaces that need clear communication and faster decision-making.",
+    features: [
+      "4K interactive touch display",
+      "Wireless screen sharing from any device",
+      "Built-in whiteboarding and annotation",
+      "Video conferencing integration",
+      "Centralized device management",
+    ],
   },
 ];
 
@@ -135,6 +174,25 @@ export const PROJECTS: Project[] = [
   { agency: "Freeport Area of Bataan", scope: "Billing and Collection System", sector: "Government" },
   { agency: "Land Management Bureau", scope: "Survey Information Management System", sector: "Government" },
   { agency: "DENR", scope: "Online Leave Management System (OLMS)", sector: "Government" },
+];
+
+import gsisLogo from "@/assets/logos/agencies/gsis.png";
+import ercLogo from "@/assets/logos/agencies/erc.png";
+import ppaLogo from "@/assets/logos/agencies/ppa.png";
+import ltoLogo from "@/assets/logos/agencies/lto.png";
+import hsbcLogo from "@/assets/logos/clients/hsbc.png";
+import landbankLogo from "@/assets/logos/clients/landbank.png";
+
+export const AGENCY_LOGOS = [
+  { src: gsisLogo, alt: "Government Service Insurance System (GSIS)" },
+  { src: ercLogo, alt: "Energy Regulatory Commission (ERC)" },
+  { src: ppaLogo, alt: "Philippine Ports Authority (PPA)" },
+  { src: ltoLogo, alt: "Land Transportation Office (LTO)" },
+];
+
+export const CLIENT_LOGOS = [
+  { src: hsbcLogo, alt: "HSBC" },
+  { src: landbankLogo, alt: "Landbank" },
 ];
 
 export const NAV = [

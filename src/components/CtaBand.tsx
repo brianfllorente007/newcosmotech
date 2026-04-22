@@ -20,13 +20,13 @@ export function CtaBand({
       <Container className="overflow-hidden rounded-3xl gradient-cta px-6 py-16 text-bone sm:px-12 sm:py-20">
         <div className="max-w-2xl">
           <p className="text-xs font-medium uppercase tracking-[0.2em] text-bone/70">{eyebrow}</p>
-          <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl md:text-5xl">
-            <span className="font-display italic text-bone">{title}</span>
+          <h2 className="mt-4 text-3xl font-semibold tracking-tight text-bone sm:text-4xl md:text-5xl">
+            {title}
           </h2>
           <p className="mt-4 text-base text-bone/80 sm:text-lg">{body}</p>
           <Link
             to={to}
-            className="mt-8 inline-flex h-11 items-center gap-2 rounded-full bg-bone px-5 text-sm font-medium text-ink transition-transform hover:-translate-y-0.5"
+            className="mt-8 inline-flex h-11 items-center gap-2 rounded-full bg-brass px-5 text-sm font-semibold text-ink transition-transform hover:-translate-y-0.5"
           >
             {ctaLabel} <ArrowRight className="h-4 w-4" />
           </Link>

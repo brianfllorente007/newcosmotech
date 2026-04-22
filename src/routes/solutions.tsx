@@ -32,12 +32,7 @@ function SolutionsIndex() {
         <Container>
           <SectionHeading
             eyebrow="Our solutions"
-            title={
-              <>
-                Software built for{" "}
-                <span className="font-display italic">Philippine workplaces</span>
-              </>
-            }
+            title="Software built for Philippine workplaces"
             intro="From HR and payroll to customer queues and document tracking, our products are built for the way Philippine organizations actually operate — government compliance, local regulations, and all."
           />
         </Container>
