@@ -6,10 +6,8 @@ import { SectionHeading, Eyebrow } from "@/components/SectionHeading";
 import { SuiteTabs } from "@/components/SuiteTabs";
 import { ProjectCard } from "@/components/ProjectCard";
 import { CtaBand } from "@/components/CtaBand";
-import { LogoWall } from "@/components/LogoWall";
 import { useReveal } from "@/hooks/use-reveal";
 import { PROJECTS } from "@/lib/site";
-import { ALL_CLIENT_LOGOS } from "@/lib/logos";
 import heroBg from "@/assets/hero-bg.mp4";
 import heroImage from "@/assets/hero-image.png";
 
