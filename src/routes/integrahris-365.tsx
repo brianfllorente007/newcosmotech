@@ -25,7 +25,7 @@ import {
 import { useReveal } from "@/hooks/use-reveal";
 import { cn } from "@/lib/utils";
 
-export const Route = createFileRoute("/solutions/integrahris-365")({
+export const Route = createFileRoute("/integrahris-365")({
   head: () => ({
     meta: [
       {

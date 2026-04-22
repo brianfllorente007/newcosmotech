@@ -25,8 +25,8 @@ export function SiteFooter() {
               {PRODUCTS.map((p) => (
                 <li key={p.slug}>
                   <Link
-                    to="/solutions/$slug"
-                    params={{ slug: p.slug }}
+                    to={p.slug === "integrahris" ? "/integrahris-365" : "/solutions/$slug"}
+                    params={p.slug === "integrahris" ? undefined : { slug: p.slug }}
                     className="text-ink-foreground/85 hover:text-ink-foreground"
                   >
                     {p.name}
