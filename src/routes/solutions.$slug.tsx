@@ -84,6 +84,14 @@ function ProductDetail() {
                   All solutions
                 </Link>
               </div>
+              {product.slug === "integrahris" && (
+                <Link
+                  to="/solutions/integrahris-365"
+                  className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-cobalt hover:underline"
+                >
+                  View the full IntegraHRIS 365 page <ArrowRight className="h-4 w-4" />
+                </Link>
+              )}
             </div>
             <div className="lg:pl-8">{mockFor(product.slug)}</div>
           </div>
