@@ -75,12 +75,18 @@ function HomePage() {
               work that keeps their operations running.
             </p>
             <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-              <Link
-                to="/solutions"
+              <a
+                href="#solutions"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document
+                    .getElementById("solutions")
+                    ?.scrollIntoView({ behavior: "smooth", block: "start" });
+                }}
                 className="inline-flex h-11 items-center gap-2 rounded-full bg-brass px-5 text-sm font-medium text-ink transition-all hover:-translate-y-0.5 hover:brightness-95"
               >
                 See our solutions <ArrowRight className="h-4 w-4" />
-              </Link>
+              </a>
               <Link
                 to="/contact"
                 className="inline-flex h-11 items-center gap-2 rounded-full border border-bone/30 px-5 text-sm font-medium text-bone hover:bg-bone/10"
@@ -101,7 +107,7 @@ function HomePage() {
       <TrustBar />
 
       {/* SOLUTIONS SUITE */}
-      <section className="py-24">
+      <section id="solutions" className="scroll-mt-24 py-24">
         <Container>
           <div className="reveal">
             <SectionHeading
