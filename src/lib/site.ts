@@ -1,19 +1,19 @@
-import integrahris365Light from "@/assets/logos/products/integrahris365-light.png";
-import integrahris365Dark from "@/assets/logos/products/integrahris365-dark.png";
-import integrahrisGovtLight from "@/assets/logos/products/integrahris-govt-light.png";
-import integrahrisGovtDark from "@/assets/logos/products/integrahris-govt-dark.png";
-import qmasterLight from "@/assets/logos/products/qmaster-light.png";
-import qmasterDark from "@/assets/logos/products/qmaster-dark.png";
-import helpdeskLight from "@/assets/logos/products/helpdesk-light.png";
-import helpdeskDark from "@/assets/logos/products/helpdesk-dark.png";
-import uratemeLight from "@/assets/logos/products/urateme-light.png";
-import uratemeDark from "@/assets/logos/products/urateme-dark.png";
-import shotIntegra365 from "@/assets/products/integrahris365.png";
-import shotIntegraGovt from "@/assets/products/integrahris-govt.png";
-import shotQmaster from "@/assets/products/qmaster.png";
-import shotHelpdesk from "@/assets/products/helpdesk.png";
-import shotDocutrakr from "@/assets/products/docutrakr.png";
-import shotUrateme from "@/assets/products/urateme.png";
+import integrahris365Light from "@/assets/logos/products/integrahris365-light.webp";
+import integrahris365Dark from "@/assets/logos/products/integrahris365-dark.webp";
+import integrahrisGovtLight from "@/assets/logos/products/integrahris-govt-light.webp";
+import integrahrisGovtDark from "@/assets/logos/products/integrahris-govt-dark.webp";
+import qmasterLight from "@/assets/logos/products/qmaster-light.webp";
+import qmasterDark from "@/assets/logos/products/qmaster-dark.webp";
+import helpdeskLight from "@/assets/logos/products/helpdesk-light.webp";
+import helpdeskDark from "@/assets/logos/products/helpdesk-dark.webp";
+import uratemeLight from "@/assets/logos/products/urateme-light.webp";
+import uratemeDark from "@/assets/logos/products/urateme-dark.webp";
+import shotIntegra365 from "@/assets/products/integrahris365.webp";
+import shotIntegraGovt from "@/assets/products/integrahris-govt.webp";
+import shotQmaster from "@/assets/products/qmaster.webp";
+import shotHelpdesk from "@/assets/products/helpdesk.webp";
+import shotDocutrakr from "@/assets/products/docutrakr.webp";
+import shotUrateme from "@/assets/products/urateme.webp";
 
 export const SITE = {
   name: "Cosmotech Philippines",

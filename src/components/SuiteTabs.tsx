@@ -85,6 +85,11 @@ export function SuiteTabs() {
                 src={product.screenshot}
                 alt=""
                 aria-hidden="true"
+                width={1600}
+                height={1000}
+                loading={active === PRODUCTS[0].slug ? "eager" : "lazy"}
+                decoding="async"
+                fetchPriority={active === PRODUCTS[0].slug ? "high" : "auto"}
                 className="absolute inset-0 h-full w-full object-cover object-left-top bg-white"
               />
             </div>
