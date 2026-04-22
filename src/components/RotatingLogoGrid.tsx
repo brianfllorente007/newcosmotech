@@ -7,6 +7,8 @@ type Props = {
   /** Slots per row at each breakpoint */
   perRow?: { base: number; sm: number; lg: number };
   rows?: number;
+  /** Ensure no two slots show the same logo at the same time */
+  unique?: boolean;
 };
 
 function pickInitial(pool: Logo[], count: number): Logo[] {
@@ -29,8 +31,9 @@ function pickInitial(pool: Logo[], count: number): Logo[] {
 
 export function RotatingLogoGrid({
   logos,
-  perRow = { base: 4, sm: 6, lg: 9 },
-  rows = 2,
+  perRow = { base: 3, sm: 4, lg: 6 },
+  rows = 1,
+  unique = true,
 }: Props) {
   const totalSlots = perRow.lg * rows;
   const [slots, setSlots] = useState<Logo[]>(() => pickInitial(logos, totalSlots));
@@ -82,9 +85,21 @@ export function RotatingLogoGrid({
     const scheduleSwap = (slotIdx: number, delay: number) => {
       const t = setTimeout(function tick() {
         if (visibleRef.current) {
-          // Pick a new logo not currently visible
-          const visible = new Set(slotsRef.current.map((l) => l.src));
-          const candidates = logos.filter((l) => !visible.has(l.src));
+          // Pick a new logo not currently visible in any other slot
+          const visible = new Set(
+            slotsRef.current
+              .map((l, idx) => (idx === slotIdx ? null : l?.src))
+              .filter((s): s is string => Boolean(s)),
+          );
+          const candidates = logos.filter(
+            (l) => !visible.has(l.src) && l.src !== slotsRef.current[slotIdx]?.src,
+          );
+          if (unique && candidates.length === 0) {
+            // Nothing new to show without colliding — skip this tick
+            const retry = 3500 + Math.random() * 2500;
+            timers.push(setTimeout(tick, retry));
+            return;
+          }
           const next =
             candidates.length > 0
               ? candidates[Math.floor(Math.random() * candidates.length)]
@@ -134,7 +149,7 @@ export function RotatingLogoGrid({
   return (
     <div
       ref={rootRef}
-      className="grid grid-cols-4 gap-x-6 gap-y-6 sm:grid-cols-6 sm:gap-x-10 sm:gap-y-8 lg:grid-cols-9"
+      className="grid grid-cols-3 gap-x-6 gap-y-6 sm:grid-cols-4 sm:gap-x-10 lg:grid-cols-6"
     >
       {Array.from({ length: totalSlots }).map((_, i) => {
         const a = layerA[i];
@@ -143,14 +158,14 @@ export function RotatingLogoGrid({
         return (
           <div
             key={i}
-            className="relative flex h-20 items-center justify-center sm:h-24"
+            className="relative flex h-28 items-center justify-center sm:h-32"
           >
             {a && (
               <img
                 src={a.src}
                 alt={showA ? a.alt : ""}
                 aria-hidden={!showA}
-                className="absolute max-h-14 w-auto object-contain transition-all duration-300 ease-out sm:max-h-16"
+                className="absolute max-h-20 w-auto object-contain transition-all duration-300 ease-out sm:max-h-24"
                 style={{
                   opacity: showA ? 1 : 0,
                   transform: showA ? "scale(1)" : "scale(0.92)",
@@ -162,7 +177,7 @@ export function RotatingLogoGrid({
                 src={b.src}
                 alt={!showA ? b.alt : ""}
                 aria-hidden={showA}
-                className="absolute max-h-14 w-auto object-contain transition-all duration-300 ease-out sm:max-h-16"
+                className="absolute max-h-20 w-auto object-contain transition-all duration-300 ease-out sm:max-h-24"
                 style={{
                   opacity: !showA ? 1 : 0,
                   transform: !showA ? "scale(1)" : "scale(0.92)",
