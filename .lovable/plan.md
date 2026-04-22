@@ -1,73 +1,50 @@
 
 
-# Hero, Trust Bar, and Solutions Refinements
+## Optimize "Our Solutions" Section
 
-Three coordinated changes. Asset uploads happen during build; below is the design and code intent.
+### Problem
 
-## 1. Hero Section — new media + tighter layout
+The product screenshots in `src/assets/products/` total **4.3 MB** of PNGs (one is 1.3 MB). All 6 are eagerly imported in `src/lib/site.ts`, bundled into the JS, and the active tab's screenshot blocks first paint of the section. Switching tabs then waits on uncached, oversized images.
 
-**Assets**
-- Replace `src/assets/hero-bg.mp4` with `user-uploads://Hero_Image_Video.mp4`.
-- Replace `src/assets/hero-image.png` with `user-uploads://Hero-Image-Final.png`.
+The 10 product logo PNGs (231 KB total) are smaller but also eagerly imported and contribute to bundle bloat.
 
-**Layout (`src/routes/index.tsx`)**
-- Reduce vertical breathing room between CTAs and the bottom image:
-  - Hero `<Container>` top padding: `pt-20 sm:pt-28` → `pt-16 sm:pt-20`.
-  - Image top margin: `mt-12 sm:mt-16` → `mt-8 sm:mt-10`.
-- Keep `pb-0` so the new image still sits flush at the section bottom.
-- Keep video full-bleed, no overlay, `object-cover`. No other hero structural changes.
+### Fix
 
-## 2. Trust Bar — new headline, bigger logos, 2 rows, randomized swap animation
+**1. Convert all product screenshots to WebP and resize**
+- Resize each to max 1600px wide (currently up to ~3000px)
+- Encode as WebP at quality ~82
+- Expected size: ~60–120 KB each (down from 475 KB–1.3 MB) — roughly **95% reduction**, total <800 KB
+- Replace originals; update imports in `src/lib/site.ts`
 
-**Headline (`TrustBar.tsx`)**
-- Change "Trusted by Philippine Government Agencies" → **"Trusted by 3000+ companies nationwide"**. Keep the eyebrow + stats row above unchanged.
+**2. Convert product logos to WebP**
+- Same pipeline at quality ~85, preserving transparency
+- Expected: ~3–8 KB each, total <50 KB (down from 231 KB)
 
-**Logo treatment**
-- Drop the bordered `LogoWall` card here — render logos directly on the section background. No card, no grid borders, no rounded container.
-- Two fixed rows. On desktop, 9 visible slots per row (18 logos shown across 2 rows when full set is uploaded). On tablet, 6 per row; on mobile, 4 per row. Logos centered with generous spacing.
-- Bigger sizing: cell `h-20 sm:h-24`, image `max-h-14 sm:max-h-16 w-auto object-contain`. Soft hover lift retained.
-- Currently we only have 6 client logos (`gsis, erc, ppa, lto, hsbc, landbank`). The component will accept any count and just cycle through what's available — once the remaining 12 are uploaded, no code change needed.
+**3. Lazy-load the inactive screenshots in `SuiteTabs.tsx`**
+- Add `loading="lazy"` and `decoding="async"` to the `<img>` in the media panel
+- Add `fetchpriority="high"` only to the first/active screenshot on initial render so the visible one loads fast
+- Add explicit `width`/`height` attributes to prevent layout shift
 
-**Randomized swap animation (new `RotatingLogoGrid.tsx`)**
-- Each visible slot independently swaps between logos from the pool on a randomized interval (3.5–6s per slot, staggered initial delays so swaps never sync up).
-- Swap transition: outgoing logo fades out + scales 1 → 0.92 (200ms), incoming logo fades in + scales 0.95 → 1 (250ms). Implemented with two stacked `<img>` layers per slot and CSS opacity/transform transitions — no layout shift.
-- Each slot picks its next logo at random from the pool, excluding logos currently visible in other slots (so duplicates don't appear simultaneously when pool > slot count).
-- Respects `prefers-reduced-motion`: animation disabled, logos stay static.
-- Pauses while the section is offscreen via `IntersectionObserver` to save CPU.
+**4. Preload only the first product's screenshot**
+- In `src/routes/index.tsx`, add a `<link rel="preload" as="image">` (via the route's `head()` `links`) for the default active product's WebP so it starts downloading in parallel with the JS bundle
 
-## 3. Solutions Suite — real product screenshots, 60/40 split
+### Files Changed
 
-**Assets** (save to `src/assets/products/`)
-- `integrahris365.png` ← `user-uploads://IntegraHRIS365.png`
-- `integrahris-govt.png` ← `user-uploads://IntegraHRISGovt.png`
-- `qmaster.png` ← `user-uploads://QMaster.png`
-- `helpdesk.png` ← `user-uploads://Helpdesk.png`
-- `docutrakr.png` ← `user-uploads://Docutrakr.png`
-- `urateme.png` ← `user-uploads://URateMe.png`
-- Horion: no image yet → keep existing `DocMock` fallback for that one product only.
+- `src/assets/products/*.png` → replaced with `.webp` (6 files)
+- `src/assets/logos/products/*.png` → replaced with `.webp` (10 files)
+- `src/lib/site.ts` — update import paths to `.webp`
+- `src/components/SuiteTabs.tsx` — add `loading`, `decoding`, `fetchpriority`, `width`, `height` on `<img>`
+- `src/routes/index.tsx` — add preload link for the default active product screenshot in `head()`
 
-**Wiring (`src/lib/site.ts`)**
-- Add `screenshot?: string` field to each product, importing the corresponding PNG above.
+### Out of Scope
 
-**Card layout (`SuiteTabs.tsx`)**
-- Replace the current `lg:grid-cols-2` (50/50) with a 60/40 split: `lg:grid-cols-5`, text column spans `lg:col-span-3`, media column spans `lg:col-span-2`.
-- Remove the `ProductMock` switch and inner `flex items-center justify-center` wrapper.
-- Media column becomes a flush, full-bleed panel:
-  - Negative margin to bleed into the card's padding on the right and bottom: `-m-6 sm:-m-10 lg:ml-0` so the image touches the card edges with no gaps.
-  - `relative overflow-hidden bg-muted/30` wrapper, `aspect-[4/3] lg:aspect-auto lg:h-full min-h-[280px]`.
-  - `<img src={product.screenshot} alt="" className="absolute inset-0 h-full w-full object-cover object-left-top" />` — `object-cover` ensures the image fills the entire 40% area with zero gaps; `object-left-top` keeps the dashboard's primary content visible when cropped.
-- Mobile/tablet (`<lg`): media stacks below text, full width, `aspect-[16/10]`, same flush bleed to the card edges.
-- Horion (no screenshot) keeps the existing centered `DocMock` inside the same 40% panel, padded normally instead of bleeding.
-- Whole-card slide-up animation on tab change is preserved (still keyed by active slug).
+- Header/hero changes (unrelated)
+- Cache-Control headers (platform-controlled, addressed in a previous turn)
+- The `ProductCard` images on `/solutions` will benefit automatically from the WebP conversion since they share the same source files
 
-## Files touched
+### Expected Impact
 
-- `src/assets/hero-bg.mp4` (replace)
-- `src/assets/hero-image.png` (replace)
-- `src/assets/products/*.png` (6 new)
-- `src/routes/index.tsx` (hero spacing only)
-- `src/components/TrustBar.tsx` (headline, swap to new grid)
-- `src/components/RotatingLogoGrid.tsx` (new)
-- `src/lib/site.ts` (add `screenshot` per product)
-- `src/components/SuiteTabs.tsx` (60/40 split, real images, flush media panel)
+- Section JS+image payload drops from ~4.5 MB to ~800 KB (~82% smaller)
+- Tab switches feel instant (each image now ~80 KB and lazy-loaded only when needed)
+- LCP for the section improves substantially on first scroll-into-view
 
