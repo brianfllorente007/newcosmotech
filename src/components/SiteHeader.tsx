@@ -49,7 +49,7 @@ export function SiteHeader() {
         </div>
 
         <button
-          className="min-[480px]:hidden inline-flex h-9 w-9 items-center justify-center rounded-md border border-border"
+          className="ml-auto min-[480px]:hidden inline-flex h-9 w-9 items-center justify-center rounded-md border border-border"
           onClick={() => setOpen((v) => !v)}
           aria-label="Toggle menu"
           aria-expanded={open}
