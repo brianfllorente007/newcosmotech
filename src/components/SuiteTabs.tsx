@@ -57,7 +57,7 @@ export function SuiteTabs() {
       {/* Animated content card — 60/40 split on lg */}
       <div
         key={active}
-        className="animate-slide-up-fade mt-8 grid gap-10 overflow-hidden rounded-3xl border border-border bg-card p-6 sm:p-10 lg:grid-cols-5 lg:gap-0"
+        className="animate-slide-up-fade mt-8 grid gap-10 overflow-hidden rounded-3xl border border-border bg-card p-6 sm:p-10 lg:grid-cols-5 lg:gap-0 bg-white"
       >
         <div className="flex flex-col lg:col-span-3 lg:pr-10">
           <p className="text-xs font-medium uppercase tracking-[0.2em] text-cobalt">
@@ -85,7 +85,7 @@ export function SuiteTabs() {
                 src={product.screenshot}
                 alt=""
                 aria-hidden="true"
-                className="absolute inset-0 h-full w-full object-cover object-left-top"
+                className="absolute inset-0 h-full w-full object-cover object-left-top bg-white"
               />
             </div>
           ) : (
