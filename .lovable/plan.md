@@ -1,55 +1,32 @@
 
 
-# Final Consolidated Build — with Whole-Box Slide-Up
+# Hero Section Update
 
-All previously approved changes, plus the animation refinement: the entire Solutions card (border, background, and content) slides up as one unit on tab switch — not just the inner content.
+Two focused changes to `src/routes/index.tsx`.
 
-## 1. Brand: Cosmotech logo + yellow accent
-- Save uploaded logo to `src/assets/logo-cosmotech.png`.
-- `SiteHeader.tsx`: replace "COSMOTECH" wordmark with `<img>` (h-8 mobile, h-9 desktop, `alt="Cosmotech Philippines"`), keep `<Link to="/">` wrapper.
-- `SiteFooter.tsx`: same logo in brand column (h-7).
-- `src/styles.css`: set `--brass: #f7c200` with `--brass-foreground: var(--ink)`.
-- Apply `bg-brass text-ink hover:brightness-95` to: "See Our Solutions" (hero), "Talk to Our Experts" (digital transformation), "Talk to Our Team" (CtaBand). Header CTA stays neutral dark.
+## 1. Replace hero background video
 
-## 2. Remove all italics
-- Strip every `italic` and `font-display` class across `src/routes/*` and `src/components/*`.
-- Remove Instrument Serif `<link>` from `__root.tsx`.
-- Remove `.font-display` rule from `styles.css`.
+- Save `user-uploads://Hero_Image_Background.mp4` to `src/assets/hero-bg.mp4` (overwrites the existing one).
+- Remove the dark gradient overlay `<div>` that sits over the video.
+- Remove `opacity-40` from the `<video>` so it plays at full brightness.
+- Keep the `gradient-hero` class on the `<section>` as a fallback color while the video loads, but the video itself will be fully opaque on top.
+- Keep `autoPlay loop muted playsInline` and `object-cover` so it fills any viewport responsively.
+- Text legibility: since the overlay is removed per your instruction, headline/body stay as-is (`text-bone`). If contrast becomes an issue we can revisit, but no overlay is added now.
 
-## 3. Solutions section — 7 products with logo tabs
-Update `src/lib/site.ts` to 7 products with `logoLight` + `logoDark` imports:
-1. IntegraHRIS 365 ✓
-2. IntegraHRIS Government ✓
-3. QMaster ✓
-4. HelpDesk ✓
-5. Docutrakr — text fallback
-6. URateMe ✓
-7. Horion Interactive Display — text fallback + placeholder copy
+## 2. Replace mock UI cluster with hero image, flush to bottom
 
-Save uploaded logos to `src/assets/logos/products/`.
+- Save `user-uploads://Hero_Image_1.png` to `src/assets/hero-image.png` and import it.
+- Remove both mock blocks: the desktop `QueueMock`/`HelpdeskMock`/`HrisMock` cluster and the mobile single `HrisMock`. Drop the unused `ProductMock` imports.
+- To make the image sit flush at the bottom of the section:
+  - Remove the bottom padding on the hero `<Container>` (`pb-24 sm:pb-32` → `pb-0`); keep top padding for the headline breathing room.
+  - Render the image directly after the CTA buttons inside the centered text container, in its own wrapper:
+    - `<img src={heroImage} alt="IntegraHRIS Government dashboard preview" className="mt-12 sm:mt-16 mx-auto block w-full max-w-5xl h-auto" />`
+  - The image has its own transparent padding at the top (whitespace above the dashboard) so it visually flows from the text into the artwork; bottom edge of the PNG meets the bottom edge of the section because section/container padding-bottom is zero.
+- Responsive: `w-full max-w-5xl` scales it down on tablet/mobile and caps it on desktop. `h-auto` preserves aspect ratio. No horizontal overflow because the section is `overflow-hidden`.
 
-Rebuild `SuiteTabs.tsx`:
-- Each tab = uniform pill (`h-12 w-32`, rounded-full, border).
-- Inactive: light pill, dark logo centered (`object-contain max-h-6`).
-- Active: dark pill, light logo centered.
-- Missing logo → product name as text inside same pill.
-- `aria-label` + visually-hidden text on every tab.
-- Mobile/tablet: `flex overflow-x-auto snap-x` with right-edge gradient fade; `.scrollbar-hide` utility added to `styles.css`. Single row on `lg+`.
+## Files touched
 
-## 4. Whole-box slide-up animation on tab switch
-- Add `slide-up-fade` keyframe + `.animate-slide-up-fade` utility to `styles.css` (opacity 0→1, translateY 24px→0, 400ms ease-out), wrapped in `@media (prefers-reduced-motion: no-preference)`.
-- **Apply the animation to the entire outer card** (the `rounded-3xl border bg-card` wrapper), keyed by active product slug — so the border, background panel, and all inner content slide up together as one cohesive box every time a tab changes.
-- The tab strip itself stays fixed above the animating card.
-
-## 5. Logo wall (agencies + clients)
-- Save to `src/assets/logos/agencies/` (gsis, erc, ppa, lto) and `src/assets/logos/clients/` (hsbc, landbank).
-- New `src/components/LogoWall.tsx`: responsive grid (3→4→6 cols), `h-16` cells, `object-contain`, subtle grid borders, full color, soft hover lift.
-- `TrustBar.tsx`: replace text wordmarks with `<LogoWall>` of 4 agencies (keep stats row above).
-- `index.tsx`: add "Trusted by leading enterprises" section with client `<LogoWall>` above the Projects teaser.
-- Drop the same walls into `about.tsx` and `projects.tsx` near the bottom.
-
-## Pending uploads (non-blocking)
-- Docutrakr + Horion product logos (light + dark) and Horion description copy
-- More agency logos: BOC, DPWH, NTC, PDIC, DENR, Freeport Bataan, Land Management Bureau
-- Additional private client logos
+- `src/assets/hero-bg.mp4` (replace)
+- `src/assets/hero-image.png` (new)
+- `src/routes/index.tsx` (hero section only — nothing else changes)
 
