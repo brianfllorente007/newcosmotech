@@ -6,10 +6,8 @@ import { SectionHeading, Eyebrow } from "@/components/SectionHeading";
 import { SuiteTabs } from "@/components/SuiteTabs";
 import { ProjectCard } from "@/components/ProjectCard";
 import { CtaBand } from "@/components/CtaBand";
-import { LogoWall } from "@/components/LogoWall";
 import { useReveal } from "@/hooks/use-reveal";
 import { PROJECTS } from "@/lib/site";
-import { ALL_CLIENT_LOGOS } from "@/lib/logos";
 import heroBg from "@/assets/hero-bg.mp4";
 import heroImage from "@/assets/hero-image.png";
 
@@ -154,20 +152,6 @@ function HomePage() {
         </Container>
       </section>
 
-      {/* CLIENT LOGO WALL */}
-      <section className="border-b border-border bg-bone py-20">
-        <Container>
-          <div className="reveal mx-auto max-w-2xl text-center">
-            <Eyebrow className="justify-center">Trusted by leading enterprises</Eyebrow>
-            <h2 className="mt-4 text-2xl font-semibold tracking-tight sm:text-3xl">
-              Government agencies and private companies that rely on Cosmotech.
-            </h2>
-          </div>
-          <div className="reveal mt-10">
-            <LogoWall logos={ALL_CLIENT_LOGOS} cols="compact" />
-          </div>
-        </Container>
-      </section>
 
       {/* PROJECTS TEASER */}
       <section className="py-24">
