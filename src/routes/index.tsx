@@ -43,7 +43,7 @@ function HomePage() {
   return (
     <>
       {/* HERO */}
-      <section className="relative overflow-hidden gradient-hero text-bone">
+      <section className="relative -mt-16 overflow-hidden gradient-hero pt-16 text-bone">
         <video
           src={heroBg}
           autoPlay
