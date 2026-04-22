@@ -1,6 +1,6 @@
 import { Container } from "./Container";
-import { LogoWall } from "./LogoWall";
-import { AGENCY_LOGOS } from "@/lib/logos";
+import { RotatingLogoGrid } from "./RotatingLogoGrid";
+import { ALL_CLIENT_LOGOS } from "@/lib/logos";
 
 const STATS = [
   "3,000+ companies served",
@@ -24,11 +24,11 @@ export function TrustBar() {
             </li>
           ))}
         </ul>
-        <div className="mt-8">
-          <p className="mb-4 text-center text-xs font-semibold uppercase tracking-[0.22em] text-foreground/50">
-            Trusted by Philippine government agencies
+        <div className="mt-10">
+          <p className="mb-6 text-center text-xs font-semibold uppercase tracking-[0.22em] text-foreground/50">
+            Trusted by 3000+ companies nationwide
           </p>
-          <LogoWall logos={AGENCY_LOGOS} cols="compact" />
+          <RotatingLogoGrid logos={ALL_CLIENT_LOGOS} />
         </div>
       </Container>
     </section>

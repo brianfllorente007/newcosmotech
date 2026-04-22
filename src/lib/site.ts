@@ -8,6 +8,12 @@ import helpdeskLight from "@/assets/logos/products/helpdesk-light.png";
 import helpdeskDark from "@/assets/logos/products/helpdesk-dark.png";
 import uratemeLight from "@/assets/logos/products/urateme-light.png";
 import uratemeDark from "@/assets/logos/products/urateme-dark.png";
+import shotIntegra365 from "@/assets/products/integrahris365.png";
+import shotIntegraGovt from "@/assets/products/integrahris-govt.png";
+import shotQmaster from "@/assets/products/qmaster.png";
+import shotHelpdesk from "@/assets/products/helpdesk.png";
+import shotDocutrakr from "@/assets/products/docutrakr.png";
+import shotUrateme from "@/assets/products/urateme.png";
 
 export const SITE = {
   name: "Cosmotech Philippines",
@@ -28,6 +34,7 @@ export type Product = {
   deployedAt?: string[];
   logoLight?: string;
   logoDark?: string;
+  screenshot?: string;
 };
 
 export const PRODUCTS: Product[] = [
@@ -48,6 +55,7 @@ export const PRODUCTS: Product[] = [
     ],
     logoLight: integrahris365Light,
     logoDark: integrahris365Dark,
+    screenshot: shotIntegra365,
   },
   {
     slug: "integrahris-government",
@@ -67,6 +75,7 @@ export const PRODUCTS: Product[] = [
     deployedAt: ["Bureau of Customs", "PDIC", "National Telecommunications Commission"],
     logoLight: integrahrisGovtLight,
     logoDark: integrahrisGovtDark,
+    screenshot: shotIntegraGovt,
   },
   {
     slug: "qmaster",
@@ -86,6 +95,7 @@ export const PRODUCTS: Product[] = [
     deployedAt: ["GSIS — 42 branches nationwide", "Multiple LTO offices"],
     logoLight: qmasterLight,
     logoDark: qmasterDark,
+    screenshot: shotQmaster,
   },
   {
     slug: "helpdesk",
@@ -104,6 +114,7 @@ export const PRODUCTS: Product[] = [
     ],
     logoLight: helpdeskLight,
     logoDark: helpdeskDark,
+    screenshot: shotHelpdesk,
   },
   {
     slug: "docutrakr",
@@ -120,6 +131,7 @@ export const PRODUCTS: Product[] = [
       "Automated escalations for stalled documents",
       "Mobile scanning from any device",
     ],
+    screenshot: shotDocutrakr,
   },
   {
     slug: "urateme",
@@ -138,6 +150,7 @@ export const PRODUCTS: Product[] = [
     ],
     logoLight: uratemeLight,
     logoDark: uratemeDark,
+    screenshot: shotUrateme,
   },
   {
     slug: "horion",
