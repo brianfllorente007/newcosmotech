@@ -12,7 +12,7 @@ export function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-40 border-b border-border/60 bg-background/85 backdrop-blur supports-[backdrop-filter]:bg-background/70">
-      <Container className="flex h-16 items-center justify-between">
+      <Container className="flex h-16 items-center gap-8">
         <Link to="/" className="flex items-center" aria-label="Cosmotech Philippines home">
           <img
             src={logo}
@@ -22,7 +22,7 @@ export function SiteHeader() {
         </Link>
 
         <nav className="hidden items-center gap-5 min-[480px]:flex sm:gap-7" aria-label="Primary">
-          {NAV.map((n) => {
+          {NAV.filter((n) => n.to !== "/contact").map((n) => {
             const active = loc.pathname === n.to || (n.to !== "/" && loc.pathname.startsWith(n.to));
             return (
               <Link
@@ -39,7 +39,7 @@ export function SiteHeader() {
           })}
         </nav>
 
-        <div className="hidden min-[480px]:block">
+        <div className="ml-auto hidden min-[480px]:block">
           <Link
             to="/contact"
             className="inline-flex h-9 items-center rounded-full bg-foreground px-4 text-sm font-medium text-background transition-opacity hover:opacity-90"
@@ -49,7 +49,7 @@ export function SiteHeader() {
         </div>
 
         <button
-          className="min-[480px]:hidden inline-flex h-9 w-9 items-center justify-center rounded-md border border-border"
+          className="ml-auto min-[480px]:hidden inline-flex h-9 w-9 items-center justify-center rounded-md border border-border"
           onClick={() => setOpen((v) => !v)}
           aria-label="Toggle menu"
           aria-expanded={open}
