@@ -7,7 +7,7 @@ import { SuiteTabs } from "@/components/SuiteTabs";
 import { ProjectCard } from "@/components/ProjectCard";
 import { CtaBand } from "@/components/CtaBand";
 import { useReveal } from "@/hooks/use-reveal";
-import { PROJECTS } from "@/lib/site";
+import { PROJECTS, PRODUCTS } from "@/lib/site";
 import heroBg from "@/assets/hero-bg.mp4";
 import heroImage from "@/assets/hero-image.png";
 
@@ -31,6 +31,14 @@ export const Route = createFileRoute("/")({
         property: "og:description",
         content:
           "People management, queueing, helpdesk and document software, built in the Philippines since 1994.",
+      },
+    ],
+    links: [
+      {
+        rel: "preload",
+        as: "image",
+        href: PRODUCTS[0].screenshot,
+        type: "image/webp",
       },
     ],
   }),
