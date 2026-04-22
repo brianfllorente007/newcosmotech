@@ -1,3 +1,14 @@
+import integrahris365Light from "@/assets/logos/products/integrahris365-light.png";
+import integrahris365Dark from "@/assets/logos/products/integrahris365-dark.png";
+import integrahrisGovtLight from "@/assets/logos/products/integrahris-govt-light.png";
+import integrahrisGovtDark from "@/assets/logos/products/integrahris-govt-dark.png";
+import qmasterLight from "@/assets/logos/products/qmaster-light.png";
+import qmasterDark from "@/assets/logos/products/qmaster-dark.png";
+import helpdeskLight from "@/assets/logos/products/helpdesk-light.png";
+import helpdeskDark from "@/assets/logos/products/helpdesk-dark.png";
+import uratemeLight from "@/assets/logos/products/urateme-light.png";
+import uratemeDark from "@/assets/logos/products/urateme-dark.png";
+
 export const SITE = {
   name: "Cosmotech Philippines",
   tagline: "People Management Software for Philippine Government & Enterprise",
@@ -15,6 +26,8 @@ export type Product = {
   description: string;
   features: string[];
   deployedAt?: string[];
+  logoLight?: string;
+  logoDark?: string;
 };
 
 export const PRODUCTS: Product[] = [
@@ -33,10 +46,12 @@ export const PRODUCTS: Product[] = [
       "Compliant with Philippine labor and tax regulations",
       "Self-service portal for employees",
     ],
+    logoLight: integrahris365Light,
+    logoDark: integrahris365Dark,
   },
   {
     slug: "integrahris-government",
-    name: "IntegraHRIS Government Edition",
+    name: "IntegraHRIS Government",
     tagline: "End-to-end HRIS for Philippine government agencies.",
     short:
       "Complete employee lifecycle management — from recruitment and timekeeping to payroll, leave, performance, and retirement.",
@@ -50,6 +65,8 @@ export const PRODUCTS: Product[] = [
       "Audit-ready reporting and role-based access",
     ],
     deployedAt: ["Bureau of Customs", "PDIC", "National Telecommunications Commission"],
+    logoLight: integrahrisGovtLight,
+    logoDark: integrahrisGovtDark,
   },
   {
     slug: "qmaster",
@@ -67,6 +84,8 @@ export const PRODUCTS: Product[] = [
       "Centralized reporting across branches",
     ],
     deployedAt: ["GSIS — 42 branches nationwide", "Multiple LTO offices"],
+    logoLight: qmasterLight,
+    logoDark: qmasterDark,
   },
   {
     slug: "helpdesk",
@@ -83,6 +102,8 @@ export const PRODUCTS: Product[] = [
       "Full audit trail for every ticket",
       "Customer-facing self-service portal",
     ],
+    logoLight: helpdeskLight,
+    logoDark: helpdeskDark,
   },
   {
     slug: "docutrakr",
@@ -114,6 +135,24 @@ export const PRODUCTS: Product[] = [
       "Per-staff and per-branch dashboards",
       "Integrates with QMaster and HelpDesk",
       "Exportable reports for management review",
+    ],
+    logoLight: uratemeLight,
+    logoDark: uratemeDark,
+  },
+  {
+    slug: "horion",
+    name: "Horion Interactive Display",
+    tagline: "Interactive displays for modern meeting rooms and classrooms.",
+    short:
+      "Smart interactive flat panels that turn any meeting room or classroom into a collaborative workspace.",
+    description:
+      "Horion Interactive Displays are smart, touch-enabled flat panels designed for modern meeting rooms, classrooms, and training centers. Built-in collaboration tools, wireless screen sharing, and intuitive whiteboarding make every session more productive.",
+    features: [
+      "4K touch-enabled interactive flat panels",
+      "Built-in whiteboarding and annotation",
+      "Wireless screen sharing from any device",
+      "Multi-user collaboration",
+      "Enterprise-grade installation and support",
     ],
   },
 ];

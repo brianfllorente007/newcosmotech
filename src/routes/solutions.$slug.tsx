@@ -65,7 +65,7 @@ function ProductDetail() {
             <div>
               <Eyebrow>{product.name}</Eyebrow>
               <h1 className="mt-4 text-4xl font-semibold leading-tight tracking-tight sm:text-5xl md:text-6xl">
-                <span className="font-display italic">{product.tagline}</span>
+                {product.tagline}
               </h1>
               <p className="mt-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
                 {product.description}
