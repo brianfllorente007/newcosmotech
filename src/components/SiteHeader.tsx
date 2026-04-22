@@ -33,7 +33,7 @@ export function SiteHeader() {
           : "border-b border-border/60 bg-background/85 text-foreground backdrop-blur supports-[backdrop-filter]:bg-background/70",
       )}
     >
-      <Container className="flex h-16 items-center gap-8">
+      <Container className="flex h-20 items-center gap-8 pt-3 md:h-24 md:pt-4">
         <Link to="/" className="flex items-center" aria-label="Cosmotech Philippines home">
           <img src={logo} alt="Cosmotech Philippines" className="h-10 w-auto md:h-12" />
         </Link>
