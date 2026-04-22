@@ -8,7 +8,6 @@ import { cn } from "@/lib/utils";
 
 export function SuiteTabs() {
   const [active, setActive] = useState<string>(PRODUCTS[0].slug);
-  const product = PRODUCTS.find((p) => p.slug === active)!;
 
   return (
     <div className="mt-12">
@@ -54,51 +53,64 @@ export function SuiteTabs() {
         />
       </div>
 
-      {/* Animated content card — 60/40 split on lg */}
-      <div
-        key={active}
-        className="animate-slide-up-fade mt-8 grid gap-10 overflow-hidden rounded-3xl border border-border bg-card p-6 sm:p-10 lg:grid-cols-5 lg:gap-0 bg-white"
-      >
-        <div className="flex flex-col lg:col-span-3 lg:pr-10">
-          <p className="text-xs font-medium uppercase tracking-[0.2em] text-cobalt">
-            {product.name}
-          </p>
-          <h3 className="mt-3 text-2xl font-semibold sm:text-3xl">{product.tagline}</h3>
-          <p className="mt-4 text-[15px] leading-relaxed text-muted-foreground">
-            {product.description}
-          </p>
-          <FeatureCheckList items={product.features.slice(0, 4)} />
-          <Link
-            to="/solutions/$slug"
-            params={{ slug: product.slug }}
-            className="mt-8 inline-flex items-center gap-2 self-start text-sm font-medium text-cobalt hover:gap-3 transition-all"
-          >
-            Learn more <ArrowRight className="h-4 w-4" />
-          </Link>
-        </div>
+      {/* Stacked panels — all pre-mounted, cross-fade between them */}
+      <div className="mt-8 grid">
+        {PRODUCTS.map((p, index) => {
+          const isActive = active === p.slug;
+          return (
+            <div
+              key={p.slug}
+              aria-hidden={!isActive}
+              className={cn(
+                "[grid-area:1/1] grid gap-10 overflow-hidden rounded-3xl border border-border bg-white p-6 sm:p-10 lg:grid-cols-5 lg:gap-0",
+                "transition-opacity duration-300",
+                isActive ? "opacity-100" : "pointer-events-none opacity-0",
+              )}
+            >
+              <div className="flex flex-col lg:col-span-3 lg:pr-10">
+                <p className="text-xs font-medium uppercase tracking-[0.2em] text-cobalt">
+                  {p.name}
+                </p>
+                <h3 className="mt-3 text-2xl font-semibold sm:text-3xl">{p.tagline}</h3>
+                <p className="mt-4 text-[15px] leading-relaxed text-muted-foreground">
+                  {p.description}
+                </p>
+                <FeatureCheckList items={p.features.slice(0, 4)} />
+                <Link
+                  to="/solutions/$slug"
+                  params={{ slug: p.slug }}
+                  tabIndex={isActive ? 0 : -1}
+                  className="mt-8 inline-flex items-center gap-2 self-start text-sm font-medium text-cobalt hover:gap-3 transition-all"
+                >
+                  Learn more <ArrowRight className="h-4 w-4" />
+                </Link>
+              </div>
 
-        {/* Media panel — full-bleed to card edges (40%) */}
-        <div className="relative -m-6 sm:-m-10 lg:m-0 lg:col-span-2 lg:-mr-10 lg:-my-10">
-          {product.screenshot ? (
-            <div className="relative h-full min-h-[280px] overflow-hidden bg-muted/30 aspect-[16/10] lg:aspect-auto">
-              <img
-                src={product.screenshot}
-                alt=""
-                aria-hidden="true"
-                width={1600}
-                height={1000}
-                loading={active === PRODUCTS[0].slug ? "eager" : "lazy"}
-                decoding="async"
-                fetchPriority={active === PRODUCTS[0].slug ? "high" : "auto"}
-                className="absolute inset-0 h-full w-full object-cover object-left-top bg-white"
-              />
+              {/* Media panel — full-bleed to card edges (40%) */}
+              <div className="relative -m-6 sm:-m-10 lg:m-0 lg:col-span-2 lg:-mr-10 lg:-my-10">
+                {p.screenshot ? (
+                  <div className="relative h-full min-h-[280px] overflow-hidden bg-muted/30 aspect-[16/10] lg:aspect-auto">
+                    <img
+                      src={p.screenshot}
+                      alt=""
+                      aria-hidden="true"
+                      width={1600}
+                      height={1000}
+                      loading="eager"
+                      decoding="async"
+                      fetchPriority={index === 0 ? "high" : "low"}
+                      className="absolute inset-0 h-full w-full object-cover object-left-top bg-white"
+                    />
+                  </div>
+                ) : (
+                  <div className="flex h-full min-h-[280px] items-center justify-center bg-muted/30 p-6">
+                    <DocMock />
+                  </div>
+                )}
+              </div>
             </div>
-          ) : (
-            <div className="flex h-full min-h-[280px] items-center justify-center bg-muted/30 p-6">
-              <DocMock />
-            </div>
-          )}
-        </div>
+          );
+        })}
       </div>
     </div>
   );
