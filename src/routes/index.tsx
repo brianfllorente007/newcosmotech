@@ -46,6 +46,16 @@ function HomePage() {
     <>
       {/* HERO */}
       <section className="relative overflow-hidden gradient-hero text-bone">
+        <video
+          src={heroBg}
+          autoPlay
+          loop
+          muted
+          playsInline
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-40"
+        />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-ink/60 via-ink/50 to-ink/80" />
         <Container className="relative pt-20 pb-24 sm:pt-28 sm:pb-32">
           <div className="mx-auto max-w-3xl text-center">
             <Eyebrow className="justify-center text-bone/70">
