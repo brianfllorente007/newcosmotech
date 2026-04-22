@@ -7,7 +7,7 @@ export function TrustBar() {
     <section aria-label="Trusted by" className="border-b border-border bg-bone">
       <Container className="py-12">
         <div>
-          <p className="mb-6 text-center text-xs font-semibold uppercase tracking-[0.22em] text-foreground/50">
+          <p className="mb-6 text-center font-semibold uppercase tracking-[0.22em] text-foreground/50 text-lg">
             Trusted by 3000+ companies nationwide
           </p>
           <RotatingLogoGrid logos={ALL_CLIENT_LOGOS} />
