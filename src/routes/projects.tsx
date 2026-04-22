@@ -1,9 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Container } from "@/components/Container";
-import { SectionHeading } from "@/components/SectionHeading";
+import { SectionHeading, Eyebrow } from "@/components/SectionHeading";
 import { ProjectCard } from "@/components/ProjectCard";
 import { CtaBand } from "@/components/CtaBand";
+import { LogoWall } from "@/components/LogoWall";
 import { PROJECTS } from "@/lib/site";
+import { ALL_CLIENT_LOGOS } from "@/lib/logos";
 
 export const Route = createFileRoute("/projects")({
   head: () => ({
@@ -35,13 +37,7 @@ function ProjectsPage() {
         <Container>
           <SectionHeading
             eyebrow="Selected work"
-            title={
-              <>
-                Trusted by Philippine{" "}
-                <span className="font-display italic">government agencies</span> and private
-                companies.
-              </>
-            }
+            title={<>Trusted by Philippine government agencies and private companies.</>}
             intro="We have delivered projects for some of the largest government institutions in the country. Here's a sample of what we've built and deployed."
           />
         </Container>
@@ -70,6 +66,16 @@ function ProjectsPage() {
               </div>
             </>
           )}
+
+          <div className="mt-20">
+            <div className="mx-auto mb-8 max-w-2xl text-center">
+              <Eyebrow className="justify-center">Selected clients</Eyebrow>
+              <h2 className="mt-4 text-2xl font-semibold tracking-tight sm:text-3xl">
+                Organizations that trust Cosmotech.
+              </h2>
+            </div>
+            <LogoWall logos={ALL_CLIENT_LOGOS} cols="compact" />
+          </div>
         </Container>
       </section>
 

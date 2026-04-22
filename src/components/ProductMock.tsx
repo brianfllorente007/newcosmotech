@@ -30,7 +30,7 @@ export function HrisMock({ className }: { className?: string }) {
       <div className="flex items-center justify-between">
         <div>
           <p className="text-xs uppercase tracking-wider text-muted-foreground">Payroll run</p>
-          <p className="mt-1 font-display text-2xl">April 2026 · Cut-off 1</p>
+          <p className="mt-1 text-2xl font-semibold">April 2026 · Cut-off 1</p>
         </div>
         <span className="rounded-full bg-cobalt/10 px-2.5 py-1 text-xs font-medium text-cobalt">
           Ready
@@ -59,7 +59,7 @@ export function QueueMock({ className }: { className?: string }) {
   return (
     <Frame className={className}>
       <p className="text-xs uppercase tracking-wider text-muted-foreground">Now serving</p>
-      <p className="mt-1 font-display text-6xl tracking-tight text-cobalt">A-072</p>
+      <p className="mt-1 text-6xl font-semibold tracking-tight text-cobalt">A-072</p>
       <p className="text-sm text-muted-foreground">Window 4 · Loans</p>
       <div className="mt-5 grid grid-cols-3 gap-2 text-center text-xs">
         {["A-073", "A-074", "A-075"].map((t) => (
@@ -98,7 +98,7 @@ export function DocMock({ className }: { className?: string }) {
       <div className="flex items-start justify-between">
         <div>
           <p className="text-xs uppercase tracking-wider text-muted-foreground">Document</p>
-          <p className="mt-1 font-display text-xl">PR-2026-04-118</p>
+          <p className="mt-1 text-xl font-semibold">PR-2026-04-118</p>
           <p className="text-sm text-muted-foreground">Purchase request · Procurement</p>
         </div>
         <div className="grid h-14 w-14 grid-cols-4 grid-rows-4 gap-[2px] rounded-md bg-foreground/5 p-1.5">
