@@ -5,8 +5,8 @@ import type { Product } from "@/lib/site";
 export function ProductCard({ product }: { product: Product }) {
   return (
     <Link
-      to="/solutions/$slug"
-      params={{ slug: product.slug }}
+      to={product.slug === "integrahris" ? "/integrahris-365" : "/solutions/$slug"}
+      params={product.slug === "integrahris" ? undefined : { slug: product.slug }}
       className="group flex h-full flex-col rounded-2xl border border-border bg-card p-6 transition-all hover:-translate-y-1 hover:shadow-[0_24px_60px_-24px_rgba(15,23,42,0.25)]"
     >
       <div className="flex items-start justify-between">
