@@ -21,7 +21,7 @@ export function SiteHeader() {
           />
         </Link>
 
-        <nav className="hidden items-center gap-7 md:flex" aria-label="Primary">
+        <nav className="hidden items-center gap-7 sm:flex" aria-label="Primary">
           {NAV.map((n) => {
             const active = loc.pathname === n.to || (n.to !== "/" && loc.pathname.startsWith(n.to));
             return (
@@ -39,7 +39,7 @@ export function SiteHeader() {
           })}
         </nav>
 
-        <div className="hidden md:block">
+        <div className="hidden sm:block">
           <Link
             to="/contact"
             className="inline-flex h-9 items-center rounded-full bg-foreground px-4 text-sm font-medium text-background transition-opacity hover:opacity-90"
@@ -49,7 +49,7 @@ export function SiteHeader() {
         </div>
 
         <button
-          className="md:hidden inline-flex h-9 w-9 items-center justify-center rounded-md border border-border"
+          className="sm:hidden inline-flex h-9 w-9 items-center justify-center rounded-md border border-border"
           onClick={() => setOpen((v) => !v)}
           aria-label="Toggle menu"
           aria-expanded={open}
@@ -59,7 +59,7 @@ export function SiteHeader() {
       </Container>
 
       {open && (
-        <div className="border-t border-border md:hidden">
+        <div className="border-t border-border sm:hidden">
           <Container className="flex flex-col gap-1 py-3">
             {NAV.map((n) => (
               <Link
