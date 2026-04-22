@@ -1,50 +1,85 @@
 
 
-## Optimize "Our Solutions" Section
+## Make "Our Solutions" Tab Switching Instant
 
 ### Problem
 
-The product screenshots in `src/assets/products/` total **4.3 MB** of PNGs (one is 1.3 MB). All 6 are eagerly imported in `src/lib/site.ts`, bundled into the JS, and the active tab's screenshot blocks first paint of the section. Switching tabs then waits on uncached, oversized images.
+Even after the WebP conversion, switching tabs still feels slow because:
 
-The 10 product logo PNGs (231 KB total) are smaller but also eagerly imported and contribute to bundle bloat.
+1. The active screenshot `<img>` re-mounts every time `active` changes (the parent `<div key={active}>` forces React to unmount/remount the entire card, including the image element).
+2. Inactive screenshots are `loading="lazy"` and never rendered, so the browser only starts fetching them on click — first switch to each tab waits on a network request.
+3. The `animate-slide-up-fade` runs on the whole card, so even the text/layout re-animates on every switch.
 
-### Fix
+### Fix: Pre-mount all panels, stack them, cross-fade
 
-**1. Convert all product screenshots to WebP and resize**
-- Resize each to max 1600px wide (currently up to ~3000px)
-- Encode as WebP at quality ~82
-- Expected size: ~60–120 KB each (down from 475 KB–1.3 MB) — roughly **95% reduction**, total <800 KB
-- Replace originals; update imports in `src/lib/site.ts`
+Render **all 7 product panels at once**, stacked absolutely on top of each other inside a positioned container. Toggle visibility with `opacity` + `pointer-events` (and `aria-hidden` for a11y). Every image is in the DOM from first paint, so the browser fetches them in parallel during idle time and tab switches become a pure CSS opacity transition — zero network, zero re-render, zero layout work.
 
-**2. Convert product logos to WebP**
-- Same pipeline at quality ~85, preserving transparency
-- Expected: ~3–8 KB each, total <50 KB (down from 231 KB)
+### Implementation
 
-**3. Lazy-load the inactive screenshots in `SuiteTabs.tsx`**
-- Add `loading="lazy"` and `decoding="async"` to the `<img>` in the media panel
-- Add `fetchpriority="high"` only to the first/active screenshot on initial render so the visible one loads fast
-- Add explicit `width`/`height` attributes to prevent layout shift
+**`src/components/SuiteTabs.tsx`** — rewrite the content area:
 
-**4. Preload only the first product's screenshot**
-- In `src/routes/index.tsx`, add a `<link rel="preload" as="image">` (via the route's `head()` `links`) for the default active product's WebP so it starts downloading in parallel with the JS bundle
+- Keep the tab strip as-is (no changes to tab buttons).
+- Replace the single `<div key={active}>` card with a `relative` container that holds one absolutely-positioned panel per product.
+- Each panel: `absolute inset-0 transition-opacity duration-300`, `opacity-100 pointer-events-auto` when active, else `opacity-0 pointer-events-none` + `aria-hidden="true"`.
+- The container itself needs a defined height — use a `grid` with all panels in the same cell (`grid` + `[grid-area:1/1]` on each panel), which auto-sizes to the tallest panel without absolute positioning math. This is cleaner than `position: absolute` and avoids height-collapse bugs.
+- Image loading strategy:
+  - First product: `loading="eager"`, `fetchPriority="high"` (LCP candidate).
+  - All others: `loading="eager"` too — but mark `fetchPriority="low"` so they download after the hero image without competing with it. They're tiny WebPs (~30–100 KB each, ~400 KB total), so eager-loading the full set is cheap and makes every tab switch instant.
+- Remove the `key={active}` re-mount and the `animate-slide-up-fade` (no longer needed since nothing re-mounts).
+- Optional polish: fade text content too by wrapping each panel's text column in the same opacity transition (already handled since the whole panel fades).
 
-### Files Changed
+**No changes needed to:**
+- `src/lib/site.ts` (assets already WebP)
+- `src/routes/index.tsx` (preload link still valid for the first image)
+- Any other component
 
-- `src/assets/products/*.png` → replaced with `.webp` (6 files)
-- `src/assets/logos/products/*.png` → replaced with `.webp` (10 files)
-- `src/lib/site.ts` — update import paths to `.webp`
-- `src/components/SuiteTabs.tsx` — add `loading`, `decoding`, `fetchpriority`, `width`, `height` on `<img>`
-- `src/routes/index.tsx` — add preload link for the default active product screenshot in `head()`
+### Technical Details
 
-### Out of Scope
+```tsx
+// Grid-stack pattern — all panels share one grid cell
+<div className="mt-8 grid">
+  {PRODUCTS.map((p) => {
+    const isActive = active === p.slug;
+    return (
+      <div
+        key={p.slug}
+        aria-hidden={!isActive}
+        className={cn(
+          "[grid-area:1/1] grid gap-10 overflow-hidden rounded-3xl border bg-white p-6 sm:p-10 lg:grid-cols-5 lg:gap-0",
+          "transition-opacity duration-300",
+          isActive ? "opacity-100" : "opacity-0 pointer-events-none"
+        )}
+      >
+        {/* text column + media column, same as today */}
+      </div>
+    );
+  })}
+</div>
+```
 
-- Header/hero changes (unrelated)
-- Cache-Control headers (platform-controlled, addressed in a previous turn)
-- The `ProductCard` images on `/solutions` will benefit automatically from the WebP conversion since they share the same source files
+Image attributes per panel:
+```tsx
+<img
+  src={p.screenshot}
+  loading="eager"
+  decoding="async"
+  fetchPriority={index === 0 ? "high" : "low"}
+  width={1600}
+  height={1000}
+  // ...
+/>
+```
 
 ### Expected Impact
 
-- Section JS+image payload drops from ~4.5 MB to ~800 KB (~82% smaller)
-- Tab switches feel instant (each image now ~80 KB and lazy-loaded only when needed)
-- LCP for the section improves substantially on first scroll-into-view
+- First tab switch latency: **~300 ms network wait → 0 ms** (image already decoded in memory).
+- Every subsequent switch: pure GPU opacity transition, no React reconciliation of the active panel's children.
+- Initial page weight: unchanged in practice (all 6 screenshots already cached after the first ~1 s of idle decoding; total ~400 KB WebP).
+- LCP unaffected — the first product image keeps `fetchPriority="high"`; the rest are `low` so they queue behind it.
+
+### Out of Scope
+
+- Further image compression (already optimized in previous turn).
+- Tab strip styling.
+- Routing or SSR changes.
 
