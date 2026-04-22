@@ -8,6 +8,12 @@ import helpdeskLight from "@/assets/logos/products/helpdesk-light.png";
 import helpdeskDark from "@/assets/logos/products/helpdesk-dark.png";
 import uratemeLight from "@/assets/logos/products/urateme-light.png";
 import uratemeDark from "@/assets/logos/products/urateme-dark.png";
+import shotIntegra365 from "@/assets/products/integrahris365.png";
+import shotIntegraGovt from "@/assets/products/integrahris-govt.png";
+import shotQmaster from "@/assets/products/qmaster.png";
+import shotHelpdesk from "@/assets/products/helpdesk.png";
+import shotDocutrakr from "@/assets/products/docutrakr.png";
+import shotUrateme from "@/assets/products/urateme.png";
 
 export const SITE = {
   name: "Cosmotech Philippines",

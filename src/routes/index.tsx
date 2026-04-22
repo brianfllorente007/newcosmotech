@@ -55,7 +55,7 @@ function HomePage() {
           aria-hidden="true"
           className="pointer-events-none absolute inset-0 h-full w-full object-cover"
         />
-        <Container className="relative pt-20 pb-0 sm:pt-28">
+        <Container className="relative pt-16 pb-0 sm:pt-20">
           <div className="mx-auto max-w-3xl text-center">
             <Eyebrow className="justify-center text-bone/70">
               <span className="text-bone/70">Cosmotech Philippines · Since 1994</span>
@@ -90,7 +90,7 @@ function HomePage() {
           <img
             src={heroImage}
             alt="IntegraHRIS Government dashboard preview"
-            className="mt-12 sm:mt-16 mx-auto block w-full max-w-5xl h-auto"
+            className="mt-8 sm:mt-10 mx-auto block w-full max-w-5xl h-auto"
           />
         </Container>
       </section>
