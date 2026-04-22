@@ -8,7 +8,6 @@ import { cn } from "@/lib/utils";
 
 export function SuiteTabs() {
   const [active, setActive] = useState<string>(PRODUCTS[0].slug);
-  const product = PRODUCTS.find((p) => p.slug === active)!;
 
   return (
     <div className="mt-12">
