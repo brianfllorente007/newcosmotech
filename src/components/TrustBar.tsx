@@ -1,6 +1,4 @@
 import { Container } from "./Container";
-import { LogoWall } from "./LogoWall";
-import { AGENCY_LOGOS } from "@/lib/site";
 
 const STATS = [
   "3,000+ companies served",
@@ -10,10 +8,12 @@ const STATS = [
   "ISO-certified",
 ];
 
+const AGENCIES = ["GSIS", "BOC", "DPWH", "PPA", "ERC", "NTC", "PDIC", "DENR"];
+
 export function TrustBar() {
   return (
     <section aria-label="Trusted by" className="border-b border-border bg-bone">
-      <Container className="py-12">
+      <Container className="py-10">
         <ul className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-sm text-foreground/75">
           {STATS.map((s, i) => (
             <li key={s} className="flex items-center gap-6">
@@ -24,11 +24,15 @@ export function TrustBar() {
             </li>
           ))}
         </ul>
-        <p className="mt-10 text-center text-xs font-medium uppercase tracking-[0.22em] text-foreground/45">
-          Trusted by Philippine government agencies
-        </p>
-        <div className="mt-5">
-          <LogoWall logos={AGENCY_LOGOS} />
+        <div className="mt-8 grid grid-cols-4 gap-y-4 text-center sm:grid-cols-8">
+          {AGENCIES.map((a) => (
+            <span
+              key={a}
+              className="text-xs font-semibold tracking-[0.22em] text-foreground/45"
+            >
+              {a}
+            </span>
+          ))}
         </div>
       </Container>
     </section>

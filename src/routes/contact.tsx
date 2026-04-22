@@ -50,7 +50,8 @@ function ContactPage() {
           <div>
             <Eyebrow>Contact</Eyebrow>
             <h1 className="mt-4 text-4xl font-semibold leading-tight tracking-tight sm:text-5xl md:text-6xl">
-              Tell us about your project.
+              Tell us about your{" "}
+              <span className="font-display italic">project</span>.
             </h1>
             <p className="mt-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
               Whether you're modernizing a paper-based process or extending an existing system,

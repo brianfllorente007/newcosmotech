@@ -6,10 +6,9 @@ import { SectionHeading, Eyebrow } from "@/components/SectionHeading";
 import { SuiteTabs } from "@/components/SuiteTabs";
 import { ProjectCard } from "@/components/ProjectCard";
 import { CtaBand } from "@/components/CtaBand";
-import { LogoWall } from "@/components/LogoWall";
 import { HrisMock, QueueMock, HelpdeskMock } from "@/components/ProductMock";
 import { useReveal } from "@/hooks/use-reveal";
-import { PROJECTS, CLIENT_LOGOS } from "@/lib/site";
+import { PROJECTS } from "@/lib/site";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -50,7 +49,10 @@ function HomePage() {
               <span className="text-bone/70">Cosmotech Philippines · Since 1994</span>
             </Eyebrow>
             <h1 className="mt-6 text-4xl font-semibold leading-[1.05] tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
-              People management software for Philippine government &amp; private companies
+              People management software for{" "}
+              <span className="font-display italic text-bone/95">
+                Philippine government & private companies
+              </span>
             </h1>
             <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-bone/75 sm:text-lg">
               We've been building HR, queuing, helpdesk, and document management systems since
@@ -60,7 +62,7 @@ function HomePage() {
             <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <Link
                 to="/solutions"
-                className="inline-flex h-11 items-center gap-2 rounded-full bg-brass px-5 text-sm font-semibold text-ink transition-transform hover:-translate-y-0.5"
+                className="inline-flex h-11 items-center gap-2 rounded-full bg-bone px-5 text-sm font-medium text-ink transition-transform hover:-translate-y-0.5"
               >
                 See our solutions <ArrowRight className="h-4 w-4" />
               </Link>
@@ -104,7 +106,12 @@ function HomePage() {
           <div className="reveal">
             <SectionHeading
               eyebrow="Our solutions"
-              title="Software built for Philippine workplaces"
+              title={
+                <>
+                  Software built for{" "}
+                  <span className="font-display italic">Philippine workplaces</span>
+                </>
+              }
               intro="From HR and payroll to customer queues and document tracking, our products are built for the way Philippine organizations actually operate — government compliance, local regulations, and all."
             />
           </div>
@@ -120,7 +127,8 @@ function HomePage() {
           <div className="reveal mx-auto max-w-3xl text-center">
             <Eyebrow className="justify-center text-bone/70">Digital transformation</Eyebrow>
             <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl md:text-5xl">
-              From manual processes to digital ones — we handle the transition.
+              From manual processes to{" "}
+              <span className="font-display italic">digital ones</span> — we handle the transition.
             </h2>
             <p className="mt-5 text-base leading-relaxed text-bone/75 sm:text-lg">
               We work with organizations that are still on paper-based workflows and with those
@@ -130,7 +138,7 @@ function HomePage() {
             </p>
             <Link
               to="/contact"
-              className="mt-8 inline-flex h-11 items-center gap-2 rounded-full bg-brass px-5 text-sm font-semibold text-ink transition-transform hover:-translate-y-0.5"
+              className="mt-8 inline-flex h-11 items-center gap-2 rounded-full bg-bone px-5 text-sm font-medium text-ink transition-transform hover:-translate-y-0.5"
             >
               Talk to our experts <ArrowRight className="h-4 w-4" />
             </Link>
@@ -155,27 +163,18 @@ function HomePage() {
         </Container>
       </section>
 
-      {/* CLIENT LOGOS */}
-      <section className="border-b border-border bg-bone py-16">
-        <Container>
-          <div className="reveal">
-            <p className="text-center text-xs font-medium uppercase tracking-[0.22em] text-foreground/50">
-              Trusted by leading enterprises
-            </p>
-            <div className="mx-auto mt-6 max-w-3xl">
-              <LogoWall logos={CLIENT_LOGOS} />
-            </div>
-          </div>
-        </Container>
-      </section>
-
       {/* PROJECTS TEASER */}
       <section className="py-24">
         <Container>
           <div className="reveal flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
             <SectionHeading
               eyebrow="Selected work"
-              title="Trusted by Philippine government & enterprise"
+              title={
+                <>
+                  Trusted by Philippine{" "}
+                  <span className="font-display italic">government & enterprise</span>
+                </>
+              }
               intro="We have delivered projects for some of the largest government institutions in the country. Here's a sample of what we've built and deployed."
             />
             <Link
@@ -200,7 +199,7 @@ function HomePage() {
             <div>
               <Eyebrow>About</Eyebrow>
               <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl md:text-5xl">
-                Your technology partner since 1994.
+                Your <span className="font-display italic">technology partner</span> since 1994.
               </h2>
             </div>
             <div className="space-y-4 text-[15px] leading-relaxed text-muted-foreground">

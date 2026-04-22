@@ -33,7 +33,8 @@ function AboutPage() {
           <div className="max-w-4xl">
             <Eyebrow>About Cosmotech</Eyebrow>
             <h1 className="mt-4 text-4xl font-semibold leading-[1.05] tracking-tight sm:text-5xl md:text-6xl">
-              Your technology partner in the Philippines since 1994.
+              Your <span className="font-display italic">technology partner</span> in the
+              Philippines since 1994.
             </h1>
             <p className="mt-6 text-base leading-relaxed text-muted-foreground sm:text-lg">
               We started in 1994 as a hardware and software integrator. Over the decades we've
@@ -52,7 +53,11 @@ function AboutPage() {
             <div>
               <SectionHeading
                 eyebrow="How we work"
-                title="One team, end-to-end."
+                title={
+                  <>
+                    One team, <span className="font-display italic">end-to-end</span>.
+                  </>
+                }
                 intro="We handle the full project lifecycle — so you don't have to coordinate three vendors to deliver one system."
               />
               <FeatureCheckList
@@ -69,7 +74,11 @@ function AboutPage() {
             <div>
               <SectionHeading
                 eyebrow="What we do"
-                title="Modern capabilities, local fit."
+                title={
+                  <>
+                    Modern capabilities, <span className="font-display italic">local fit</span>.
+                  </>
+                }
                 intro="Every solution we ship is built with Philippine compliance, language, and operating realities in mind."
               />
               <FeatureCheckList
