@@ -87,12 +87,11 @@ function HomePage() {
             </div>
           </div>
 
-            <img
-              src={heroImage}
-              alt="IntegraHRIS Government dashboard preview"
-              className="mt-12 sm:mt-16 mx-auto block w-full max-w-5xl h-auto"
-            />
-          </div>
+          <img
+            src={heroImage}
+            alt="IntegraHRIS Government dashboard preview"
+            className="mt-12 sm:mt-16 mx-auto block w-full max-w-5xl h-auto"
+          />
         </Container>
       </section>
 
