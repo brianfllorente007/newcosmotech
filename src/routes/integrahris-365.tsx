@@ -15,6 +15,7 @@ import {
   Calculator,
 } from "lucide-react";
 import { Container } from "@/components/Container";
+import hris365Hero from "@/assets/hris365-hero.png";
 import { Eyebrow, SectionHeading } from "@/components/SectionHeading";
 import {
   Accordion,
@@ -383,10 +384,14 @@ function IntegraHris365Page() {
               </div>
             </div>
             <div className="lg:pl-8">
-              <Placeholder
-                label="Hero product dashboard screenshot"
-                size="1600x1000"
-                className="aspect-[16/10]"
+              <img
+                src={hris365Hero}
+                alt="IntegraHRIS 365 dashboard with setup wizard shown on a MacBook Pro"
+                width={1600}
+                height={1000}
+                loading="eager"
+                fetchPriority="high"
+                className="w-full h-auto"
               />
             </div>
           </div>
