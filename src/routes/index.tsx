@@ -154,20 +154,6 @@ function HomePage() {
         </Container>
       </section>
 
-      {/* CLIENT LOGO WALL */}
-      <section className="border-b border-border bg-bone py-20">
-        <Container>
-          <div className="reveal mx-auto max-w-2xl text-center">
-            <Eyebrow className="justify-center">Trusted by leading enterprises</Eyebrow>
-            <h2 className="mt-4 text-2xl font-semibold tracking-tight sm:text-3xl">
-              Government agencies and private companies that rely on Cosmotech.
-            </h2>
-          </div>
-          <div className="reveal mt-10">
-            <LogoWall logos={ALL_CLIENT_LOGOS} cols="compact" />
-          </div>
-        </Container>
-      </section>
 
       {/* PROJECTS TEASER */}
       <section className="py-24">
