@@ -24,7 +24,7 @@ export function SuiteTabs() {
                 aria-label={p.name}
                 aria-pressed={isActive}
                 className={cn(
-                  "flex h-12 w-32 shrink-0 snap-start items-center justify-center rounded-full border px-3 transition-colors",
+                  "flex h-16 w-44 shrink-0 snap-start items-center justify-center rounded-full border px-4 transition-colors",
                   isActive
                     ? "border-foreground bg-foreground text-background"
                     : "border-border bg-background text-foreground/75 hover:text-foreground",
@@ -36,7 +36,7 @@ export function SuiteTabs() {
                       src={isActive ? p.logoLight : p.logoDark}
                       alt=""
                       aria-hidden="true"
-                      className="max-h-6 w-auto max-w-[100px] object-contain"
+                      className="max-h-10 w-auto max-w-[150px] object-contain"
                     />
                     <span className="sr-only">{p.name}</span>
                   </>
