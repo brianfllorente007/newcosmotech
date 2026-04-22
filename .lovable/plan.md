@@ -1,85 +1,76 @@
 
 
-## Make "Our Solutions" Tab Switching Instant
+## New Page: `/solutions/integrahris-365`
 
-### Problem
+A dedicated marketing page for IntegraHRIS 365. Copy comes from the brief; design follows the Inspo layout adapted to the existing Cosmotech palette and components.
 
-Even after the WebP conversion, switching tabs still feels slow because:
+### Route file
 
-1. The active screenshot `<img>` re-mounts every time `active` changes (the parent `<div key={active}>` forces React to unmount/remount the entire card, including the image element).
-2. Inactive screenshots are `loading="lazy"` and never rendered, so the browser only starts fetching them on click — first switch to each tab waits on a network request.
-3. The `animate-slide-up-fade` runs on the whole card, so even the text/layout re-animates on every switch.
+**`src/routes/solutions.integrahris-365.tsx`** — auto-registered by TanStack Router. Includes `head()` with title, description, og:title, og:description.
 
-### Fix: Pre-mount all panels, stack them, cross-fade
+### Page Sections
 
-Render **all 7 product panels at once**, stacked absolutely on top of each other inside a positioned container. Toggle visibility with `opacity` + `pointer-events` (and `aria-hidden` for a11y). Every image is in the DOM from first paint, so the browser fetches them in parallel during idle time and tab switches become a pure CSS opacity transition — zero network, zero re-render, zero layout work.
+1. **Hero** (bone bg, two-column on desktop)
+   - Left: Eyebrow "IntegraHRIS 365" → H1 "The Downloadable HRIS and Payroll Software for the Philippines" → subhead → brass "See Pricing" (anchors `#pricing`) + outlined "Download Brochure" (→ `/contact`) → small ISO chip labeled `[PLACEHOLDER: ISO certification badge]`.
+   - Right: rounded-3xl dashed placeholder `[PLACEHOLDER: Hero product dashboard screenshot — 1600x1000]`.
 
-### Implementation
+2. **Trust Strip** — "Trusted by Over 28 Philippine Organizations" + intro line naming PPA, DFA, BSP, BIR. Grid of 10 dashed logo tiles labeled `[Logo: Client 1]`…`[Logo: Client 10]`.
 
-**`src/components/SuiteTabs.tsx`** — rewrite the content area:
+3. **Three Feature Cards** (mirrors Inspo's three-card band)
+   - Built for Philippine compliance · You own your data · Transferable licensing.
+   - Each card: icon (lucide), bold title, one-line body, rounded-3xl on `bg-card`.
 
-- Keep the tab strip as-is (no changes to tab buttons).
-- Replace the single `<div key={active}>` card with a `relative` container that holds one absolutely-positioned panel per product.
-- Each panel: `absolute inset-0 transition-opacity duration-300`, `opacity-100 pointer-events-auto` when active, else `opacity-0 pointer-events-none` + `aria-hidden="true"`.
-- The container itself needs a defined height — use a `grid` with all panels in the same cell (`grid` + `[grid-area:1/1]` on each panel), which auto-sizes to the tallest panel without absolute positioning math. This is cleaner than `position: absolute` and avoids height-collapse bugs.
-- Image loading strategy:
-  - First product: `loading="eager"`, `fetchPriority="high"` (LCP candidate).
-  - All others: `loading="eager"` too — but mark `fetchPriority="low"` so they download after the hero image without competing with it. They're tiny WebPs (~30–100 KB each, ~400 KB total), so eager-loading the full set is cheap and makes every tab switch instant.
-- Remove the `key={active}` re-mount and the `animate-slide-up-fade` (no longer needed since nothing re-mounts).
-- Optional polish: fade text content too by wrapping each panel's text column in the same opacity transition (already handled since the whole panel fades).
+4. **What is IntegraHRIS 365** — split: left H2 + body copy from brief; right `[PLACEHOLDER: 201 file / dashboard mock — 1200x900]`.
 
-**No changes needed to:**
-- `src/lib/site.ts` (assets already WebP)
-- `src/routes/index.tsx` (preload link still valid for the first image)
-- Any other component
+5. **Why Choose IntegraHRIS 365** — 6 small cards (3x2 desktop / 2x3 tablet / 1col mobile) with check icon: compliance, ownership, licensing, scale, migration, 201 file.
 
-### Technical Details
+6. **Setup Without the Hassle** — split:
+   - Left: H2 + "Install in Minutes" body.
+   - Right: vertical numbered stack (1–4): Data Migration → Setup → DTR → Payroll Processing. Above the stack on desktop: floating `[PLACEHOLDER: Setup wizard screenshot — 1000x600]`.
 
-```tsx
-// Grid-stack pattern — all panels share one grid cell
-<div className="mt-8 grid">
-  {PRODUCTS.map((p) => {
-    const isActive = active === p.slug;
-    return (
-      <div
-        key={p.slug}
-        aria-hidden={!isActive}
-        className={cn(
-          "[grid-area:1/1] grid gap-10 overflow-hidden rounded-3xl border bg-white p-6 sm:p-10 lg:grid-cols-5 lg:gap-0",
-          "transition-opacity duration-300",
-          isActive ? "opacity-100" : "opacity-0 pointer-events-none"
-        )}
-      >
-        {/* text column + media column, same as today */}
-      </div>
-    );
-  })}
-</div>
+7. **Features and Modules** — vertical accordion (existing `@/components/ui/accordion`) with 8 items (HR Dashboard, Employee Record, Leave, Timekeeping, Payroll, Reports, Loan, Security). Open item shows: bullet list (left) + `[PLACEHOLDER: <module> screenshot — 1200x800]` (right). First item open by default.
+
+8. **Pricing** (`#pricing`) — H2 + intro emphasizing 5-year 50% savings + free ESS.
+   - Desktop: table (Plan / Employees / Annual Price / Concurrent Processors). "Small+" row highlighted with cobalt outline + brass "Most Popular for SMEs" badge.
+   - Mobile: stacked cards, same highlight on Small+.
+   - Helper lines: ">4,000 employees → contact us" link to `/contact`; "Government org? → IntegraHRIS Government" link to `/solutions/integrahris-government` (existing slug route).
+   - CTAs: brass "Get Started" + outlined "Contact Sales", both → `/contact`.
+
+9. **FAQ** — H2 + accordion with all 13 Q&As. Inline `<script type="application/ld+json">` with `FAQPage` schema for SEO.
+
+10. **Final CTA Band** — custom band matching brief copy: "Ready to See IntegraHRIS 365 in Action?" + brass "Download Brochure" + outlined "Contact Us". Uses the same gradient treatment as the global `CtaBand` for visual consistency.
+
+### Design system
+
+- Bone base, white feature cards, ink text, cobalt accents/links/badges, brass primary CTAs and "Most Popular" badge. No new colors.
+- Soft section bands use `bg-cobalt/5` to echo the Inspo's pastel sections without breaking the palette.
+- Typography: existing Inter + Instrument Serif scale (`text-4xl … md:text-6xl` for H1, `text-3xl … md:text-4xl` for H2).
+- Cards: `rounded-3xl border bg-card` to match `ProductCard`.
+- Spacing: `py-20 sm:py-24` per section.
+- Reveal: `useReveal()` once at top + `.reveal` on each section's inner.
+
+### Placeholder convention
+
+Every missing asset is a `rounded-3xl border-2 border-dashed border-border bg-muted` block with centered two-line label:
 ```
-
-Image attributes per panel:
-```tsx
-<img
-  src={p.screenshot}
-  loading="eager"
-  decoding="async"
-  fetchPriority={index === 0 ? "high" : "low"}
-  width={1600}
-  height={1000}
-  // ...
-/>
+[PLACEHOLDER: <description>]
+Drop final asset here · suggested size: WxH
 ```
+Used for: hero screenshot, ISO badge chip, 10 logo tiles, "what is" mock, setup wizard mock, 8 module screenshots.
 
-### Expected Impact
+### Navigation entry point
 
-- First tab switch latency: **~300 ms network wait → 0 ms** (image already decoded in memory).
-- Every subsequent switch: pure GPU opacity transition, no React reconciliation of the active panel's children.
-- Initial page weight: unchanged in practice (all 6 screenshots already cached after the first ~1 s of idle decoding; total ~400 KB WebP).
-- LCP unaffected — the first product image keeps `fetchPriority="high"`; the rest are `low` so they queue behind it.
+**`src/routes/solutions.$slug.tsx`** — when `product.slug === "integrahris"`, add a small inline link in the hero CTA row: "View the full IntegraHRIS 365 page →" → `/solutions/integrahris-365`. Keeps the global nav untouched.
+
+### Files
+
+- **NEW** `src/routes/solutions.integrahris-365.tsx`
+- **EDIT** `src/routes/solutions.$slug.tsx` (one conditional link)
 
 ### Out of Scope
 
-- Further image compression (already optimized in previous turn).
-- Tab strip styling.
-- Routing or SSR changes.
+- Real assets (screenshots, logos, ISO badge, brochure PDF) — all marked as labeled placeholders.
+- `SoftwareApplication` / `Offer` JSON-LD (only `FAQPage` now).
+- Building `/solutions/integrahris-government` as its own route — link points to the existing slug page.
+- Header nav changes.
 
