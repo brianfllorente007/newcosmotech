@@ -131,10 +131,11 @@ export function RotatingLogoGrid({
     };
   }, [logos, totalSlots, reducedMotion]);
 
-  const gridCls = `grid grid-cols-${perRow.base} sm:grid-cols-${perRow.sm} lg:grid-cols-${perRow.lg} gap-x-6 gap-y-6 sm:gap-x-10 sm:gap-y-8`;
-
   return (
-    <div ref={rootRef} className={gridCls}>
+    <div
+      ref={rootRef}
+      className="grid grid-cols-4 gap-x-6 gap-y-6 sm:grid-cols-6 sm:gap-x-10 sm:gap-y-8 lg:grid-cols-9"
+    >
       {Array.from({ length: totalSlots }).map((_, i) => {
         const a = layerA[i];
         const b = layerB[i];
