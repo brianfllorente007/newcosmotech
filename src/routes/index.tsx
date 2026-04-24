@@ -51,7 +51,7 @@ function HomePage() {
   return (
     <>
       {/* HERO */}
-      <section className="relative -mt-20 overflow-hidden gradient-hero pt-20 text-bone md:-mt-24 md:pt-24">
+      <section className="relative -mt-20 overflow-hidden gradient-hero pt-20 text-bone md:-mt-24 md:pt-24 before:pointer-events-none before:absolute before:inset-0 before:-z-10 before:bg-ink">
         <video
           src={heroBg}
           autoPlay
@@ -63,7 +63,7 @@ function HomePage() {
         />
         <Container className="relative pt-16 pb-0 sm:pt-20">
           <div className="mx-auto max-w-3xl text-center">
-            <h1 className="text-4xl font-semibold leading-[1.05] tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
+            <h1 className="break-words max-[360px]:text-[2rem] text-4xl font-semibold leading-[1.05] tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
               People management software for{" "}
               <span className="text-bone/95">
                 Philippine government & private companies
@@ -99,7 +99,7 @@ function HomePage() {
           <img
             src={heroImage}
             alt="IntegraHRIS Government dashboard preview"
-            className="mt-8 sm:mt-10 mx-auto block w-full max-w-5xl h-auto"
+            className="mt-8 sm:mt-10 mx-auto block w-full max-w-5xl h-auto px-2 sm:px-0"
           />
         </Container>
       </section>
@@ -107,7 +107,7 @@ function HomePage() {
       <TrustBar />
 
       {/* SOLUTIONS SUITE */}
-      <section id="solutions" className="scroll-mt-24 py-24">
+      <section id="solutions" className="scroll-mt-24 py-16 sm:py-20 md:py-24">
         <Container>
           <div className="reveal">
             <SectionHeading
@@ -123,7 +123,7 @@ function HomePage() {
       </section>
 
       {/* DIGITAL TRANSFORMATION */}
-      <section className="bg-ink py-24 text-bone">
+      <section className="bg-ink py-16 text-bone sm:py-20 md:py-24">
         <Container>
           <div className="reveal mx-auto max-w-3xl text-center">
             <Eyebrow className="justify-center text-bone/70">Digital transformation</Eyebrow>
@@ -149,7 +149,7 @@ function HomePage() {
 
 
       {/* PROJECTS TEASER */}
-      <section className="py-24">
+      <section className="py-16 sm:py-20 md:py-24">
         <Container>
           <div className="reveal flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
             <SectionHeading
@@ -173,9 +173,9 @@ function HomePage() {
       </section>
 
       {/* ABOUT TEASER */}
-      <section className="bg-bone py-24">
+      <section className="bg-bone py-16 sm:py-20 md:py-24">
         <Container>
-          <div className="reveal grid gap-12 lg:grid-cols-2 lg:gap-20">
+          <div className="reveal grid gap-6 lg:grid-cols-2 lg:gap-20">
             <div>
               <Eyebrow>About</Eyebrow>
               <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl md:text-5xl">
