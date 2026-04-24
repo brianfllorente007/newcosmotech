@@ -9,20 +9,18 @@ import logo from "@/assets/cosmotech-logo.png";
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [mounted, setMounted] = useState(false);
   const loc = useLocation();
   const isHome = loc.pathname === "/";
 
   useEffect(() => {
-    setMounted(true);
     const onScroll = () => setScrolled(window.scrollY > 80);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Transparent only on home + at top of page (after mount, to avoid SSR mismatch)
-  const transparent = mounted && isHome && !scrolled;
+  // Transparent on home while at top of page (render immediately to avoid bone flash)
+  const transparent = isHome && !scrolled;
 
   return (
     <header

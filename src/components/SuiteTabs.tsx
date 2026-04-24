@@ -13,7 +13,7 @@ export function SuiteTabs() {
     <div className="mt-12">
       {/* Tabs strip — horizontally scrollable on small screens */}
       <div className="relative -mx-5 sm:mx-0">
-        <div className="scrollbar-hide flex snap-x snap-mandatory gap-2 overflow-x-auto px-5 pb-2 sm:px-0">
+        <div className="scrollbar-hide flex snap-x snap-mandatory gap-2 overflow-x-auto scroll-px-5 px-5 pb-2 sm:scroll-px-0 sm:px-0">
           {PRODUCTS.map((p) => {
             const isActive = active === p.slug;
             return (
@@ -23,7 +23,7 @@ export function SuiteTabs() {
                 aria-label={p.name}
                 aria-pressed={isActive}
                 className={cn(
-                  "flex h-16 w-44 shrink-0 snap-start items-center justify-center rounded-full border px-4 transition-colors",
+                  "flex h-16 w-44 shrink-0 snap-start items-center justify-center rounded-full border px-3 sm:px-4 transition-colors",
                   isActive
                     ? "border-foreground bg-foreground text-background"
                     : "border-border bg-background text-foreground/75 hover:text-foreground",
@@ -35,7 +35,7 @@ export function SuiteTabs() {
                       src={isActive ? p.logoLight : p.logoDark}
                       alt=""
                       aria-hidden="true"
-                      className="max-h-10 w-auto max-w-[150px] object-contain"
+                      className="max-h-10 w-auto max-w-[140px] object-contain"
                     />
                     <span className="sr-only">{p.name}</span>
                   </>
@@ -67,7 +67,7 @@ export function SuiteTabs() {
                 isActive ? "opacity-100" : "pointer-events-none opacity-0",
               )}
             >
-              <div className="flex flex-col lg:col-span-3 lg:pr-10">
+              <div className="flex min-w-0 flex-col lg:col-span-3 lg:pr-10">
                 <p className="text-xs font-medium uppercase tracking-[0.2em] text-cobalt">
                   {p.name}
                 </p>
@@ -89,7 +89,7 @@ export function SuiteTabs() {
               {/* Media panel — full-bleed to card edges (40%) */}
               <div className="relative -m-6 sm:-m-10 lg:m-0 lg:col-span-2 lg:-mr-10 lg:-my-10">
                 {p.screenshot ? (
-                  <div className="relative h-full min-h-[280px] overflow-hidden bg-muted/30 aspect-[16/10] lg:aspect-auto">
+                  <div className="relative h-full min-h-[240px] overflow-hidden bg-white aspect-[4/3] lg:aspect-auto">
                     <img
                       src={p.screenshot}
                       alt=""
@@ -99,7 +99,7 @@ export function SuiteTabs() {
                       loading="eager"
                       decoding="async"
                       fetchPriority={index === 0 ? "high" : "low"}
-                      className="absolute inset-0 h-full w-full object-cover object-left-top bg-white"
+                      className="absolute inset-0 h-full w-full object-contain object-center bg-white lg:object-cover lg:object-left-top"
                     />
                   </div>
                 ) : (
