@@ -63,16 +63,16 @@ function HomePage() {
         />
         <Container className="relative pt-16 pb-0 sm:pt-20">
           <div className="mx-auto max-w-3xl text-center">
-            <h1 className="break-words max-[360px]:text-[2rem] text-4xl font-semibold leading-[1.05] tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
-              People management software for{" "}
-              <span className="text-bone/95">
-                Philippine government & private companies
-              </span>
+            <p className="text-xs font-medium uppercase tracking-[0.22em] text-brass sm:text-sm">
+              Pioneering Intelligent Automation
+            </p>
+            <h1 className="mt-5 break-words max-[360px]:text-[2rem] text-4xl font-semibold leading-[1.05] tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
+              Leveraging AI to Automate, Optimize, and Elevate Operations
             </h1>
             <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-bone/75 sm:text-lg">
-              We've been building HR, queuing, helpdesk, and document management systems since
-              1994. Over 3,000 companies and government offices trust our software to handle the
-              work that keeps their operations running.
+              From manual processes to intelligent automation, empowering your organizations to
+              accelerate efficiency, reduce operational friction, and deliver smarter services at
+              scale.
             </p>
             <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <a
