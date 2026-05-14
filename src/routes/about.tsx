@@ -3,6 +3,7 @@ import { Container } from "@/components/Container";
 import { SectionHeading, Eyebrow } from "@/components/SectionHeading";
 import { FeatureCheckList } from "@/components/FeatureCheckList";
 import { CtaBand } from "@/components/CtaBand";
+import { WhyCosmotech } from "@/components/WhyCosmotech";
 import { LogoWall } from "@/components/LogoWall";
 import { SITE } from "@/lib/site";
 import { ALL_CLIENT_LOGOS } from "@/lib/logos";
