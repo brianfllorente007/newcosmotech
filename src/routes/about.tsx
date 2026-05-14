@@ -49,6 +49,8 @@ function AboutPage() {
         </Container>
       </section>
 
+      <WhyCosmotech />
+
       <section className="py-20">
         <Container>
           <div className="grid gap-12 lg:grid-cols-2">
