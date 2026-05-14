@@ -30,15 +30,29 @@ export function SuiteTabs() {
                 )}
               >
                 {p.logoLight && p.logoDark ? (
-                  <>
+                  <span className="relative inline-flex h-10 w-[140px] items-center justify-center">
                     <img
-                      src={isActive ? p.logoLight : p.logoDark}
+                      src={p.logoDark}
                       alt=""
                       aria-hidden="true"
-                      className="max-h-10 w-auto max-w-[140px] object-contain"
+                      loading="eager"
+                      decoding="async"
+                      fetchPriority="high"
+                      className="absolute inset-0 m-auto max-h-10 w-auto max-w-[140px] object-contain transition-opacity duration-150"
+                      style={{ opacity: isActive ? 0 : 1 }}
+                    />
+                    <img
+                      src={p.logoLight}
+                      alt=""
+                      aria-hidden="true"
+                      loading="eager"
+                      decoding="async"
+                      fetchPriority="high"
+                      className="absolute inset-0 m-auto max-h-10 w-auto max-w-[140px] object-contain transition-opacity duration-150"
+                      style={{ opacity: isActive ? 1 : 0 }}
                     />
                     <span className="sr-only">{p.name}</span>
-                  </>
+                  </span>
                 ) : (
                   <span className="text-xs font-medium">{p.name}</span>
                 )}

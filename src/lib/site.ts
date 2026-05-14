@@ -13,6 +13,8 @@ import shotIntegraGovt from "@/assets/products/integrahris-govt.webp";
 import shotQmaster from "@/assets/products/qmaster.webp";
 import shotHelpdesk from "@/assets/products/helpdesk.webp";
 import shotDocutrakr from "@/assets/products/docutrakr.webp";
+import docutrakrLight from "@/assets/logos/products/docutrakr-light.png";
+import docutrakrDark from "@/assets/logos/products/docutrakr-dark.png";
 import shotUrateme from "@/assets/products/urateme.webp";
 
 export const SITE = {
@@ -131,6 +133,8 @@ export const PRODUCTS: Product[] = [
       "Automated escalations for stalled documents",
       "Mobile scanning from any device",
     ],
+    logoLight: docutrakrLight,
+    logoDark: docutrakrDark,
     screenshot: shotDocutrakr,
   },
   {
