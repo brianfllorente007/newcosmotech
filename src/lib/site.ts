@@ -64,9 +64,9 @@ export const PRODUCTS: Product[] = [
     name: "IntegraHRIS Government",
     tagline: "End-to-end HRIS for Philippine government agencies.",
     short:
-      "Complete employee lifecycle management — from recruitment and timekeeping to payroll, leave, performance, and retirement.",
+      "Complete HR and payroll management for government agencies; plantilla, payroll, leave, performance management, and PRIME-HRM compliance.",
     description:
-      "IntegraHRIS Government is a complete end-to-end HRIS for Philippine government agencies. It manages every stage of the employee lifecycle — from recruitment and timekeeping to payroll, leave, performance, and retirement — all in a single platform.",
+      "Complete HR and payroll management for government agencies; plantilla, payroll, leave, performance management, and PRIME-HRM compliance.",
     features: [
       "Recruitment, 201 file, and onboarding",
       "Biometric timekeeping and DTR generation",
