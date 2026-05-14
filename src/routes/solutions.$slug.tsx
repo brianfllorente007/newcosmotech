@@ -113,7 +113,7 @@ function ProductDetail() {
                   Deployed at
                 </h2>
                 <ul className="mt-6 space-y-3">
-                  {product.deployedAt.map((d) => (
+                  {product.deployedAt.map((d: string) => (
                     <li
                       key={d}
                       className="rounded-xl border border-border bg-card px-4 py-3 text-sm font-medium"
