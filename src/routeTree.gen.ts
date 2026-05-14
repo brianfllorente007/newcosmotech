@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SolutionsRouteImport } from './routes/solutions'
 import { Route as ProjectsRouteImport } from './routes/projects'
+import { Route as IntegrahrisGovernmentRouteImport } from './routes/integrahris-government'
 import { Route as Integrahris365RouteImport } from './routes/integrahris-365'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
@@ -25,6 +26,11 @@ const SolutionsRoute = SolutionsRouteImport.update({
 const ProjectsRoute = ProjectsRouteImport.update({
   id: '/projects',
   path: '/projects',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IntegrahrisGovernmentRoute = IntegrahrisGovernmentRouteImport.update({
+  id: '/integrahris-government',
+  path: '/integrahris-government',
   getParentRoute: () => rootRouteImport,
 } as any)
 const Integrahris365Route = Integrahris365RouteImport.update({
@@ -58,6 +64,7 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/integrahris-365': typeof Integrahris365Route
+  '/integrahris-government': typeof IntegrahrisGovernmentRoute
   '/projects': typeof ProjectsRoute
   '/solutions': typeof SolutionsRouteWithChildren
   '/solutions/$slug': typeof SolutionsSlugRoute
@@ -67,6 +74,7 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/integrahris-365': typeof Integrahris365Route
+  '/integrahris-government': typeof IntegrahrisGovernmentRoute
   '/projects': typeof ProjectsRoute
   '/solutions': typeof SolutionsRouteWithChildren
   '/solutions/$slug': typeof SolutionsSlugRoute
@@ -77,6 +85,7 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/integrahris-365': typeof Integrahris365Route
+  '/integrahris-government': typeof IntegrahrisGovernmentRoute
   '/projects': typeof ProjectsRoute
   '/solutions': typeof SolutionsRouteWithChildren
   '/solutions/$slug': typeof SolutionsSlugRoute
@@ -88,6 +97,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/integrahris-365'
+    | '/integrahris-government'
     | '/projects'
     | '/solutions'
     | '/solutions/$slug'
@@ -97,6 +107,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/integrahris-365'
+    | '/integrahris-government'
     | '/projects'
     | '/solutions'
     | '/solutions/$slug'
@@ -106,6 +117,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/integrahris-365'
+    | '/integrahris-government'
     | '/projects'
     | '/solutions'
     | '/solutions/$slug'
@@ -116,6 +128,7 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
   Integrahris365Route: typeof Integrahris365Route
+  IntegrahrisGovernmentRoute: typeof IntegrahrisGovernmentRoute
   ProjectsRoute: typeof ProjectsRoute
   SolutionsRoute: typeof SolutionsRouteWithChildren
 }
@@ -134,6 +147,13 @@ declare module '@tanstack/react-router' {
       path: '/projects'
       fullPath: '/projects'
       preLoaderRoute: typeof ProjectsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/integrahris-government': {
+      id: '/integrahris-government'
+      path: '/integrahris-government'
+      fullPath: '/integrahris-government'
+      preLoaderRoute: typeof IntegrahrisGovernmentRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/integrahris-365': {
@@ -191,6 +211,7 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
   Integrahris365Route: Integrahris365Route,
+  IntegrahrisGovernmentRoute: IntegrahrisGovernmentRoute,
   ProjectsRoute: ProjectsRoute,
   SolutionsRoute: SolutionsRouteWithChildren,
 }
