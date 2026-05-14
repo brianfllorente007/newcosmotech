@@ -6,6 +6,7 @@ import { SectionHeading, Eyebrow } from "@/components/SectionHeading";
 import { SuiteTabs } from "@/components/SuiteTabs";
 import { ProjectCard } from "@/components/ProjectCard";
 import { CtaBand } from "@/components/CtaBand";
+import { WhyCosmotech } from "@/components/WhyCosmotech";
 import { useReveal } from "@/hooks/use-reveal";
 import { PROJECTS, PRODUCTS } from "@/lib/site";
 import heroBg from "@/assets/hero-bg.mp4";
@@ -63,16 +64,16 @@ function HomePage() {
         />
         <Container className="relative pt-16 pb-0 sm:pt-20">
           <div className="mx-auto max-w-3xl text-center">
-            <h1 className="break-words max-[360px]:text-[2rem] text-4xl font-semibold leading-[1.05] tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
-              People management software for{" "}
-              <span className="text-bone/95">
-                Philippine government & private companies
-              </span>
+            <p className="text-xs font-medium uppercase tracking-[0.22em] text-brass sm:text-sm">
+              Pioneering Intelligent Automation
+            </p>
+            <h1 className="mt-5 break-words max-[360px]:text-[2rem] text-4xl font-semibold leading-[1.05] tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
+              Leveraging AI to Automate, Optimize, and Elevate Operations
             </h1>
             <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-bone/75 sm:text-lg">
-              We've been building HR, queuing, helpdesk, and document management systems since
-              1994. Over 3,000 companies and government offices trust our software to handle the
-              work that keeps their operations running.
+              From manual processes to intelligent automation, empowering your organizations to
+              accelerate efficiency, reduce operational friction, and deliver smarter services at
+              scale.
             </p>
             <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <a
@@ -172,36 +173,10 @@ function HomePage() {
         </Container>
       </section>
 
-      {/* ABOUT TEASER */}
-      <section className="bg-bone py-16 sm:py-20 md:py-24">
-        <Container>
-          <div className="reveal grid gap-6 lg:grid-cols-2 lg:gap-20">
-            <div>
-              <Eyebrow>About</Eyebrow>
-              <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl md:text-5xl">
-                Your technology partner since 1994.
-              </h2>
-            </div>
-            <div className="space-y-4 text-[15px] leading-relaxed text-muted-foreground">
-              <p>
-                We started in 1994 as a hardware and software integrator. Over the decades we've
-                grown into a full-service technology company serving both private businesses and
-                government agencies across the Philippines.
-              </p>
-              <p>
-                Today our work spans cloud-based software, AI-powered systems, smart office
-                solutions, and enterprise software development.
-              </p>
-              <Link
-                to="/about"
-                className="inline-flex items-center gap-2 text-sm font-medium text-cobalt hover:gap-3 transition-all"
-              >
-                Read our story <ArrowRight className="h-4 w-4" />
-              </Link>
-            </div>
-          </div>
-        </Container>
-      </section>
+      {/* WHY COSMOTECH */}
+      <div className="reveal">
+        <WhyCosmotech />
+      </div>
 
       <CtaBand />
     </>
