@@ -123,9 +123,9 @@ export const PRODUCTS: Product[] = [
     name: "Docutrakr",
     tagline: "QR-coded document tracking, in real time.",
     short:
-      "Every document gets a unique QR code. Know its location, processing status, and handling history at any moment.",
+      "Document tracking with full visibility and traceability across departments, approvals, and document workflows.",
     description:
-      "Docutrakr assigns a unique QR code to every document so you can track its location, processing status, and handling history in real time. No more lost files, no more manual follow-ups.",
+      "Document tracking with full visibility and traceability across departments, approvals, and document workflows.",
     features: [
       "Unique QR code per document",
       "Real-time location and status tracking",
