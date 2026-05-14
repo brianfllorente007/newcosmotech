@@ -157,6 +157,38 @@ export const PRODUCTS: Product[] = [
     screenshot: shotUrateme,
   },
   {
+    slug: "health-wellness",
+    name: "Health & Wellness",
+    tagline: "Employee health and wellness, end to end.",
+    short:
+      "Employee health and wellness management, medical records, consultation logs, leave-for-health tracking, and wellness programs.",
+    description:
+      "Employee health and wellness management, medical records, consultation logs, leave-for-health tracking, and wellness programs.",
+    features: [
+      "Centralized employee medical records",
+      "Consultation and clinic visit logs",
+      "Leave-for-health tracking",
+      "Wellness program management",
+      "Health analytics and reporting",
+    ],
+  },
+  {
+    slug: "cosmotech-gpms",
+    name: "CosmotechGPMS",
+    tagline: "Government procurement, transparent end to end.",
+    short:
+      "Government Procurement Management System for full procurement transparency and accountability.",
+    description:
+      "Government Procurement Management System for full procurement transparency and accountability.",
+    features: [
+      "Procurement planning and APP management",
+      "End-to-end bidding workflow",
+      "Full audit trail and document trail",
+      "Vendor and supplier management",
+      "Transparency and compliance reporting",
+    ],
+  },
+  {
     slug: "horion",
     name: "Horion Interactive Display",
     tagline: "Interactive displays for modern meeting rooms and classrooms.",
