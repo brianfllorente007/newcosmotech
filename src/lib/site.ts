@@ -84,9 +84,9 @@ export const PRODUCTS: Product[] = [
     name: "QMaster",
     tagline: "Queue management for high-volume frontline service.",
     short:
-      "Organize counter transactions and track frontline performance with multi-printer, multi-display, and SMS-ready queueing.",
+      "Intelligent queue management and customer flow — real-time monitoring, analytics, kiosk integration, and digital ticketing.",
     description:
-      "QMaster organizes customer transactions at the counter level and tracks the performance of your frontline staff. It supports multiple ticket printers, unlimited transaction types, SMS notifications, and multi-display setups.",
+      "Intelligent queue management and customer flow — real-time monitoring, analytics, kiosk integration, and digital ticketing.",
     features: [
       "Multiple ticket printers and queue displays",
       "Unlimited transaction types and priority lanes",
