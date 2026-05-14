@@ -104,9 +104,9 @@ export const PRODUCTS: Product[] = [
     name: "HelpDesk",
     tagline: "Route every inquiry. Lose none.",
     short:
-      "Customizable workflows, role-based access, two-factor auth, and full audit trails so no ticket falls through the cracks.",
+      "Streamline support requests with a centralized ticketing platform that improves response time and service efficiency.",
     description:
-      "HelpDesk routes every customer inquiry to the right team member automatically. It supports customizable workflows, role-based access, two-factor authentication, and full audit trails — so no ticket falls through the cracks.",
+      "Streamline support requests with a centralized ticketing platform that improves response time and service efficiency.",
     features: [
       "Automatic ticket routing by team and topic",
       "Customizable workflows and SLAs",
