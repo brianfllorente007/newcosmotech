@@ -179,6 +179,10 @@ function HomePage() {
         <WhyCosmotech />
       </div>
 
+      <div className="reveal">
+        <FaqSection />
+      </div>
+
       <CtaBand />
     </>
   );
