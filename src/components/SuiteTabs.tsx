@@ -23,7 +23,7 @@ export function SuiteTabs() {
                 aria-label={p.name}
                 aria-pressed={isActive}
                 className={cn(
-                  "flex h-16 w-44 shrink-0 snap-start items-center justify-center rounded-full border px-3 sm:px-4 transition-colors",
+                  "flex h-16 w-44 shrink-0 snap-start items-center justify-center rounded-full border px-3 transition-colors sm:w-auto sm:shrink sm:px-4",
                   isActive
                     ? "border-foreground bg-foreground text-background"
                     : "border-border bg-background text-foreground/75 hover:text-foreground",
