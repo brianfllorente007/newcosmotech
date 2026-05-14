@@ -24,12 +24,20 @@ export function CtaBand({
             {title}
           </h2>
           <p className="mt-4 text-base text-bone/80 sm:text-lg">{body}</p>
-          <Link
-            to={to}
-            className="mt-8 inline-flex h-11 items-center gap-2 rounded-full bg-brass px-5 text-sm font-medium text-ink transition-all hover:-translate-y-0.5 hover:brightness-95"
-          >
-            {ctaLabel} <ArrowRight className="h-4 w-4" />
-          </Link>
+          <div className="mt-8 flex flex-col items-stretch gap-3 sm:flex-row sm:items-center">
+            <Link
+              to={to}
+              className="inline-flex h-11 items-center justify-center gap-2 rounded-full bg-brass px-5 text-sm font-medium text-ink transition-all hover:-translate-y-0.5 hover:brightness-95"
+            >
+              {ctaLabel} <ArrowRight className="h-4 w-4" />
+            </Link>
+            <button
+              type="button"
+              className="inline-flex h-11 items-center justify-center gap-2 rounded-full border border-bone/30 px-5 text-sm font-medium text-bone transition-colors hover:bg-bone/10"
+            >
+              Request a Proposal
+            </button>
+          </div>
         </div>
       </Container>
     </section>
