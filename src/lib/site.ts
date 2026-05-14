@@ -45,9 +45,9 @@ export const PRODUCTS: Product[] = [
     name: "IntegraHRIS 365",
     tagline: "Downloadable, subscription HRIS for private companies.",
     short:
-      "The first downloadable, subscription-based HRIS in the Philippines. HR, Payroll, and Timekeeping in one system — no extra manpower needed.",
+      "Cloud-ready HRIS for enterprises. Scalable HR, payroll, and workforce management for today's fast-moving organizations.",
     description:
-      "IntegraHRIS 365 is the first downloadable, subscription-based HRIS software in the Philippines. It covers Human Resources, Payroll, and Timekeeping in one system — no additional manpower needed to run it. Built for private companies with 1 to 4,000 employees.",
+      "Cloud-ready HRIS for enterprises. Scalable HR, payroll, and workforce management for today's fast-moving organizations.",
     features: [
       "Human Resources, Payroll, and Timekeeping in one platform",
       "Scales from 1 to 4,000 employees",
