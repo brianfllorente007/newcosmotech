@@ -11,9 +11,9 @@ export function SuiteTabs() {
 
   return (
     <div className="mt-12">
-      {/* Tabs strip — horizontally scrollable on small screens */}
+      {/* Tabs strip — horizontally scrollable on mobile, 4-col grid on sm+ */}
       <div className="relative -mx-5 sm:mx-0">
-        <div className="scrollbar-hide flex snap-x snap-mandatory gap-2 overflow-x-auto scroll-px-5 px-5 pb-2 sm:scroll-px-0 sm:px-0">
+        <div className="scrollbar-hide flex snap-x snap-mandatory gap-2 overflow-x-auto scroll-px-5 px-5 pb-2 sm:grid sm:grid-cols-4 sm:gap-3 sm:overflow-visible sm:px-0 sm:pb-0">
           {PRODUCTS.map((p) => {
             const isActive = active === p.slug;
             return (
@@ -23,7 +23,7 @@ export function SuiteTabs() {
                 aria-label={p.name}
                 aria-pressed={isActive}
                 className={cn(
-                  "flex h-16 w-44 shrink-0 snap-start items-center justify-center rounded-full border px-3 sm:px-4 transition-colors",
+                  "flex h-16 w-44 shrink-0 snap-start items-center justify-center rounded-full border px-3 transition-colors sm:w-auto sm:shrink sm:px-4",
                   isActive
                     ? "border-foreground bg-foreground text-background"
                     : "border-border bg-background text-foreground/75 hover:text-foreground",

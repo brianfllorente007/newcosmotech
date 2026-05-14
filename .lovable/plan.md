@@ -1,36 +1,41 @@
-## Copy + UI updates
+## 1. Product copy + 2 new products (`src/lib/site.ts`)
 
-### 1. Home Hero (`src/routes/index.tsx`)
-- Add an overline above the H1: `PIONEERING INTELLIGENT AUTOMATION` (uppercase, tracked, brass/bone-muted, matching existing Eyebrow styling).
-- Replace H1 with: **"Leveraging AI to Automate, Optimize, and Elevate Operations"** (drop the highlighted span split).
-- Replace subhead with: *"From manual processes to intelligent automation, empowering your organizations to accelerate efficiency, reduce operational friction, and deliver smarter services at scale."*
-- Keep existing CTAs and hero image untouched.
+Update each product's `short` and `description` to the new copy (verbatim). Keep `tagline`, `features`, `deployedAt`, logos, and screenshots untouched.
 
-### 2. "Why Cosmotech?" — new shared section
-Create a new component `src/components/WhyCosmotech.tsx` rendering:
-- Eyebrow: `Why Cosmotech?`
-- Heading: *"For over three decades, we have been the trusted technology engine behind the Philippines' most critical organizations."*
-- A responsive grid (1 col mobile / 2 col sm / 3 col lg) of 6 feature cards:
-  1. **31+ Years of Trusted IT Leadership** — Reliable and scalable solutions for government and enterprise.
-  2. **Certified & Experienced IT Experts** — Licensed team in software, integration, and consulting.
-  3. **End-to-End Digital Delivery** — Complete services from design to continuous support.
-  4. **AI-Powered Custom System Solutions** — Tailored systems aligned with your specific requirements.
-  5. **Integrated Hardware & Software** — Seamless integration for optimal system performance.
-  6. **ISO-Certified and DPA Compliant** — ISO 9001:2015 certified since 2017 and full compliance with the Data Privacy Act of 2012 (RA 10173).
-- Each card: subtle border, brass icon (lucide), title, body text — consistent with the site's editorial/brass-on-bone aesthetic.
+Mapping:
+- **IntegraHRIS Government** (`integrahris-government`) → "Complete HR and payroll management for government agencies; plantilla, payroll, leave, performance management, and PRIME-HRM compliance."
+- **IntegraHRIS 365** (`integrahris`) → "Cloud-ready HRIS for enterprises. Scalable HR, payroll, and workforce management for today's fast-moving organizations."
+- **Docutrakr** → "Document tracking with full visibility and traceability across departments, approvals, and document workflows."
+- **QMaster** → "Intelligent queue management and customer flow — real-time monitoring, analytics, kiosk integration, and digital ticketing."
+- **URateMe** → "Real-time citizen and customer feedback satisfaction ratings, service quality scores, and actionable insights at the point of service."
+- **HelpDesk** → "Streamline support requests with a centralized ticketing platform that improves response time and service efficiency."
+- **Horion** — keep existing copy (unchanged).
 
-Use it in two places:
-- **Home (`src/routes/index.tsx`)** — replace the current "About" teaser section (the two-paragraph block) with `<WhyCosmotech />`.
-- **About page (`src/routes/about.tsx`)** — insert `<WhyCosmotech />` after the page hero, before the "How we work / What we do" grid.
+Add 2 new products as placeholders (no logo image, no screenshot — `SuiteTabs` already falls back to a text label + `DocMock`):
+- `health-wellness` — name "Health & Wellness", tagline "Employee health and wellness, end to end.", short/description = "Employee health and wellness management, medical records, consultation logs, leave-for-health tracking, and wellness programs.", features: 4–5 bullets derived from the copy (medical records, consultation logs, leave-for-health tracking, wellness programs, reporting).
+- `cosmotech-gpms` — name "CosmotechGPMS", tagline "Government procurement, transparent end to end.", short/description = "Government Procurement Management System for full procurement transparency and accountability.", features: 4–5 bullets (procurement planning, bidding workflow, audit trail, vendor management, transparency reporting).
 
-### 3. CtaBand — add "Request a Proposal" button (global)
-In `src/components/CtaBand.tsx`:
-- Wrap the existing "Talk to our team" link in a flex row with a new secondary button labeled **"Request a Proposal"**.
-- Per user, the new button is a visual placeholder: render as a `<button type="button">` with no destination yet.
-- Style it as a ghost/outline variant on the dark gradient (border `bone/30`, text `bone`, hover `bg-bone/10`) — secondary to the primary brass CTA.
-- Stack vertically on mobile, inline on `sm:` and up.
+Final order in `PRODUCTS` array (8 items): IntegraHRIS 365, IntegraHRIS Government, QMaster, HelpDesk, Docutrakr, URateMe, Health & Wellness, CosmotechGPMS, Horion (= 9 total to keep Horion).
 
-### Out of scope
-- No route changes, no new pages, no business logic.
-- No copy changes outside the three areas above.
-- Hero video, logos, project cards untouched.
+## 2. SuiteTabs → 2 rows × 4 columns on desktop (`src/components/SuiteTabs.tsx`)
+
+Currently the tab strip is a single horizontally-scrollable row. Change it so:
+- **Mobile (`<sm`)**: keep the horizontal snap scroller as-is (per earlier explicit request).
+- **`sm:` and up**: switch to a CSS grid `sm:grid sm:grid-cols-4 sm:gap-3 sm:overflow-visible sm:px-0` so 9 items wrap into rows of 4 (= 4/4/1 with Horion). With 8 visible products + Horion that's effectively 2 full rows + 1; acceptable.
+- Drop the right-edge fade gradient on `sm:` and up.
+- Tab buttons: remove fixed `w-44 shrink-0 snap-start` on `sm:` and up; use `sm:w-auto` so they fill grid cells.
+
+Keep cross-fade panel logic untouched.
+
+## 3. FAQ section on home (`src/components/FaqSection.tsx` + `src/routes/index.tsx`)
+
+New component `FaqSection` using existing shadcn `Accordion` (`@/components/ui/accordion`):
+- Wrapped in `<section className="py-16 sm:py-20 md:py-24">` + `<Container>`.
+- `SectionHeading` with eyebrow "FAQ", title "Questions, answered.", centered.
+- `Accordion type="single" collapsible` with the 4 Q&As verbatim.
+- Constrain to `max-w-3xl mx-auto`.
+
+Render in `src/routes/index.tsx` inside a `<div className="reveal">` placed **immediately above `<CtaBand />`** (after the Why Cosmotech block).
+
+## Out of scope
+- No new routes, no logo assets for the 2 placeholders (text fallback only), no copy changes outside the listed products, no styling changes to product detail pages.

@@ -45,9 +45,9 @@ export const PRODUCTS: Product[] = [
     name: "IntegraHRIS 365",
     tagline: "Downloadable, subscription HRIS for private companies.",
     short:
-      "The first downloadable, subscription-based HRIS in the Philippines. HR, Payroll, and Timekeeping in one system — no extra manpower needed.",
+      "Cloud-ready HRIS for enterprises. Scalable HR, payroll, and workforce management for today's fast-moving organizations.",
     description:
-      "IntegraHRIS 365 is the first downloadable, subscription-based HRIS software in the Philippines. It covers Human Resources, Payroll, and Timekeeping in one system — no additional manpower needed to run it. Built for private companies with 1 to 4,000 employees.",
+      "Cloud-ready HRIS for enterprises. Scalable HR, payroll, and workforce management for today's fast-moving organizations.",
     features: [
       "Human Resources, Payroll, and Timekeeping in one platform",
       "Scales from 1 to 4,000 employees",
@@ -64,9 +64,9 @@ export const PRODUCTS: Product[] = [
     name: "IntegraHRIS Government",
     tagline: "End-to-end HRIS for Philippine government agencies.",
     short:
-      "Complete employee lifecycle management — from recruitment and timekeeping to payroll, leave, performance, and retirement.",
+      "Complete HR and payroll management for government agencies; plantilla, payroll, leave, performance management, and PRIME-HRM compliance.",
     description:
-      "IntegraHRIS Government is a complete end-to-end HRIS for Philippine government agencies. It manages every stage of the employee lifecycle — from recruitment and timekeeping to payroll, leave, performance, and retirement — all in a single platform.",
+      "Complete HR and payroll management for government agencies; plantilla, payroll, leave, performance management, and PRIME-HRM compliance.",
     features: [
       "Recruitment, 201 file, and onboarding",
       "Biometric timekeeping and DTR generation",
@@ -84,9 +84,9 @@ export const PRODUCTS: Product[] = [
     name: "QMaster",
     tagline: "Queue management for high-volume frontline service.",
     short:
-      "Organize counter transactions and track frontline performance with multi-printer, multi-display, and SMS-ready queueing.",
+      "Intelligent queue management and customer flow — real-time monitoring, analytics, kiosk integration, and digital ticketing.",
     description:
-      "QMaster organizes customer transactions at the counter level and tracks the performance of your frontline staff. It supports multiple ticket printers, unlimited transaction types, SMS notifications, and multi-display setups.",
+      "Intelligent queue management and customer flow — real-time monitoring, analytics, kiosk integration, and digital ticketing.",
     features: [
       "Multiple ticket printers and queue displays",
       "Unlimited transaction types and priority lanes",
@@ -104,9 +104,9 @@ export const PRODUCTS: Product[] = [
     name: "HelpDesk",
     tagline: "Route every inquiry. Lose none.",
     short:
-      "Customizable workflows, role-based access, two-factor auth, and full audit trails so no ticket falls through the cracks.",
+      "Streamline support requests with a centralized ticketing platform that improves response time and service efficiency.",
     description:
-      "HelpDesk routes every customer inquiry to the right team member automatically. It supports customizable workflows, role-based access, two-factor authentication, and full audit trails — so no ticket falls through the cracks.",
+      "Streamline support requests with a centralized ticketing platform that improves response time and service efficiency.",
     features: [
       "Automatic ticket routing by team and topic",
       "Customizable workflows and SLAs",
@@ -123,9 +123,9 @@ export const PRODUCTS: Product[] = [
     name: "Docutrakr",
     tagline: "QR-coded document tracking, in real time.",
     short:
-      "Every document gets a unique QR code. Know its location, processing status, and handling history at any moment.",
+      "Document tracking with full visibility and traceability across departments, approvals, and document workflows.",
     description:
-      "Docutrakr assigns a unique QR code to every document so you can track its location, processing status, and handling history in real time. No more lost files, no more manual follow-ups.",
+      "Document tracking with full visibility and traceability across departments, approvals, and document workflows.",
     features: [
       "Unique QR code per document",
       "Real-time location and status tracking",
@@ -142,9 +142,9 @@ export const PRODUCTS: Product[] = [
     name: "URateMe",
     tagline: "Customer feedback that turns into action.",
     short:
-      "Collect post-transaction ratings and turn raw feedback into the data your team needs to improve service.",
+      "Real-time citizen and customer feedback satisfaction ratings, service quality scores, and actionable insights at the point of service.",
     description:
-      "URateMe collects customer feedback after every transaction. It turns raw ratings into actionable data your team can use to improve service quality and identify recurring issues.",
+      "Real-time citizen and customer feedback satisfaction ratings, service quality scores, and actionable insights at the point of service.",
     features: [
       "Post-transaction rating capture",
       "Trend analysis and recurring-issue detection",
@@ -155,6 +155,38 @@ export const PRODUCTS: Product[] = [
     logoLight: uratemeLight,
     logoDark: uratemeDark,
     screenshot: shotUrateme,
+  },
+  {
+    slug: "health-wellness",
+    name: "Health & Wellness",
+    tagline: "Employee health and wellness, end to end.",
+    short:
+      "Employee health and wellness management, medical records, consultation logs, leave-for-health tracking, and wellness programs.",
+    description:
+      "Employee health and wellness management, medical records, consultation logs, leave-for-health tracking, and wellness programs.",
+    features: [
+      "Centralized employee medical records",
+      "Consultation and clinic visit logs",
+      "Leave-for-health tracking",
+      "Wellness program management",
+      "Health analytics and reporting",
+    ],
+  },
+  {
+    slug: "cosmotech-gpms",
+    name: "CosmotechGPMS",
+    tagline: "Government procurement, transparent end to end.",
+    short:
+      "Government Procurement Management System for full procurement transparency and accountability.",
+    description:
+      "Government Procurement Management System for full procurement transparency and accountability.",
+    features: [
+      "Procurement planning and APP management",
+      "End-to-end bidding workflow",
+      "Full audit trail and document trail",
+      "Vendor and supplier management",
+      "Transparency and compliance reporting",
+    ],
   },
   {
     slug: "horion",
