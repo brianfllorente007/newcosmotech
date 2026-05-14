@@ -172,36 +172,10 @@ function HomePage() {
         </Container>
       </section>
 
-      {/* ABOUT TEASER */}
-      <section className="bg-bone py-16 sm:py-20 md:py-24">
-        <Container>
-          <div className="reveal grid gap-6 lg:grid-cols-2 lg:gap-20">
-            <div>
-              <Eyebrow>About</Eyebrow>
-              <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl md:text-5xl">
-                Your technology partner since 1994.
-              </h2>
-            </div>
-            <div className="space-y-4 text-[15px] leading-relaxed text-muted-foreground">
-              <p>
-                We started in 1994 as a hardware and software integrator. Over the decades we've
-                grown into a full-service technology company serving both private businesses and
-                government agencies across the Philippines.
-              </p>
-              <p>
-                Today our work spans cloud-based software, AI-powered systems, smart office
-                solutions, and enterprise software development.
-              </p>
-              <Link
-                to="/about"
-                className="inline-flex items-center gap-2 text-sm font-medium text-cobalt hover:gap-3 transition-all"
-              >
-                Read our story <ArrowRight className="h-4 w-4" />
-              </Link>
-            </div>
-          </div>
-        </Container>
-      </section>
+      {/* WHY COSMOTECH */}
+      <div className="reveal">
+        <WhyCosmotech />
+      </div>
 
       <CtaBand />
     </>
