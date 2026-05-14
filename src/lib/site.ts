@@ -142,9 +142,9 @@ export const PRODUCTS: Product[] = [
     name: "URateMe",
     tagline: "Customer feedback that turns into action.",
     short:
-      "Collect post-transaction ratings and turn raw feedback into the data your team needs to improve service.",
+      "Real-time citizen and customer feedback satisfaction ratings, service quality scores, and actionable insights at the point of service.",
     description:
-      "URateMe collects customer feedback after every transaction. It turns raw ratings into actionable data your team can use to improve service quality and identify recurring issues.",
+      "Real-time citizen and customer feedback satisfaction ratings, service quality scores, and actionable insights at the point of service.",
     features: [
       "Post-transaction rating capture",
       "Trend analysis and recurring-issue detection",
