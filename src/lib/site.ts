@@ -188,22 +188,6 @@ export const PRODUCTS: Product[] = [
       "Transparency and compliance reporting",
     ],
   },
-  {
-    slug: "horion",
-    name: "Horion Interactive Display",
-    tagline: "Interactive displays for modern meeting rooms and classrooms.",
-    short:
-      "Smart interactive flat panels that turn any meeting room or classroom into a collaborative workspace.",
-    description:
-      "Horion Interactive Displays are smart, touch-enabled flat panels designed for modern meeting rooms, classrooms, and training centers. Built-in collaboration tools, wireless screen sharing, and intuitive whiteboarding make every session more productive.",
-    features: [
-      "4K touch-enabled interactive flat panels",
-      "Built-in whiteboarding and annotation",
-      "Wireless screen sharing from any device",
-      "Multi-user collaboration",
-      "Enterprise-grade installation and support",
-    ],
-  },
 ];
 
 export type Project = {
