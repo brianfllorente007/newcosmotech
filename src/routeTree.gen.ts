@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SolutionsRouteImport } from './routes/solutions'
+import { Route as QmasterRouteImport } from './routes/qmaster'
 import { Route as ProjectsRouteImport } from './routes/projects'
 import { Route as IntegrahrisGovernmentRouteImport } from './routes/integrahris-government'
 import { Route as Integrahris365RouteImport } from './routes/integrahris-365'
@@ -21,6 +22,11 @@ import { Route as SolutionsSlugRouteImport } from './routes/solutions.$slug'
 const SolutionsRoute = SolutionsRouteImport.update({
   id: '/solutions',
   path: '/solutions',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const QmasterRoute = QmasterRouteImport.update({
+  id: '/qmaster',
+  path: '/qmaster',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ProjectsRoute = ProjectsRouteImport.update({
@@ -66,6 +72,7 @@ export interface FileRoutesByFullPath {
   '/integrahris-365': typeof Integrahris365Route
   '/integrahris-government': typeof IntegrahrisGovernmentRoute
   '/projects': typeof ProjectsRoute
+  '/qmaster': typeof QmasterRoute
   '/solutions': typeof SolutionsRouteWithChildren
   '/solutions/$slug': typeof SolutionsSlugRoute
 }
@@ -76,6 +83,7 @@ export interface FileRoutesByTo {
   '/integrahris-365': typeof Integrahris365Route
   '/integrahris-government': typeof IntegrahrisGovernmentRoute
   '/projects': typeof ProjectsRoute
+  '/qmaster': typeof QmasterRoute
   '/solutions': typeof SolutionsRouteWithChildren
   '/solutions/$slug': typeof SolutionsSlugRoute
 }
@@ -87,6 +95,7 @@ export interface FileRoutesById {
   '/integrahris-365': typeof Integrahris365Route
   '/integrahris-government': typeof IntegrahrisGovernmentRoute
   '/projects': typeof ProjectsRoute
+  '/qmaster': typeof QmasterRoute
   '/solutions': typeof SolutionsRouteWithChildren
   '/solutions/$slug': typeof SolutionsSlugRoute
 }
@@ -99,6 +108,7 @@ export interface FileRouteTypes {
     | '/integrahris-365'
     | '/integrahris-government'
     | '/projects'
+    | '/qmaster'
     | '/solutions'
     | '/solutions/$slug'
   fileRoutesByTo: FileRoutesByTo
@@ -109,6 +119,7 @@ export interface FileRouteTypes {
     | '/integrahris-365'
     | '/integrahris-government'
     | '/projects'
+    | '/qmaster'
     | '/solutions'
     | '/solutions/$slug'
   id:
@@ -119,6 +130,7 @@ export interface FileRouteTypes {
     | '/integrahris-365'
     | '/integrahris-government'
     | '/projects'
+    | '/qmaster'
     | '/solutions'
     | '/solutions/$slug'
   fileRoutesById: FileRoutesById
@@ -130,6 +142,7 @@ export interface RootRouteChildren {
   Integrahris365Route: typeof Integrahris365Route
   IntegrahrisGovernmentRoute: typeof IntegrahrisGovernmentRoute
   ProjectsRoute: typeof ProjectsRoute
+  QmasterRoute: typeof QmasterRoute
   SolutionsRoute: typeof SolutionsRouteWithChildren
 }
 
@@ -140,6 +153,13 @@ declare module '@tanstack/react-router' {
       path: '/solutions'
       fullPath: '/solutions'
       preLoaderRoute: typeof SolutionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/qmaster': {
+      id: '/qmaster'
+      path: '/qmaster'
+      fullPath: '/qmaster'
+      preLoaderRoute: typeof QmasterRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/projects': {
@@ -213,6 +233,7 @@ const rootRouteChildren: RootRouteChildren = {
   Integrahris365Route: Integrahris365Route,
   IntegrahrisGovernmentRoute: IntegrahrisGovernmentRoute,
   ProjectsRoute: ProjectsRoute,
+  QmasterRoute: QmasterRoute,
   SolutionsRoute: SolutionsRouteWithChildren,
 }
 export const routeTree = rootRouteImport
