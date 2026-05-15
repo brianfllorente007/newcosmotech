@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import dashGeneral from "@/assets/dashboard/general-employee.jpg";
 import dashPayroll from "@/assets/dashboard/payroll.jpg";
 import dashTimekeeping from "@/assets/dashboard/timekeeping.jpg";
@@ -285,6 +285,34 @@ function IntegraHrisGovernmentPage() {
   useReveal();
   const [activeId, setActiveId] = useState<string>(DASHBOARD[0].id);
   const active = DASHBOARD.find((d) => d.id === activeId) ?? DASHBOARD[0];
+  const itemRefs = useRef<Record<string, HTMLDivElement | null>>({});
+
+  useEffect(() => {
+    const onScroll = () => {
+      const center = window.innerHeight / 2;
+      let bestId = DASHBOARD[0].id;
+      let bestDist = Infinity;
+      for (const d of DASHBOARD) {
+        const el = itemRefs.current[d.id];
+        if (!el) continue;
+        const rect = el.getBoundingClientRect();
+        const itemCenter = rect.top + rect.height / 2;
+        const dist = Math.abs(itemCenter - center);
+        if (dist < bestDist) {
+          bestDist = dist;
+          bestId = d.id;
+        }
+      }
+      setActiveId((prev) => (prev === bestId ? prev : bestId));
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
+  }, []);
   useEffect(() => {
     const script = document.createElement("script");
     script.type = "application/ld+json";
@@ -455,6 +483,9 @@ function IntegraHrisGovernmentPage() {
                   return (
                     <div
                       key={d.id}
+                      ref={(el) => {
+                        itemRefs.current[d.id] = el;
+                      }}
                       className={`border-l-2 pl-5 transition-colors ${
                         isActive ? "border-cobalt" : "border-border"
                       }`}
