@@ -285,6 +285,7 @@ function IntegraHrisGovernmentPage() {
   useReveal();
   const [activeId, setActiveId] = useState<string>(DASHBOARD[0].id);
   const active = DASHBOARD.find((d) => d.id === activeId) ?? DASHBOARD[0];
+  useEffect(() => {
     const script = document.createElement("script");
     script.type = "application/ld+json";
     script.text = JSON.stringify({
