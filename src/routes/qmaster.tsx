@@ -208,7 +208,7 @@ function QMasterPage() {
       {/* HERO */}
       <section className="overflow-hidden border-b border-border bg-bone pt-20 sm:pt-28">
         <Container>
-          <div className="grid items-end gap-12 lg:grid-cols-[1fr_1.15fr] lg:gap-10">
+          <div className="grid items-end gap-12 lg:grid-cols-[1.1fr_1fr] lg:gap-12">
             <div className="reveal order-2 pb-20 sm:pb-28 lg:order-1">
               <Eyebrow>QMaster — Queue Management System</Eyebrow>
               <h1 className="mt-4 text-5xl font-semibold leading-[1.02] tracking-tight sm:text-6xl md:text-7xl">
@@ -237,11 +237,11 @@ function QMasterPage() {
               </div>
             </div>
 
-            <div className="reveal order-1 flex items-end justify-center lg:order-2 lg:-mr-8 lg:justify-end xl:-mr-16">
+            <div className="reveal order-1 flex items-end justify-center lg:order-2 lg:justify-end lg:-mr-8 xl:-mr-16">
               <img
                 src={heroImage}
                 alt="QMaster queue management system showing kiosk and teller console"
-                className="block w-full max-w-none object-contain object-bottom lg:w-[120%]"
+                className="block w-full max-w-none object-contain object-bottom"
               />
             </div>
           </div>
