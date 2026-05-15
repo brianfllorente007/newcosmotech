@@ -390,31 +390,55 @@ function IntegraHrisGovernmentPage() {
 
       {/* TRUSTED BY */}
       {/* CHALLENGE / INTRO */}
-      <section className="border-b border-border py-20 sm:py-24">
+      <section className="border-b border-border bg-foreground py-20 sm:py-28">
         <Container>
-          <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
-            <div className="reveal lg:col-span-5">
-              <Eyebrow>The Challenge</Eyebrow>
-              <h2 className="mt-4 text-3xl font-semibold leading-tight tracking-tight text-foreground sm:text-4xl md:text-5xl">
-                One System for the Full Complexity of Government HR
-              </h2>
-            </div>
-            <div className="reveal space-y-5 text-base leading-relaxed text-muted-foreground sm:text-lg lg:col-span-7">
-              <p>
-                Managing HR in a government agency isn't just about people. It's
-                CSC requirements, DBM compliance, GSIS and HDMF remittances, and a
-                daily flood of requests from hundreds or thousands of employees.
-              </p>
-              <p>
-                IntegraHRIS Government Edition handles all of it: recruitment,
-                records, timekeeping, payroll, leave, performance appraisal,
-                learning and development, and employee self-service. Biometric
-                integration included. Government-required reports built in.{" "}
-                <span className="font-semibold text-foreground">
-                  No spreadsheets, no manual workarounds.
-                </span>
-              </p>
-            </div>
+          <div className="mx-auto max-w-4xl text-center">
+            <p className="text-xs font-medium uppercase tracking-[0.22em] text-background/60">
+              Government Edition
+            </p>
+            <h2 className="mt-6 text-4xl font-semibold leading-[1.1] tracking-tight text-background sm:text-5xl md:text-6xl">
+              One system for the full complexity of government HR
+            </h2>
+            <p className="mx-auto mt-8 max-w-2xl text-base leading-relaxed text-background/70 sm:text-lg">
+              Managing HR in a government agency isn't just about people. It's
+              CSC requirements, DBM compliance, GSIS and HDMF remittances, and
+              a daily flood of requests from hundreds or thousands of employees.
+            </p>
+          </div>
+
+          <div className="mt-16 grid gap-px border-t border-background/15 bg-background/15 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              {
+                icon: Users,
+                title: "Recruitment & Records",
+                body: "Full employee lifecycle, plantilla to separation",
+              },
+              {
+                icon: Clock,
+                title: "Timekeeping & Payroll",
+                body: "Biometric-integrated, audit-ready processing",
+              },
+              {
+                icon: CalendarDays,
+                title: "Leave & Performance",
+                body: "Appraisal, L&D, and self-service included",
+              },
+              {
+                icon: FileBarChart,
+                title: "Gov-Required Reports",
+                body: "CSC, DBM, GSIS, and HDMF ready out of the box",
+              },
+            ].map((f) => (
+              <div key={f.title} className="bg-foreground p-8">
+                <f.icon className="h-6 w-6 text-background/80" strokeWidth={1.5} />
+                <h3 className="mt-6 text-lg font-semibold text-background">
+                  {f.title}
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-background/60">
+                  {f.body}
+                </p>
+              </div>
+            ))}
           </div>
         </Container>
       </section>
