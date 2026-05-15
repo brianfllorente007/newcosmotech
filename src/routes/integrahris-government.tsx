@@ -317,23 +317,6 @@ function IntegraHrisGovernmentPage() {
               every stage of the employee lifecycle — from recruitment and onboarding
               to payroll, leave, and retirement.
             </p>
-            <div className="mt-6 max-w-3xl space-y-4 text-base leading-relaxed text-muted-foreground">
-              <p>
-                Managing people in a government agency means juggling CSC requirements,
-                DBM compliance, GSIS and HDMF remittances, and the daily volume of HR
-                requests from hundreds, sometimes thousands, of employees.
-              </p>
-              <p>
-                IntegraHRIS Government Edition handles all of it in one system.
-                Recruitment, employee records, timekeeping, payroll processing, leave
-                management, performance appraisal, learning and development, and
-                employee self-service — with direct biometric device integration and a
-                full suite of government-required reports built in.
-              </p>
-              <p className="font-medium text-foreground">
-                No manual workarounds. No spreadsheet patchwork.
-              </p>
-            </div>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
                 to="/contact"
@@ -348,6 +331,29 @@ function IntegraHrisGovernmentPage() {
                 View System Modules
               </a>
             </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* CHALLENGE / INTRO */}
+      <section className="border-b border-border py-20 sm:py-24">
+        <Container>
+          <div className="reveal mx-auto max-w-3xl space-y-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
+            <p>
+              Managing people in a government agency means juggling CSC requirements,
+              DBM compliance, GSIS and HDMF remittances, and the daily volume of HR
+              requests from hundreds, sometimes thousands, of employees.
+            </p>
+            <p>
+              IntegraHRIS Government Edition handles all of it in one system.
+              Recruitment, employee records, timekeeping, payroll processing, leave
+              management, performance appraisal, learning and development, and
+              employee self-service — with direct biometric device integration and a
+              full suite of government-required reports built in.
+            </p>
+            <p className="text-xl font-semibold tracking-tight text-foreground sm:text-2xl">
+              No manual workarounds. No spreadsheet patchwork.
+            </p>
           </div>
         </Container>
       </section>
