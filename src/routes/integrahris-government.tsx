@@ -335,30 +335,82 @@ function IntegraHrisGovernmentPage() {
       {/* HERO */}
       <section className="border-b border-border bg-bone py-20 sm:py-28">
         <Container>
-          <div className="reveal max-w-4xl">
-            <Eyebrow>IntegraHRIS Government Edition</Eyebrow>
-            <h1 className="mt-4 text-4xl font-semibold leading-[1.05] tracking-tight sm:text-5xl md:text-6xl">
-              Government HRIS Software for Philippine Agencies
-            </h1>
-            <p className="mt-5 text-lg leading-relaxed text-muted-foreground sm:text-xl">
-              The complete HR system for Philippine government agencies, built for
-              every stage of the employee lifecycle — from recruitment and onboarding
-              to payroll, leave, and retirement.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Link
-                to="/contact"
-                className="inline-flex h-11 items-center gap-2 rounded-full bg-brass px-5 text-sm font-medium text-ink transition-all hover:-translate-y-0.5 hover:brightness-95"
-              >
-                Request a Demo <ArrowRight className="h-4 w-4" />
-              </Link>
-              <a
-                href="#modules"
-                className="inline-flex h-11 items-center gap-2 rounded-full border border-border bg-card px-5 text-sm font-medium text-foreground hover:bg-muted"
-              >
-                View System Modules
-              </a>
+          <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+            {/* TEXT — LEFT */}
+            <div className="reveal order-2 lg:order-1">
+              <Eyebrow>IntegraHRIS Government Edition</Eyebrow>
+              <h1 className="mt-4 text-4xl font-semibold leading-[1.05] tracking-tight sm:text-5xl md:text-6xl">
+                Government HRIS Software for Philippine Agencies
+              </h1>
+              <p className="mt-5 text-lg leading-relaxed text-muted-foreground sm:text-xl">
+                The complete HR system for Philippine government agencies, built
+                for every stage of the employee lifecycle — from recruitment and
+                onboarding to payroll, leave, and retirement.
+              </p>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <Link
+                  to="/contact"
+                  className="inline-flex h-11 items-center gap-2 rounded-full bg-brass px-5 text-sm font-medium text-ink transition-all hover:-translate-y-0.5 hover:brightness-95"
+                >
+                  Request a Demo <ArrowRight className="h-4 w-4" />
+                </Link>
+                <a
+                  href="#modules"
+                  className="inline-flex h-11 items-center gap-2 rounded-full border border-border bg-card px-5 text-sm font-medium text-foreground hover:bg-muted"
+                >
+                  View System Modules
+                </a>
+              </div>
             </div>
+
+            {/* IMAGE — RIGHT */}
+            {/* REPLACE THIS PLACEHOLDER: drop hero image at src/assets/integrahris-government/hero.jpg
+                then swap the <div> below with: <img src={heroImage} alt="..." className="..." /> */}
+            <div className="reveal order-1 lg:order-2">
+              <div
+                data-image-slot="hero"
+                className="relative flex aspect-[4/3] w-full items-center justify-center overflow-hidden rounded-3xl border border-dashed border-cobalt/40 bg-gradient-to-br from-cobalt/10 via-bone to-brass/10"
+              >
+                <div className="text-center">
+                  <p className="text-xs font-medium uppercase tracking-[0.18em] text-cobalt">
+                    Image Placeholder
+                  </p>
+                  <p className="mt-2 text-sm font-semibold text-foreground">
+                    Hero Image
+                  </p>
+                  <p className="mt-1 text-xs text-muted-foreground">
+                    src/assets/integrahris-government/hero.jpg
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* TRUSTED BY */}
+      <section className="border-b border-border bg-card py-14 sm:py-16">
+        <Container>
+          <p className="text-center text-xs font-medium uppercase tracking-[0.22em] text-muted-foreground">
+            Trusted by Government Offices
+          </p>
+          <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-5">
+            {[1, 2, 3, 4, 5].map((n) => (
+              <div
+                key={n}
+                data-image-slot={`trusted-logo-${n}`}
+                className="flex h-20 items-center justify-center rounded-xl border border-dashed border-border bg-bone text-center"
+              >
+                <div>
+                  <p className="text-[10px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
+                    Logo {n}
+                  </p>
+                  <p className="mt-1 text-[10px] text-muted-foreground/70">
+                    src/assets/integrahris-government/logo-{n}.png
+                  </p>
+                </div>
+              </div>
+            ))}
           </div>
         </Container>
       </section>
@@ -366,22 +418,29 @@ function IntegraHrisGovernmentPage() {
       {/* CHALLENGE / INTRO */}
       <section className="border-b border-border py-20 sm:py-24">
         <Container>
-          <div className="reveal mx-auto max-w-3xl space-y-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
-            <p>
-              Managing people in a government agency means juggling CSC requirements,
-              DBM compliance, GSIS and HDMF remittances, and the daily volume of HR
-              requests from hundreds, sometimes thousands, of employees.
-            </p>
-            <p>
-              IntegraHRIS Government Edition handles all of it in one system.
-              Recruitment, employee records, timekeeping, payroll processing, leave
-              management, performance appraisal, learning and development, and
-              employee self-service — with direct biometric device integration and a
-              full suite of government-required reports built in.
-            </p>
-            <p className="text-xl font-semibold tracking-tight text-foreground sm:text-2xl">
-              No manual workarounds. No spreadsheet patchwork.
-            </p>
+          <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
+            <div className="reveal lg:col-span-5">
+              <Eyebrow>The Challenge</Eyebrow>
+              <h2 className="mt-4 text-3xl font-semibold leading-tight tracking-tight text-foreground sm:text-4xl md:text-5xl">
+                One System for the Full Complexity of Government HR
+              </h2>
+            </div>
+            <div className="reveal space-y-5 text-base leading-relaxed text-muted-foreground sm:text-lg lg:col-span-7">
+              <p>
+                Managing HR in a government agency isn't just about people. It's
+                CSC requirements, DBM compliance, GSIS and HDMF remittances, and a
+                daily flood of requests from hundreds or thousands of employees.
+              </p>
+              <p>
+                IntegraHRIS Government Edition handles all of it: recruitment,
+                records, timekeeping, payroll, leave, performance appraisal,
+                learning and development, and employee self-service. Biometric
+                integration included. Government-required reports built in.{" "}
+                <span className="font-semibold text-foreground">
+                  No spreadsheets, no manual workarounds.
+                </span>
+              </p>
+            </div>
           </div>
         </Container>
       </section>
