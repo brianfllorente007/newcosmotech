@@ -5,6 +5,20 @@ import dashPayroll from "@/assets/dashboard/payroll.jpg";
 import dashTimekeeping from "@/assets/dashboard/timekeeping.jpg";
 import dashMedical from "@/assets/dashboard/medical.jpg";
 import dashRecruitment from "@/assets/dashboard/recruitment.jpg";
+import heroImage from "@/assets/integrahris-government/hero.png";
+import logo1 from "@/assets/integrahris-government/logo-1.png";
+import logo2 from "@/assets/integrahris-government/logo-2.webp";
+import logo3 from "@/assets/integrahris-government/logo-3.png";
+import logo4 from "@/assets/integrahris-government/logo-4.png";
+import logo5 from "@/assets/integrahris-government/logo-5.png";
+
+const TRUSTED_LOGOS = [
+  { src: logo1, alt: "Philippine Ports Authority" },
+  { src: logo2, alt: "Bureau of Customs" },
+  { src: logo3, alt: "Department of Foreign Affairs" },
+  { src: logo4, alt: "Freeport Area of Bataan" },
+  { src: logo5, alt: "Philippine Drug Enforcement Agency" },
+];
 import {
   ArrowRight,
   CheckCircle2,
@@ -367,22 +381,11 @@ function IntegraHrisGovernmentPage() {
             {/* REPLACE THIS PLACEHOLDER: drop hero image at src/assets/integrahris-government/hero.jpg
                 then swap the <div> below with: <img src={heroImage} alt="..." className="..." /> */}
             <div className="reveal order-1 lg:order-2">
-              <div
-                data-image-slot="hero"
-                className="relative flex aspect-[4/3] w-full items-center justify-center overflow-hidden rounded-3xl border border-dashed border-cobalt/40 bg-gradient-to-br from-cobalt/10 via-bone to-brass/10"
-              >
-                <div className="text-center">
-                  <p className="text-xs font-medium uppercase tracking-[0.18em] text-cobalt">
-                    Image Placeholder
-                  </p>
-                  <p className="mt-2 text-sm font-semibold text-foreground">
-                    Hero Image
-                  </p>
-                  <p className="mt-1 text-xs text-muted-foreground">
-                    src/assets/integrahris-government/hero.jpg
-                  </p>
-                </div>
-              </div>
+              <img
+                src={heroImage}
+                alt="IntegraHRIS Government dashboard showing leave entitlement and notifications screens"
+                className="aspect-[4/3] w-full rounded-3xl object-cover"
+              />
             </div>
           </div>
         </Container>
@@ -448,21 +451,18 @@ function IntegraHrisGovernmentPage() {
           <p className="text-center text-xs font-medium uppercase tracking-[0.22em] text-muted-foreground">
             Trusted by Government Offices
           </p>
-          <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-5">
-            {[1, 2, 3, 4, 5].map((n) => (
+          <div className="mt-8 grid grid-cols-2 items-center gap-4 sm:grid-cols-3 md:grid-cols-5">
+            {TRUSTED_LOGOS.map((logo) => (
               <div
-                key={n}
-                data-image-slot={`trusted-logo-${n}`}
-                className="flex h-20 items-center justify-center rounded-xl border border-dashed border-border bg-bone text-center"
+                key={logo.alt}
+                className="flex h-24 items-center justify-center rounded-xl border border-border bg-bone px-4"
               >
-                <div>
-                  <p className="text-[10px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
-                    Logo {n}
-                  </p>
-                  <p className="mt-1 text-[10px] text-muted-foreground/70">
-                    src/assets/integrahris-government/logo-{n}.png
-                  </p>
-                </div>
+                <img
+                  src={logo.src}
+                  alt={logo.alt}
+                  loading="lazy"
+                  className="max-h-14 max-w-[85%] w-auto object-contain"
+                />
               </div>
             ))}
           </div>
