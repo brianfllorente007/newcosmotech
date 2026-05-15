@@ -2,23 +2,14 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   ArrowRight,
   CheckCircle2,
-  Clock,
   Bell,
   BarChart3,
-  Printer,
-  Monitor,
-  Users,
   Building2,
   Hospital,
   Landmark,
   Banknote,
   Store,
   GraduationCap,
-  ShieldCheck,
-  Workflow,
-  Wifi,
-  Smartphone,
-  MessageSquare,
   Gauge,
 } from "lucide-react";
 import heroImage from "@/assets/qmaster/hero.png";
