@@ -237,11 +237,11 @@ function QMasterPage() {
               </div>
             </div>
 
-            <div className="reveal order-1 flex items-end justify-center lg:order-2 lg:-mr-8 lg:justify-end xl:-mr-16">
+            <div className="reveal order-1 flex items-end justify-center lg:order-2 lg:justify-end lg:-mr-8 xl:-mr-16">
               <img
                 src={heroImage}
                 alt="QMaster queue management system showing kiosk and teller console"
-                className="block w-full max-w-none object-contain object-bottom lg:w-[120%]"
+                className="block w-full max-w-none object-contain object-bottom"
               />
             </div>
           </div>
