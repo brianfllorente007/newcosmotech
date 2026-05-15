@@ -1,41 +1,26 @@
-## Edits to `src/routes/integrahris-government.tsx`
+## Plan: Attach Hero & Trusted-by logos on IntegraHRIS Government page
 
-### 1. Hero Section — trim
-Keep only:
-- Eyebrow: "IntegraHRIS Government Edition"
-- H1: "Government HRIS Software for Philippine Agencies"
-- Subhead paragraph: "The complete HR system for Philippine government agencies, built for every stage of the employee lifecycle — from recruitment and onboarding to payroll, leave, and retirement."
-- CTA buttons (Request a Demo, View System Modules)
+**File:** `src/routes/integrahris-government.tsx`
 
-Remove the three-paragraph block currently in the hero ("Managing people…", "IntegraHRIS Government Edition handles…", "No manual workarounds…").
+### 1. Hero image
+- Copy `user-uploads://Hero_HRISGovt.png` → `src/assets/integrahris-government/hero.png`
+- Import it at the top of the route file
+- Replace the hero placeholder `<div data-image-slot="hero">` (lines 369–386) with an `<img>` filling the same 4:3 container (`h-full w-full object-cover rounded-3xl`), keeping the border/wrapper for consistent framing
 
-### 2. New "The Challenge" Section
-Insert a new section between Hero and the Benefits grid containing the three paragraphs removed from the hero, styled as a focused intro band on `bg-card`/border treatment with a max-width prose column. Last line ("No manual workarounds. No spreadsheet patchwork.") rendered emphasized.
+### 2. Trusted by Government Offices logos
+- Copy the 5 uploaded logos into `src/assets/integrahris-government/`:
+  1. `user-uploads://1200px-Philippine_Ports_Authority_PPA.svg-1.png` → `logo-1.png` (Philippine Ports Authority)
+  2. `user-uploads://BOC.webp` → `logo-2.webp` (Bureau of Customs)
+  3. `user-uploads://dfa.png` → `logo-3.png` (Department of Foreign Affairs)
+  4. `user-uploads://Freeport_Area_of_Bataan_logo.png` → `logo-4.png` (FAB)
+  5. `user-uploads://pdealogo.png` → `logo-5.png` (PDEA)
+- Import all 5 and build a `LOGOS` array `[{src, alt}]`
+- Replace the `[1,2,3,4,5].map(...)` placeholder block (lines 452–467) with one that renders each logo as an `<img>` inside its existing card
 
-### 3. Executive Dashboard — interactive split layout
-Replace the current 3-column grid with a two-column layout inspired by the attached reference:
+### Uniform sizing approach
+To make wildly different logo aspect ratios (square seals, wide wordmarks) read consistently:
+- Keep the card at `h-20` and switch background from dashed-border placeholder to a clean `bg-bone` card with subtle border
+- Inside each card: `<img className="max-h-12 max-w-[80%] w-auto object-contain" />` — caps height so tall seals (DFA, PDEA, BOC) and wide marks (FAB, PPA) all sit at the same visual weight with consistent padding
+- Add `loading="lazy"` and descriptive `alt` text per agency
 
-- Left column: section heading + a vertical list of the 5 dashboard categories (General Employee Data, Payroll Data, Timekeeping & Leave Data, Medical Data, Recruitment Data). Each item is a button row with icon + title. The active item shows an accent left-border and bold text; inactive items are muted. Clicking expands an inline dropdown beneath the title revealing the bullet list of metrics for that category (smooth height transition).
-- Right column: a sticky card showing the corresponding dashboard mockup image. Image swaps with a fade transition when the active category changes.
-- State managed via `useState<string>` for active category id; only one open at a time; first item open by default.
-- Mobile (<md): stack vertically — image card appears above each expanded panel, or single image above the list that updates on selection.
-
-### 4. Placeholder images
-Add 5 placeholder images to `src/assets/dashboard/`:
-- `general-employee.webp`
-- `payroll.webp`
-- `timekeeping.webp`
-- `medical.webp`
-- `recruitment.webp`
-
-Generate simple branded mockup placeholders (light card with chart shapes) so the layout is visible; user swaps later. Import each via ES6 and map to its dashboard entry.
-
-### Sections kept as-is
-- Why IntegraHRIS (Benefits grid)
-- System Modules grid
-- CtaBand
-
-## Technical notes
-- Continue using existing `Container`, `SectionHeading`, `Eyebrow`, `useReveal`, design tokens (`cobalt`, `bone`, `border`, `muted-foreground`).
-- No new dependencies; use plain `useState` + Tailwind transitions for the accordion/image swap.
-- Keep `head()` metadata and JSON-LD unchanged.
+No copy changes, no other sections touched.
