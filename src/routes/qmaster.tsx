@@ -208,7 +208,7 @@ function QMasterPage() {
       {/* HERO */}
       <section className="overflow-hidden border-b border-border bg-bone pt-20 sm:pt-28">
         <Container>
-          <div className="grid items-end gap-12 lg:grid-cols-[1.1fr_1fr] lg:gap-12">
+          <div className="grid items-stretch gap-12 lg:grid-cols-2 lg:gap-12">
             <div className="reveal order-2 pb-20 sm:pb-28 lg:order-1">
               <Eyebrow>QMaster — Queue Management System</Eyebrow>
               <h1 className="mt-4 text-5xl font-semibold leading-[1.02] tracking-tight sm:text-6xl md:text-7xl">
