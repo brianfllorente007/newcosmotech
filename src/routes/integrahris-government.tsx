@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import dashGeneral from "@/assets/dashboard/general-employee.jpg";
 import dashPayroll from "@/assets/dashboard/payroll.jpg";
 import dashTimekeeping from "@/assets/dashboard/timekeeping.jpg";
