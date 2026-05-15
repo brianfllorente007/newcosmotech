@@ -483,6 +483,9 @@ function IntegraHrisGovernmentPage() {
                   return (
                     <div
                       key={d.id}
+                      ref={(el) => {
+                        itemRefs.current[d.id] = el;
+                      }}
                       className={`border-l-2 pl-5 transition-colors ${
                         isActive ? "border-cobalt" : "border-border"
                       }`}
