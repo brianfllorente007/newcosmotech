@@ -54,25 +54,6 @@ const TOP_STATS = [
   { k: "7 days", l: "From signed pilot to live counter" },
 ];
 
-const WHY_CARDS = [
-  {
-    badge: "20–30%",
-    title: "Faster average handling time",
-    body: "When customers know where they stand and tellers know what's coming, transactions move. Less re-asking, less re-printing, fewer false starts.",
-    tone: "brass",
-  },
-  {
-    title: "Lines that re-route themselves",
-    body: "Priority lanes for senior citizens, PWDs, and pregnant clients are built in. Overflow rolls to the next available window automatically.",
-    tone: "cobalt",
-  },
-  {
-    title: "Counters that stay calibrated",
-    body: "Window assignments, transaction types, and SLAs change without calling IT. Branch managers run the floor; QMaster keeps the records.",
-    tone: "sage",
-  },
-];
-
 const VOCABULARY = [
   { word: "TICKET", def: "A printed or digital number that holds the customer's place in line." },
   { word: "WINDOW", def: "A staffed counter that calls, serves, and closes tickets." },
