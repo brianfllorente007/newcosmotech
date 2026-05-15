@@ -1,41 +1,41 @@
-## 1. Product copy + 2 new products (`src/lib/site.ts`)
+## Edits to `src/routes/integrahris-government.tsx`
 
-Update each product's `short` and `description` to the new copy (verbatim). Keep `tagline`, `features`, `deployedAt`, logos, and screenshots untouched.
+### 1. Hero Section — trim
+Keep only:
+- Eyebrow: "IntegraHRIS Government Edition"
+- H1: "Government HRIS Software for Philippine Agencies"
+- Subhead paragraph: "The complete HR system for Philippine government agencies, built for every stage of the employee lifecycle — from recruitment and onboarding to payroll, leave, and retirement."
+- CTA buttons (Request a Demo, View System Modules)
 
-Mapping:
-- **IntegraHRIS Government** (`integrahris-government`) → "Complete HR and payroll management for government agencies; plantilla, payroll, leave, performance management, and PRIME-HRM compliance."
-- **IntegraHRIS 365** (`integrahris`) → "Cloud-ready HRIS for enterprises. Scalable HR, payroll, and workforce management for today's fast-moving organizations."
-- **Docutrakr** → "Document tracking with full visibility and traceability across departments, approvals, and document workflows."
-- **QMaster** → "Intelligent queue management and customer flow — real-time monitoring, analytics, kiosk integration, and digital ticketing."
-- **URateMe** → "Real-time citizen and customer feedback satisfaction ratings, service quality scores, and actionable insights at the point of service."
-- **HelpDesk** → "Streamline support requests with a centralized ticketing platform that improves response time and service efficiency."
-- **Horion** — keep existing copy (unchanged).
+Remove the three-paragraph block currently in the hero ("Managing people…", "IntegraHRIS Government Edition handles…", "No manual workarounds…").
 
-Add 2 new products as placeholders (no logo image, no screenshot — `SuiteTabs` already falls back to a text label + `DocMock`):
-- `health-wellness` — name "Health & Wellness", tagline "Employee health and wellness, end to end.", short/description = "Employee health and wellness management, medical records, consultation logs, leave-for-health tracking, and wellness programs.", features: 4–5 bullets derived from the copy (medical records, consultation logs, leave-for-health tracking, wellness programs, reporting).
-- `cosmotech-gpms` — name "CosmotechGPMS", tagline "Government procurement, transparent end to end.", short/description = "Government Procurement Management System for full procurement transparency and accountability.", features: 4–5 bullets (procurement planning, bidding workflow, audit trail, vendor management, transparency reporting).
+### 2. New "The Challenge" Section
+Insert a new section between Hero and the Benefits grid containing the three paragraphs removed from the hero, styled as a focused intro band on `bg-card`/border treatment with a max-width prose column. Last line ("No manual workarounds. No spreadsheet patchwork.") rendered emphasized.
 
-Final order in `PRODUCTS` array (8 items): IntegraHRIS 365, IntegraHRIS Government, QMaster, HelpDesk, Docutrakr, URateMe, Health & Wellness, CosmotechGPMS, Horion (= 9 total to keep Horion).
+### 3. Executive Dashboard — interactive split layout
+Replace the current 3-column grid with a two-column layout inspired by the attached reference:
 
-## 2. SuiteTabs → 2 rows × 4 columns on desktop (`src/components/SuiteTabs.tsx`)
+- Left column: section heading + a vertical list of the 5 dashboard categories (General Employee Data, Payroll Data, Timekeeping & Leave Data, Medical Data, Recruitment Data). Each item is a button row with icon + title. The active item shows an accent left-border and bold text; inactive items are muted. Clicking expands an inline dropdown beneath the title revealing the bullet list of metrics for that category (smooth height transition).
+- Right column: a sticky card showing the corresponding dashboard mockup image. Image swaps with a fade transition when the active category changes.
+- State managed via `useState<string>` for active category id; only one open at a time; first item open by default.
+- Mobile (<md): stack vertically — image card appears above each expanded panel, or single image above the list that updates on selection.
 
-Currently the tab strip is a single horizontally-scrollable row. Change it so:
-- **Mobile (`<sm`)**: keep the horizontal snap scroller as-is (per earlier explicit request).
-- **`sm:` and up**: switch to a CSS grid `sm:grid sm:grid-cols-4 sm:gap-3 sm:overflow-visible sm:px-0` so 9 items wrap into rows of 4 (= 4/4/1 with Horion). With 8 visible products + Horion that's effectively 2 full rows + 1; acceptable.
-- Drop the right-edge fade gradient on `sm:` and up.
-- Tab buttons: remove fixed `w-44 shrink-0 snap-start` on `sm:` and up; use `sm:w-auto` so they fill grid cells.
+### 4. Placeholder images
+Add 5 placeholder images to `src/assets/dashboard/`:
+- `general-employee.webp`
+- `payroll.webp`
+- `timekeeping.webp`
+- `medical.webp`
+- `recruitment.webp`
 
-Keep cross-fade panel logic untouched.
+Generate simple branded mockup placeholders (light card with chart shapes) so the layout is visible; user swaps later. Import each via ES6 and map to its dashboard entry.
 
-## 3. FAQ section on home (`src/components/FaqSection.tsx` + `src/routes/index.tsx`)
+### Sections kept as-is
+- Why IntegraHRIS (Benefits grid)
+- System Modules grid
+- CtaBand
 
-New component `FaqSection` using existing shadcn `Accordion` (`@/components/ui/accordion`):
-- Wrapped in `<section className="py-16 sm:py-20 md:py-24">` + `<Container>`.
-- `SectionHeading` with eyebrow "FAQ", title "Questions, answered.", centered.
-- `Accordion type="single" collapsible` with the 4 Q&As verbatim.
-- Constrain to `max-w-3xl mx-auto`.
-
-Render in `src/routes/index.tsx` inside a `<div className="reveal">` placed **immediately above `<CtaBand />`** (after the Why Cosmotech block).
-
-## Out of scope
-- No new routes, no logo assets for the 2 placeholders (text fallback only), no copy changes outside the listed products, no styling changes to product detail pages.
+## Technical notes
+- Continue using existing `Container`, `SectionHeading`, `Eyebrow`, `useReveal`, design tokens (`cobalt`, `bone`, `border`, `muted-foreground`).
+- No new dependencies; use plain `useState` + Tailwind transitions for the accordion/image swap.
+- Keep `head()` metadata and JSON-LD unchanged.
