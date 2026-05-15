@@ -446,9 +446,9 @@ function IntegraHrisGovernmentPage() {
         </Container>
       </section>
 
-      <section className="border-b border-border bg-foreground py-14 sm:py-16">
+      <section className="border-b border-border bg-bone py-14 sm:py-16">
         <Container>
-          <p className="text-center text-xs font-medium uppercase tracking-[0.22em] text-background/60">
+          <p className="text-center text-xs font-medium uppercase tracking-[0.22em] text-muted-foreground">
             Trusted by Government Offices
           </p>
           <div className="mt-8 grid grid-cols-2 items-center gap-8 sm:grid-cols-3 md:grid-cols-5">
