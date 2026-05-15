@@ -389,32 +389,6 @@ function IntegraHrisGovernmentPage() {
       </section>
 
       {/* TRUSTED BY */}
-      <section className="border-b border-border bg-card py-14 sm:py-16">
-        <Container>
-          <p className="text-center text-xs font-medium uppercase tracking-[0.22em] text-muted-foreground">
-            Trusted by Government Offices
-          </p>
-          <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-5">
-            {[1, 2, 3, 4, 5].map((n) => (
-              <div
-                key={n}
-                data-image-slot={`trusted-logo-${n}`}
-                className="flex h-20 items-center justify-center rounded-xl border border-dashed border-border bg-bone text-center"
-              >
-                <div>
-                  <p className="text-[10px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
-                    Logo {n}
-                  </p>
-                  <p className="mt-1 text-[10px] text-muted-foreground/70">
-                    src/assets/integrahris-government/logo-{n}.png
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </Container>
-      </section>
-
       {/* CHALLENGE / INTRO */}
       <section className="border-b border-border py-20 sm:py-24">
         <Container>
@@ -441,6 +415,32 @@ function IntegraHrisGovernmentPage() {
                 </span>
               </p>
             </div>
+          </div>
+        </Container>
+      </section>
+
+      <section className="border-b border-border bg-card py-14 sm:py-16">
+        <Container>
+          <p className="text-center text-xs font-medium uppercase tracking-[0.22em] text-muted-foreground">
+            Trusted by Government Offices
+          </p>
+          <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-5">
+            {[1, 2, 3, 4, 5].map((n) => (
+              <div
+                key={n}
+                data-image-slot={`trusted-logo-${n}`}
+                className="flex h-20 items-center justify-center rounded-xl border border-dashed border-border bg-bone text-center"
+              >
+                <div>
+                  <p className="text-[10px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
+                    Logo {n}
+                  </p>
+                  <p className="mt-1 text-[10px] text-muted-foreground/70">
+                    src/assets/integrahris-government/logo-{n}.png
+                  </p>
+                </div>
+              </div>
+            ))}
           </div>
         </Container>
       </section>
