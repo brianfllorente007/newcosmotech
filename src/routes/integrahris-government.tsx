@@ -1,5 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import dashGeneral from "@/assets/dashboard/general-employee.jpg";
+import dashPayroll from "@/assets/dashboard/payroll.jpg";
+import dashTimekeeping from "@/assets/dashboard/timekeeping.jpg";
+import dashMedical from "@/assets/dashboard/medical.jpg";
+import dashRecruitment from "@/assets/dashboard/recruitment.jpg";
 import {
   ArrowRight,
   CheckCircle2,
@@ -209,8 +214,10 @@ const MODULES = [
 
 const DASHBOARD = [
   {
+    id: "general",
     icon: Users,
     title: "General Employee Data",
+    image: dashGeneral,
     items: [
       "Organizational unit breakdown",
       "Total headcount",
@@ -226,8 +233,10 @@ const DASHBOARD = [
     ],
   },
   {
+    id: "payroll",
     icon: Wallet2,
     title: "Payroll Data",
+    image: dashPayroll,
     items: [
       "Gross pay summary",
       "Total deductions summary",
@@ -235,8 +244,10 @@ const DASHBOARD = [
     ],
   },
   {
+    id: "timekeeping",
     icon: Clock,
     title: "Timekeeping and Leave Data",
+    image: dashTimekeeping,
     items: [
       "Employees without a time-in as of 8:00 AM",
       "Employees with filed leave for the day",
@@ -244,8 +255,10 @@ const DASHBOARD = [
     ],
   },
   {
+    id: "medical",
     icon: Stethoscope,
     title: "Medical Data",
+    image: dashMedical,
     items: [
       "Top 5 medical complaints",
       "Top 5 medical diagnoses",
@@ -254,8 +267,10 @@ const DASHBOARD = [
     ],
   },
   {
+    id: "recruitment",
     icon: Briefcase,
     title: "Recruitment Data",
+    image: dashRecruitment,
     items: [
       "Total number of vacant positions",
       "Applicants by gender",
@@ -268,7 +283,8 @@ const DASHBOARD = [
 
 function IntegraHrisGovernmentPage() {
   useReveal();
-
+  const [activeId, setActiveId] = useState<string>(DASHBOARD[0].id);
+  const active = DASHBOARD.find((d) => d.id === activeId) ?? DASHBOARD[0];
   useEffect(() => {
     const script = document.createElement("script");
     script.type = "application/ld+json";
@@ -301,23 +317,6 @@ function IntegraHrisGovernmentPage() {
               every stage of the employee lifecycle — from recruitment and onboarding
               to payroll, leave, and retirement.
             </p>
-            <div className="mt-6 max-w-3xl space-y-4 text-base leading-relaxed text-muted-foreground">
-              <p>
-                Managing people in a government agency means juggling CSC requirements,
-                DBM compliance, GSIS and HDMF remittances, and the daily volume of HR
-                requests from hundreds, sometimes thousands, of employees.
-              </p>
-              <p>
-                IntegraHRIS Government Edition handles all of it in one system.
-                Recruitment, employee records, timekeeping, payroll processing, leave
-                management, performance appraisal, learning and development, and
-                employee self-service — with direct biometric device integration and a
-                full suite of government-required reports built in.
-              </p>
-              <p className="font-medium text-foreground">
-                No manual workarounds. No spreadsheet patchwork.
-              </p>
-            </div>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
                 to="/contact"
@@ -332,6 +331,29 @@ function IntegraHrisGovernmentPage() {
                 View System Modules
               </a>
             </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* CHALLENGE / INTRO */}
+      <section className="border-b border-border py-20 sm:py-24">
+        <Container>
+          <div className="reveal mx-auto max-w-3xl space-y-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
+            <p>
+              Managing people in a government agency means juggling CSC requirements,
+              DBM compliance, GSIS and HDMF remittances, and the daily volume of HR
+              requests from hundreds, sometimes thousands, of employees.
+            </p>
+            <p>
+              IntegraHRIS Government Edition handles all of it in one system.
+              Recruitment, employee records, timekeeping, payroll processing, leave
+              management, performance appraisal, learning and development, and
+              employee self-service — with direct biometric device integration and a
+              full suite of government-required reports built in.
+            </p>
+            <p className="text-xl font-semibold tracking-tight text-foreground sm:text-2xl">
+              No manual workarounds. No spreadsheet patchwork.
+            </p>
           </div>
         </Container>
       </section>
@@ -423,35 +445,87 @@ function IntegraHrisGovernmentPage() {
             <SectionHeading
               eyebrow="Executive Dashboard"
               title="Real-Time HR Data for Agency Leadership"
-              intro="Pre-built charts and graphical views keep management informed without waiting on manual reports. Dashboard data is organized by category so leaders can quickly understand workforce, payroll, attendance, medical, and recruitment data."
+              intro="Pre-built charts and graphical views keep management informed without waiting on manual reports. Click a category to explore the metrics available."
             />
-            <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {DASHBOARD.map((d) => (
-                <div
-                  key={d.title}
-                  className="rounded-2xl border border-border bg-card p-6"
-                >
-                  <div className="flex items-center gap-3">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-cobalt/10 text-cobalt">
-                      <d.icon className="h-5 w-5" />
-                    </div>
-                    <h3 className="text-lg font-semibold tracking-tight text-foreground">
-                      {d.title}
-                    </h3>
-                  </div>
-                  <ul className="mt-4 space-y-2">
-                    {d.items.map((item) => (
-                      <li
-                        key={item}
-                        className="flex items-start gap-2 text-sm text-muted-foreground"
+            <div className="mt-12 grid gap-10 lg:grid-cols-2 lg:gap-14">
+              {/* LEFT: interactive feature list */}
+              <div className="flex flex-col">
+                {DASHBOARD.map((d) => {
+                  const isActive = d.id === activeId;
+                  return (
+                    <div
+                      key={d.id}
+                      className={`border-l-2 pl-5 transition-colors ${
+                        isActive ? "border-cobalt" : "border-border"
+                      }`}
+                    >
+                      <button
+                        type="button"
+                        onClick={() => setActiveId(d.id)}
+                        aria-expanded={isActive}
+                        className="flex w-full items-center gap-3 py-4 text-left"
                       >
-                        <span className="mt-1.5 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-cobalt" />
-                        <span>{item}</span>
-                      </li>
+                        <d.icon
+                          className={`h-5 w-5 shrink-0 transition-colors ${
+                            isActive ? "text-cobalt" : "text-muted-foreground"
+                          }`}
+                        />
+                        <span
+                          className={`text-base font-medium tracking-tight transition-colors sm:text-lg ${
+                            isActive ? "text-foreground" : "text-muted-foreground"
+                          }`}
+                        >
+                          {d.title}
+                        </span>
+                      </button>
+                      <div
+                        className={`grid transition-all duration-300 ease-out ${
+                          isActive
+                            ? "grid-rows-[1fr] opacity-100"
+                            : "grid-rows-[0fr] opacity-0"
+                        }`}
+                      >
+                        <div className="overflow-hidden">
+                          <ul className="space-y-2 pb-5 pr-4">
+                            {d.items.map((item) => (
+                              <li
+                                key={item}
+                                className="flex items-start gap-2 text-sm text-muted-foreground"
+                              >
+                                <span className="mt-1.5 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-cobalt" />
+                                <span>{item}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+
+              {/* RIGHT: image preview */}
+              <div className="lg:sticky lg:top-24 lg:self-start">
+                <div className="relative overflow-hidden rounded-3xl border border-border bg-gradient-to-br from-cobalt/15 via-cobalt/5 to-brass/15 p-3 shadow-xl sm:p-4">
+                  <div className="overflow-hidden rounded-2xl bg-card">
+                    {DASHBOARD.map((d) => (
+                      <img
+                        key={d.id}
+                        src={d.image}
+                        alt={`${d.title} dashboard preview`}
+                        width={1280}
+                        height={896}
+                        loading="lazy"
+                        className={`h-auto w-full transition-opacity duration-500 ${
+                          d.id === active.id
+                            ? "block opacity-100"
+                            : "hidden opacity-0"
+                        }`}
+                      />
                     ))}
-                  </ul>
+                  </div>
                 </div>
-              ))}
+              </div>
             </div>
           </div>
         </Container>
