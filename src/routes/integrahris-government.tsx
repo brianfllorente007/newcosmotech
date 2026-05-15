@@ -445,35 +445,87 @@ function IntegraHrisGovernmentPage() {
             <SectionHeading
               eyebrow="Executive Dashboard"
               title="Real-Time HR Data for Agency Leadership"
-              intro="Pre-built charts and graphical views keep management informed without waiting on manual reports. Dashboard data is organized by category so leaders can quickly understand workforce, payroll, attendance, medical, and recruitment data."
+              intro="Pre-built charts and graphical views keep management informed without waiting on manual reports. Click a category to explore the metrics available."
             />
-            <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {DASHBOARD.map((d) => (
-                <div
-                  key={d.title}
-                  className="rounded-2xl border border-border bg-card p-6"
-                >
-                  <div className="flex items-center gap-3">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-cobalt/10 text-cobalt">
-                      <d.icon className="h-5 w-5" />
-                    </div>
-                    <h3 className="text-lg font-semibold tracking-tight text-foreground">
-                      {d.title}
-                    </h3>
-                  </div>
-                  <ul className="mt-4 space-y-2">
-                    {d.items.map((item) => (
-                      <li
-                        key={item}
-                        className="flex items-start gap-2 text-sm text-muted-foreground"
+            <div className="mt-12 grid gap-10 lg:grid-cols-2 lg:gap-14">
+              {/* LEFT: interactive feature list */}
+              <div className="flex flex-col">
+                {DASHBOARD.map((d) => {
+                  const isActive = d.id === activeId;
+                  return (
+                    <div
+                      key={d.id}
+                      className={`border-l-2 pl-5 transition-colors ${
+                        isActive ? "border-cobalt" : "border-border"
+                      }`}
+                    >
+                      <button
+                        type="button"
+                        onClick={() => setActiveId(d.id)}
+                        aria-expanded={isActive}
+                        className="flex w-full items-center gap-3 py-4 text-left"
                       >
-                        <span className="mt-1.5 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-cobalt" />
-                        <span>{item}</span>
-                      </li>
+                        <d.icon
+                          className={`h-5 w-5 shrink-0 transition-colors ${
+                            isActive ? "text-cobalt" : "text-muted-foreground"
+                          }`}
+                        />
+                        <span
+                          className={`text-base font-medium tracking-tight transition-colors sm:text-lg ${
+                            isActive ? "text-foreground" : "text-muted-foreground"
+                          }`}
+                        >
+                          {d.title}
+                        </span>
+                      </button>
+                      <div
+                        className={`grid transition-all duration-300 ease-out ${
+                          isActive
+                            ? "grid-rows-[1fr] opacity-100"
+                            : "grid-rows-[0fr] opacity-0"
+                        }`}
+                      >
+                        <div className="overflow-hidden">
+                          <ul className="space-y-2 pb-5 pr-4">
+                            {d.items.map((item) => (
+                              <li
+                                key={item}
+                                className="flex items-start gap-2 text-sm text-muted-foreground"
+                              >
+                                <span className="mt-1.5 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-cobalt" />
+                                <span>{item}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+
+              {/* RIGHT: image preview */}
+              <div className="lg:sticky lg:top-24 lg:self-start">
+                <div className="relative overflow-hidden rounded-3xl border border-border bg-gradient-to-br from-cobalt/15 via-cobalt/5 to-brass/15 p-3 shadow-xl sm:p-4">
+                  <div className="overflow-hidden rounded-2xl bg-card">
+                    {DASHBOARD.map((d) => (
+                      <img
+                        key={d.id}
+                        src={d.image}
+                        alt={`${d.title} dashboard preview`}
+                        width={1280}
+                        height={896}
+                        loading="lazy"
+                        className={`h-auto w-full transition-opacity duration-500 ${
+                          d.id === active.id
+                            ? "block opacity-100"
+                            : "hidden opacity-0"
+                        }`}
+                      />
                     ))}
-                  </ul>
+                  </div>
                 </div>
-              ))}
+              </div>
             </div>
           </div>
         </Container>
