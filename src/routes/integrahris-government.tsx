@@ -214,8 +214,10 @@ const MODULES = [
 
 const DASHBOARD = [
   {
+    id: "general",
     icon: Users,
     title: "General Employee Data",
+    image: dashGeneral,
     items: [
       "Organizational unit breakdown",
       "Total headcount",
@@ -231,8 +233,10 @@ const DASHBOARD = [
     ],
   },
   {
+    id: "payroll",
     icon: Wallet2,
     title: "Payroll Data",
+    image: dashPayroll,
     items: [
       "Gross pay summary",
       "Total deductions summary",
@@ -240,8 +244,10 @@ const DASHBOARD = [
     ],
   },
   {
+    id: "timekeeping",
     icon: Clock,
     title: "Timekeeping and Leave Data",
+    image: dashTimekeeping,
     items: [
       "Employees without a time-in as of 8:00 AM",
       "Employees with filed leave for the day",
@@ -249,8 +255,10 @@ const DASHBOARD = [
     ],
   },
   {
+    id: "medical",
     icon: Stethoscope,
     title: "Medical Data",
+    image: dashMedical,
     items: [
       "Top 5 medical complaints",
       "Top 5 medical diagnoses",
@@ -259,8 +267,10 @@ const DASHBOARD = [
     ],
   },
   {
+    id: "recruitment",
     icon: Briefcase,
     title: "Recruitment Data",
+    image: dashRecruitment,
     items: [
       "Total number of vacant positions",
       "Applicants by gender",
