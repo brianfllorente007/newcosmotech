@@ -18,6 +18,22 @@ import { Container } from "@/components/Container";
 import hris365Hero from "@/assets/integrahris-365-hero.png";
 import setupWizardImg from "@/assets/integrahris-365-setup-wizard.png";
 import hrDashboardImg from "@/assets/integrahris-365-dashboard.png";
+import employeeRecordImg from "@/assets/integrahris-365-employee-record.png";
+import loanManagementImg from "@/assets/integrahris-365-loan-management.png";
+import payrollImg from "@/assets/integrahris-365-payroll.png";
+import reportsImg from "@/assets/integrahris-365-reports.png";
+import securityImg from "@/assets/integrahris-365-security.png";
+import timekeepingImg from "@/assets/integrahris-365-timekeeping.png";
+
+const MODULE_IMAGES: Record<string, { src: string; alt: string }> = {
+  "HR Dashboard": { src: hrDashboardImg, alt: "IntegraHRIS 365 HR dashboard showing headcount, payroll, and attendance" },
+  "Employee Record": { src: employeeRecordImg, alt: "IntegraHRIS 365 Employee Record with 201 file and document attachments" },
+  "Timekeeping": { src: timekeepingImg, alt: "IntegraHRIS 365 Timekeeping daily timeline with clock in and out" },
+  "Payroll Management": { src: payrollImg, alt: "IntegraHRIS 365 Payroll Management dashboard" },
+  "Reports": { src: reportsImg, alt: "IntegraHRIS 365 Reports library with over 100 HR and payroll reports" },
+  "Loan Management": { src: loanManagementImg, alt: "IntegraHRIS 365 Loan Management with scheduled deductions" },
+  "Security": { src: securityImg, alt: "IntegraHRIS 365 Security settings with role-based access and encryption" },
+};
 import { Eyebrow, SectionHeading } from "@/components/SectionHeading";
 import {
   Accordion,
@@ -618,20 +634,24 @@ function IntegraHris365Page() {
                             ))}
                           </ul>
                         </div>
-                        {m.title.startsWith("HR Dashboard") ? (
-                          <img
-                            src={hrDashboardImg}
-                            alt="IntegraHRIS 365 HR dashboard showing headcount, payroll, and attendance"
-                            className="aspect-[3/2] w-full rounded-3xl border border-border object-cover object-left-top"
-                            loading="lazy"
-                          />
-                        ) : (
-                          <Placeholder
-                            label={`${m.title.split(" — ")[0]} screenshot`}
-                            size="1200x800"
-                            className="aspect-[3/2]"
-                          />
-                        )}
+                        {(() => {
+                          const key = m.title.split(" — ")[0];
+                          const img = MODULE_IMAGES[key];
+                          return img ? (
+                            <img
+                              src={img.src}
+                              alt={img.alt}
+                              className="aspect-[3/2] w-full rounded-3xl border border-border object-cover object-left-top"
+                              loading="lazy"
+                            />
+                          ) : (
+                            <Placeholder
+                              label={`${key} screenshot`}
+                              size="1200x800"
+                              className="aspect-[3/2]"
+                            />
+                          );
+                        })()}
                       </div>
                     </AccordionContent>
                   </AccordionItem>
