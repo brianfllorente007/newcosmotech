@@ -15,7 +15,7 @@ import shotHelpdesk from "@/assets/products/helpdesk.png";
 import shotDocutrakr from "@/assets/products/docutrakr.png";
 import docutrakrLight from "@/assets/logos/products/docutrakr-light.png";
 import docutrakrDark from "@/assets/logos/products/docutrakr-dark.png";
-import shotUrateme from "@/assets/products/urateme.webp";
+import shotUrateme from "@/assets/products/urateme.png";
 import gpmsLight from "@/assets/logos/products/gpms-light.png";
 import gpmsDark from "@/assets/logos/products/gpms-dark.png";
 import healthWellnessLight from "@/assets/logos/products/health-wellness-light.png";
