@@ -9,17 +9,24 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as UratemeRouteImport } from './routes/urateme'
 import { Route as SolutionsRouteImport } from './routes/solutions'
 import { Route as QmasterRouteImport } from './routes/qmaster'
 import { Route as ProjectsRouteImport } from './routes/projects'
 import { Route as IntegrahrisGovernmentRouteImport } from './routes/integrahris-government'
 import { Route as Integrahris365RouteImport } from './routes/integrahris-365'
 import { Route as HelpdeskRouteImport } from './routes/helpdesk'
+import { Route as DocutrakrRouteImport } from './routes/docutrakr'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as SolutionsSlugRouteImport } from './routes/solutions.$slug'
 
+const UratemeRoute = UratemeRouteImport.update({
+  id: '/urateme',
+  path: '/urateme',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SolutionsRoute = SolutionsRouteImport.update({
   id: '/solutions',
   path: '/solutions',
@@ -50,6 +57,11 @@ const HelpdeskRoute = HelpdeskRouteImport.update({
   path: '/helpdesk',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DocutrakrRoute = DocutrakrRouteImport.update({
+  id: '/docutrakr',
+  path: '/docutrakr',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
@@ -75,24 +87,28 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/docutrakr': typeof DocutrakrRoute
   '/helpdesk': typeof HelpdeskRoute
   '/integrahris-365': typeof Integrahris365Route
   '/integrahris-government': typeof IntegrahrisGovernmentRoute
   '/projects': typeof ProjectsRoute
   '/qmaster': typeof QmasterRoute
   '/solutions': typeof SolutionsRouteWithChildren
+  '/urateme': typeof UratemeRoute
   '/solutions/$slug': typeof SolutionsSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/docutrakr': typeof DocutrakrRoute
   '/helpdesk': typeof HelpdeskRoute
   '/integrahris-365': typeof Integrahris365Route
   '/integrahris-government': typeof IntegrahrisGovernmentRoute
   '/projects': typeof ProjectsRoute
   '/qmaster': typeof QmasterRoute
   '/solutions': typeof SolutionsRouteWithChildren
+  '/urateme': typeof UratemeRoute
   '/solutions/$slug': typeof SolutionsSlugRoute
 }
 export interface FileRoutesById {
@@ -100,12 +116,14 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/docutrakr': typeof DocutrakrRoute
   '/helpdesk': typeof HelpdeskRoute
   '/integrahris-365': typeof Integrahris365Route
   '/integrahris-government': typeof IntegrahrisGovernmentRoute
   '/projects': typeof ProjectsRoute
   '/qmaster': typeof QmasterRoute
   '/solutions': typeof SolutionsRouteWithChildren
+  '/urateme': typeof UratemeRoute
   '/solutions/$slug': typeof SolutionsSlugRoute
 }
 export interface FileRouteTypes {
@@ -114,36 +132,42 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/contact'
+    | '/docutrakr'
     | '/helpdesk'
     | '/integrahris-365'
     | '/integrahris-government'
     | '/projects'
     | '/qmaster'
     | '/solutions'
+    | '/urateme'
     | '/solutions/$slug'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
     | '/contact'
+    | '/docutrakr'
     | '/helpdesk'
     | '/integrahris-365'
     | '/integrahris-government'
     | '/projects'
     | '/qmaster'
     | '/solutions'
+    | '/urateme'
     | '/solutions/$slug'
   id:
     | '__root__'
     | '/'
     | '/about'
     | '/contact'
+    | '/docutrakr'
     | '/helpdesk'
     | '/integrahris-365'
     | '/integrahris-government'
     | '/projects'
     | '/qmaster'
     | '/solutions'
+    | '/urateme'
     | '/solutions/$slug'
   fileRoutesById: FileRoutesById
 }
@@ -151,16 +175,25 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
+  DocutrakrRoute: typeof DocutrakrRoute
   HelpdeskRoute: typeof HelpdeskRoute
   Integrahris365Route: typeof Integrahris365Route
   IntegrahrisGovernmentRoute: typeof IntegrahrisGovernmentRoute
   ProjectsRoute: typeof ProjectsRoute
   QmasterRoute: typeof QmasterRoute
   SolutionsRoute: typeof SolutionsRouteWithChildren
+  UratemeRoute: typeof UratemeRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/urateme': {
+      id: '/urateme'
+      path: '/urateme'
+      fullPath: '/urateme'
+      preLoaderRoute: typeof UratemeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/solutions': {
       id: '/solutions'
       path: '/solutions'
@@ -201,6 +234,13 @@ declare module '@tanstack/react-router' {
       path: '/helpdesk'
       fullPath: '/helpdesk'
       preLoaderRoute: typeof HelpdeskRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/docutrakr': {
+      id: '/docutrakr'
+      path: '/docutrakr'
+      fullPath: '/docutrakr'
+      preLoaderRoute: typeof DocutrakrRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -250,13 +290,24 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
+  DocutrakrRoute: DocutrakrRoute,
   HelpdeskRoute: HelpdeskRoute,
   Integrahris365Route: Integrahris365Route,
   IntegrahrisGovernmentRoute: IntegrahrisGovernmentRoute,
   ProjectsRoute: ProjectsRoute,
   QmasterRoute: QmasterRoute,
   SolutionsRoute: SolutionsRouteWithChildren,
+  UratemeRoute: UratemeRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { createStart } from '@tanstack/react-start'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+  }
+}
