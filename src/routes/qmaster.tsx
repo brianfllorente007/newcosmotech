@@ -322,7 +322,7 @@ function ModulesShowcase() {
   }, []);
 
   return (
-    <div className="mt-16 grid gap-10 lg:grid-cols-[1.05fr_1fr] lg:gap-16">
+    <div className="mt-16 grid gap-10 lg:grid-cols-[1fr_1.4fr] lg:gap-16">
       <ul className="divide-y divide-border border-y border-border">
         {MODULES.map((m, i) => {
           const isActive = i === active;
@@ -374,7 +374,7 @@ function ModulesShowcase() {
           <img
             src={modulesImage}
             alt="QMaster deployed across Philippine government offices and branches"
-            className="w-full h-auto"
+            className="w-full h-auto lg:scale-110 lg:origin-left"
           />
         </div>
       </div>
