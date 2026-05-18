@@ -11,6 +11,8 @@ const SOLUTIONS_DROPDOWN = [
   { to: "/integrahris-government", label: "IntegraHRIS Government" },
   { to: "/qmaster", label: "QMaster" },
   { to: "/helpdesk", label: "HelpDesk" },
+  { to: "/docutrakr", label: "Docutrakr" },
+  { to: "/urateme", label: "URateMe" },
 ] as const;
 
 export function SiteHeader() {

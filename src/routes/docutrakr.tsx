@@ -1,0 +1,623 @@
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { useEffect, useRef, useState } from "react";
+import {
+  ArrowRight,
+  Check,
+  ShieldCheck,
+  Zap,
+  TrendingUp,
+  Sparkles,
+  Workflow,
+  LayoutDashboard,
+  QrCode,
+  Bell,
+  FileText,
+  Settings,
+  Clock,
+  BarChart3,
+  Download,
+} from "lucide-react";
+import { Container } from "@/components/Container";
+import { Eyebrow, SectionHeading } from "@/components/SectionHeading";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import { useReveal } from "@/hooks/use-reveal";
+import { cn } from "@/lib/utils";
+
+export const Route = createFileRoute("/docutrakr")({
+  head: () => ({
+    meta: [
+      {
+        title: "Docutrakr — QR Code Document Tracking & Workflow Software | Cosmotech",
+      },
+      {
+        name: "description",
+        content:
+          "Docutrakr tracks every document from receipt to filing with QR codes, automated workflows, and real-time status monitoring. RA 10173 compliant.",
+      },
+      {
+        property: "og:title",
+        content: "Docutrakr — QR Code Document Tracking & Workflow Software",
+      },
+      {
+        property: "og:description",
+        content:
+          "Know where every document is — and how long each step is taking — in real time. Cloud or on-premise. RA 10173 compliant.",
+      },
+    ],
+  }),
+  component: DocutrakrPage,
+});
+
+// ---------- Placeholder helper ----------
+function Placeholder({
+  label,
+  size,
+  className,
+}: {
+  label: string;
+  size: string;
+  className?: string;
+}) {
+  return (
+    <div
+      className={cn(
+        "flex flex-col items-center justify-center gap-1 rounded-3xl border-2 border-dashed border-border bg-muted/60 p-6 text-center",
+        className,
+      )}
+    >
+      <span className="text-sm font-semibold text-foreground">[PLACEHOLDER: {label}]</span>
+      <span className="text-xs text-muted-foreground">
+        Drop final asset here · suggested size: {size}
+      </span>
+    </div>
+  );
+}
+
+// ---------- Data ----------
+const FEATURE_CARDS = [
+  {
+    icon: QrCode,
+    title: "Unique QR per document",
+    body: "Every document gets a unique QR code or document code at the point of receipt — date and time stamped, processor recorded.",
+  },
+  {
+    icon: Workflow,
+    title: "Auto-assigned workflows",
+    body: "The right workflow is assigned based on document type — with pre-defined processors and expected turnaround time per step.",
+  },
+  {
+    icon: Clock,
+    title: "Measurable turnaround",
+    body: "Actual time spent at every step is recorded and compared against expected turnaround — bottlenecks surface immediately.",
+  },
+];
+
+const BENEFIT_CARDS = [
+  {
+    icon: ShieldCheck,
+    title: "No lost documents",
+    body: "Every document has a code. Anyone can scan or search to see exactly who's holding it and where it is in the workflow.",
+  },
+  {
+    icon: Zap,
+    title: "Automated routing",
+    body: "Workflows route documents through the right processors automatically — no manual handoffs, no dropped queues.",
+  },
+  {
+    icon: TrendingUp,
+    title: "Performance visibility",
+    body: "Measure processing time per processor, per department, and per document type. Reward speed; identify delays.",
+  },
+  {
+    icon: Sparkles,
+    title: "Full audit trail",
+    body: "Every action by every user is logged, retrievable, and printable — for internal governance and external audit.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "RA 10173 compliant",
+    body: "Built for Data Privacy Act compliance — role-based access, two-factor authentication, configurable password policy.",
+  },
+  {
+    icon: Workflow,
+    title: "Cloud or on-premise",
+    body: "Deploy as cloud-hosted SaaS or on-premise — same features, same security, your choice of infrastructure.",
+  },
+];
+
+const GENERAL_FEATURES = [
+  "Unique QR code or document code assigned at receipt, with workflow checklist printed",
+  "Real-time receipt date and time stamping, with processor recorded",
+  "Auto-assigned workflows per document type, with processors and turnaround time per step",
+  "Attachment tracking alongside parent documents",
+  "Email and in-app notifications for requestors and processors at every status change",
+  "Filing location logged with multiple definable tiers (building, floor, cabinet, folder)",
+  "Actual vs expected turnaround time computed at every step",
+  "Auto-generated workflow diagram for every submitted document",
+  "Data Privacy Act (RA 10173) compliant with two-factor authentication and full audit trail",
+];
+
+const MODULES = [
+  {
+    icon: QrCode,
+    title: "Document Receiving and Processing",
+    body: "Assign, generate, and print QR codes or document codes at the point of receipt. Print the checklist of required processes and the workflow that applies. Attach related documents to the parent record. The workflow assigned at receipt determines who processes it and how long each step should take.",
+    items: [
+      "QR code / document code generation at receipt",
+      "Printable workflow checklist per document",
+      "Attach related documents to a parent record",
+    ],
+  },
+  {
+    icon: Workflow,
+    title: "Workflow Management — Configurable Per Document Type",
+    body: "Configure the workflow for each document type with a defined sequence of steps, processor assignments, and turnaround time per step. Sequences are flexible and re-orderable. The system computes time spent per processor and per department, and generates a workflow diagram for every document.",
+    items: [
+      "Per-step processors and turnaround times",
+      "Re-orderable workflow sequences",
+      "Auto-generated workflow diagrams",
+    ],
+  },
+  {
+    icon: Bell,
+    title: "Notifications — Email and In-App",
+    body: "Email and in-app notifications fire automatically. Requestors are notified each time the document is received by a new processor, with the current status. Processors are notified when a document arrives in their queue.",
+    items: [
+      "Requestor notifications on every status change",
+      "Processor notifications on new arrivals",
+      "Configurable templates per event",
+    ],
+  },
+  {
+    icon: LayoutDashboard,
+    title: "Dashboard and Analytics — Real-Time",
+    body: "A customizable dashboard displays real-time summaries of document volume, status, and processing performance in charts and graphs. Built-in analytics surface insights for management decision-making — which departments are processing fastest, which documents are overdue, where bottlenecks are forming.",
+    items: [
+      "Real-time document volume and status",
+      "Processing performance in charts and graphs",
+      "Bottleneck and overdue document surfacing",
+    ],
+  },
+  {
+    icon: ShieldCheck,
+    title: "System Security — 2FA, Audit Trail, and Policy",
+    body: "Two-factor authentication using password and CAPTCHA. Configurable password policy. Full audit trail of every user action, retrievable and printable for internal governance and external audit.",
+    items: [
+      "Two-factor authentication (password + CAPTCHA)",
+      "Configurable password policy",
+      "Retrievable, printable audit trail",
+    ],
+  },
+  {
+    icon: Settings,
+    title: "Configurable Reference Tables",
+    body: "Adapt the system to any organization's structure — organizational units with multiple levels, employees by assignment, locations with multiple tiers, document statuses per phase, and processes with definable turnaround time per step.",
+    items: [
+      "Multi-level organizational units",
+      "Multi-tier storage locations",
+      "Per-phase document statuses and TATs",
+    ],
+  },
+  {
+    icon: BarChart3,
+    title: "Report Management — Excel, CSV, PDF",
+    body: "Generate document tracking reports in Excel, CSV, or PDF: received documents for the day or period, per organizational unit, processed-on-schedule lists, top-performing departments and employees, customizable reports, and a printable audit trail report.",
+    items: [
+      "Received and processed documents by day, period, or org unit",
+      "On-schedule vs delayed reporting",
+      "Top-performing departments and employees of the month",
+    ],
+  },
+  {
+    icon: FileText,
+    title: "Filing and Archival",
+    body: "Log the filing location of every document and its attachments — with multiple definable tiers like building, floor, cabinet, and folder. Find any archived document by scanning its code or searching.",
+    items: [
+      "Multi-tier filing location capture",
+      "Attachment filing tracked with parent",
+      "Searchable archive by QR or document code",
+    ],
+  },
+];
+
+const FAQS = [
+  {
+    q: "What is Docutrakr used for?",
+    a: "Docutrakr is used to track physical and digital documents through their full processing lifecycle — from the moment they're received, through every approval or processing step, to their final filing location. It's commonly used by government agencies, HR departments, accounting teams, legal offices, and any unit that needs accountability over document movement.",
+  },
+  {
+    q: "How does the QR code tracking work?",
+    a: "When a document is received, Docutrakr assigns it a unique QR code or document code, stamps the receipt date and time, and prints a checklist of the workflow that applies. Anyone can later scan the QR code or search the document code to see who has the document, where it is in the workflow, how long each step has taken, and where it's filed.",
+  },
+  {
+    q: "Is Docutrakr Data Privacy Act compliant?",
+    a: "Yes. Docutrakr is compliant with the Data Privacy Act of 2012 (RA 10173). It includes role-based access controls, two-factor authentication, configurable password policies, and a complete audit trail of user activity.",
+  },
+  {
+    q: "Can workflows be customized per document type?",
+    a: "Yes. Each document type can have its own workflow, with a configurable sequence of processes, pre-assigned processors, and an expected turnaround time per step. Sequences are re-orderable, and the system generates a workflow diagram for every submitted document.",
+  },
+  {
+    q: "How does Docutrakr handle document attachments?",
+    a: "Related documents can be attached to a parent record at receipt. Attachments are tracked alongside the main document throughout the workflow, and their filing location is recorded with the parent.",
+  },
+  {
+    q: "Does Docutrakr work for cloud or on-premise deployments?",
+    a: "Both. Docutrakr is available as a cloud-hosted SaaS for organizations that prefer no infrastructure overhead, and as an on-premise deployment for organizations with data residency, security, or internal IT requirements.",
+  },
+  {
+    q: "What kind of reports can Docutrakr generate?",
+    a: "Reports include received and processed documents by day, period, or organizational unit; documents completed on schedule versus delayed; top-performing departments and employees for the month; a full audit trail report; and customizable reports. All exportable to Excel, CSV, or PDF.",
+  },
+  {
+    q: "How does Docutrakr measure processing performance?",
+    a: "Each workflow step has an expected turnaround time. The system records the actual time spent at every step and compares it to the expected time, surfacing delays and identifying bottlenecks. Performance can be reviewed per processor, per department, or per document type.",
+  },
+];
+
+// ---------- Modules Showcase ----------
+function ModulesShowcase() {
+  const [active, setActive] = useState(0);
+  const itemRefs = useRef<Array<HTMLLIElement | null>>([]);
+  const current = MODULES[active];
+  const CurrentIcon = current.icon;
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        let bestIdx = -1;
+        let bestDist = Infinity;
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          const rect = entry.boundingClientRect;
+          const center = rect.top + rect.height / 2;
+          const dist = Math.abs(center - window.innerHeight / 2);
+          const idx = Number((entry.target as HTMLElement).dataset.index);
+          if (dist < bestDist) {
+            bestDist = dist;
+            bestIdx = idx;
+          }
+        });
+        if (bestIdx !== -1) setActive(bestIdx);
+      },
+      { rootMargin: "-40% 0px -40% 0px", threshold: 0 },
+    );
+    itemRefs.current.forEach((el) => el && observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div className="mt-16 grid gap-10 lg:grid-cols-[1.05fr_1fr] lg:gap-16">
+      <ul className="divide-y divide-border border-y border-border">
+        {MODULES.map((m, i) => {
+          const isActive = i === active;
+          return (
+            <li
+              key={m.title}
+              ref={(el) => {
+                itemRefs.current[i] = el;
+              }}
+              data-index={i}
+              className="py-6"
+            >
+              <h3
+                className={cn(
+                  "text-xl font-semibold tracking-tight transition-colors duration-500 sm:text-2xl",
+                  isActive ? "text-foreground" : "text-foreground/30",
+                )}
+              >
+                {m.title}
+              </h3>
+              <div
+                className={cn(
+                  "grid transition-all duration-500 ease-out",
+                  isActive ? "mt-4 grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0",
+                )}
+              >
+                <div className="overflow-hidden">
+                  <p className="text-base leading-relaxed text-muted-foreground">{m.body}</p>
+                  <ul className="mt-5 space-y-3">
+                    {m.items.map((it) => (
+                      <li key={it} className="flex items-start gap-3 text-sm">
+                        <Check className="mt-0.5 h-5 w-5 shrink-0 text-cobalt" />
+                        <span>{it}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </li>
+          );
+        })}
+      </ul>
+
+      <div className="lg:h-full">
+        <div className="lg:sticky lg:top-24">
+          <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-cobalt/10 text-cobalt transition-colors">
+            <CurrentIcon className="h-6 w-6" />
+          </div>
+          <Placeholder
+            key={current.title}
+            label={`${current.title.split(" — ")[0]} screenshot`}
+            size="1200x800"
+            className="aspect-[3/2] animate-fade-in"
+          />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ---------- Page ----------
+function DocutrakrPage() {
+  useReveal();
+
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.type = "application/ld+json";
+    script.text = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: FAQS.map((f) => ({
+        "@type": "Question",
+        name: f.q,
+        acceptedAnswer: { "@type": "Answer", text: f.a },
+      })),
+    });
+    document.head.appendChild(script);
+    return () => {
+      document.head.removeChild(script);
+    };
+  }, []);
+
+  return (
+    <>
+      {/* HERO */}
+      <section className="border-b border-border bg-bone py-20 sm:py-28">
+        <Container>
+          <div className="reveal grid gap-12 lg:grid-cols-2 lg:items-center lg:gap-16">
+            <div>
+              <Eyebrow>Docutrakr</Eyebrow>
+              <h1 className="mt-4 text-4xl font-semibold leading-[1.05] tracking-tight sm:text-5xl md:text-6xl">
+                Document Tracking with QR Code Workflow Automation
+              </h1>
+              <p className="mt-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
+                Assign a unique QR code to every document upon receipt, then
+                monitor its location, processor, and status through a
+                configurable workflow until it's filed. Know where every
+                document is — and how long each step is taking — in real time.
+              </p>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <Link
+                  to="/contact"
+                  className="inline-flex h-11 items-center gap-2 rounded-full bg-brass px-5 text-sm font-medium text-ink transition-all hover:-translate-y-0.5 hover:brightness-95"
+                >
+                  Request a Demo <ArrowRight className="h-4 w-4" />
+                </Link>
+                <Link
+                  to="/contact"
+                  className="inline-flex h-11 items-center gap-2 rounded-full border border-border bg-card px-5 text-sm font-medium text-foreground hover:bg-muted"
+                >
+                  <Download className="h-4 w-4" /> Download Brochure
+                </Link>
+              </div>
+            </div>
+            <Placeholder
+              label="Docutrakr workflow / dashboard mock"
+              size="1600x1000"
+              className="aspect-[16/10]"
+            />
+          </div>
+        </Container>
+      </section>
+
+      {/* THREE FEATURE CARDS */}
+      <section className="bg-cobalt/5 py-20 sm:py-24">
+        <Container>
+          <div className="reveal grid gap-6 md:grid-cols-3">
+            {FEATURE_CARDS.map(({ icon: Icon, title, body }) => (
+              <div
+                key={title}
+                className="rounded-3xl border border-border bg-card p-8 shadow-sm transition-all hover:-translate-y-1 hover:shadow-md"
+              >
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-cobalt/10 text-cobalt">
+                  <Icon className="h-6 w-6" />
+                </div>
+                <h3 className="mt-6 text-xl font-semibold tracking-tight">{title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{body}</p>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* WHAT IS */}
+      <section className="py-20 sm:py-24">
+        <Container>
+          <div className="reveal grid gap-12 lg:grid-cols-2 lg:items-center lg:gap-16">
+            <div>
+              <Eyebrow>About the product</Eyebrow>
+              <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl md:text-5xl">
+                Why teams switch from logbooks and shared drives
+              </h2>
+              <p className="mt-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
+                Manual document logs lose track of who's holding what. Shared
+                drives store files but don't tell you whether a request has
+                been processed, who's sitting on it, or how long it's been
+                there.
+              </p>
+              <p className="mt-4 text-base leading-relaxed text-muted-foreground sm:text-lg">
+                Docutrakr fills that gap. Every document gets a code at receipt
+                and rides a pre-defined workflow through the right processors
+                automatically — with timestamps, notifications, and a full
+                audit trail.
+              </p>
+              <ul className="mt-6 space-y-3">
+                {[
+                  "Cloud-hosted SaaS or on-premise deployment",
+                  "Configurable workflows per document type",
+                  "RA 10173 compliant with 2FA and full audit trail",
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-3 text-sm">
+                    <Check className="mt-0.5 h-5 w-5 shrink-0 text-cobalt" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <Placeholder
+              label="Workflow diagram / QR receipt mock"
+              size="1200x900"
+              className="aspect-[4/3]"
+            />
+          </div>
+        </Container>
+      </section>
+
+      {/* BENEFITS */}
+      <section className="bg-cobalt/5 py-20 sm:py-24">
+        <Container>
+          <div className="reveal">
+            <SectionHeading
+              eyebrow="Benefits"
+              title="What changes when documents run on Docutrakr"
+            />
+            <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              {BENEFIT_CARDS.map(({ icon: Icon, title, body }) => (
+                <div
+                  key={title}
+                  className="rounded-3xl border border-border bg-card p-6 transition-all hover:-translate-y-0.5 hover:shadow-md"
+                >
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-cobalt/10 text-cobalt">
+                    <Icon className="h-5 w-5" />
+                  </div>
+                  <h3 className="mt-5 text-base font-semibold tracking-tight">{title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{body}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* GENERAL FEATURES */}
+      <section className="py-20 sm:py-24">
+        <Container>
+          <div className="reveal grid gap-12 lg:grid-cols-2 lg:gap-16">
+            <div className="lg:sticky lg:top-24 lg:self-start">
+              <Eyebrow>General features</Eyebrow>
+              <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl md:text-5xl">
+                Built for accountability over document movement
+              </h2>
+              <p className="mt-5 text-base leading-relaxed text-muted-foreground">
+                Government agencies, HR departments, accounting teams, legal
+                offices — any unit that needs to know who has what document,
+                where it is, and how long it's been there. Configurable
+                workflows, automated routing, and a complete audit trail in
+                one system.
+              </p>
+              <div className="mt-8">
+                <Placeholder
+                  label="Audit trail / report screenshot"
+                  size="1000x600"
+                  className="aspect-[5/3]"
+                />
+              </div>
+            </div>
+            <ul className="space-y-3">
+              {GENERAL_FEATURES.map((f) => (
+                <li
+                  key={f}
+                  className="flex items-start gap-3 rounded-2xl border border-border bg-card p-5 text-sm leading-relaxed text-foreground"
+                >
+                  <Check className="mt-0.5 h-5 w-5 shrink-0 text-cobalt" />
+                  <span>{f}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </Container>
+      </section>
+
+      {/* MODULES */}
+      <section className="bg-cobalt/5 py-20 sm:py-24">
+        <Container>
+          <div className="reveal">
+            <SectionHeading
+              eyebrow="What's inside"
+              title="Modules and Capabilities"
+              intro="Docutrakr ships with everything you need — QR-coded receiving, configurable workflows, notifications, dashboards, security, and report management."
+            />
+            <ModulesShowcase />
+          </div>
+        </Container>
+      </section>
+
+      {/* FAQ */}
+      <section className="py-20 sm:py-24">
+        <Container>
+          <div className="reveal mx-auto max-w-3xl">
+            <SectionHeading
+              align="center"
+              eyebrow="FAQ"
+              title="Frequently Asked Questions"
+            />
+            <Accordion type="single" collapsible className="mt-12 space-y-3">
+              {FAQS.map((f, i) => (
+                <AccordionItem
+                  key={f.q}
+                  value={`faq-${i}`}
+                  className="overflow-hidden rounded-2xl border border-border bg-card !border-b"
+                >
+                  <AccordionTrigger className="px-5 py-4 text-left text-base font-semibold hover:no-underline">
+                    {f.q}
+                  </AccordionTrigger>
+                  <AccordionContent className="px-5 pb-5 text-sm leading-relaxed text-muted-foreground">
+                    {f.a}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </div>
+        </Container>
+      </section>
+
+      {/* FINAL CTA */}
+      <section className="px-5 py-20 sm:px-8">
+        <Container className="overflow-hidden rounded-3xl gradient-cta px-6 py-16 text-bone sm:px-12 sm:py-20">
+          <div className="reveal mx-auto max-w-2xl text-center">
+            <p className="text-xs font-medium uppercase tracking-[0.2em] text-bone/70">
+              Get started
+            </p>
+            <h2 className="mt-4 text-3xl font-semibold tracking-tight text-bone sm:text-4xl md:text-5xl">
+              Solve Your Document Tracking Problems Today
+            </h2>
+            <p className="mt-4 text-base text-bone/80 sm:text-lg">
+              Walk through QR receiving, configurable workflows, dashboards,
+              and the audit trail with our team — live demo, your scenarios.
+            </p>
+            <div className="mt-8 flex flex-wrap justify-center gap-3">
+              <Link
+                to="/contact"
+                className="inline-flex h-11 items-center gap-2 rounded-full bg-brass px-5 text-sm font-medium text-ink transition-all hover:-translate-y-0.5 hover:brightness-95"
+              >
+                Request a Demo <ArrowRight className="h-4 w-4" />
+              </Link>
+              <Link
+                to="/contact"
+                className="inline-flex h-11 items-center gap-2 rounded-full border border-bone/30 px-5 text-sm font-medium text-bone hover:bg-bone/10"
+              >
+                Talk to Sales
+              </Link>
+            </div>
+          </div>
+        </Container>
+      </section>
+    </>
+  );
+}
