@@ -459,10 +459,12 @@ function IntegraHris365Page() {
                 What is IntegraHRIS 365?
               </h2>
               <p className="mt-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
-                IntegraHRIS 365 is a downloadable HRIS and payroll system for Philippine
-                businesses. It's the on-premise version of our cloud HRIS platform — install
-                it on your own computer or server, keep your employee data in-house, and pay
-                a yearly subscription instead of a per-employee monthly fee.
+                IntegraHRIS 365 is the latest version of the Integra HRIS Payroll Master
+                Cloud edition which is made downloadable to end users and can be
+                installed on premise. It has new and advanced features making this new
+                application software easy to install and implement on premise
+                eliminating the complicated procedures and technicalities in system
+                installation and configuration.
               </p>
               <p className="mt-4 text-base leading-relaxed text-muted-foreground sm:text-lg">
                 It handles the three things Philippine HR teams need every payroll cycle:
