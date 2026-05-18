@@ -407,7 +407,7 @@ function IntegraHris365Page() {
             <SectionHeading
               align="center"
               eyebrow="Trusted nationwide"
-              title="Trusted by Over 28 Philippine Organizations"
+              title="Trusted by Top Philippine Corporations"
               intro="IntegraHRIS powers HR and payroll operations for leading Philippine institutions, including the Philippine Ports Authority, the Department of Foreign Affairs, Bangko Sentral ng Pilipinas, and the Bureau of Internal Revenue."
             />
             <div className="mt-12 grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-6">
