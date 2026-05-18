@@ -20,6 +20,7 @@ import {
   LayoutDashboard,
 } from "lucide-react";
 import heroImage from "@/assets/qmaster/hero.png";
+import modulesImage from "@/assets/qmaster-modules.png";
 import { Container } from "@/components/Container";
 import { Eyebrow, SectionHeading } from "@/components/SectionHeading";
 import {
@@ -370,11 +371,10 @@ function ModulesShowcase() {
           <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-cobalt/10 text-cobalt transition-colors">
             <CurrentIcon className="h-6 w-6" />
           </div>
-          <Placeholder
-            key={current.title}
-            label={`${current.title.split(" — ")[0]} screenshot`}
-            size="1200x800"
-            className="aspect-[3/2] animate-fade-in"
+          <img
+            src={modulesImage}
+            alt="QMaster deployed across Philippine government offices and branches"
+            className="w-full h-auto"
           />
         </div>
       </div>
