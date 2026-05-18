@@ -76,8 +76,9 @@ export function SuiteTabs() {
               key={p.slug}
               aria-hidden={!isActive}
               className={cn(
-                "[grid-area:1/1] grid gap-10 overflow-hidden rounded-3xl border border-border bg-white p-6 sm:p-10 lg:grid-cols-5 lg:gap-0",
-                "transition-opacity duration-300",
+              "[grid-area:1/1] grid gap-10 overflow-hidden rounded-3xl border border-border bg-white p-6 sm:p-10 lg:gap-0",
+              p.screenshot ? "lg:grid-cols-5" : "lg:grid-cols-1",
+              "transition-opacity duration-300",
                 isActive ? "opacity-100" : "pointer-events-none opacity-0",
               )}
             >
