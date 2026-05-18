@@ -175,6 +175,8 @@ export const PRODUCTS: Product[] = [
       "Wellness program management",
       "Health analytics and reporting",
     ],
+    logoLight: healthWellnessLight,
+    logoDark: healthWellnessDark,
   },
   {
     slug: "cosmotech-gpms",
