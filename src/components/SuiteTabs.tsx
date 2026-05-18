@@ -76,12 +76,13 @@ export function SuiteTabs() {
               key={p.slug}
               aria-hidden={!isActive}
               className={cn(
-                "[grid-area:1/1] grid gap-10 overflow-hidden rounded-3xl border border-border bg-white p-6 sm:p-10 lg:grid-cols-5 lg:gap-0",
-                "transition-opacity duration-300",
+              "[grid-area:1/1] grid gap-10 overflow-hidden rounded-3xl border border-border bg-white p-6 sm:p-10 lg:gap-0",
+              p.screenshot ? "lg:grid-cols-5" : "lg:grid-cols-1",
+              "transition-opacity duration-300",
                 isActive ? "opacity-100" : "pointer-events-none opacity-0",
               )}
             >
-              <div className="flex min-w-0 flex-col lg:col-span-3 lg:pr-10">
+              <div className={cn("flex min-w-0 flex-col", p.screenshot ? "lg:col-span-3 lg:pr-10" : "lg:col-span-1")}>
                 <p className="text-xs font-medium uppercase tracking-[0.2em] text-cobalt">
                   {p.name}
                 </p>
@@ -100,9 +101,8 @@ export function SuiteTabs() {
                 </Link>
               </div>
 
-              {/* Media panel — full-bleed to card edges (40%) */}
-              <div className="relative -m-6 sm:-m-10 lg:m-0 lg:col-span-2 lg:-mr-10 lg:-my-10">
-                {p.screenshot ? (
+              {p.screenshot && (
+                <div className="relative -m-6 sm:-m-10 lg:m-0 lg:col-span-2 lg:-mr-10 lg:-my-10">
                   <div className="relative h-full min-h-[240px] overflow-hidden bg-white aspect-[4/3] lg:aspect-auto">
                     <img
                       src={p.screenshot}
@@ -116,12 +116,8 @@ export function SuiteTabs() {
                       className="absolute inset-0 h-full w-full object-contain object-center bg-white lg:object-cover lg:object-left-top"
                     />
                   </div>
-                ) : (
-                  <div className="flex h-full min-h-[280px] items-center justify-center bg-muted/30 p-6">
-                    <DocMock />
-                  </div>
-                )}
-              </div>
+                </div>
+              )}
             </div>
           );
         })}
