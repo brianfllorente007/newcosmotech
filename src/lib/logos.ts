@@ -1,20 +1,18 @@
-import gsis from "@/assets/logos/agencies/gsis.png";
-import erc from "@/assets/logos/agencies/erc.png";
-import ppa from "@/assets/logos/agencies/ppa.png";
-import lto from "@/assets/logos/agencies/lto.png";
-import hsbc from "@/assets/logos/clients/hsbc.png";
-import landbank from "@/assets/logos/clients/landbank.png";
-
-export const AGENCY_LOGOS = [
-  { src: gsis, alt: "Government Service Insurance System (GSIS)" },
-  { src: erc, alt: "Energy Regulatory Commission (ERC)" },
-  { src: ppa, alt: "Philippine Ports Authority (PPA)" },
-  { src: lto, alt: "Land Transportation Office (LTO)" },
-];
+import aficionado from "@/assets/logos/clients/aficionado.png";
+import isuzu from "@/assets/logos/clients/isuzu.png";
+import metrosanitas from "@/assets/logos/clients/metrosanitas.png";
+import cti from "@/assets/logos/clients/cti.png";
+import pcl from "@/assets/logos/clients/pcl.png";
+import permex from "@/assets/logos/clients/permex.png";
 
 export const CLIENT_LOGOS = [
-  { src: hsbc, alt: "HSBC" },
-  { src: landbank, alt: "Landbank of the Philippines" },
+  { src: aficionado, alt: "Aficionado" },
+  { src: isuzu, alt: "Isuzu" },
+  { src: metrosanitas, alt: "MetroSanitas Medical Clinic" },
+  { src: cti, alt: "CTI" },
+  { src: pcl, alt: "PCL" },
+  { src: permex, alt: "Permex" },
 ];
 
-export const ALL_CLIENT_LOGOS = [...AGENCY_LOGOS, ...CLIENT_LOGOS];
+export const AGENCY_LOGOS = CLIENT_LOGOS;
+export const ALL_CLIENT_LOGOS = CLIENT_LOGOS;
