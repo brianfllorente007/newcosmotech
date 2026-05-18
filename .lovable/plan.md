@@ -1,26 +1,23 @@
-## Plan: Attach Hero & Trusted-by logos on IntegraHRIS Government page
+## Plan: Add product logos for Cosmotech GPMS and Health & Wellness
 
-**File:** `src/routes/integrahris-government.tsx`
+The `SuiteTabs` component already renders a product's `logoLight` (for the active dark tab) and `logoDark` (for the inactive light tab) when both are present, and falls back to the product name otherwise. GPMS and Health & Wellness in `src/lib/site.ts` currently have no logo fields, so their tabs show plain text. Adding the assets + fields wires them in automatically.
 
-### 1. Hero image
-- Copy `user-uploads://Hero_HRISGovt.png` → `src/assets/integrahris-government/hero.png`
-- Import it at the top of the route file
-- Replace the hero placeholder `<div data-image-slot="hero">` (lines 369–386) with an `<img>` filling the same 4:3 container (`h-full w-full object-cover rounded-3xl`), keeping the border/wrapper for consistent framing
+### Files to add
+Copy uploaded images into `src/assets/logos/products/`:
+- `user-uploads://GPMS_logo_Dark.png` → `gpms-dark.png` (shown on light/inactive tab)
+- `user-uploads://GPMS_logo-white.png` → `gpms-light.png` (shown on dark/active tab)
+- `user-uploads://HnW_Dark.png` → `health-wellness-dark.png`
+- `user-uploads://HnW_White.png` → `health-wellness-light.png`
 
-### 2. Trusted by Government Offices logos
-- Copy the 5 uploaded logos into `src/assets/integrahris-government/`:
-  1. `user-uploads://1200px-Philippine_Ports_Authority_PPA.svg-1.png` → `logo-1.png` (Philippine Ports Authority)
-  2. `user-uploads://BOC.webp` → `logo-2.webp` (Bureau of Customs)
-  3. `user-uploads://dfa.png` → `logo-3.png` (Department of Foreign Affairs)
-  4. `user-uploads://Freeport_Area_of_Bataan_logo.png` → `logo-4.png` (FAB)
-  5. `user-uploads://pdealogo.png` → `logo-5.png` (PDEA)
-- Import all 5 and build a `LOGOS` array `[{src, alt}]`
-- Replace the `[1,2,3,4,5].map(...)` placeholder block (lines 452–467) with one that renders each logo as an `<img>` inside its existing card
+### Code change
+In `src/lib/site.ts`:
+1. Add four imports alongside the existing product-logo imports.
+2. Add `logoLight` / `logoDark` to the `health-wellness` product entry.
+3. Add `logoLight` / `logoDark` to the `cosmotech-gpms` product entry.
 
-### Uniform sizing approach
-To make wildly different logo aspect ratios (square seals, wide wordmarks) read consistently:
-- Keep the card at `h-20` and switch background from dashed-border placeholder to a clean `bg-bone` card with subtle border
-- Inside each card: `<img className="max-h-12 max-w-[80%] w-auto object-contain" />` — caps height so tall seals (DFA, PDEA, BOC) and wide marks (FAB, PPA) all sit at the same visual weight with consistent padding
-- Add `loading="lazy"` and descriptive `alt` text per agency
+No changes to `SuiteTabs.tsx` — existing rendering logic handles it (max-h-10, contained, light/dark crossfade on active state).
 
-No copy changes, no other sections touched.
+### Notes
+- Naming follows existing convention (`{slug}-light.png` / `{slug}-dark.png`).
+- PNG kept (not converted to webp) to preserve transparency and match the Docutrakr precedent which is also `.png`.
+- No copy or layout changes requested, so nothing else is touched.
