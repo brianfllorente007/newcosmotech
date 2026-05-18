@@ -193,6 +193,8 @@ export const PRODUCTS: Product[] = [
       "Vendor and supplier management",
       "Transparency and compliance reporting",
     ],
+    logoLight: gpmsLight,
+    logoDark: gpmsDark,
   },
 ];
 
