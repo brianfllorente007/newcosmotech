@@ -220,7 +220,7 @@ export const PROJECTS: Project[] = [
 export const NAV = [
   { to: "/", label: "Home" },
   { to: "/solutions", label: "Solutions" },
-  { to: "/projects", label: "Projects" },
+  
   { to: "/about", label: "About" },
   { to: "/contact", label: "Contact" },
 ] as const;
