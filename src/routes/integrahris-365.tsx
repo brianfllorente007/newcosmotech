@@ -361,54 +361,42 @@ function IntegraHris365Page() {
   return (
     <>
       {/* HERO */}
-      <section className="border-b border-border bg-bone py-20 sm:py-28">
+      <section className="border-b border-border bg-bone py-20 sm:py-24">
         <Container>
-          <div className="reveal grid gap-12 lg:grid-cols-2 lg:items-center lg:gap-16">
-            <div>
-              <Eyebrow>IntegraHRIS 365</Eyebrow>
-              <h1 className="mt-4 text-4xl font-semibold leading-[1.05] tracking-tight sm:text-5xl md:text-6xl">
-                The Downloadable HRIS and Payroll Software for the Philippines
-              </h1>
-              <p className="mt-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
-                Install it on your own computer or server. Run payroll, timekeeping,
-                and 201 files without a monthly cloud bill. Built for SSS, PhilHealth,
-                Pag-IBIG, and BIR compliance from day one.
-              </p>
-              <div className="mt-8 flex flex-wrap gap-3">
-                <a
-                  href="#pricing"
-                  className="inline-flex h-11 items-center gap-2 rounded-full bg-brass px-5 text-sm font-medium text-ink transition-all hover:-translate-y-0.5 hover:brightness-95"
-                >
-                  See Pricing <ArrowRight className="h-4 w-4" />
-                </a>
-                <Link
-                  to="/contact"
-                  className="inline-flex h-11 items-center gap-2 rounded-full border border-border bg-card px-5 text-sm font-medium text-foreground hover:bg-muted"
-                >
-                  <Download className="h-4 w-4" /> Download Brochure
-                </Link>
-              </div>
-              <div className="mt-6 inline-flex items-center gap-3 rounded-full border border-border bg-card px-4 py-2">
-                <div className="flex h-8 w-8 items-center justify-center rounded-full border-2 border-dashed border-border bg-muted text-[9px] font-semibold text-muted-foreground">
-                  ISO
-                </div>
-                <span className="text-xs text-muted-foreground">
-                  [PLACEHOLDER: ISO certification badge — 64x64]
-                </span>
-              </div>
-            </div>
-            <div className="lg:pl-8">
-              <img
-                src={hris365Hero}
-                alt="IntegraHRIS 365 dashboard with setup wizard shown on a MacBook Pro"
-                width={1600}
-                height={1000}
-                loading="eager"
-                fetchPriority="high"
-                className="w-full h-auto"
-              />
+          <div className="reveal mx-auto max-w-3xl text-center">
+            <Eyebrow className="justify-center">IntegraHRIS 365</Eyebrow>
+            <h1 className="mt-4 text-4xl font-semibold leading-[1.05] tracking-tight sm:text-5xl md:text-6xl">
+              The Downloadable HRIS and Payroll Software for the Philippines
+            </h1>
+            <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+              Install it on your own computer or server. Run payroll, timekeeping,
+              and 201 files without a monthly cloud bill. Built for SSS, PhilHealth,
+              Pag-IBIG, and BIR compliance from day one.
+            </p>
+            <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+              <a
+                href="#pricing"
+                className="inline-flex h-11 items-center gap-2 rounded-full bg-brass px-5 text-sm font-medium text-ink transition-all hover:-translate-y-0.5 hover:brightness-95"
+              >
+                See Pricing <ArrowRight className="h-4 w-4" />
+              </a>
+              <Link
+                to="/contact"
+                className="inline-flex h-11 items-center gap-2 rounded-full border border-border bg-card px-5 text-sm font-medium text-foreground hover:bg-muted"
+              >
+                <Download className="h-4 w-4" /> Download Brochure
+              </Link>
             </div>
           </div>
+          <img
+            src={hris365Hero}
+            alt="IntegraHRIS 365 dashboard with setup wizard shown on a MacBook Pro"
+            width={1600}
+            height={1000}
+            loading="eager"
+            fetchPriority="high"
+            className="mt-10 sm:mt-12 mx-auto block w-full max-w-5xl h-auto px-2 sm:px-0"
+          />
         </Container>
       </section>
 
