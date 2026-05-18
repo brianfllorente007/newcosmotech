@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 import { Container } from "@/components/Container";
 import hris365Hero from "@/assets/integrahris-365-hero.png";
+import setupWizardImg from "@/assets/integrahris-365-setup-wizard.png";
 import { Eyebrow, SectionHeading } from "@/components/SectionHeading";
 import {
   Accordion,
@@ -540,11 +541,12 @@ function IntegraHris365Page() {
                 DTR, a built-in wizard walks you through the steps. Most teams process their
                 first full payroll within 5 business days.
               </p>
-              <div className="mt-8">
-                <Placeholder
-                  label="Setup wizard screenshot"
-                  size="1000x600"
-                  className="aspect-[5/3]"
+              <div className="mt-8 overflow-hidden rounded-3xl border border-border bg-card">
+                <img
+                  src={setupWizardImg}
+                  alt="IntegraHRIS 365 setup wizard welcome screen"
+                  className="block h-auto w-full"
+                  loading="lazy"
                 />
               </div>
             </div>
