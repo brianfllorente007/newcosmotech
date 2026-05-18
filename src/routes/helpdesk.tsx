@@ -278,6 +278,80 @@ const FAQS = [
   },
 ];
 
+// ---------- Modules Showcase (expand/collapse list + sticky screenshot) ----------
+function ModulesShowcase() {
+  const [active, setActive] = useState(0);
+  const current = MODULES[active];
+  const CurrentIcon = current.icon;
+
+  return (
+    <div className="mt-16 grid gap-10 lg:grid-cols-[1.05fr_1fr] lg:items-start lg:gap-16">
+      {/* List */}
+      <ul className="divide-y divide-border border-y border-border">
+        {MODULES.map((m, i) => {
+          const isActive = i === active;
+          return (
+            <li key={m.title}>
+              <button
+                type="button"
+                onClick={() => setActive(i)}
+                aria-expanded={isActive}
+                className="group block w-full py-6 text-left"
+              >
+                <h3
+                  className={cn(
+                    "text-xl font-semibold tracking-tight transition-colors sm:text-2xl",
+                    isActive
+                      ? "text-foreground"
+                      : "text-foreground/30 group-hover:text-foreground/60",
+                  )}
+                >
+                  {m.title}
+                </h3>
+                <div
+                  className={cn(
+                    "grid transition-all duration-500 ease-out",
+                    isActive
+                      ? "mt-4 grid-rows-[1fr] opacity-100"
+                      : "grid-rows-[0fr] opacity-0",
+                  )}
+                >
+                  <div className="overflow-hidden">
+                    <p className="text-base leading-relaxed text-muted-foreground">
+                      {m.body}
+                    </p>
+                    <ul className="mt-5 space-y-3">
+                      {m.items.map((it) => (
+                        <li key={it} className="flex items-start gap-3 text-sm">
+                          <Check className="mt-0.5 h-5 w-5 shrink-0 text-cobalt" />
+                          <span>{it}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </button>
+            </li>
+          );
+        })}
+      </ul>
+
+      {/* Sticky screenshot */}
+      <div className="lg:sticky lg:top-24">
+        <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-cobalt/10 text-cobalt">
+          <CurrentIcon className="h-6 w-6" />
+        </div>
+        <Placeholder
+          key={current.title}
+          label={`${current.title.split(" — ")[0]} screenshot`}
+          size="1200x800"
+          className="aspect-[3/2]"
+        />
+      </div>
+    </div>
+  );
+}
+
 // ---------- Page ----------
 function HelpdeskPage() {
   useReveal();
