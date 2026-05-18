@@ -540,7 +540,7 @@ function QMasterPage() {
       </section>
 
       {/* FAQ */}
-      <section className="mx-auto w-full max-w-6xl px-5 sm:px-8 text-left">
+      <section className="mx-auto w-full max-w-6xl px-5 sm:px-8 text-center">
         <Container>
           <div className="reveal max-w-3xl">
             <Eyebrow>FAQ</Eyebrow>
