@@ -618,11 +618,20 @@ function IntegraHris365Page() {
                             ))}
                           </ul>
                         </div>
-                        <Placeholder
-                          label={`${m.title.split(" — ")[0]} screenshot`}
-                          size="1200x800"
-                          className="aspect-[3/2]"
-                        />
+                        {m.title.startsWith("HR Dashboard") ? (
+                          <img
+                            src={hrDashboardImg}
+                            alt="IntegraHRIS 365 HR dashboard showing headcount, payroll, and attendance"
+                            className="aspect-[3/2] w-full rounded-3xl border border-border object-cover object-left-top"
+                            loading="lazy"
+                          />
+                        ) : (
+                          <Placeholder
+                            label={`${m.title.split(" — ")[0]} screenshot`}
+                            size="1200x800"
+                            className="aspect-[3/2]"
+                          />
+                        )}
                       </div>
                     </AccordionContent>
                   </AccordionItem>
