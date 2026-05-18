@@ -542,13 +542,13 @@ function QMasterPage() {
       {/* FAQ */}
       <section className="mx-auto w-full max-w-6xl px-5 sm:px-8 text-center">
         <Container>
-          <div className="reveal max-w-3xl">
-            <Eyebrow>FAQ</Eyebrow>
+          <div className="reveal mx-auto max-w-3xl">
+            <Eyebrow className="justify-center">FAQ</Eyebrow>
             <h2 className="mt-4 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl md:text-5xl">
               Frequently asked questions.
             </h2>
           </div>
-          <div className="reveal mt-10 max-w-3xl">
+          <div className="reveal mx-auto mt-10 max-w-3xl text-left">
             <Accordion type="single" collapsible className="w-full">
               {FAQS.map((f, i) => (
                 <AccordionItem key={f.q} value={`item-${i}`}>
