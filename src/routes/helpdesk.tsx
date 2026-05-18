@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   ArrowRight,
   Check,
@@ -281,72 +281,103 @@ const FAQS = [
 // ---------- Modules Showcase (expand/collapse list + sticky screenshot) ----------
 function ModulesShowcase() {
   const [active, setActive] = useState(0);
+  const itemRefs = useRef<Array<HTMLLIElement | null>>([]);
   const current = MODULES[active];
   const CurrentIcon = current.icon;
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        // Pick the entry closest to the viewport's vertical center
+        let bestIdx = -1;
+        let bestDist = Infinity;
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          const rect = entry.boundingClientRect;
+          const center = rect.top + rect.height / 2;
+          const dist = Math.abs(center - window.innerHeight / 2);
+          const idx = Number((entry.target as HTMLElement).dataset.index);
+          if (dist < bestDist) {
+            bestDist = dist;
+            bestIdx = idx;
+          }
+        });
+        if (bestIdx !== -1) setActive(bestIdx);
+      },
+      {
+        // Narrow band around viewport center — module activates as it passes through
+        rootMargin: "-40% 0px -40% 0px",
+        threshold: 0,
+      },
+    );
+    itemRefs.current.forEach((el) => el && observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <div className="mt-16 grid gap-10 lg:grid-cols-[1.05fr_1fr] lg:items-start lg:gap-16">
-      {/* List */}
+    <div className="mt-16 grid gap-10 lg:grid-cols-[1.05fr_1fr] lg:gap-16">
+      {/* Scroll-driven list */}
       <ul className="divide-y divide-border border-y border-border">
         {MODULES.map((m, i) => {
           const isActive = i === active;
           return (
-            <li key={m.title}>
-              <button
-                type="button"
-                onClick={() => setActive(i)}
-                aria-expanded={isActive}
-                className="group block w-full py-6 text-left"
+            <li
+              key={m.title}
+              ref={(el) => {
+                itemRefs.current[i] = el;
+              }}
+              data-index={i}
+              className="py-6"
+            >
+              <h3
+                className={cn(
+                  "text-xl font-semibold tracking-tight transition-colors duration-500 sm:text-2xl",
+                  isActive ? "text-foreground" : "text-foreground/30",
+                )}
               >
-                <h3
-                  className={cn(
-                    "text-xl font-semibold tracking-tight transition-colors sm:text-2xl",
-                    isActive
-                      ? "text-foreground"
-                      : "text-foreground/30 group-hover:text-foreground/60",
-                  )}
-                >
-                  {m.title}
-                </h3>
-                <div
-                  className={cn(
-                    "grid transition-all duration-500 ease-out",
-                    isActive
-                      ? "mt-4 grid-rows-[1fr] opacity-100"
-                      : "grid-rows-[0fr] opacity-0",
-                  )}
-                >
-                  <div className="overflow-hidden">
-                    <p className="text-base leading-relaxed text-muted-foreground">
-                      {m.body}
-                    </p>
-                    <ul className="mt-5 space-y-3">
-                      {m.items.map((it) => (
-                        <li key={it} className="flex items-start gap-3 text-sm">
-                          <Check className="mt-0.5 h-5 w-5 shrink-0 text-cobalt" />
-                          <span>{it}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                {m.title}
+              </h3>
+              <div
+                className={cn(
+                  "grid transition-all duration-500 ease-out",
+                  isActive
+                    ? "mt-4 grid-rows-[1fr] opacity-100"
+                    : "grid-rows-[0fr] opacity-0",
+                )}
+              >
+                <div className="overflow-hidden">
+                  <p className="text-base leading-relaxed text-muted-foreground">
+                    {m.body}
+                  </p>
+                  <ul className="mt-5 space-y-3">
+                    {m.items.map((it) => (
+                      <li key={it} className="flex items-start gap-3 text-sm">
+                        <Check className="mt-0.5 h-5 w-5 shrink-0 text-cobalt" />
+                        <span>{it}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-              </button>
+              </div>
             </li>
           );
         })}
       </ul>
 
-      {/* Sticky screenshot */}
-      <div className="lg:sticky lg:top-24">
-        <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-cobalt/10 text-cobalt">
-          <CurrentIcon className="h-6 w-6" />
+      {/* Sticky screenshot — wrapper stretches full grid height so sticky
+          stays pinned until the very last module scrolls past. */}
+      <div className="lg:h-full">
+        <div className="lg:sticky lg:top-24">
+          <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-cobalt/10 text-cobalt transition-colors">
+            <CurrentIcon className="h-6 w-6" />
+          </div>
+          <Placeholder
+            key={current.title}
+            label={`${current.title.split(" — ")[0]} screenshot`}
+            size="1200x800"
+            className="aspect-[3/2] animate-fade-in"
+          />
         </div>
-        <Placeholder
-          key={current.title}
-          label={`${current.title.split(" — ")[0]} screenshot`}
-          size="1200x800"
-          className="aspect-[3/2]"
-        />
       </div>
     </div>
   );
