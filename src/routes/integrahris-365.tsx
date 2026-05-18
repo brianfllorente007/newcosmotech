@@ -24,15 +24,18 @@ import payrollImg from "@/assets/integrahris-365-payroll.webp";
 import reportsImg from "@/assets/integrahris-365-reports.webp";
 import securityImg from "@/assets/integrahris-365-security.webp";
 import timekeepingImg from "@/assets/integrahris-365-timekeeping.webp";
+import leaveManagementImg from "@/assets/integrahris-365-leave-management.webp";
 
 const MODULE_IMAGES: Record<string, { src: string; alt: string }> = {
   "HR Dashboard": { src: hrDashboardImg, alt: "IntegraHRIS 365 HR dashboard showing headcount, payroll, and attendance" },
   "Employee Record": { src: employeeRecordImg, alt: "IntegraHRIS 365 Employee Record with 201 file and document attachments" },
   "Timekeeping": { src: timekeepingImg, alt: "IntegraHRIS 365 Timekeeping daily timeline with clock in and out" },
+  "Leave Management": { src: leaveManagementImg, alt: "IntegraHRIS 365 Leave Management calendar with request leave panel" },
   "Payroll Management": { src: payrollImg, alt: "IntegraHRIS 365 Payroll Management dashboard" },
   "Reports": { src: reportsImg, alt: "IntegraHRIS 365 Reports library with over 100 HR and payroll reports" },
   "Loan Management": { src: loanManagementImg, alt: "IntegraHRIS 365 Loan Management with scheduled deductions" },
   "Security": { src: securityImg, alt: "IntegraHRIS 365 Security settings with role-based access and encryption" },
+
 };
 import { Eyebrow, SectionHeading } from "@/components/SectionHeading";
 import {
