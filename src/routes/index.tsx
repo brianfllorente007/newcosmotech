@@ -155,7 +155,7 @@ function HomePage() {
         <Container>
           <div className="reveal flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
             <SectionHeading
-              eyebrow="Selected work"
+              eyebrow="FEATURED WORK"
               title={<>Trusted by Philippine government & enterprise</>}
               intro="We have delivered projects for some of the largest government institutions in the country. Here's a sample of what we've built and deployed."
             />

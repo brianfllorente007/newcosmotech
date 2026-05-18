@@ -14,7 +14,7 @@ export const Route = createFileRoute("/projects")({
       {
         name: "description",
         content:
-          "Selected work for Philippine government agencies and enterprises: GSIS, BOC, DPWH, PPA, ERC, NTC, PDIC, DENR and more.",
+          "Featured work for Philippine government agencies and enterprises: GSIS, BOC, DPWH, PPA, ERC, NTC, PDIC, DENR and more.",
       },
       { property: "og:title", content: "Projects — Cosmotech Philippines" },
       {
@@ -36,7 +36,7 @@ function ProjectsPage() {
       <section className="border-b border-border bg-bone py-20 sm:py-24">
         <Container>
           <SectionHeading
-            eyebrow="Selected work"
+            eyebrow="FEATURED WORK"
             title={<>Trusted by Philippine government agencies and private companies.</>}
             intro="We have delivered projects for some of the largest government institutions in the country. Here's a sample of what we've built and deployed."
           />
