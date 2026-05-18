@@ -16,6 +16,10 @@ import shotDocutrakr from "@/assets/products/docutrakr.webp";
 import docutrakrLight from "@/assets/logos/products/docutrakr-light.png";
 import docutrakrDark from "@/assets/logos/products/docutrakr-dark.png";
 import shotUrateme from "@/assets/products/urateme.webp";
+import gpmsLight from "@/assets/logos/products/gpms-light.png";
+import gpmsDark from "@/assets/logos/products/gpms-dark.png";
+import healthWellnessLight from "@/assets/logos/products/health-wellness-light.png";
+import healthWellnessDark from "@/assets/logos/products/health-wellness-dark.png";
 
 export const SITE = {
   name: "Cosmotech Philippines",
