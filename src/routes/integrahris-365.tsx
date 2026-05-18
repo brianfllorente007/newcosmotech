@@ -17,6 +17,7 @@ import {
 import { Container } from "@/components/Container";
 import hris365Hero from "@/assets/integrahris-365-hero.png";
 import setupWizardImg from "@/assets/integrahris-365-setup-wizard.png";
+import hrDashboardImg from "@/assets/integrahris-365-dashboard.png";
 import { Eyebrow, SectionHeading } from "@/components/SectionHeading";
 import {
   Accordion,
