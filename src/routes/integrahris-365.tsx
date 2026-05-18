@@ -424,7 +424,7 @@ function IntegraHris365Page() {
               {TRUST_LOGOS.map((logo) => (
                 <div
                   key={logo.alt}
-                  className="flex aspect-[3/2] items-center justify-center rounded-2xl bg-card p-4"
+                  className="flex aspect-[3/2] items-center justify-center p-4"
                 >
                   <img
                     src={logo.src}
