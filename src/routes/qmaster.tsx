@@ -374,7 +374,7 @@ function ModulesShowcase() {
           <img
             src={modulesImage}
             alt="QMaster deployed across Philippine government offices and branches"
-            className="w-full h-auto"
+            className="w-full h-auto lg:scale-110 lg:origin-left"
           />
         </div>
       </div>
