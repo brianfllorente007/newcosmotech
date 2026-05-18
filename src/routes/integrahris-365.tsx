@@ -79,7 +79,19 @@ function Placeholder({
 }
 
 // ---------- Data ----------
-const TRUST_LOGOS = Array.from({ length: 10 }, (_, i) => `Client ${i + 1}`);
+import fabLogo from "@/assets/logos/clients/fab.png";
+import dfaLogo from "@/assets/logos/clients/dfa.png";
+import bocLogo from "@/assets/logos/clients/boc.webp";
+import pdeaLogo from "@/assets/logos/clients/pdea.png";
+import ppaClientLogo from "@/assets/logos/clients/ppa.png";
+
+const TRUST_LOGOS = [
+  { src: fabLogo, alt: "Freeport Area of Bataan" },
+  { src: dfaLogo, alt: "Department of Foreign Affairs" },
+  { src: bocLogo, alt: "Bureau of Customs" },
+  { src: pdeaLogo, alt: "Philippine Drug Enforcement Agency" },
+  { src: ppaClientLogo, alt: "Philippine Ports Authority" },
+];
 
 const FEATURE_CARDS = [
   {
@@ -408,13 +420,18 @@ function IntegraHris365Page() {
               title="Trusted by Over 28 Philippine Organizations"
               intro="IntegraHRIS powers HR and payroll operations for leading Philippine institutions, including the Philippine Ports Authority, the Department of Foreign Affairs, Bangko Sentral ng Pilipinas, and the Bureau of Internal Revenue."
             />
-            <div className="mt-12 grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-5">
-              {TRUST_LOGOS.map((name) => (
+            <div className="mt-12 grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-5">
+              {TRUST_LOGOS.map((logo) => (
                 <div
-                  key={name}
-                  className="flex aspect-[3/2] items-center justify-center rounded-2xl border-2 border-dashed border-border bg-muted/60 text-xs font-medium text-muted-foreground"
+                  key={logo.alt}
+                  className="flex aspect-[3/2] items-center justify-center rounded-2xl bg-card p-4"
                 >
-                  [Logo: {name}]
+                  <img
+                    src={logo.src}
+                    alt={logo.alt}
+                    loading="lazy"
+                    className="max-h-full max-w-full object-contain"
+                  />
                 </div>
               ))}
             </div>
