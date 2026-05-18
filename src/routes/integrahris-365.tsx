@@ -79,18 +79,20 @@ function Placeholder({
 }
 
 // ---------- Data ----------
-import fabLogo from "@/assets/logos/clients/fab.png";
-import dfaLogo from "@/assets/logos/clients/dfa.png";
-import bocLogo from "@/assets/logos/clients/boc.webp";
-import pdeaLogo from "@/assets/logos/clients/pdea.png";
-import ppaClientLogo from "@/assets/logos/clients/ppa.png";
+import aficionadoLogo from "@/assets/logos/clients/aficionado.png";
+import isuzuLogo from "@/assets/logos/clients/isuzu.png";
+import metrosanitasLogo from "@/assets/logos/clients/metrosanitas.png";
+import ctiLogo from "@/assets/logos/clients/cti.png";
+import pclLogo from "@/assets/logos/clients/pcl.png";
+import permexLogo from "@/assets/logos/clients/permex.png";
 
 const TRUST_LOGOS = [
-  { src: fabLogo, alt: "Freeport Area of Bataan" },
-  { src: dfaLogo, alt: "Department of Foreign Affairs" },
-  { src: bocLogo, alt: "Bureau of Customs" },
-  { src: pdeaLogo, alt: "Philippine Drug Enforcement Agency" },
-  { src: ppaClientLogo, alt: "Philippine Ports Authority" },
+  { src: aficionadoLogo, alt: "Aficionado" },
+  { src: isuzuLogo, alt: "Isuzu" },
+  { src: metrosanitasLogo, alt: "MetroSanitas Medical Clinic" },
+  { src: ctiLogo, alt: "CTI" },
+  { src: pclLogo, alt: "PCL" },
+  { src: permexLogo, alt: "Permex" },
 ];
 
 const FEATURE_CARDS = [
@@ -420,7 +422,7 @@ function IntegraHris365Page() {
               title="Trusted by Over 28 Philippine Organizations"
               intro="IntegraHRIS powers HR and payroll operations for leading Philippine institutions, including the Philippine Ports Authority, the Department of Foreign Affairs, Bangko Sentral ng Pilipinas, and the Bureau of Internal Revenue."
             />
-            <div className="mt-12 grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-5">
+            <div className="mt-12 grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-6">
               {TRUST_LOGOS.map((logo) => (
                 <div
                   key={logo.alt}
