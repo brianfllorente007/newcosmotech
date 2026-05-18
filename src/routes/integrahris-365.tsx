@@ -651,7 +651,8 @@ function IntegraHris365Page() {
                               src={img.src}
                               alt={img.alt}
                               className="aspect-[3/2] w-full rounded-3xl border border-border object-cover object-left-top"
-                              loading="lazy"
+                              loading="eager"
+                              decoding="async"
                             />
                           ) : (
                             <Placeholder
