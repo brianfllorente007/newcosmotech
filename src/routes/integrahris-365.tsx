@@ -17,13 +17,13 @@ import {
 import { Container } from "@/components/Container";
 import hris365Hero from "@/assets/integrahris-365-hero.png";
 import setupWizardImg from "@/assets/integrahris-365-setup-wizard.png";
-import hrDashboardImg from "@/assets/integrahris-365-dashboard.png";
-import employeeRecordImg from "@/assets/integrahris-365-employee-record.png";
-import loanManagementImg from "@/assets/integrahris-365-loan-management.png";
-import payrollImg from "@/assets/integrahris-365-payroll.png";
-import reportsImg from "@/assets/integrahris-365-reports.png";
-import securityImg from "@/assets/integrahris-365-security.png";
-import timekeepingImg from "@/assets/integrahris-365-timekeeping.png";
+import hrDashboardImg from "@/assets/integrahris-365-dashboard.webp";
+import employeeRecordImg from "@/assets/integrahris-365-employee-record.webp";
+import loanManagementImg from "@/assets/integrahris-365-loan-management.webp";
+import payrollImg from "@/assets/integrahris-365-payroll.webp";
+import reportsImg from "@/assets/integrahris-365-reports.webp";
+import securityImg from "@/assets/integrahris-365-security.webp";
+import timekeepingImg from "@/assets/integrahris-365-timekeeping.webp";
 
 const MODULE_IMAGES: Record<string, { src: string; alt: string }> = {
   "HR Dashboard": { src: hrDashboardImg, alt: "IntegraHRIS 365 HR dashboard showing headcount, payroll, and attendance" },
@@ -374,6 +374,15 @@ function IntegraHris365Page() {
     return () => {
       document.head.removeChild(script);
     };
+  }, []);
+
+  // Warm browser cache for all module screenshots so they appear instantly
+  // when a visitor opens an accordion item.
+  useEffect(() => {
+    Object.values(MODULE_IMAGES).forEach(({ src }) => {
+      const img = new Image();
+      img.src = src;
+    });
   }, []);
 
   return (
