@@ -14,6 +14,7 @@ import { Route as QmasterRouteImport } from './routes/qmaster'
 import { Route as ProjectsRouteImport } from './routes/projects'
 import { Route as IntegrahrisGovernmentRouteImport } from './routes/integrahris-government'
 import { Route as Integrahris365RouteImport } from './routes/integrahris-365'
+import { Route as HelpdeskRouteImport } from './routes/helpdesk'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
@@ -44,6 +45,11 @@ const Integrahris365Route = Integrahris365RouteImport.update({
   path: '/integrahris-365',
   getParentRoute: () => rootRouteImport,
 } as any)
+const HelpdeskRoute = HelpdeskRouteImport.update({
+  id: '/helpdesk',
+  path: '/helpdesk',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
@@ -69,6 +75,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/helpdesk': typeof HelpdeskRoute
   '/integrahris-365': typeof Integrahris365Route
   '/integrahris-government': typeof IntegrahrisGovernmentRoute
   '/projects': typeof ProjectsRoute
@@ -80,6 +87,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/helpdesk': typeof HelpdeskRoute
   '/integrahris-365': typeof Integrahris365Route
   '/integrahris-government': typeof IntegrahrisGovernmentRoute
   '/projects': typeof ProjectsRoute
@@ -92,6 +100,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/helpdesk': typeof HelpdeskRoute
   '/integrahris-365': typeof Integrahris365Route
   '/integrahris-government': typeof IntegrahrisGovernmentRoute
   '/projects': typeof ProjectsRoute
@@ -105,6 +114,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/contact'
+    | '/helpdesk'
     | '/integrahris-365'
     | '/integrahris-government'
     | '/projects'
@@ -116,6 +126,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/contact'
+    | '/helpdesk'
     | '/integrahris-365'
     | '/integrahris-government'
     | '/projects'
@@ -127,6 +138,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/contact'
+    | '/helpdesk'
     | '/integrahris-365'
     | '/integrahris-government'
     | '/projects'
@@ -139,6 +151,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
+  HelpdeskRoute: typeof HelpdeskRoute
   Integrahris365Route: typeof Integrahris365Route
   IntegrahrisGovernmentRoute: typeof IntegrahrisGovernmentRoute
   ProjectsRoute: typeof ProjectsRoute
@@ -181,6 +194,13 @@ declare module '@tanstack/react-router' {
       path: '/integrahris-365'
       fullPath: '/integrahris-365'
       preLoaderRoute: typeof Integrahris365RouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/helpdesk': {
+      id: '/helpdesk'
+      path: '/helpdesk'
+      fullPath: '/helpdesk'
+      preLoaderRoute: typeof HelpdeskRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -230,6 +250,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
+  HelpdeskRoute: HelpdeskRoute,
   Integrahris365Route: Integrahris365Route,
   IntegrahrisGovernmentRoute: IntegrahrisGovernmentRoute,
   ProjectsRoute: ProjectsRoute,
