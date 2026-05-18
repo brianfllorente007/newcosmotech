@@ -1,14 +1,21 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "@tanstack/react-router";
-import { Menu, X } from "lucide-react";
+import { ChevronDown, Menu, X } from "lucide-react";
 import { Container } from "./Container";
 import { NAV } from "@/lib/site";
 import { cn } from "@/lib/utils";
 import logo from "@/assets/cosmotech-logo.png";
 
+const SOLUTIONS_DROPDOWN = [
+  { to: "/integrahris-365", label: "IntegraHRIS 365" },
+  { to: "/integrahris-government", label: "IntegraHRIS Government" },
+  { to: "/qmaster", label: "QMaster" },
+] as const;
+
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [solutionsOpen, setSolutionsOpen] = useState(false);
   const loc = useLocation();
   const isHome = loc.pathname === "/";
 
@@ -19,7 +26,6 @@ export function SiteHeader() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Transparent on home while at top of page (render immediately to avoid bone flash)
   const transparent = isHome && !scrolled;
 
   return (
@@ -42,6 +48,56 @@ export function SiteHeader() {
         >
           {NAV.filter((n) => n.to !== "/contact").map((n) => {
             const active = loc.pathname === n.to || (n.to !== "/" && loc.pathname.startsWith(n.to));
+
+            if (n.to === "/solutions") {
+              const dropdownActive =
+                active || SOLUTIONS_DROPDOWN.some((d) => loc.pathname.startsWith(d.to));
+              return (
+                <div
+                  key={n.to}
+                  className="relative"
+                  onMouseEnter={() => setSolutionsOpen(true)}
+                  onMouseLeave={() => setSolutionsOpen(false)}
+                >
+                  <Link
+                    to={n.to}
+                    className={cn(
+                      "inline-flex items-center gap-1 text-sm transition-colors",
+                      transparent
+                        ? "text-bone/80 hover:text-bone"
+                        : "text-muted-foreground hover:text-foreground",
+                      dropdownActive && (transparent ? "text-bone" : "text-foreground"),
+                    )}
+                  >
+                    {n.label}
+                    <ChevronDown className="h-3.5 w-3.5" />
+                  </Link>
+                  {solutionsOpen && (
+                    <div className="absolute left-1/2 top-full z-50 w-64 -translate-x-1/2 pt-3">
+                      <div className="overflow-hidden rounded-xl border border-border bg-background py-2 shadow-lg">
+                        {SOLUTIONS_DROPDOWN.map((d) => (
+                          <Link
+                            key={d.to}
+                            to={d.to}
+                            className="block px-4 py-2 text-sm text-foreground hover:bg-muted"
+                          >
+                            {d.label}
+                          </Link>
+                        ))}
+                        <div className="my-1 border-t border-border" />
+                        <Link
+                          to="/solutions"
+                          className="block px-4 py-2 text-sm font-medium text-cobalt hover:bg-muted"
+                        >
+                          View all solutions →
+                        </Link>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              );
+            }
+
             return (
               <Link
                 key={n.to}
@@ -96,17 +152,37 @@ export function SiteHeader() {
         >
           <Container className="flex flex-col gap-1 py-3">
             {NAV.map((n) => (
-              <Link
-                key={n.to}
-                to={n.to}
-                onClick={() => setOpen(false)}
-                className={cn(
-                  "rounded-md px-2 py-2 text-sm",
-                  transparent ? "text-bone hover:bg-bone/10" : "text-foreground hover:bg-muted",
+              <div key={n.to}>
+                <Link
+                  to={n.to}
+                  onClick={() => setOpen(false)}
+                  className={cn(
+                    "block rounded-md px-2 py-2 text-sm",
+                    transparent ? "text-bone hover:bg-bone/10" : "text-foreground hover:bg-muted",
+                  )}
+                >
+                  {n.label}
+                </Link>
+                {n.to === "/solutions" && (
+                  <div className="ml-3 flex flex-col gap-1 border-l border-border/40 pl-3">
+                    {SOLUTIONS_DROPDOWN.map((d) => (
+                      <Link
+                        key={d.to}
+                        to={d.to}
+                        onClick={() => setOpen(false)}
+                        className={cn(
+                          "rounded-md px-2 py-1.5 text-sm",
+                          transparent
+                            ? "text-bone/80 hover:bg-bone/10"
+                            : "text-muted-foreground hover:bg-muted",
+                        )}
+                      >
+                        {d.label}
+                      </Link>
+                    ))}
+                  </div>
                 )}
-              >
-                {n.label}
-              </Link>
+              </div>
             ))}
             <Link
               to="/contact"
