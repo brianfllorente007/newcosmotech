@@ -425,7 +425,7 @@ function QMasterPage() {
                   to="/contact"
                   className="inline-flex h-11 items-center gap-2 rounded-full bg-brass px-5 text-sm font-medium text-ink transition-all hover:-translate-y-0.5 hover:brightness-95"
                 >
-                  Run a 7-day Pilot <ArrowRight className="h-4 w-4" />
+                  Talk to Our Team <ArrowRight className="h-4 w-4" />
                 </Link>
                 <Link
                   to="/contact"
