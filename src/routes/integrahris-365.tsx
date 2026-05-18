@@ -15,7 +15,7 @@ import {
   Calculator,
 } from "lucide-react";
 import { Container } from "@/components/Container";
-import hris365Hero from "@/assets/hris365-hero.png";
+import hris365Hero from "@/assets/integrahris-365-hero.png";
 import { Eyebrow, SectionHeading } from "@/components/SectionHeading";
 import {
   Accordion,
@@ -361,7 +361,7 @@ function IntegraHris365Page() {
   return (
     <>
       {/* HERO */}
-      <section className="border-b border-border bg-bone py-20 sm:py-24">
+      <section className="border-b border-border bg-bone pt-20 sm:pt-24 pb-0">
         <Container>
           <div className="reveal mx-auto max-w-3xl text-center">
             <Eyebrow className="justify-center">IntegraHRIS 365</Eyebrow>
