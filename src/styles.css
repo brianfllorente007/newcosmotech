@@ -81,7 +81,7 @@
   /* Brand surfaces */
   --ink: oklch(0.18 0.04 260);              /* #0B1220-ish navy */
   --ink-foreground: oklch(0.97 0.01 90);
-  --bone: oklch(0.972 0.012 90);            /* #F7F6F2 warm off-white */
+  --bone: oklch(0.972 0.004 110);           /* #F7F7F2 warm off-white */
   --bone-foreground: oklch(0.18 0.04 260);
   --cobalt: oklch(0.55 0.22 265);           /* deep blue accent */
   --cobalt-foreground: oklch(0.99 0 0);
