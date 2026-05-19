@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { Container } from "./Container";
 import { PRODUCTS, SITE } from "@/lib/site";
 import logo from "@/assets/logo-cosmotech.png";
+import accreditation from "@/assets/cosmotech-accreditation.png";
 
 export function SiteFooter() {
   const year = new Date().getFullYear();
@@ -15,6 +16,12 @@ export function SiteFooter() {
               People management, queueing, helpdesk, and document tracking software — built in the
               Philippines, since 1994.
             </p>
+            <img
+              src={accreditation}
+              alt="SOCOTEC ISO 9001 and PAB accredited QMS certification body — Certificate No. SCP000931QM"
+              loading="lazy"
+              className="mt-6 h-auto w-40 rounded-md bg-bone p-2"
+            />
           </div>
 
           <div>
