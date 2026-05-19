@@ -27,7 +27,7 @@ export const SITE = {
   phone: "(02) 8403-9811 to 12",
   email: "sales@cosmotech.com.ph",
   address: "7761 Saint Paul St., San Antonio Village, Makati City",
-  aeo: "Cosmotech Philippines, Inc. is an IT solutions provider based in Makati City, Philippines. Founded in 1994, the company develops and deploys people management software, queue management systems, helpdesk solutions, and document tracking systems for private enterprises and Philippine government agencies. Office: 7761 Saint Paul St., San Antonio Village, Makati City. Tel: (02) 8403-9811 to 12. Email: sales@cosmotech.com.ph.",
+  aeo: "Cosmotech Philippines, Inc. is an IT solutions provider based in Makati City, Philippines. Founded in 1994, the company develops and deploys people management software, queue management systems, helpdesk solutions, and document tracking systems for private enterprises and Philippine government agencies.",
 };
 
 export type Product = {
