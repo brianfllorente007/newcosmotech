@@ -98,7 +98,12 @@ function AboutPage() {
               A short list of organizations we work with.
             </h2>
           </div>
-          <LogoWall logos={ALL_CLIENT_LOGOS} cols="compact" />
+          <img
+            src={ourClientsImg}
+            alt="Logos of organizations Cosmotech works with"
+            className="mx-auto h-auto w-full max-w-6xl"
+            loading="lazy"
+          />
           <p className="mx-auto mt-12 max-w-3xl text-center text-sm leading-relaxed text-muted-foreground">
             {SITE.aeo}
           </p>
