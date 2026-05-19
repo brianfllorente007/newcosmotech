@@ -25,6 +25,7 @@ import reportsImg from "@/assets/integrahris-365-reports.webp";
 import securityImg from "@/assets/integrahris-365-security.webp";
 import timekeepingImg from "@/assets/integrahris-365-timekeeping.webp";
 import leaveManagementImg from "@/assets/integrahris-365-leave-management.webp";
+import hris365InActionImg from "@/assets/integrahris-365-in-action.png";
 
 const MODULE_IMAGES: Record<string, { src: string; alt: string }> = {
   "HR Dashboard": { src: hrDashboardImg, alt: "IntegraHRIS 365 HR dashboard showing headcount, payroll, and attendance" },
