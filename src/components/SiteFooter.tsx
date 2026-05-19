@@ -16,6 +16,12 @@ export function SiteFooter() {
               People management, queueing, helpdesk, and document tracking software — built in the
               Philippines, since 1994.
             </p>
+            <img
+              src={accreditation}
+              alt="SOCOTEC ISO 9001 and PAB accredited QMS certification body — Certificate No. SCP000931QM"
+              loading="lazy"
+              className="mt-6 h-auto w-40 rounded-md bg-bone p-2"
+            />
           </div>
 
           <div>
