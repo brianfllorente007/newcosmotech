@@ -206,6 +206,10 @@ function HomePage() {
       </div>
 
       <CtaBand />
+
+      <div className="reveal">
+        <ContactSection />
+      </div>
     </>
   );
 }
