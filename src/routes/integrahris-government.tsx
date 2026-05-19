@@ -391,7 +391,29 @@ function IntegraHrisGovernmentPage() {
         </Container>
       </section>
 
-      {/* TRUSTED BY */}
+      <section className="border-b border-border bg-bone py-14 sm:py-16">
+        <Container>
+          <p className="text-center text-xs font-medium uppercase tracking-[0.22em] text-muted-foreground">
+            Trusted by Government Offices
+          </p>
+          <div className="mt-8 grid grid-cols-2 items-center gap-8 sm:grid-cols-3 md:grid-cols-5">
+            {TRUSTED_LOGOS.map((logo) => (
+              <div
+                key={logo.alt}
+                className="flex h-20 items-center justify-center"
+              >
+                <img
+                  src={logo.src}
+                  alt={logo.alt}
+                  loading="lazy"
+                  className="max-h-16 max-w-[85%] w-auto object-contain"
+                />
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
+
       {/* CHALLENGE / INTRO */}
       <section className="border-b border-border bg-foreground py-20 sm:py-28">
         <Container>
@@ -446,28 +468,6 @@ function IntegraHrisGovernmentPage() {
         </Container>
       </section>
 
-      <section className="border-b border-border bg-bone py-14 sm:py-16">
-        <Container>
-          <p className="text-center text-xs font-medium uppercase tracking-[0.22em] text-muted-foreground">
-            Trusted by Government Offices
-          </p>
-          <div className="mt-8 grid grid-cols-2 items-center gap-8 sm:grid-cols-3 md:grid-cols-5">
-            {TRUSTED_LOGOS.map((logo) => (
-              <div
-                key={logo.alt}
-                className="flex h-20 items-center justify-center"
-              >
-                <img
-                  src={logo.src}
-                  alt={logo.alt}
-                  loading="lazy"
-                  className="max-h-16 max-w-[85%] w-auto object-contain"
-                />
-              </div>
-            ))}
-          </div>
-        </Container>
-      </section>
 
       {/* BENEFITS */}
       <section className="border-b border-border py-20 sm:py-24">
