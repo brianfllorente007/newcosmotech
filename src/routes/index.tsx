@@ -6,6 +6,7 @@ import { SectionHeading, Eyebrow } from "@/components/SectionHeading";
 import { SuiteTabs } from "@/components/SuiteTabs";
 import { ProjectCard } from "@/components/ProjectCard";
 import { CtaBand } from "@/components/CtaBand";
+import { ContactSection } from "@/components/ContactSection";
 import { WhyCosmotech } from "@/components/WhyCosmotech";
 import { FaqSection } from "@/components/FaqSection";
 import { useReveal } from "@/hooks/use-reveal";
@@ -205,6 +206,10 @@ function HomePage() {
       </div>
 
       <CtaBand />
+
+      <div className="reveal">
+        <ContactSection />
+      </div>
     </>
   );
 }
