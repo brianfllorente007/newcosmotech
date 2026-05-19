@@ -70,39 +70,120 @@ export function ContactSection({ headingLevel = "h2" }: { headingLevel?: "h1" | 
 
           <form
             onSubmit={onSubmit}
-            className="rounded-3xl border border-border bg-card p-6 sm:p-8"
+            className="relative overflow-hidden rounded-3xl border border-border bg-gradient-to-br from-card via-card to-muted/40 p-6 shadow-[0_30px_80px_-40px_rgba(15,23,42,0.35)] sm:p-10"
           >
-            <div className="grid gap-4 sm:grid-cols-2">
-              <div>
-                <Label htmlFor="name">Name</Label>
-                <Input id="name" name="name" required className="mt-1.5" />
+            <div
+              aria-hidden
+              className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full bg-cobalt/10 blur-3xl"
+            />
+            <div className="relative">
+              <div className="mb-8">
+                <Eyebrow>Start a conversation</Eyebrow>
+                <h3 className="mt-3 text-2xl font-semibold tracking-tight sm:text-3xl">
+                  Send us a brief.
+                </h3>
+                <p className="mt-2 text-sm text-muted-foreground">
+                  Share a few details and we'll get back within one business day.
+                </p>
               </div>
-              <div>
-                <Label htmlFor="company">Company / agency</Label>
-                <Input id="company" name="company" required className="mt-1.5" />
+
+              <div className="grid gap-5 sm:grid-cols-2">
+                <div className="space-y-1.5">
+                  <Label htmlFor="name" className="text-xs uppercase tracking-wider text-muted-foreground">
+                    Full name
+                  </Label>
+                  <Input
+                    id="name"
+                    name="name"
+                    required
+                    placeholder="Juan dela Cruz"
+                    className="h-12 rounded-xl border-border/70 bg-background/70 px-4 text-base shadow-none focus-visible:ring-2 focus-visible:ring-cobalt/40"
+                  />
+                </div>
+                <div className="space-y-1.5">
+                  <Label htmlFor="company" className="text-xs uppercase tracking-wider text-muted-foreground">
+                    Company / agency
+                  </Label>
+                  <Input
+                    id="company"
+                    name="company"
+                    required
+                    placeholder="Cosmotech Philippines"
+                    className="h-12 rounded-xl border-border/70 bg-background/70 px-4 text-base shadow-none focus-visible:ring-2 focus-visible:ring-cobalt/40"
+                  />
+                </div>
+              </div>
+
+              <div className="mt-5 space-y-1.5">
+                <Label htmlFor="email" className="text-xs uppercase tracking-wider text-muted-foreground">
+                  Work email
+                </Label>
+                <Input
+                  id="email"
+                  name="email"
+                  type="email"
+                  required
+                  placeholder="you@company.com"
+                  className="h-12 rounded-xl border-border/70 bg-background/70 px-4 text-base shadow-none focus-visible:ring-2 focus-visible:ring-cobalt/40"
+                />
+              </div>
+
+              <div className="mt-5 space-y-1.5">
+                <Label htmlFor="message" className="text-xs uppercase tracking-wider text-muted-foreground">
+                  How can we help?
+                </Label>
+                <Textarea
+                  id="message"
+                  name="message"
+                  rows={5}
+                  required
+                  placeholder="Tell us about your operations, what you're using today, and what you'd like to improve."
+                  className="rounded-xl border-border/70 bg-background/70 px-4 py-3 text-base shadow-none focus-visible:ring-2 focus-visible:ring-cobalt/40"
+                />
+              </div>
+
+              <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                <Button
+                  type="submit"
+                  disabled={submitting}
+                  size="lg"
+                  className="group h-12 rounded-xl px-6 text-sm font-semibold tracking-wide"
+                >
+                  {submitting ? "Sending…" : (
+                    <>
+                      Send message
+                      <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+                    </>
+                  )}
+                </Button>
+                <p className="flex items-center gap-2 text-xs text-muted-foreground">
+                  <ShieldCheck className="h-4 w-4 text-cobalt" />
+                  We reply within 1 business day.
+                </p>
+              </div>
+
+              <p className="mt-4 text-xs leading-relaxed text-muted-foreground">
+                By sending, you agree to be contacted by Cosmotech Philippines about your inquiry.
+              </p>
+
+              <div className="mt-10 flex items-center gap-4 border-t border-border/60 pt-6">
+                <img
+                  src={dpoBadge}
+                  alt="National Privacy Commission DPO/DPS Registered badge"
+                  loading="lazy"
+                  className="h-24 w-auto shrink-0"
+                />
+                <div className="text-xs leading-relaxed text-muted-foreground">
+                  <p className="font-semibold uppercase tracking-wider text-foreground">
+                    NPC Registered
+                  </p>
+                  <p className="mt-1">
+                    Cosmotech Philippines is a registered Data Protection Officer and Data
+                    Processing System with the National Privacy Commission.
+                  </p>
+                </div>
               </div>
             </div>
-            <div className="mt-4">
-              <Label htmlFor="email">Email</Label>
-              <Input id="email" name="email" type="email" required className="mt-1.5" />
-            </div>
-            <div className="mt-4">
-              <Label htmlFor="message">How can we help?</Label>
-              <Textarea
-                id="message"
-                name="message"
-                rows={6}
-                required
-                className="mt-1.5"
-                placeholder="Tell us about your operations, what you're using today, and what you'd like to improve."
-              />
-            </div>
-            <Button type="submit" disabled={submitting} className="mt-6 w-full sm:w-auto">
-              {submitting ? "Sending…" : "Send message"}
-            </Button>
-            <p className="mt-3 text-xs text-muted-foreground">
-              By sending, you agree to be contacted by Cosmotech Philippines about your inquiry.
-            </p>
           </form>
         </div>
       </Container>
