@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { Container } from "./Container";
 import { PRODUCTS, SITE } from "@/lib/site";
 import logo from "@/assets/logo-cosmotech.png";
+import accreditation from "@/assets/cosmotech-accreditation.png";
 
 export function SiteFooter() {
   const year = new Date().getFullYear();
