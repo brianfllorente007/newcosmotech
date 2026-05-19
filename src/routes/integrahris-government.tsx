@@ -520,9 +520,6 @@ function IntegraHrisGovernmentPage() {
                       <m.icon className="h-5 w-5" />
                     </div>
                     <div>
-                      <p className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
-                        {"\n"}
-                      </p>
                       <h3 className="mt-1 text-xl font-semibold tracking-tight text-foreground">
                         {m.title}
                       </h3>
