@@ -515,11 +515,13 @@ function IntegraHris365Page() {
                 ))}
               </ul>
             </div>
-            <Placeholder
-              label="201 file / dashboard mock"
-              size="1200x900"
-              className="aspect-[4/3]"
+            <img
+              src={hris365InActionImg}
+              alt="IntegraHRIS 365 dashboard shown on a MacBook Pro"
+              className="aspect-[4/3] w-full rounded-3xl object-cover shadow-xl"
+              loading="lazy"
             />
+
           </div>
         </Container>
       </section>
