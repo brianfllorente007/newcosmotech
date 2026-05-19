@@ -15,7 +15,7 @@ import {
   Calculator,
 } from "lucide-react";
 import { Container } from "@/components/Container";
-import hris365Hero from "@/assets/integrahris-365-hero.png";
+import hris365Hero from "@/assets/integrahris-365-hero.webp";
 import setupWizardImg from "@/assets/integrahris-365-setup-wizard.png";
 import hrDashboardImg from "@/assets/integrahris-365-dashboard.webp";
 import employeeRecordImg from "@/assets/integrahris-365-employee-record.webp";
