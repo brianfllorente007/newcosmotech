@@ -4,9 +4,8 @@ import { SectionHeading, Eyebrow } from "@/components/SectionHeading";
 import { FeatureCheckList } from "@/components/FeatureCheckList";
 import { CtaBand } from "@/components/CtaBand";
 import { WhyCosmotech } from "@/components/WhyCosmotech";
-import { LogoWall } from "@/components/LogoWall";
 import { SITE } from "@/lib/site";
-import { ALL_CLIENT_LOGOS } from "@/lib/logos";
+import ourClientsImg from "@/assets/our-clients.png";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -99,7 +98,12 @@ function AboutPage() {
               A short list of organizations we work with.
             </h2>
           </div>
-          <LogoWall logos={ALL_CLIENT_LOGOS} cols="compact" />
+          <img
+            src={ourClientsImg}
+            alt="Logos of organizations Cosmotech works with"
+            className="mx-auto h-auto w-full max-w-6xl"
+            loading="lazy"
+          />
           <p className="mx-auto mt-12 max-w-3xl text-center text-sm leading-relaxed text-muted-foreground">
             {SITE.aeo}
           </p>
