@@ -25,6 +25,7 @@ import reportsImg from "@/assets/integrahris-365-reports.webp";
 import securityImg from "@/assets/integrahris-365-security.webp";
 import timekeepingImg from "@/assets/integrahris-365-timekeeping.webp";
 import leaveManagementImg from "@/assets/integrahris-365-leave-management.webp";
+import hris365InActionImg from "@/assets/integrahris-365-in-action.png";
 
 const MODULE_IMAGES: Record<string, { src: string; alt: string }> = {
   "HR Dashboard": { src: hrDashboardImg, alt: "IntegraHRIS 365 HR dashboard showing headcount, payroll, and attendance" },
@@ -515,11 +516,13 @@ function IntegraHris365Page() {
                 ))}
               </ul>
             </div>
-            <Placeholder
-              label="201 file / dashboard mock"
-              size="1200x900"
-              className="aspect-[4/3]"
+            <img
+              src={hris365InActionImg}
+              alt="IntegraHRIS 365 dashboard shown on a MacBook Pro"
+              className="aspect-[4/3] w-full rounded-3xl object-cover shadow-xl"
+              loading="lazy"
             />
+
           </div>
         </Container>
       </section>
