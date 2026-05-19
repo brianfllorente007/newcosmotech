@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { toast } from "sonner";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin, ArrowRight, ShieldCheck } from "lucide-react";
 import { Container } from "@/components/Container";
 import { Eyebrow } from "@/components/SectionHeading";
 import { Button } from "@/components/ui/button";
@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { SITE } from "@/lib/site";
+import dpoBadge from "@/assets/dpo-dps-badge.png";
 
 export function ContactSection({ headingLevel = "h2" }: { headingLevel?: "h1" | "h2" }) {
   const [submitting, setSubmitting] = useState(false);
