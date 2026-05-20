@@ -132,14 +132,8 @@ function HomePage() {
           <div className="reveal mx-auto max-w-3xl text-center">
             <Eyebrow className="justify-center text-bone/70">Digital transformation</Eyebrow>
             <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl md:text-5xl">
-              Talk To Our Team
+              We design and build AI-enabled custom software and hardware for organizations that need more than what off-the-shelf systems can offer. Whether you're modernizing paper-based workflows or upgrading existing digital systems, our team handles everything: assessment, design, installation, and ongoing support.
             </h2>
-            <p className="mt-5 text-base leading-relaxed text-bone/75 sm:text-lg">
-              We work with organizations that are still on paper-based workflows and with those
-              that already have digital systems but need them to work better. Our team handles
-              everything: assessment, design, installation, and ongoing support. You don't need to
-              figure out the technical side — that's what we're here for.
-            </p>
             <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <Link
                 to="/contact"
