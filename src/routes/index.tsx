@@ -55,7 +55,7 @@ function HomePage() {
   return (
     <>
       {/* HERO */}
-      <section className="relative -mt-20 overflow-hidden gradient-hero pt-20 text-bone md:-mt-24 md:pt-24 before:pointer-events-none before:absolute before:inset-0 before:-z-10 before:bg-ink">
+      <section className="relative -mt-24 overflow-hidden gradient-hero pt-24 text-bone md:-mt-28 md:pt-28 before:pointer-events-none before:absolute before:inset-0 before:-z-10 before:bg-ink">
         <video
           src={heroBg}
           autoPlay
