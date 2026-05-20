@@ -20,6 +20,7 @@ import {
 import { Container } from "@/components/Container";
 import docutrakrHero from "@/assets/docutrakr-hero.png";
 import docutrakrWorkflow from "@/assets/docutrakr-workflow.png";
+import docutrakrAudit from "@/assets/docutrakr-audit.png";
 import { Eyebrow, SectionHeading } from "@/components/SectionHeading";
 import {
   Accordion,
@@ -526,10 +527,11 @@ function DocutrakrPage() {
                 one system.
               </p>
               <div className="mt-8">
-                <Placeholder
-                  label="Audit trail / report screenshot"
-                  size="1000x600"
-                  className="aspect-[5/3]"
+                <img
+                  src={docutrakrAudit}
+                  alt="Audit trail and report screenshot"
+                  className="aspect-[5/3] w-full rounded-2xl object-cover shadow-[0_30px_80px_-30px_rgba(15,23,42,0.35)]"
+                  loading="lazy"
                 />
               </div>
             </div>
