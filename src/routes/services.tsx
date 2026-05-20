@@ -196,52 +196,88 @@ function ServicesPage() {
             />
           </div>
 
-          <div className="mt-14 space-y-12">
-            {INFRASTRUCTURE.map(({ icon: Icon, title, body, image, capabilities }, idx) => (
-              <div
-                key={title}
-                className={`grid gap-8 lg:grid-cols-2 lg:items-center ${
-                  idx % 2 === 1 ? "lg:[&>*:first-child]:order-2" : ""
-                }`}
-              >
-                <div className="overflow-hidden rounded-2xl border border-border bg-background shadow-[0_30px_80px_-30px_rgba(15,23,42,0.35)]">
-                  <img
-                    src={image}
-                    alt={title}
-                    width={1280}
-                    height={896}
-                    loading="lazy"
-                    className="h-full w-full object-cover"
-                  />
-                </div>
-
-                <div>
-                  <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-cobalt/15 text-cobalt">
-                    <Icon className="h-5 w-5" />
-                  </div>
-                  <h3 className="mt-5 text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
-                    {title}
-                  </h3>
-                  <p className="mt-3 text-base leading-relaxed text-muted-foreground">{body}</p>
-                  <ul className="mt-6 flex flex-wrap gap-2">
-                    {capabilities.map((c) => (
-                      <li
-                        key={c}
-                        className="rounded-full border border-border bg-background px-3 py-1.5 text-sm text-foreground"
-                      >
-                        {c}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            ))}
-          </div>
+          <InfrastructureTabs />
         </Container>
       </section>
 
       <CtaBand />
       <ContactSection />
     </>
+  );
+}
+
+function InfrastructureTabs() {
+  const [active, setActive] = useState(0);
+  const current = INFRASTRUCTURE[active];
+  const ActiveIcon = current.icon;
+
+  return (
+    <div className="mt-12">
+      {/* Tabs strip */}
+      <div className="relative -mx-5 sm:mx-0">
+        <div className="scrollbar-hide flex snap-x snap-mandatory gap-2 overflow-x-auto scroll-px-5 px-5 pb-2 sm:grid sm:grid-cols-3 sm:gap-3 sm:overflow-visible sm:px-0 sm:pb-0">
+          {INFRASTRUCTURE.map((item, idx) => {
+            const Icon = item.icon;
+            const isActive = active === idx;
+            return (
+              <button
+                key={item.title}
+                onClick={() => setActive(idx)}
+                aria-pressed={isActive}
+                className={cn(
+                  "flex h-16 shrink-0 snap-start items-center justify-center gap-3 rounded-2xl border px-5 text-sm font-semibold transition-colors sm:w-auto sm:shrink",
+                  isActive
+                    ? "border-foreground bg-background text-foreground shadow-sm"
+                    : "border-transparent bg-transparent text-foreground/55 hover:text-foreground",
+                )}
+              >
+                <Icon className={cn("h-5 w-5", isActive ? "text-cobalt" : "text-foreground/55")} />
+                <span className="whitespace-nowrap">{item.title}</span>
+              </button>
+            );
+          })}
+        </div>
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute right-0 top-0 h-full w-8 bg-gradient-to-l from-bone to-transparent sm:hidden"
+        />
+      </div>
+
+      {/* Panel */}
+      <div className="mt-8 grid gap-6 lg:grid-cols-2 lg:items-stretch">
+        <div className="flex flex-col justify-between rounded-3xl bg-ink p-8 text-bone sm:p-10">
+          <div>
+            <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-bone/10 text-brass">
+              <ActiveIcon className="h-5 w-5" />
+            </div>
+            <h3 className="mt-6 text-2xl font-semibold tracking-tight sm:text-3xl">
+              {current.title}
+            </h3>
+            <p className="mt-4 text-base leading-relaxed text-bone/75">{current.body}</p>
+            <ul className="mt-6 space-y-3">
+              {current.capabilities.map((c) => (
+                <li key={c} className="flex items-start gap-3 text-sm text-bone/90">
+                  <span className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-brass text-ink">
+                    <Check className="h-3 w-3" strokeWidth={3} />
+                  </span>
+                  <span>{c}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <div className="overflow-hidden rounded-3xl border border-border bg-background shadow-[0_30px_80px_-30px_rgba(15,23,42,0.35)]">
+          <img
+            src={current.image}
+            alt={current.title}
+            width={1280}
+            height={896}
+            loading="lazy"
+            className="h-full w-full object-cover"
+          />
+        </div>
+      </div>
+    </div>
   );
 }
