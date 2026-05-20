@@ -487,7 +487,7 @@ function GpmsPage() {
                 Procurement Reform Act (RA 9184) and RA 12009.
               </p>
             </div>
-            <div className="rounded-3xl border border-border bg-bone p-8">
+            <div className="self-start rounded-3xl border border-border bg-bone p-8 lg:sticky lg:top-24">
               <h3 className="text-xl font-semibold tracking-tight text-foreground">
                 Modes of procurement supported
               </h3>
