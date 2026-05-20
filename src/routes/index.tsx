@@ -134,6 +134,9 @@ function HomePage() {
             <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl md:text-5xl">
               Custom Solutions for Businesses and Government Agencies
             </h2>
+            <p className="mt-5 text-base leading-relaxed text-bone/75 sm:text-lg">
+              We design and build AI-enabled custom software and hardware for organizations that need more than what off-the-shelf systems can offer. Whether you're modernizing paper-based workflows or upgrading existing digital systems, our team handles everything: assessment, design, installation, and ongoing support.
+            </p>
             <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <Link
                 to="/contact"
