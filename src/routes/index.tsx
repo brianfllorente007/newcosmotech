@@ -132,7 +132,7 @@ function HomePage() {
           <div className="reveal mx-auto max-w-3xl text-center">
             <Eyebrow className="justify-center text-bone/70">Digital transformation</Eyebrow>
             <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl md:text-5xl">
-              From manual processes to digital ones — we handle the transition.
+              Talk To Our Team
             </h2>
             <p className="mt-5 text-base leading-relaxed text-bone/75 sm:text-lg">
               We work with organizations that are still on paper-based workflows and with those
