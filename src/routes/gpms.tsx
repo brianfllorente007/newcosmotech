@@ -20,6 +20,8 @@ import {
   Gavel,
 } from "lucide-react";
 import { Container } from "@/components/Container";
+import { cn } from "@/lib/utils";
+import gpmsHero from "@/assets/gpms-hero.jpg";
 import { Eyebrow, SectionHeading } from "@/components/SectionHeading";
 import {
   Accordion,
