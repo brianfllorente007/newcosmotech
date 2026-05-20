@@ -13,7 +13,7 @@ export function SiteFooter() {
       <Container className="py-16">
         <div className="grid gap-10 md:grid-cols-3 lg:grid-cols-5">
           <div className="lg:col-span-2">
-            <img src={logo} alt="Cosmotech Philippines" className="h-7 w-auto" />
+            <img src={logo} alt="Cosmotech Philippines" className="h-12 w-auto md:h-14" />
             <p className="mt-4 max-w-xs text-sm text-ink-foreground/70">
               People management, queueing, helpdesk, and document tracking software — built in the
               Philippines, since 1994.

@@ -37,12 +37,12 @@ export function SiteHeader() {
         "sticky top-0 z-40 transition-colors duration-300",
         transparent
           ? "border-b border-transparent bg-transparent text-bone"
-          : "border-b border-border/60 bg-background/85 text-foreground backdrop-blur supports-[backdrop-filter]:bg-background/70",
+          : "border-b border-white/10 bg-ink/90 text-bone backdrop-blur supports-[backdrop-filter]:bg-ink/80",
       )}
     >
-      <Container className="flex h-20 items-center gap-8 pt-3 md:h-24 md:pt-4">
+      <Container className="flex h-24 items-center gap-8 pt-3 md:h-28 md:pt-4">
         <Link to="/" className="flex items-center" aria-label="Cosmotech Philippines home">
-          <img src={logo} alt="Cosmotech Philippines" className="h-10 w-auto md:h-12" />
+          <img src={logo} alt="Cosmotech Philippines" className="h-14 w-auto md:h-16" />
         </Link>
 
         <nav
@@ -65,11 +65,8 @@ export function SiteHeader() {
                   <Link
                     to={n.to}
                     className={cn(
-                      "inline-flex items-center gap-1 text-sm transition-colors",
-                      transparent
-                        ? "text-bone/80 hover:text-bone"
-                        : "text-muted-foreground hover:text-foreground",
-                      dropdownActive && (transparent ? "text-bone" : "text-foreground"),
+                      "inline-flex items-center gap-1 text-sm transition-colors text-bone/80 hover:text-bone",
+                      dropdownActive && "text-bone",
                     )}
                   >
                     {n.label}
@@ -106,11 +103,8 @@ export function SiteHeader() {
                 key={n.to}
                 to={n.to}
                 className={cn(
-                  "text-sm transition-colors",
-                  transparent
-                    ? "text-bone/80 hover:text-bone"
-                    : "text-muted-foreground hover:text-foreground",
-                  active && (transparent ? "text-bone" : "text-foreground"),
+                  "text-sm transition-colors text-bone/80 hover:text-bone",
+                  active && "text-bone",
                 )}
               >
                 {n.label}
@@ -122,16 +116,12 @@ export function SiteHeader() {
         <div className="ml-auto hidden min-[480px]:block">
           <Link
             to="/contact"
-            className={cn(
-              "inline-flex h-9 items-center rounded-full px-4 text-sm font-medium transition-all hover:brightness-95",
-              transparent
-                ? "bg-brass text-ink"
-                : "bg-foreground text-background hover:opacity-90",
-            )}
+            className="inline-flex h-9 items-center rounded-full bg-brass px-4 text-sm font-medium text-ink transition-all hover:brightness-95"
           >
             Talk to our team
           </Link>
         </div>
+
 
         <button
           className={cn(
