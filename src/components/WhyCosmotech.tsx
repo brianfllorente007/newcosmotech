@@ -61,9 +61,9 @@ export function WhyCosmotech() {
           {ITEMS.map(({ icon: Icon, title, body }) => (
             <div
               key={title}
-              className="group rounded-2xl border border-border bg-background p-6 transition-all hover:-translate-y-0.5 hover:border-brass/60 hover:shadow-sm"
+              className="group rounded-2xl border border-border bg-background p-6 transition-all hover:-translate-y-0.5 hover:border-cobalt/60 hover:shadow-sm"
             >
-              <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-brass/15 text-brass">
+              <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-cobalt/15 text-cobalt">
                 <Icon className="h-5 w-5" />
               </div>
               <h3 className="mt-5 text-lg font-semibold tracking-tight text-foreground">
