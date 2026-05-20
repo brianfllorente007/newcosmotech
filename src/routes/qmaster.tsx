@@ -335,14 +335,27 @@ function ModulesShowcase() {
               data-index={i}
               className="py-6"
             >
-              <h3
-                className={cn(
-                  "text-xl font-semibold tracking-tight transition-colors duration-500 sm:text-2xl",
-                  isActive ? "text-foreground" : "text-foreground/30",
-                )}
+              <button
+                type="button"
+                onClick={() => {
+                  setActive(i);
+                  itemRefs.current[i]?.scrollIntoView({
+                    behavior: "smooth",
+                    block: "center",
+                  });
+                }}
+                aria-expanded={isActive}
+                className="w-full text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-cobalt rounded-sm cursor-pointer"
               >
-                {m.title}
-              </h3>
+                <h3
+                  className={cn(
+                    "text-xl font-semibold tracking-tight transition-colors duration-500 sm:text-2xl hover:text-foreground",
+                    isActive ? "text-foreground" : "text-foreground/30",
+                  )}
+                >
+                  {m.title}
+                </h3>
+              </button>
               <div
                 className={cn(
                   "grid transition-all duration-500 ease-out",
