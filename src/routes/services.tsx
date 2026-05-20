@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import {
   Code2,
@@ -7,8 +8,10 @@ import {
   Network,
   MonitorPlay,
   Fingerprint,
+  Check,
   type LucideIcon,
 } from "lucide-react";
+import { cn } from "@/lib/utils";
 import { Container } from "@/components/Container";
 import { SectionHeading, Eyebrow } from "@/components/SectionHeading";
 import { CtaBand } from "@/components/CtaBand";
