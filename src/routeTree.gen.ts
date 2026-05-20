@@ -17,6 +17,7 @@ import { Route as ProjectsRouteImport } from './routes/projects'
 import { Route as IntegrahrisGovernmentRouteImport } from './routes/integrahris-government'
 import { Route as Integrahris365RouteImport } from './routes/integrahris-365'
 import { Route as HelpdeskRouteImport } from './routes/helpdesk'
+import { Route as GpmsRouteImport } from './routes/gpms'
 import { Route as DocutrakrRouteImport } from './routes/docutrakr'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
@@ -63,6 +64,11 @@ const HelpdeskRoute = HelpdeskRouteImport.update({
   path: '/helpdesk',
   getParentRoute: () => rootRouteImport,
 } as any)
+const GpmsRoute = GpmsRouteImport.update({
+  id: '/gpms',
+  path: '/gpms',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const DocutrakrRoute = DocutrakrRouteImport.update({
   id: '/docutrakr',
   path: '/docutrakr',
@@ -94,6 +100,7 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/docutrakr': typeof DocutrakrRoute
+  '/gpms': typeof GpmsRoute
   '/helpdesk': typeof HelpdeskRoute
   '/integrahris-365': typeof Integrahris365Route
   '/integrahris-government': typeof IntegrahrisGovernmentRoute
@@ -109,6 +116,7 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/docutrakr': typeof DocutrakrRoute
+  '/gpms': typeof GpmsRoute
   '/helpdesk': typeof HelpdeskRoute
   '/integrahris-365': typeof Integrahris365Route
   '/integrahris-government': typeof IntegrahrisGovernmentRoute
@@ -125,6 +133,7 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/docutrakr': typeof DocutrakrRoute
+  '/gpms': typeof GpmsRoute
   '/helpdesk': typeof HelpdeskRoute
   '/integrahris-365': typeof Integrahris365Route
   '/integrahris-government': typeof IntegrahrisGovernmentRoute
@@ -142,6 +151,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/docutrakr'
+    | '/gpms'
     | '/helpdesk'
     | '/integrahris-365'
     | '/integrahris-government'
@@ -157,6 +167,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/docutrakr'
+    | '/gpms'
     | '/helpdesk'
     | '/integrahris-365'
     | '/integrahris-government'
@@ -172,6 +183,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/docutrakr'
+    | '/gpms'
     | '/helpdesk'
     | '/integrahris-365'
     | '/integrahris-government'
@@ -188,6 +200,7 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
   DocutrakrRoute: typeof DocutrakrRoute
+  GpmsRoute: typeof GpmsRoute
   HelpdeskRoute: typeof HelpdeskRoute
   Integrahris365Route: typeof Integrahris365Route
   IntegrahrisGovernmentRoute: typeof IntegrahrisGovernmentRoute
@@ -256,6 +269,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof HelpdeskRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/gpms': {
+      id: '/gpms'
+      path: '/gpms'
+      fullPath: '/gpms'
+      preLoaderRoute: typeof GpmsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/docutrakr': {
       id: '/docutrakr'
       path: '/docutrakr'
@@ -311,6 +331,7 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
   DocutrakrRoute: DocutrakrRoute,
+  GpmsRoute: GpmsRoute,
   HelpdeskRoute: HelpdeskRoute,
   Integrahris365Route: Integrahris365Route,
   IntegrahrisGovernmentRoute: IntegrahrisGovernmentRoute,
@@ -323,3 +344,12 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { createStart } from '@tanstack/react-start'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+  }
+}
