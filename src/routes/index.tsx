@@ -132,7 +132,7 @@ function HomePage() {
           <div className="reveal mx-auto max-w-3xl text-center">
             <Eyebrow className="justify-center text-bone/70">Digital transformation</Eyebrow>
             <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl md:text-5xl">
-              We design and build AI-enabled custom software and hardware for organizations that need more than what off-the-shelf systems can offer. Whether you're modernizing paper-based workflows or upgrading existing digital systems, our team handles everything: assessment, design, installation, and ongoing support.
+              Custom Solutions for Businesses and Government Agencies
             </h2>
             <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <Link
