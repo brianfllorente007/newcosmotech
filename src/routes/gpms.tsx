@@ -579,37 +579,13 @@ function GpmsPage() {
               eyebrow="Feature deep dive"
               title="A closer look at what GPMS can do"
             />
-            <div className="mt-12 space-y-6">
-              {FEATURE_BLOCKS.map((f, i) => (
-                <div
-                  key={f.title}
-                  className="grid gap-8 rounded-3xl border border-border bg-card p-8 sm:p-10 lg:grid-cols-2 lg:gap-12"
-                >
-                  <div className={i % 2 === 1 ? "lg:order-2" : ""}>
-                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-cobalt/10 text-cobalt">
-                      <f.icon className="h-5 w-5" />
-                    </div>
-                    <h3 className="mt-4 text-2xl font-semibold tracking-tight text-foreground">
-                      {f.title}
-                    </h3>
-                    <p className="mt-3 text-base leading-relaxed text-muted-foreground">
-                      {f.body}
-                    </p>
-                  </div>
-                  <ul className={`space-y-2 ${i % 2 === 1 ? "lg:order-1" : ""}`}>
-                    {f.items.map((item) => (
-                      <li
-                        key={item}
-                        className="flex items-start gap-2 text-sm text-foreground"
-                      >
-                        <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-cobalt" />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
+            <FeatureDeepDiveTabs />
+          </div>
+        </Container>
+      </section>
+
+      {/* SPECIAL FEATURES — anchor moved below */}
+      <></>
           </div>
         </Container>
       </section>
