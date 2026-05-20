@@ -797,3 +797,78 @@ function GpmsPage() {
     </>
   );
 }
+
+function FeatureDeepDiveTabs() {
+  const [active, setActive] = useState(0);
+  const f = FEATURE_BLOCKS[active];
+  return (
+    <div className="mt-12">
+      <div className="relative -mx-5 sm:mx-0">
+        <div className="scrollbar-hide flex snap-x snap-mandatory gap-2 overflow-x-auto scroll-px-5 px-5 pb-2 sm:flex-wrap sm:overflow-visible sm:px-0 sm:pb-0">
+          {FEATURE_BLOCKS.map((b, i) => {
+            const isActive = active === i;
+            return (
+              <button
+                key={b.title}
+                onClick={() => setActive(i)}
+                aria-pressed={isActive}
+                className={cn(
+                  "inline-flex h-11 shrink-0 snap-start items-center gap-2 rounded-full border px-4 text-sm font-medium transition-colors",
+                  isActive
+                    ? "border-foreground bg-foreground text-background"
+                    : "border-border bg-card text-foreground/75 hover:text-foreground",
+                )}
+              >
+                <b.icon className="h-4 w-4" />
+                <span className="whitespace-nowrap">{b.title}</span>
+              </button>
+            );
+          })}
+        </div>
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute right-0 top-0 h-full w-8 bg-gradient-to-l from-bone to-transparent sm:hidden"
+        />
+      </div>
+
+      <div className="mt-8 grid">
+        {FEATURE_BLOCKS.map((b, i) => {
+          const isActive = active === i;
+          return (
+            <div
+              key={b.title}
+              aria-hidden={!isActive}
+              className={cn(
+                "[grid-area:1/1] grid gap-8 rounded-3xl border border-border bg-card p-8 sm:p-10 lg:grid-cols-2 lg:gap-12 transition-opacity duration-300",
+                isActive ? "opacity-100" : "pointer-events-none opacity-0",
+              )}
+            >
+              <div>
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-cobalt/10 text-cobalt">
+                  <b.icon className="h-5 w-5" />
+                </div>
+                <h3 className="mt-4 text-2xl font-semibold tracking-tight text-foreground">
+                  {b.title}
+                </h3>
+                <p className="mt-3 text-base leading-relaxed text-muted-foreground">
+                  {b.body}
+                </p>
+              </div>
+              <ul className="space-y-2">
+                {b.items.map((item) => (
+                  <li
+                    key={item}
+                    className="flex items-start gap-2 text-sm text-foreground"
+                  >
+                    <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-cobalt" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
