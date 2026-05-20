@@ -65,11 +65,8 @@ export function SiteHeader() {
                   <Link
                     to={n.to}
                     className={cn(
-                      "inline-flex items-center gap-1 text-sm transition-colors",
-                      transparent
-                        ? "text-bone/80 hover:text-bone"
-                        : "text-muted-foreground hover:text-foreground",
-                      dropdownActive && (transparent ? "text-bone" : "text-foreground"),
+                      "inline-flex items-center gap-1 text-sm transition-colors text-bone/80 hover:text-bone",
+                      dropdownActive && "text-bone",
                     )}
                   >
                     {n.label}
@@ -106,11 +103,8 @@ export function SiteHeader() {
                 key={n.to}
                 to={n.to}
                 className={cn(
-                  "text-sm transition-colors",
-                  transparent
-                    ? "text-bone/80 hover:text-bone"
-                    : "text-muted-foreground hover:text-foreground",
-                  active && (transparent ? "text-bone" : "text-foreground"),
+                  "text-sm transition-colors text-bone/80 hover:text-bone",
+                  active && "text-bone",
                 )}
               >
                 {n.label}
@@ -122,16 +116,12 @@ export function SiteHeader() {
         <div className="ml-auto hidden min-[480px]:block">
           <Link
             to="/contact"
-            className={cn(
-              "inline-flex h-9 items-center rounded-full px-4 text-sm font-medium transition-all hover:brightness-95",
-              transparent
-                ? "bg-brass text-ink"
-                : "bg-foreground text-background hover:opacity-90",
-            )}
+            className="inline-flex h-9 items-center rounded-full bg-brass px-4 text-sm font-medium text-ink transition-all hover:brightness-95"
           >
             Talk to our team
           </Link>
         </div>
+
 
         <button
           className={cn(
