@@ -18,6 +18,7 @@ import {
   Download,
 } from "lucide-react";
 import { Container } from "@/components/Container";
+import docutrakrHero from "@/assets/docutrakr-hero.png";
 import { Eyebrow, SectionHeading } from "@/components/SectionHeading";
 import {
   Accordion,
