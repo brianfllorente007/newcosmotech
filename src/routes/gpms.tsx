@@ -66,15 +66,6 @@ export const Route = createFileRoute("/gpms")({
   component: GpmsPage,
 });
 
-const HIGHLIGHTS = [
-  { icon: Activity, label: "End-to-end procurement tracking" },
-  { icon: FolderArchive, label: "Document archiving per project" },
-  { icon: GitBranch, label: "Approval tracking and notifications" },
-  { icon: ClipboardList, label: "Procurement activity monitoring" },
-  { icon: Wallet, label: "Contract and payment monitoring" },
-  { icon: ShieldCheck, label: "Secure access and audit trail" },
-];
-
 const MODES = [
   "Public Bidding",
   "Alternative Methods",
