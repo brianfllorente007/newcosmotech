@@ -141,6 +141,14 @@ function ServicesPage() {
               displays, and biometric identity — we design, build, and support technology that
               fits the way Philippine organizations actually work.
             </p>
+            <div className="mt-8">
+              <Link
+                to="/contact"
+                className="inline-flex h-11 items-center gap-2 rounded-full bg-ink px-5 text-sm font-medium text-bone transition-all hover:-translate-y-0.5 hover:brightness-110"
+              >
+                Talk to Our Team <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
           </div>
         </Container>
       </section>
