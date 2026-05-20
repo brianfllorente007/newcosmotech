@@ -2,26 +2,22 @@ import { Link } from "@tanstack/react-router";
 import { Container } from "./Container";
 import { PRODUCTS, SITE } from "@/lib/site";
 import logo from "@/assets/logo-cosmotech.png";
-import accreditation from "@/assets/cosmotech-accreditation.png";
+import certSocotec from "@/assets/cert-socotec-iso9001.png";
+import certNpc from "@/assets/cert-npc-dpo.png";
+import certIso27001 from "@/assets/cert-iso-27001.png";
 
 export function SiteFooter() {
   const year = new Date().getFullYear();
   return (
     <footer className="border-t border-border/70 bg-ink text-ink-foreground">
       <Container className="py-16">
-        <div className="grid gap-10 md:grid-cols-4">
-          <div>
+        <div className="grid gap-10 md:grid-cols-3 lg:grid-cols-5">
+          <div className="lg:col-span-2">
             <img src={logo} alt="Cosmotech Philippines" className="h-7 w-auto" />
             <p className="mt-4 max-w-xs text-sm text-ink-foreground/70">
               People management, queueing, helpdesk, and document tracking software — built in the
               Philippines, since 1994.
             </p>
-            <img
-              src={accreditation}
-              alt="SOCOTEC ISO 9001 and PAB accredited QMS certification body — Certificate No. SCP000931QM"
-              loading="lazy"
-              className="mt-6 h-auto w-40 rounded-md bg-bone p-2"
-            />
           </div>
 
           <div>
@@ -67,6 +63,32 @@ export function SiteFooter() {
                 </a>
               </li>
             </ul>
+          </div>
+
+          <div className="md:col-span-3 lg:col-span-5">
+            <h3 className="text-xs font-semibold uppercase tracking-wider text-ink-foreground/60">
+              Certifications
+            </h3>
+            <div className="mt-4 flex flex-wrap items-center gap-4">
+              <img
+                src={certSocotec}
+                alt="SOCOTEC ISO 9001 and PAB accredited QMS certification body — Certificate No. SCP000931QM"
+                loading="lazy"
+                className="h-24 w-auto rounded-md bg-bone p-2"
+              />
+              <img
+                src={certIso27001}
+                alt="ISO 27001:2022 Certified"
+                loading="lazy"
+                className="h-24 w-auto rounded-md bg-bone p-2"
+              />
+              <img
+                src={certNpc}
+                alt="National Privacy Commission DPO/DPS Registered"
+                loading="lazy"
+                className="h-24 w-auto rounded-md bg-bone p-2"
+              />
+            </div>
           </div>
         </div>
 
