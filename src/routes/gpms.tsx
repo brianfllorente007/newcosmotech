@@ -438,20 +438,14 @@ function GpmsPage() {
             </div>
 
             <div className="reveal">
-              <div className="grid grid-cols-2 gap-4">
-                {HIGHLIGHTS.map((h) => (
-                  <div
-                    key={h.label}
-                    className="rounded-2xl border border-border bg-card p-5"
-                  >
-                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-cobalt/10 text-cobalt">
-                      <h.icon className="h-5 w-5" />
-                    </div>
-                    <p className="mt-3 text-sm font-medium leading-snug text-foreground">
-                      {h.label}
-                    </p>
-                  </div>
-                ))}
+              <div className="overflow-hidden rounded-3xl border border-border bg-card shadow-sm">
+                <img
+                  src={gpmsHero}
+                  alt="Cosmotech GPMS procurement dashboard"
+                  width={1280}
+                  height={1024}
+                  className="h-full w-full object-cover"
+                />
               </div>
             </div>
           </div>
