@@ -447,9 +447,6 @@ function GpmsPage() {
       <section className="border-b border-border bg-foreground py-20 sm:py-28">
         <Container>
           <div className="mx-auto max-w-4xl text-center">
-            <p className="text-xs font-medium uppercase tracking-[0.22em] text-background/60">
-              The need
-            </p>
             <h2 className="mt-6 text-4xl font-semibold leading-[1.1] tracking-tight text-background sm:text-5xl md:text-6xl">
               Procurement should be easier to track, approve, and report
             </h2>
