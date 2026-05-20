@@ -19,6 +19,7 @@ import {
 } from "lucide-react";
 import { Container } from "@/components/Container";
 import docutrakrHero from "@/assets/docutrakr-hero.png";
+import docutrakrWorkflow from "@/assets/docutrakr-workflow.png";
 import { Eyebrow, SectionHeading } from "@/components/SectionHeading";
 import {
   Accordion,
@@ -472,10 +473,11 @@ function DocutrakrPage() {
                 ))}
               </ul>
             </div>
-            <Placeholder
-              label="Workflow diagram / QR receipt mock"
-              size="1200x900"
-              className="aspect-[4/3]"
+            <img
+              src={docutrakrWorkflow}
+              alt="Docutrakr dashboard shown on a laptop atop stacked document logbooks"
+              className="aspect-[4/3] w-full rounded-2xl object-cover shadow-[0_30px_80px_-30px_rgba(15,23,42,0.35)]"
+              loading="lazy"
             />
           </div>
         </Container>
