@@ -18,6 +18,7 @@ import {
   Download,
 } from "lucide-react";
 import { Container } from "@/components/Container";
+import docutrakrHero from "@/assets/docutrakr-hero.png";
 import { Eyebrow, SectionHeading } from "@/components/SectionHeading";
 import {
   Accordion,
@@ -378,43 +379,44 @@ function DocutrakrPage() {
   return (
     <>
       {/* HERO */}
-      <section className="border-b border-border bg-bone py-20 sm:py-28">
+      <section className="flex flex-col overflow-hidden border-b border-border bg-bone pt-20 sm:pt-28">
         <Container>
-          <div className="reveal grid gap-12 lg:grid-cols-2 lg:items-center lg:gap-16">
-            <div>
-              <Eyebrow>Docutrakr</Eyebrow>
-              <h1 className="mt-4 text-4xl font-semibold leading-[1.05] tracking-tight sm:text-5xl md:text-6xl">
-                Document Tracking with QR Code Workflow Automation
-              </h1>
-              <p className="mt-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
-                Assign a unique QR code to every document upon receipt, then
-                monitor its location, processor, and status through a
-                configurable workflow until it's filed. Know where every
-                document is — and how long each step is taking — in real time.
-              </p>
-              <div className="mt-8 flex flex-wrap gap-3">
-                <Link
-                  to="/contact"
-                  className="inline-flex h-11 items-center gap-2 rounded-full bg-brass px-5 text-sm font-medium text-ink transition-all hover:-translate-y-0.5 hover:brightness-95"
-                >
-                  Request a Demo <ArrowRight className="h-4 w-4" />
-                </Link>
-                <Link
-                  to="/contact"
-                  className="inline-flex h-11 items-center gap-2 rounded-full border border-border bg-card px-5 text-sm font-medium text-foreground hover:bg-muted"
-                >
-                  <Download className="h-4 w-4" /> Download Brochure
-                </Link>
-              </div>
+          <div className="reveal mx-auto flex max-w-3xl flex-col items-center text-center">
+            <Eyebrow>Docutrakr</Eyebrow>
+            <h1 className="mt-4 text-4xl font-semibold leading-[1.05] tracking-tight sm:text-5xl md:text-6xl">
+              Document Tracking with QR Code Workflow Automation
+            </h1>
+            <p className="mt-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
+              Assign a unique QR code to every document upon receipt, then
+              monitor its location, processor, and status through a
+              configurable workflow until it's filed. Know where every
+              document is — and how long each step is taking — in real time.
+            </p>
+            <div className="mt-8 flex flex-wrap justify-center gap-3">
+              <Link
+                to="/contact"
+                className="inline-flex h-11 items-center gap-2 rounded-full bg-brass px-5 text-sm font-medium text-ink transition-all hover:-translate-y-0.5 hover:brightness-95"
+              >
+                Request a Demo <ArrowRight className="h-4 w-4" />
+              </Link>
+              <Link
+                to="/contact"
+                className="inline-flex h-11 items-center gap-2 rounded-full border border-border bg-card px-5 text-sm font-medium text-foreground hover:bg-muted"
+              >
+                <Download className="h-4 w-4" /> Download Brochure
+              </Link>
             </div>
-            <Placeholder
-              label="Docutrakr workflow / dashboard mock"
-              size="1600x1000"
-              className="aspect-[16/10]"
-            />
           </div>
         </Container>
+        <div className="mt-16 flex justify-center px-5 sm:px-8">
+          <img
+            src={docutrakrHero}
+            alt="Docutrakr dashboard with QR code document tracking"
+            className="block h-auto w-full max-w-6xl"
+          />
+        </div>
       </section>
+
 
       {/* THREE FEATURE CARDS */}
       <section className="bg-cobalt/5 py-20 sm:py-24">
