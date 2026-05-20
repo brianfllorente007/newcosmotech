@@ -584,11 +584,6 @@ function GpmsPage() {
         </Container>
       </section>
 
-      {/* SPECIAL FEATURES — anchor moved below */}
-      <></>
-          </div>
-        </Container>
-      </section>
 
       {/* SPECIAL FEATURES */}
       <section className="border-b border-border py-20 sm:py-24">
