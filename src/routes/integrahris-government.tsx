@@ -354,7 +354,7 @@ function IntegraHrisGovernmentPage() {
             <div className="reveal order-2 lg:order-1">
               <Eyebrow>IntegraHRIS Government Edition</Eyebrow>
               <h1 className="mt-4 text-4xl font-semibold leading-[1.05] tracking-tight sm:text-5xl md:text-6xl">
-                Government HRIS Software for Philippine Agencies
+                Internal Administration Management System (IAMS) for Philippine Agencies
               </h1>
               <p className="mt-5 text-lg leading-relaxed text-muted-foreground sm:text-xl">
                 The complete HR system for Philippine government agencies, built
