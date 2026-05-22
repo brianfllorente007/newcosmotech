@@ -21,6 +21,14 @@ import { Container } from "@/components/Container";
 import docutrakrHero from "@/assets/docutrakr-hero.png";
 import docutrakrWorkflow from "@/assets/docutrakr-workflow.png";
 import docutrakrAudit from "@/assets/docutrakr-audit.png";
+import modReceiving from "@/assets/docutrakr/modules/document-receiving.png";
+import modWorkflow from "@/assets/docutrakr/modules/workflow-management.png";
+import modNotifications from "@/assets/docutrakr/modules/notifications.png";
+import modDashboard from "@/assets/docutrakr/modules/dashboard.png";
+import modSecurity from "@/assets/docutrakr/modules/security.png";
+import modReference from "@/assets/docutrakr/modules/reference-tables.png";
+import modReports from "@/assets/docutrakr/modules/reports.png";
+import modFiling from "@/assets/docutrakr/modules/filing-archival.png";
 import { Eyebrow, SectionHeading } from "@/components/SectionHeading";
 import {
   Accordion,
