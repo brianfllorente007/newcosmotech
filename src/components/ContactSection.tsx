@@ -129,6 +129,43 @@ export function ContactSection({ headingLevel = "h2" }: { headingLevel?: "h1" | 
               </div>
 
               <div className="mt-5 space-y-1.5">
+                <Label htmlFor="product" className="text-xs uppercase tracking-wider text-muted-foreground">
+                  Please select a product to inquire
+                </Label>
+                <select
+                  id="product"
+                  name="product"
+                  required
+                  defaultValue=""
+                  className="flex h-12 w-full rounded-xl border border-border/70 bg-background/70 px-4 text-base shadow-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cobalt/40"
+                >
+                  <option value="" disabled>Select a product</option>
+                  <option value="Custom Solution">Custom Solution</option>
+                  <option value="IntegraHRIS365">IntegraHRIS365</option>
+                  <option value="IntegraHRIS Government">IntegraHRIS Government</option>
+                  <option value="QMaster">QMaster</option>
+                  <option value="Docutrakr">Docutrakr</option>
+                  <option value="Helpdesk">Helpdesk</option>
+                  <option value="URateMe">URateMe</option>
+                  <option value="Asset Management System">Asset Management System</option>
+                  <option value="Government Procurement Management System">Government Procurement Management System</option>
+                  <option value="Others">Others</option>
+                </select>
+              </div>
+
+              <div className="mt-5 space-y-1.5">
+                <Label htmlFor="source" className="text-xs uppercase tracking-wider text-muted-foreground">
+                  How did you find our services?
+                </Label>
+                <Input
+                  id="source"
+                  name="source"
+                  placeholder="Web Search, Facebook, Email, Old Customer, Referral, Others"
+                  className="h-12 rounded-xl border-border/70 bg-background/70 px-4 text-base shadow-none focus-visible:ring-2 focus-visible:ring-cobalt/40"
+                />
+              </div>
+
+              <div className="mt-5 space-y-1.5">
                 <Label htmlFor="message" className="text-xs uppercase tracking-wider text-muted-foreground">
                   How can we help?
                 </Label>
@@ -141,6 +178,7 @@ export function ContactSection({ headingLevel = "h2" }: { headingLevel?: "h1" | 
                   className="rounded-xl border-border/70 bg-background/70 px-4 py-3 text-base shadow-none focus-visible:ring-2 focus-visible:ring-cobalt/40"
                 />
               </div>
+
 
               <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                 <Button
