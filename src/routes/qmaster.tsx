@@ -459,7 +459,7 @@ function QMasterPage() {
               and analytics in a single system.
             </p>
           </div>
-          <ModulesShowcase />
+          <ModulesShowcase modules={MODULE_VISUALS} />
         </Container>
       </section>
 
