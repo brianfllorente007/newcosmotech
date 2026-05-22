@@ -369,7 +369,7 @@ function UrateMePage() {
                 Customer Feedback Management for Multi-Branch Businesses
               </h1>
               <p className="mt-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
-                Capture client complaints, compliments, and suggestions at the
+                Capture client complaints, praises, and suggestions at the
                 point of service. Consolidate every branch into a single view —
                 and turn scattered reactions into measurable performance
                 signals by branch, by employee, by segment.
