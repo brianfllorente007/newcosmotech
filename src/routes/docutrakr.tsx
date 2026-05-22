@@ -406,7 +406,10 @@ function ModulesShowcase() {
                 <div
                   key={`peek-${next.title}`}
                   aria-hidden
-                  className="pointer-events-none absolute left-0 right-0 top-full mt-4 hidden h-[35%] overflow-hidden rounded-3xl lg:block"
+                  className="pointer-events-none absolute inset-0 hidden overflow-hidden rounded-3xl lg:block"
+                  style={{
+                    transform: `translateY(calc(${(1 - stepProgress) * 100}% + ${(1 - stepProgress) * 16}px))`,
+                  }}
                 >
                   <img
                     src={next.image}
@@ -414,9 +417,9 @@ function ModulesShowcase() {
                     className="h-full w-full object-contain object-top"
                     style={{
                       maskImage:
-                        "linear-gradient(to bottom, black 0%, transparent 85%)",
+                        "linear-gradient(to bottom, black 60%, transparent 100%)",
                       WebkitMaskImage:
-                        "linear-gradient(to bottom, black 0%, transparent 85%)",
+                        "linear-gradient(to bottom, black 60%, transparent 100%)",
                     }}
                   />
                 </div>
