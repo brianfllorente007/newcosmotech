@@ -178,8 +178,7 @@ export function ContactSection({ headingLevel = "h2" }: { headingLevel?: "h1" | 
                     NPC Registered
                   </p>
                   <p className="mt-1">
-                    Cosmotech Philippines is a registered Data Protection Officer and Data
-                    Processing System with the National Privacy Commission.
+                    Cosmotech Philippines, Inc. is registered with the National Privacy Commission for its Data Protection Officer (DPO) and Data Processing Systems (DPS) in compliance with the Data Privacy Act of 2012.
                   </p>
                 </div>
               </div>
