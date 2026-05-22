@@ -331,10 +331,10 @@ function ModulesShowcase() {
   return (
     <div
       ref={wrapperRef}
-      className="mt-10 lg:relative"
+      className="mt-6 lg:relative"
       style={{ height: `${MODULES.length * STEP_VH}vh` }}
     >
-      <div className="lg:sticky lg:top-0 lg:flex lg:h-screen lg:items-center lg:py-8">
+      <div className="lg:sticky lg:top-28 lg:flex lg:h-[calc(100vh-7rem)] lg:items-center lg:py-4">
         <div className="grid w-full gap-8 lg:grid-cols-[1.05fr_1fr] lg:gap-12">
           {/* Left: feature list */}
           <ul className="divide-y divide-border border-y border-border">
@@ -390,19 +390,6 @@ function ModulesShowcase() {
               <CurrentIcon className="h-6 w-6" />
             </div>
             <div className="relative">
-              {next && (
-                <div
-                  key={`peek-${next.title}`}
-                  aria-hidden
-                  className="pointer-events-none absolute inset-0 hidden translate-x-3 translate-y-3 scale-[0.96] overflow-hidden rounded-3xl opacity-60 lg:block"
-                >
-                  <img
-                    src={next.image}
-                    alt=""
-                    className="h-full w-full object-contain object-top"
-                  />
-                </div>
-              )}
               <div
                 key={current.title}
                 className="relative aspect-[3/2] animate-fade-in overflow-hidden rounded-3xl"
@@ -414,6 +401,25 @@ function ModulesShowcase() {
                   loading="lazy"
                 />
               </div>
+              {next && (
+                <div
+                  key={`peek-${next.title}`}
+                  aria-hidden
+                  className="pointer-events-none absolute left-0 right-0 top-full mt-4 hidden h-[35%] overflow-hidden rounded-3xl lg:block"
+                >
+                  <img
+                    src={next.image}
+                    alt=""
+                    className="h-full w-full object-contain object-top"
+                    style={{
+                      maskImage:
+                        "linear-gradient(to bottom, black 0%, transparent 85%)",
+                      WebkitMaskImage:
+                        "linear-gradient(to bottom, black 0%, transparent 85%)",
+                    }}
+                  />
+                </div>
+              )}
             </div>
           </div>
         </div>
