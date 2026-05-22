@@ -119,10 +119,6 @@ export function SiteFooter() {
 
         <div className="mt-10 flex flex-col items-start justify-between gap-4 border-t border-white/10 pt-6 text-xs text-ink-foreground/50 sm:flex-row sm:items-center">
           <p>© {year} Cosmotech Philippines, Inc. All rights reserved.</p>
-          <div className="flex items-center gap-3">
-            <span className="rounded-full border border-white/15 px-2 py-1">ISO 9001</span>
-            <span className="rounded-full border border-white/15 px-2 py-1">ISO 27001</span>
-          </div>
         </div>
       </Container>
     </footer>
