@@ -376,23 +376,23 @@ function ModulesShowcase() {
               <div
                 key={`peek-${next.title}`}
                 aria-hidden
-                className="pointer-events-none absolute inset-0 hidden translate-x-3 translate-y-3 scale-[0.96] overflow-hidden rounded-3xl border border-border bg-card opacity-60 shadow-[0_20px_50px_-20px_rgba(15,23,42,0.25)] lg:block"
+                className="pointer-events-none absolute inset-0 hidden translate-x-3 translate-y-3 scale-[0.96] overflow-hidden rounded-3xl opacity-60 lg:block"
               >
                 <img
                   src={next.image}
                   alt=""
-                  className="h-full w-full object-cover object-top"
+                  className="h-full w-full object-contain object-top"
                 />
               </div>
             )}
             <div
               key={current.title}
-              className="relative aspect-[3/2] animate-fade-in overflow-hidden rounded-3xl border border-border bg-card shadow-[0_30px_80px_-30px_rgba(15,23,42,0.35)]"
+              className="relative aspect-[3/2] animate-fade-in overflow-hidden rounded-3xl"
             >
               <img
                 src={current.image}
                 alt={`${current.title} — Docutrakr UI screenshot`}
-                className="h-full w-full object-cover object-top"
+                className="h-full w-full object-contain object-top"
                 loading="lazy"
               />
             </div>
