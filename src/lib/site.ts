@@ -208,11 +208,6 @@ export const PRODUCTS: Product[] = [
   },
 ];
 
-export type Project = {
-  agency: string;
-  scope: string;
-  sector: "Government" | "Enterprise";
-};
 
 export type Project = {
   agency: string;
