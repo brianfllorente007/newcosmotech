@@ -3,9 +3,9 @@ import { Facebook, Linkedin } from "lucide-react";
 import { Container } from "./Container";
 import { PRODUCTS, SITE } from "@/lib/site";
 import logo from "@/assets/logo-cosmotech.png";
-import certSocotec from "@/assets/cert-socotec-iso9001.png";
-import certNpc from "@/assets/cert-npc-dpo.png";
-import certIso27001 from "@/assets/cert-iso-27001.png";
+import certSocotec from "@/assets/cert-socotec-iso9001.webp";
+import certNpc from "@/assets/cert-npc-dpo.webp";
+import certIso27001 from "@/assets/cert-iso-27001.webp";
 
 export function SiteFooter() {
   const year = new Date().getFullYear();
@@ -19,6 +19,40 @@ export function SiteFooter() {
               People management, queueing, helpdesk, and document tracking software built in the
               Philippines, since 1994.
             </p>
+            <div className="mt-6">
+              <h3 className="text-xs font-semibold uppercase tracking-wider text-ink-foreground/60">
+                Certifications
+              </h3>
+              <div className="mt-3 flex flex-wrap items-center gap-3">
+                <img
+                  src={certSocotec}
+                  alt="SOCOTEC ISO 9001 and PAB accredited QMS certification body — Certificate No. SCP000931QM"
+                  loading="lazy"
+                  decoding="async"
+                  width="120"
+                  height="94"
+                  className="h-20 w-auto rounded-md bg-bone p-2"
+                />
+                <img
+                  src={certIso27001}
+                  alt="ISO 27001:2022 Certified"
+                  loading="lazy"
+                  decoding="async"
+                  width="74"
+                  height="80"
+                  className="h-20 w-auto rounded-md bg-bone p-2"
+                />
+                <img
+                  src={certNpc}
+                  alt="National Privacy Commission DPO/DPS Registered"
+                  loading="lazy"
+                  decoding="async"
+                  width="43"
+                  height="80"
+                  className="h-20 w-auto rounded-md bg-bone p-2"
+                />
+              </div>
+            </div>
           </div>
 
           <div>
@@ -84,32 +118,6 @@ export function SiteFooter() {
               >
                 <Linkedin className="h-4 w-4" />
               </a>
-            </div>
-          </div>
-
-          <div className="md:col-span-3 lg:col-span-5">
-            <h3 className="text-xs font-semibold uppercase tracking-wider text-ink-foreground/60">
-              Certifications
-            </h3>
-            <div className="mt-4 flex flex-wrap items-center gap-4">
-              <img
-                src={certSocotec}
-                alt="SOCOTEC ISO 9001 and PAB accredited QMS certification body — Certificate No. SCP000931QM"
-                loading="lazy"
-                className="h-24 w-auto rounded-md bg-bone p-2"
-              />
-              <img
-                src={certIso27001}
-                alt="ISO 27001:2022 Certified"
-                loading="lazy"
-                className="h-24 w-auto rounded-md bg-bone p-2"
-              />
-              <img
-                src={certNpc}
-                alt="National Privacy Commission DPO/DPS Registered"
-                loading="lazy"
-                className="h-24 w-auto rounded-md bg-bone p-2"
-              />
             </div>
           </div>
         </div>
