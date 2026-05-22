@@ -12,6 +12,7 @@ import dpoBadge from "@/assets/dpo-dps-badge.png";
 
 export function ContactSection({ headingLevel = "h2" }: { headingLevel?: "h1" | "h2" }) {
   const [submitting, setSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
   const Heading = headingLevel;
 
   function onSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -19,6 +20,7 @@ export function ContactSection({ headingLevel = "h2" }: { headingLevel?: "h1" | 
     setSubmitting(true);
     setTimeout(() => {
       setSubmitting(false);
+      setSubmitted(true);
       (e.target as HTMLFormElement).reset();
       toast.success("Message sent. We'll be in touch within 1 business day.");
     }, 600);
