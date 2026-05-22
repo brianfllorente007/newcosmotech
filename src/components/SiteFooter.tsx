@@ -3,9 +3,9 @@ import { Facebook, Linkedin } from "lucide-react";
 import { Container } from "./Container";
 import { PRODUCTS, SITE } from "@/lib/site";
 import logo from "@/assets/logo-cosmotech.png";
-import certSocotec from "@/assets/cert-socotec-iso9001.png";
-import certNpc from "@/assets/cert-npc-dpo.png";
-import certIso27001 from "@/assets/cert-iso-27001.png";
+import certSocotec from "@/assets/cert-socotec-iso9001.webp";
+import certNpc from "@/assets/cert-npc-dpo.webp";
+import certIso27001 from "@/assets/cert-iso-27001.webp";
 
 export function SiteFooter() {
   const year = new Date().getFullYear();
