@@ -48,9 +48,8 @@ export function SuiteTabs() {
                       src={p.logoDark}
                       alt=""
                       aria-hidden="true"
-                      loading="eager"
+                      loading="lazy"
                       decoding="async"
-                      fetchPriority="high"
                       className="absolute inset-0 m-auto max-h-10 w-auto max-w-[140px] object-contain transition-opacity duration-150"
                       style={{ opacity: isActive ? 0 : 1 }}
                     />
@@ -58,9 +57,8 @@ export function SuiteTabs() {
                       src={p.logoLight}
                       alt=""
                       aria-hidden="true"
-                      loading="eager"
+                      loading="lazy"
                       decoding="async"
-                      fetchPriority="high"
                       className="absolute inset-0 m-auto max-h-10 w-auto max-w-[140px] object-contain transition-opacity duration-150"
                       style={{ opacity: isActive ? 1 : 0 }}
                     />
@@ -122,9 +120,8 @@ export function SuiteTabs() {
                       aria-hidden="true"
                       width={1600}
                       height={1000}
-                      loading="eager"
+                      loading="lazy"
                       decoding="async"
-                      fetchPriority={index === 0 ? "high" : "low"}
                       className="absolute inset-0 h-full w-full object-contain object-center bg-white lg:object-cover lg:object-left-top"
                     />
                   </div>
