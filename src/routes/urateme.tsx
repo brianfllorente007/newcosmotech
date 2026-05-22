@@ -465,9 +465,9 @@ function UrateMePage() {
       </section>
 
       {/* MODULES */}
-      <section className="bg-cobalt/5 py-20 sm:py-24">
+      <section className="bg-cobalt/5 py-12 sm:py-16">
         <Container>
-          <div className="reveal">
+          <div>
             <SectionHeading
               eyebrow="What's inside"
               title="Modules and Capabilities"
