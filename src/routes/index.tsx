@@ -12,6 +12,12 @@ import { FaqSection } from "@/components/FaqSection";
 import { useReveal } from "@/hooks/use-reveal";
 import { PROJECTS, PRODUCTS } from "@/lib/site";
 import heroImage from "@/assets/hero-image.webp";
+import heroImage800 from "@/assets/hero-image-800.webp";
+import heroImage1200 from "@/assets/hero-image-1200.webp";
+import heroImage1600 from "@/assets/hero-image-1600.webp";
+
+const heroSrcSet = `${heroImage800} 800w, ${heroImage1200} 1200w, ${heroImage1600} 1600w`;
+const heroSizes = "(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 1024px";
 
 export const Route = createFileRoute("/")({
   head: () => ({
