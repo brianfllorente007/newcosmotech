@@ -473,7 +473,7 @@ function UrateMePage() {
               title="Modules and Capabilities"
               intro="URateMe ships with everything you need — feedback capture, branch and employee performance tracking, demographics, reporting, and admin controls."
             />
-            <ModulesShowcase />
+            <ModulesShowcase modules={MODULE_VISUALS} />
           </div>
         </Container>
       </section>
