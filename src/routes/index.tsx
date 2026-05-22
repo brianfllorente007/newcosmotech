@@ -207,6 +207,9 @@ function HomePage() {
               src={ourClients}
               alt="Logos of Cosmotech clients including Philippine government agencies and enterprises"
               loading="lazy"
+              decoding="async"
+              width={1768}
+              height={717}
               className="h-auto w-full max-w-5xl"
             />
           </div>
