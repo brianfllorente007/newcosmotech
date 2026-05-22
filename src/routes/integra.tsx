@@ -764,28 +764,42 @@ function FeatureDeepDiveTabs() {
   const CurrentIcon = current.icon;
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        let bestIdx = -1;
-        let bestDist = Infinity;
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-          const rect = entry.boundingClientRect;
-          const center = rect.top + rect.height / 2;
-          const dist = Math.abs(center - window.innerHeight / 2);
-          const idx = Number((entry.target as HTMLElement).dataset.index);
-          if (dist < bestDist) {
-            bestDist = dist;
-            bestIdx = idx;
-          }
-        });
-        if (bestIdx !== -1) setActive(bestIdx);
-      },
-      { rootMargin: "-40% 0px -40% 0px", threshold: 0 },
-    );
-    itemRefs.current.forEach((el) => el && observer.observe(el));
-    return () => observer.disconnect();
+    const handleScroll = () => {
+      const viewportCenter = window.innerHeight / 2;
+      let bestIdx = -1;
+      let bestDist = Infinity;
+      itemRefs.current.forEach((el, idx) => {
+        if (!el) return;
+        const rect = el.getBoundingClientRect();
+        const center = rect.top + rect.height / 2;
+        const dist = Math.abs(center - viewportCenter);
+        if (dist < bestDist) {
+          bestDist = dist;
+          bestIdx = idx;
+        }
+      });
+      if (bestIdx !== -1) setActive(bestIdx);
+    };
+
+    let ticking = false;
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        handleScroll();
+        ticking = false;
+      });
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    handleScroll();
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
   }, []);
+
 
   return (
     <div className="mt-16 grid gap-10 lg:grid-cols-[1.05fr_1fr] lg:gap-16">
