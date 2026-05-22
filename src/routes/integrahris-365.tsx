@@ -101,12 +101,12 @@ function Placeholder({
 }
 
 // ---------- Data ----------
-import aficionadoLogo from "@/assets/logos/clients/aficionado.png";
-import isuzuLogo from "@/assets/logos/clients/isuzu.png";
-import metrosanitasLogo from "@/assets/logos/clients/metrosanitas.png";
-import ctiLogo from "@/assets/logos/clients/cti.png";
-import pclLogo from "@/assets/logos/clients/pcl.png";
-import permexLogo from "@/assets/logos/clients/permex.png";
+import aficionadoLogo from "@/assets/logos/clients/aficionado.webp";
+import isuzuLogo from "@/assets/logos/clients/isuzu.webp";
+import metrosanitasLogo from "@/assets/logos/clients/metrosanitas.webp";
+import ctiLogo from "@/assets/logos/clients/cti.webp";
+import pclLogo from "@/assets/logos/clients/pcl.webp";
+import permexLogo from "@/assets/logos/clients/permex.webp";
 
 const TRUST_LOGOS = [
   { src: aficionadoLogo, alt: "Aficionado" },

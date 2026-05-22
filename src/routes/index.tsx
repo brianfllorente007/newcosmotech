@@ -11,7 +11,7 @@ import { WhyCosmotech } from "@/components/WhyCosmotech";
 import { FaqSection } from "@/components/FaqSection";
 import { useReveal } from "@/hooks/use-reveal";
 import { PROJECTS, PRODUCTS } from "@/lib/site";
-import heroImage from "@/assets/hero-image.png";
+import heroImage from "@/assets/hero-image.webp";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -39,7 +39,7 @@ export const Route = createFileRoute("/")({
       {
         rel: "preload",
         as: "image",
-        href: PRODUCTS[0].screenshot,
+        href: heroImage,
         type: "image/webp",
       },
     ],
