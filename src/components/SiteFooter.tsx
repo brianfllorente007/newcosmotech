@@ -122,7 +122,7 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <p className="mt-12 max-w-3xl text-xs leading-relaxed text-ink-foreground/55">
+        <p className="mt-12 mx-auto max-w-3xl text-center text-xs leading-relaxed text-ink-foreground/55">
           {SITE.aeo}
         </p>
 
