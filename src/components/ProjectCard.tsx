@@ -11,12 +11,14 @@ export function ProjectCard({ project }: { project: Project }) {
         <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{project.scope}</p>
       </div>
       {project.logo ? (
-        <img
-          src={project.logo}
-          alt={`${project.agency} logo`}
-          loading="lazy"
-          className="h-14 w-14 shrink-0 object-contain sm:h-16 sm:w-16"
-        />
+        <div className="flex h-16 w-16 shrink-0 items-center justify-center sm:h-20 sm:w-20">
+          <img
+            src={project.logo}
+            alt={`${project.agency} logo`}
+            loading="lazy"
+            className="max-h-full max-w-full object-contain"
+          />
+        </div>
       ) : null}
     </article>
   );
