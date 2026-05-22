@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useEffect, useRef, useState } from "react";
+import { useEffect } from "react";
+import { ModulesShowcase } from "@/components/ModulesShowcase";
 import {
   ArrowRight,
   Check,
