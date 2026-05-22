@@ -410,11 +410,13 @@ function UrateMePage() {
                 ))}
               </ul>
             </div>
-            <Placeholder
-              label="Branch comparison / employee rating mock"
-              size="1200x900"
-              className="aspect-[4/3]"
-            />
+            <div className="overflow-hidden rounded-3xl aspect-[4/3]">
+              <img
+                src={urateMeWhatItDoes}
+                alt="URateMe branch comparison and employee ratings dashboard"
+                className="h-full w-full object-contain"
+              />
+            </div>
           </div>
         </Container>
       </section>
