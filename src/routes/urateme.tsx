@@ -366,13 +366,12 @@ function UrateMePage() {
             <div>
               <Eyebrow>URateMe</Eyebrow>
               <h1 className="mt-4 text-4xl font-semibold leading-[1.05] tracking-tight sm:text-5xl md:text-6xl">
-                Customer Feedback Management for Multi-Branch Businesses
+                Hear your clients. Improve your business.
               </h1>
               <p className="mt-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
-                Capture client complaints, praises, and suggestions at the
-                point of service. Consolidate every branch into a single view —
-                and turn scattered reactions into measurable performance
-                signals by branch, by employee, by segment.
+                Never miss what your customers are thinking. URateMe is a
+                Feedback Management System that gives you a direct line to
+                your customers — and the tools to act on what they say.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
@@ -385,15 +384,35 @@ function UrateMePage() {
                   to="/contact"
                   className="inline-flex h-11 items-center gap-2 rounded-full border border-border bg-card px-5 text-sm font-medium text-foreground hover:bg-muted"
                 >
-                  <Download className="h-4 w-4" /> Download Brochure
+                  Talk to Sales
                 </Link>
               </div>
             </div>
-            <Placeholder
-              label="URateMe branch dashboard mock"
-              size="1600x1000"
-              className="aspect-[16/10]"
-            />
+            <div className="overflow-hidden rounded-3xl border border-border bg-card aspect-[16/10]">
+              <img
+                src={urateMeHero}
+                alt="Customer using a URateMe Port Customer Satisfaction Survey kiosk powered by Cosmotech"
+                className="h-full w-full object-cover"
+              />
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* THE PROBLEM */}
+      <section className="py-20 sm:py-24">
+        <Container>
+          <div className="reveal mx-auto max-w-3xl text-center">
+            <Eyebrow className="justify-center">The Problem</Eyebrow>
+            <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl md:text-5xl">
+              Feedback that isn't captured doesn't get fixed.
+            </h2>
+            <p className="mt-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
+              Most businesses collect customer feedback inconsistently.
+              Complaints get lost. Praise goes unrecorded. Managers have no
+              clear picture of how different branches or employees are
+              actually performing. URateMe fixes that.
+            </p>
           </div>
         </Container>
       </section>
@@ -423,25 +442,23 @@ function UrateMePage() {
         <Container>
           <div className="reveal grid gap-12 lg:grid-cols-2 lg:items-center lg:gap-16">
             <div>
-              <Eyebrow>About the product</Eyebrow>
+              <Eyebrow>What it does</Eyebrow>
               <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl md:text-5xl">
-                Why measure customer feedback systematically
+                A direct line to your customers — and the operating standard to back it up.
               </h2>
               <p className="mt-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
-                Feedback that lives in comment cards, complaint logs, or
-                word-of-mouth is invisible to management until something
-                escalates. By then the customer is gone and the damage is done.
-              </p>
-              <p className="mt-4 text-base leading-relaxed text-muted-foreground sm:text-lg">
-                URateMe makes feedback visible the moment it happens. Every
-                rating is tagged with branch, employee, date, and demographic —
-                and rolled into dashboards management actually checks.
+                URateMe is built to give companies a direct line to their
+                customers while establishing consistent operating standards.
+                It delivers an automated, accurate view of customer sentiment
+                and gives management the tools to act on that data
+                immediately.
               </p>
               <ul className="mt-6 space-y-3">
                 {[
-                  "Point-of-service capture across every branch",
-                  "Per-branch and per-employee performance profiles",
-                  "Demographic-aware reporting in graphs and tables",
+                  "Tracks the performance of individual employees and entire branches",
+                  "Consolidates data from all branches into one system",
+                  "Generates reports on a daily, weekly, monthly, or yearly basis",
+                  "Transmits branch data fast through a company VPN",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-3 text-sm">
                     <Check className="mt-0.5 h-5 w-5 shrink-0 text-cobalt" />
@@ -458,6 +475,7 @@ function UrateMePage() {
           </div>
         </Container>
       </section>
+
 
       {/* BENEFITS */}
       <section className="bg-cobalt/5 py-20 sm:py-24">
