@@ -331,17 +331,17 @@ function ModulesShowcase() {
   return (
     <div
       ref={wrapperRef}
-      className="mt-16 lg:relative"
+      className="mt-10 lg:relative"
       style={{ height: `${MODULES.length * STEP_VH}vh` }}
     >
-      <div className="lg:sticky lg:top-0 lg:flex lg:h-screen lg:items-center">
-        <div className="grid w-full gap-10 lg:grid-cols-[1.05fr_1fr] lg:gap-16">
+      <div className="lg:sticky lg:top-0 lg:flex lg:h-screen lg:items-center lg:py-8">
+        <div className="grid w-full gap-8 lg:grid-cols-[1.05fr_1fr] lg:gap-12">
           {/* Left: feature list */}
           <ul className="divide-y divide-border border-y border-border">
             {MODULES.map((m, i) => {
               const isActive = i === active;
               return (
-                <li key={m.title} className="py-4">
+                <li key={m.title} className="py-2">
                   <button
                     type="button"
                     onClick={() => handleSelect(i)}
