@@ -28,6 +28,12 @@ import {
 import { useReveal } from "@/hooks/use-reveal";
 import { cn } from "@/lib/utils";
 import urateMeHero from "@/assets/urateme/urateme-hero.png";
+import modFeedbackCapture from "@/assets/urateme/modules/feedback-capture.png";
+import modBranchPerformance from "@/assets/urateme/modules/branch-performance.png";
+import modEmployeePerformance from "@/assets/urateme/modules/employee-performance.png";
+import modClientDemographics from "@/assets/urateme/modules/client-demographics.png";
+import modReports from "@/assets/urateme/modules/reports.png";
+import modAdminSecurity from "@/assets/urateme/modules/administration-security.png";
 
 export const Route = createFileRoute("/urateme")({
   head: () => ({
