@@ -28,6 +28,7 @@ import {
 import { useReveal } from "@/hooks/use-reveal";
 import { cn } from "@/lib/utils";
 import urateMeHero from "@/assets/urateme/urateme-hero.png";
+import urateMeWhatItDoes from "@/assets/urateme/what-it-does.png";
 import modFeedbackCapture from "@/assets/urateme/modules/feedback-capture.png";
 import modBranchPerformance from "@/assets/urateme/modules/branch-performance.png";
 import modEmployeePerformance from "@/assets/urateme/modules/employee-performance.png";
@@ -409,11 +410,13 @@ function UrateMePage() {
                 ))}
               </ul>
             </div>
-            <Placeholder
-              label="Branch comparison / employee rating mock"
-              size="1200x900"
-              className="aspect-[4/3]"
-            />
+            <div className="overflow-hidden rounded-3xl aspect-[4/3]">
+              <img
+                src={urateMeWhatItDoes}
+                alt="URateMe branch comparison and employee ratings dashboard"
+                className="h-full w-full object-contain"
+              />
+            </div>
           </div>
         </Container>
       </section>
