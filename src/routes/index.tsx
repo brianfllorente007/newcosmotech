@@ -12,6 +12,12 @@ import { FaqSection } from "@/components/FaqSection";
 import { useReveal } from "@/hooks/use-reveal";
 import { PROJECTS, PRODUCTS } from "@/lib/site";
 import heroImage from "@/assets/hero-image.webp";
+import heroImage800 from "@/assets/hero-image-800.webp";
+import heroImage1200 from "@/assets/hero-image-1200.webp";
+import heroImage1600 from "@/assets/hero-image-1600.webp";
+
+const heroSrcSet = `${heroImage800} 800w, ${heroImage1200} 1200w, ${heroImage1600} 1600w`;
+const heroSizes = "(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 1024px";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -39,8 +45,11 @@ export const Route = createFileRoute("/")({
       {
         rel: "preload",
         as: "image",
-        href: heroImage,
+        href: heroImage1200,
         type: "image/webp",
+        imagesrcset: heroSrcSet,
+        imagesizes: heroSizes,
+        fetchpriority: "high",
       },
     ],
   }),
@@ -96,10 +105,13 @@ function HomePage() {
           </div>
 
           <img
-            src={heroImage}
+            src={heroImage1600}
+            srcSet={heroSrcSet}
+            sizes={heroSizes}
             alt="IntegraHRIS Government dashboard preview"
             width={1600}
             height={900}
+            loading="eager"
             fetchPriority="high"
             decoding="async"
             className="mt-8 sm:mt-10 mx-auto block w-full max-w-5xl h-auto px-2 sm:px-0"
