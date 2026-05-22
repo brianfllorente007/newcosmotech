@@ -493,7 +493,7 @@ function HelpdeskPage() {
               title="Features and Functionality"
               intro="HelpDesk ships with every module included — dashboards, knowledge base, workflows, security, and ticketing across every channel."
             />
-            <ModulesShowcase />
+            <ModulesShowcase modules={MODULE_VISUALS} />
 
           </div>
         </Container>
