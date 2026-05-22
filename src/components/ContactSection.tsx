@@ -12,6 +12,7 @@ import dpoBadge from "@/assets/dpo-dps-badge.png";
 
 export function ContactSection({ headingLevel = "h2" }: { headingLevel?: "h1" | "h2" }) {
   const [submitting, setSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
   const Heading = headingLevel;
 
   function onSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -19,6 +20,7 @@ export function ContactSection({ headingLevel = "h2" }: { headingLevel?: "h1" | 
     setSubmitting(true);
     setTimeout(() => {
       setSubmitting(false);
+      setSubmitted(true);
       (e.target as HTMLFormElement).reset();
       toast.success("Message sent. We'll be in touch within 1 business day.");
     }, 600);
@@ -199,6 +201,12 @@ export function ContactSection({ headingLevel = "h2" }: { headingLevel?: "h1" | 
               <p className="mt-4 text-xs leading-relaxed text-muted-foreground">
                 By sending, you agree to be contacted by Cosmotech Philippines about your inquiry.
               </p>
+
+              {submitted && (
+                <p className="mt-3 rounded-lg bg-cobalt/10 px-4 py-3 text-sm font-medium text-cobalt">
+                  Thank you for reaching out! A representative from our team will contact you shortly.
+                </p>
+              )}
 
               <div className="mt-10 flex items-center gap-4 border-t border-border/60 pt-6">
                 <img
