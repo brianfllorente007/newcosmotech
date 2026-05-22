@@ -18,8 +18,9 @@ import docutrakrDark from "@/assets/logos/products/docutrakr-dark.png";
 import shotUrateme from "@/assets/products/urateme.webp";
 import gpmsLight from "@/assets/logos/products/gpms-light.png";
 import gpmsDark from "@/assets/logos/products/gpms-dark.png";
-import healthWellnessLight from "@/assets/logos/products/health-wellness-light.png";
-import healthWellnessDark from "@/assets/logos/products/health-wellness-dark.png";
+import integraAssetLight from "@/assets/logos/products/integra-asset-light.png";
+import integraAssetDark from "@/assets/logos/products/integra-asset-dark.png";
+import shotIntegraAsset from "@/assets/products/integra-asset.png";
 
 export const SITE = {
   name: "Cosmotech Philippines",
@@ -161,22 +162,23 @@ export const PRODUCTS: Product[] = [
     screenshot: shotUrateme,
   },
   {
-    slug: "health-wellness",
-    name: "Health & Wellness",
-    tagline: "Employee health and wellness, end to end.",
+    slug: "integra-asset",
+    name: "Integra Asset Management",
+    tagline: "Asset Management System for Philippine Government Agencies",
     short:
-      "Employee health and wellness management, medical records, consultation logs, leave-for-health tracking, and wellness programs.",
+      "Cosmotech Integra is a web-based platform that helps government agencies manage the full lifecycle of assets — centralized in one system, aligned with government processes and COA requirements.",
     description:
-      "Employee health and wellness management, medical records, consultation logs, leave-for-health tracking, and wellness programs.",
+      "Cosmotech Integra is a web-based platform that helps government agencies manage the full lifecycle of assets — centralized in one system, aligned with government processes and COA requirements.",
     features: [
-      "Centralized employee medical records",
-      "Consultation and clinic visit logs",
-      "Leave-for-health tracking",
-      "Wellness program management",
-      "Health analytics and reporting",
+      "Full asset lifecycle management",
+      "COA-ready reports and compliance",
+      "Issuance, transfers, and disposal workflows",
+      "Centralized asset registry across offices",
+      "Audit trail and accountability",
     ],
-    logoLight: healthWellnessLight,
-    logoDark: healthWellnessDark,
+    logoLight: integraAssetLight,
+    logoDark: integraAssetDark,
+    screenshot: shotIntegraAsset,
   },
   {
     slug: "cosmotech-gpms",
