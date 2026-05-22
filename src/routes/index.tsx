@@ -185,28 +185,6 @@ function HomePage() {
         <WhyCosmotech />
       </div>
 
-      {/* CLIENTS */}
-      <section className="bg-bone pb-16 sm:pb-20 md:pb-24">
-        <Container>
-          <div className="reveal mx-auto max-w-3xl text-center">
-            <Eyebrow className="justify-center">Our Clients</Eyebrow>
-            <h2 className="mt-4 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl md:text-5xl">
-              Empowering Our Clients' Success
-            </h2>
-          </div>
-          <div className="reveal mt-12 flex justify-center">
-            <img
-              src={ourClients}
-              alt="Logos of Cosmotech clients including Philippine government agencies and enterprises"
-              loading="lazy"
-              decoding="async"
-              width={1768}
-              height={717}
-              className="h-auto w-full max-w-5xl"
-            />
-          </div>
-        </Container>
-      </section>
 
       <div className="reveal">
         <FaqSection />
