@@ -156,10 +156,6 @@ export function ContactSection({ headingLevel = "h2" }: { headingLevel?: "h1" | 
                     </>
                   )}
                 </Button>
-                <p className="flex items-center gap-2 text-xs text-muted-foreground">
-                  <ShieldCheck className="h-4 w-4 text-cobalt" />
-                  We reply within 1 business day.
-                </p>
               </div>
 
               <p className="mt-4 text-xs leading-relaxed text-muted-foreground">
