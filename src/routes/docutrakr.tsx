@@ -159,7 +159,7 @@ const MODULES = [
     icon: QrCode,
     image: modReceiving,
     title: "Document Receiving and Processing",
-    body: "Assign, generate, and print QR codes or document codes at the point of receipt. Print the checklist of required processes and the workflow that applies. Attach related documents to the parent record. The workflow assigned at receipt determines who processes it and how long each step should take.",
+    body: "​Hello world new copy for you.",
     items: [
       "QR code / document code generation at receipt",
       "Printable workflow checklist per document",
