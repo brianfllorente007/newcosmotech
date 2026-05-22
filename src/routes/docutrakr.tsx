@@ -282,6 +282,7 @@ const FAQS = [
 // ---------- Modules Showcase ----------
 function ModulesShowcase() {
   const [active, setActive] = useState(0);
+  const [stepProgress, setStepProgress] = useState(0);
   const wrapperRef = useRef<HTMLDivElement | null>(null);
   const current = MODULES[active];
   const next = MODULES[active + 1];
@@ -294,20 +295,19 @@ function ModulesShowcase() {
     const handleScroll = () => {
       const el = wrapperRef.current;
       if (!el) return;
-      // On small screens we don't pin — fall back to first module.
       if (window.innerWidth < 1024) {
         setActive(0);
+        setStepProgress(0);
         return;
       }
       const rect = el.getBoundingClientRect();
       const total = el.offsetHeight - window.innerHeight;
       const scrolled = Math.min(Math.max(-rect.top, 0), total);
       const progress = total > 0 ? scrolled / total : 0;
-      const idx = Math.min(
-        MODULES.length - 1,
-        Math.floor(progress * MODULES.length),
-      );
+      const scaled = progress * MODULES.length;
+      const idx = Math.min(MODULES.length - 1, Math.floor(scaled));
       setActive(idx);
+      setStepProgress(Math.min(1, Math.max(0, scaled - idx)));
     };
     handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -317,6 +317,7 @@ function ModulesShowcase() {
       window.removeEventListener("resize", handleScroll);
     };
   }, []);
+
 
   const handleSelect = (i: number) => {
     setActive(i);
@@ -405,7 +406,10 @@ function ModulesShowcase() {
                 <div
                   key={`peek-${next.title}`}
                   aria-hidden
-                  className="pointer-events-none absolute left-0 right-0 top-full mt-4 hidden h-[35%] overflow-hidden rounded-3xl lg:block"
+                  className="pointer-events-none absolute inset-0 hidden overflow-hidden rounded-3xl lg:block"
+                  style={{
+                    transform: `translateY(calc(${(1 - stepProgress) * 100}% + ${(1 - stepProgress) * 16}px))`,
+                  }}
                 >
                   <img
                     src={next.image}
@@ -413,9 +417,9 @@ function ModulesShowcase() {
                     className="h-full w-full object-contain object-top"
                     style={{
                       maskImage:
-                        "linear-gradient(to bottom, black 0%, transparent 85%)",
+                        "linear-gradient(to bottom, black 60%, transparent 100%)",
                       WebkitMaskImage:
-                        "linear-gradient(to bottom, black 0%, transparent 85%)",
+                        "linear-gradient(to bottom, black 60%, transparent 100%)",
                     }}
                   />
                 </div>
