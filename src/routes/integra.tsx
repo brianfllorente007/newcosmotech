@@ -765,20 +765,14 @@ function FeatureDeepDiveTabs() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const viewportCenter = window.innerHeight / 2;
-      let bestIdx = -1;
-      let bestDist = Infinity;
+      const anchor = window.innerHeight * 0.4;
+      let current = 0;
       itemRefs.current.forEach((el, idx) => {
         if (!el) return;
         const rect = el.getBoundingClientRect();
-        const center = rect.top + rect.height / 2;
-        const dist = Math.abs(center - viewportCenter);
-        if (dist < bestDist) {
-          bestDist = dist;
-          bestIdx = idx;
-        }
+        if (rect.top <= anchor) current = idx;
       });
-      if (bestIdx !== -1) setActive(bestIdx);
+      setActive(current);
     };
 
     let ticking = false;
@@ -799,6 +793,7 @@ function FeatureDeepDiveTabs() {
       window.removeEventListener("resize", onScroll);
     };
   }, []);
+
 
 
   return (
