@@ -11,9 +11,7 @@ import { WhyCosmotech } from "@/components/WhyCosmotech";
 import { FaqSection } from "@/components/FaqSection";
 import { useReveal } from "@/hooks/use-reveal";
 import { PROJECTS, PRODUCTS } from "@/lib/site";
-import heroBg from "@/assets/hero-bg.mp4";
 import heroImage from "@/assets/hero-image.webp";
-import heroPoster from "@/assets/hero-poster.webp";
 import ourClients from "@/assets/our-clients.webp";
 
 export const Route = createFileRoute("/")({
