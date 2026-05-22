@@ -41,7 +41,7 @@ const ITEMS: Item[] = [
   {
     icon: ShieldCheck,
     title: "ISO-Certified and DPA Compliant",
-    body: "We are ISO 9001:2015 certified since 2017 and in full compliance with the Data Privacy Act of 2012 (RA 10173).",
+    body: "We are ISO 9001:2015 certified (since 2017) and ISO/IEC 27001:2022 certified, with full compliance to the Data Privacy Act of 2012 (RA 10173).",
   },
 ];
 
