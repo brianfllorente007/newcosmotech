@@ -52,8 +52,7 @@ export function WhyCosmotech() {
         <div className="max-w-3xl">
           <Eyebrow>Why Cosmotech?</Eyebrow>
           <h2 className="mt-4 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl md:text-[2.75rem]">
-            For over three decades, we have been the trusted technology engine behind the
-            Philippines' most critical organizations.
+            For over three decades, we have been the trusted technology partner of the Philippines government and enterprise institutions delivering secure, scalable, and mission-critical systems that power essential operations nationwide.
           </h2>
         </div>
 

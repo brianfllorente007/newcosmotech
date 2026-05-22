@@ -12,7 +12,6 @@ import { FaqSection } from "@/components/FaqSection";
 import { useReveal } from "@/hooks/use-reveal";
 import { PROJECTS, PRODUCTS } from "@/lib/site";
 import heroImage from "@/assets/hero-image.png";
-import ourClients from "@/assets/our-clients.webp";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -164,7 +163,7 @@ function HomePage() {
             <SectionHeading
               eyebrow="FEATURED WORK"
               title={<>Trusted by Government and Enterprise Organizations Nationwide</>}
-              intro="We have delivered projects for some of the largest government institutions in the country. Here's a sample of what we've built and deployed."
+              intro="We deliver secure and scalable systems for the Philippines' leading government institutions designed, developed, and successfully deployed at scale. Explore our selected implementations."
             />
             <Link
               to="/projects"
@@ -186,28 +185,6 @@ function HomePage() {
         <WhyCosmotech />
       </div>
 
-      {/* CLIENTS */}
-      <section className="bg-bone pb-16 sm:pb-20 md:pb-24">
-        <Container>
-          <div className="reveal mx-auto max-w-3xl text-center">
-            <Eyebrow className="justify-center">Our Clients</Eyebrow>
-            <h2 className="mt-4 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl md:text-5xl">
-              Empowering Our Clients' Success
-            </h2>
-          </div>
-          <div className="reveal mt-12 flex justify-center">
-            <img
-              src={ourClients}
-              alt="Logos of Cosmotech clients including Philippine government agencies and enterprises"
-              loading="lazy"
-              decoding="async"
-              width={1768}
-              height={717}
-              className="h-auto w-full max-w-5xl"
-            />
-          </div>
-        </Container>
-      </section>
 
       <div className="reveal">
         <FaqSection />
