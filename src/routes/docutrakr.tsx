@@ -21,6 +21,14 @@ import { Container } from "@/components/Container";
 import docutrakrHero from "@/assets/docutrakr-hero.png";
 import docutrakrWorkflow from "@/assets/docutrakr-workflow.png";
 import docutrakrAudit from "@/assets/docutrakr-audit.png";
+import modReceiving from "@/assets/docutrakr/modules/document-receiving.png";
+import modWorkflow from "@/assets/docutrakr/modules/workflow-management.png";
+import modNotifications from "@/assets/docutrakr/modules/notifications.png";
+import modDashboard from "@/assets/docutrakr/modules/dashboard.png";
+import modSecurity from "@/assets/docutrakr/modules/security.png";
+import modReference from "@/assets/docutrakr/modules/reference-tables.png";
+import modReports from "@/assets/docutrakr/modules/reports.png";
+import modFiling from "@/assets/docutrakr/modules/filing-archival.png";
 import { Eyebrow, SectionHeading } from "@/components/SectionHeading";
 import {
   Accordion,
@@ -148,6 +156,7 @@ const GENERAL_FEATURES = [
 const MODULES = [
   {
     icon: QrCode,
+    image: modReceiving,
     title: "Document Receiving and Processing",
     body: "Assign, generate, and print QR codes or document codes at the point of receipt. Print the checklist of required processes and the workflow that applies. Attach related documents to the parent record. The workflow assigned at receipt determines who processes it and how long each step should take.",
     items: [
@@ -158,6 +167,7 @@ const MODULES = [
   },
   {
     icon: Workflow,
+    image: modWorkflow,
     title: "Workflow Management — Configurable Per Document Type",
     body: "Configure the workflow for each document type with a defined sequence of steps, processor assignments, and turnaround time per step. Sequences are flexible and re-orderable. The system computes time spent per processor and per department, and generates a workflow diagram for every document.",
     items: [
@@ -168,6 +178,7 @@ const MODULES = [
   },
   {
     icon: Bell,
+    image: modNotifications,
     title: "Notifications — Email and In-App",
     body: "Email and in-app notifications fire automatically. Requestors are notified each time the document is received by a new processor, with the current status. Processors are notified when a document arrives in their queue.",
     items: [
@@ -178,6 +189,7 @@ const MODULES = [
   },
   {
     icon: LayoutDashboard,
+    image: modDashboard,
     title: "Dashboard and Analytics — Real-Time",
     body: "A customizable dashboard displays real-time summaries of document volume, status, and processing performance in charts and graphs. Built-in analytics surface insights for management decision-making — which departments are processing fastest, which documents are overdue, where bottlenecks are forming.",
     items: [
@@ -188,6 +200,7 @@ const MODULES = [
   },
   {
     icon: ShieldCheck,
+    image: modSecurity,
     title: "System Security — 2FA, Audit Trail, and Policy",
     body: "Two-factor authentication using password and CAPTCHA. Configurable password policy. Full audit trail of every user action, retrievable and printable for internal governance and external audit.",
     items: [
@@ -198,6 +211,7 @@ const MODULES = [
   },
   {
     icon: Settings,
+    image: modReference,
     title: "Configurable Reference Tables",
     body: "Adapt the system to any organization's structure — organizational units with multiple levels, employees by assignment, locations with multiple tiers, document statuses per phase, and processes with definable turnaround time per step.",
     items: [
@@ -208,6 +222,7 @@ const MODULES = [
   },
   {
     icon: BarChart3,
+    image: modReports,
     title: "Report Management — Excel, CSV, PDF",
     body: "Generate document tracking reports in Excel, CSV, or PDF: received documents for the day or period, per organizational unit, processed-on-schedule lists, top-performing departments and employees, customizable reports, and a printable audit trail report.",
     items: [
@@ -218,6 +233,7 @@ const MODULES = [
   },
   {
     icon: FileText,
+    image: modFiling,
     title: "Filing and Archival",
     body: "Log the filing location of every document and its attachments — with multiple definable tiers like building, floor, cabinet, and folder. Find any archived document by scanning its code or searching.",
     items: [
@@ -268,31 +284,33 @@ function ModulesShowcase() {
   const [active, setActive] = useState(0);
   const itemRefs = useRef<Array<HTMLLIElement | null>>([]);
   const current = MODULES[active];
+  const next = MODULES[active + 1];
   const CurrentIcon = current.icon;
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        let bestIdx = -1;
-        let bestDist = Infinity;
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-          const rect = entry.boundingClientRect;
-          const center = rect.top + rect.height / 2;
-          const dist = Math.abs(center - window.innerHeight / 2);
-          const idx = Number((entry.target as HTMLElement).dataset.index);
-          if (dist < bestDist) {
-            bestDist = dist;
-            bestIdx = idx;
-          }
-        });
-        if (bestIdx !== -1) setActive(bestIdx);
-      },
-      { rootMargin: "-40% 0px -40% 0px", threshold: 0 },
-    );
-    itemRefs.current.forEach((el) => el && observer.observe(el));
-    return () => observer.disconnect();
+    const handleScroll = () => {
+      const anchor = window.innerHeight * 0.4;
+      let idx = 0;
+      for (let i = 0; i < itemRefs.current.length; i++) {
+        const el = itemRefs.current[i];
+        if (!el) continue;
+        if (el.getBoundingClientRect().top <= anchor) idx = i;
+      }
+      setActive(idx);
+    };
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const handleSelect = (i: number) => {
+    setActive(i);
+    const el = itemRefs.current[i];
+    if (el) {
+      const top = el.getBoundingClientRect().top + window.scrollY - window.innerHeight * 0.35;
+      window.scrollTo({ top, behavior: "smooth" });
+    }
+  };
 
   return (
     <div className="mt-16 grid gap-10 lg:grid-cols-[1.05fr_1fr] lg:gap-16">
@@ -308,14 +326,23 @@ function ModulesShowcase() {
               data-index={i}
               className="py-6"
             >
-              <h3
-                className={cn(
-                  "text-xl font-semibold tracking-tight transition-colors duration-500 sm:text-2xl",
-                  isActive ? "text-foreground" : "text-foreground/30",
-                )}
+              <button
+                type="button"
+                onClick={() => handleSelect(i)}
+                className="block w-full text-left focus:outline-none"
+                aria-expanded={isActive}
               >
-                {m.title}
-              </h3>
+                <h3
+                  className={cn(
+                    "text-xl font-semibold tracking-tight transition-colors duration-500 sm:text-2xl",
+                    isActive
+                      ? "text-foreground"
+                      : "text-foreground/30 hover:text-foreground/60",
+                  )}
+                >
+                  {m.title}
+                </h3>
+              </button>
               <div
                 className={cn(
                   "grid transition-all duration-500 ease-out",
@@ -344,12 +371,32 @@ function ModulesShowcase() {
           <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-cobalt/10 text-cobalt transition-colors">
             <CurrentIcon className="h-6 w-6" />
           </div>
-          <Placeholder
-            key={current.title}
-            label={`${current.title.split(" — ")[0]} screenshot`}
-            size="1200x800"
-            className="aspect-[3/2] animate-fade-in"
-          />
+          <div className="relative">
+            {next && (
+              <div
+                key={`peek-${next.title}`}
+                aria-hidden
+                className="pointer-events-none absolute inset-0 hidden translate-x-3 translate-y-3 scale-[0.96] overflow-hidden rounded-3xl border border-border bg-card opacity-60 shadow-[0_20px_50px_-20px_rgba(15,23,42,0.25)] lg:block"
+              >
+                <img
+                  src={next.image}
+                  alt=""
+                  className="h-full w-full object-cover object-top"
+                />
+              </div>
+            )}
+            <div
+              key={current.title}
+              className="relative aspect-[3/2] animate-fade-in overflow-hidden rounded-3xl border border-border bg-card shadow-[0_30px_80px_-30px_rgba(15,23,42,0.35)]"
+            >
+              <img
+                src={current.image}
+                alt={`${current.title} — Docutrakr UI screenshot`}
+                className="h-full w-full object-cover object-top"
+                loading="lazy"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </div>
