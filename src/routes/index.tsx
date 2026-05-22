@@ -11,7 +11,7 @@ import { WhyCosmotech } from "@/components/WhyCosmotech";
 import { FaqSection } from "@/components/FaqSection";
 import { useReveal } from "@/hooks/use-reveal";
 import { PROJECTS, PRODUCTS } from "@/lib/site";
-import heroImage from "@/assets/hero-image.png";
+import heroImage from "@/assets/hero-image.webp";
 
 export const Route = createFileRoute("/")({
   head: () => ({

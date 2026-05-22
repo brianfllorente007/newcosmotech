@@ -1,16 +1,16 @@
-import ppa from "@/assets/logos/clients/ppa.png";
-import dfa from "@/assets/logos/clients/dfa.png";
+import ppa from "@/assets/logos/clients/ppa.webp";
+import dfa from "@/assets/logos/clients/dfa.webp";
 import boc from "@/assets/logos/clients/boc.webp";
-import fab from "@/assets/logos/clients/fab.png";
-import pdea from "@/assets/logos/clients/pdea.png";
-import hsbc from "@/assets/logos/clients/hsbc.png";
-import landbank from "@/assets/logos/clients/landbank.png";
-import philhealth from "@/assets/logos/clients/philhealth.png";
-import pdic from "@/assets/logos/clients/pdic.png";
-import bir from "@/assets/logos/clients/bir.png";
-import ntc from "@/assets/logos/clients/ntc.png";
-import lto from "@/assets/logos/clients/lto.png";
-import dti from "@/assets/logos/clients/dti.png";
+import fab from "@/assets/logos/clients/fab.webp";
+import pdea from "@/assets/logos/clients/pdea.webp";
+import hsbc from "@/assets/logos/clients/hsbc.webp";
+import landbank from "@/assets/logos/clients/landbank.webp";
+import philhealth from "@/assets/logos/clients/philhealth.webp";
+import pdic from "@/assets/logos/clients/pdic.webp";
+import bir from "@/assets/logos/clients/bir.webp";
+import ntc from "@/assets/logos/clients/ntc.webp";
+import lto from "@/assets/logos/clients/lto.webp";
+import dti from "@/assets/logos/clients/dti.webp";
 
 export const CLIENT_LOGOS = [
   { src: ppa, alt: "Philippine Ports Authority" },
