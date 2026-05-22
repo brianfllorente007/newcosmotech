@@ -447,9 +447,9 @@ function QMasterPage() {
       </section>
 
       {/* MODULES */}
-      <section className="border-b border-border bg-background py-20 sm:py-24">
+      <section className="border-b border-border bg-background py-12 sm:py-16">
         <Container>
-          <div className="reveal max-w-3xl">
+          <div className="max-w-3xl">
             <Eyebrow>Modules</Eyebrow>
             <h2 className="mt-4 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl md:text-5xl">
               Every module, working together.
