@@ -50,10 +50,12 @@ export function WhyCosmotech() {
     <section className="bg-bone py-16 sm:py-20 md:py-24">
       <Container>
         <div className="max-w-5xl">
-          <Eyebrow>Why Cosmotech?</Eyebrow>
-          <h2 className="mt-4 text-2xl font-semibold tracking-tight text-foreground sm:text-3xl md:text-[2rem]">
-            For over three decades, we have been the trusted technology partner of the Philippines government and enterprise institutions delivering secure, scalable, and mission-critical systems that power essential operations nationwide.
+          <h2 className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl md:text-[2.5rem]">
+            Why Cosmotech?
           </h2>
+          <p className="mt-4 text-base leading-relaxed text-muted-foreground sm:text-lg">
+            For over three decades, we have been the trusted technology partner of the Philippines government and enterprise institutions delivering secure, scalable, and mission-critical systems that power essential operations nationwide.
+          </p>
         </div>
 
         <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
