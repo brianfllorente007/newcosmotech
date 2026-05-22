@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   ArrowRight,
   CheckCircle2,
@@ -759,73 +759,114 @@ function IntegraPage() {
 
 function FeatureDeepDiveTabs() {
   const [active, setActive] = useState(0);
-  return (
-    <div className="mt-12">
-      <div className="relative -mx-5 sm:mx-0">
-        <div className="scrollbar-hide flex snap-x snap-mandatory gap-2 overflow-x-auto scroll-px-5 px-5 pb-2 sm:flex-wrap sm:overflow-visible sm:px-0 sm:pb-0">
-          {FEATURE_BLOCKS.map((b, i) => {
-            const isActive = active === i;
-            return (
-              <button
-                key={b.title}
-                onClick={() => setActive(i)}
-                aria-pressed={isActive}
-                className={cn(
-                  "inline-flex h-11 shrink-0 snap-start items-center gap-2 rounded-full border px-4 text-sm font-medium transition-colors",
-                  isActive
-                    ? "border-foreground bg-foreground text-background"
-                    : "border-border bg-card text-foreground/75 hover:text-foreground",
-                )}
-              >
-                <b.icon className="h-4 w-4" />
-                <span className="whitespace-nowrap">{b.title}</span>
-              </button>
-            );
-          })}
-        </div>
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute right-0 top-0 h-full w-8 bg-gradient-to-l from-background to-transparent sm:hidden"
-        />
-      </div>
+  const itemRefs = useRef<Array<HTMLLIElement | null>>([]);
+  const current = FEATURE_BLOCKS[active];
+  const CurrentIcon = current.icon;
 
-      <div className="mt-8 grid">
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        let bestIdx = -1;
+        let bestDist = Infinity;
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          const rect = entry.boundingClientRect;
+          const center = rect.top + rect.height / 2;
+          const dist = Math.abs(center - window.innerHeight / 2);
+          const idx = Number((entry.target as HTMLElement).dataset.index);
+          if (dist < bestDist) {
+            bestDist = dist;
+            bestIdx = idx;
+          }
+        });
+        if (bestIdx !== -1) setActive(bestIdx);
+      },
+      { rootMargin: "-40% 0px -40% 0px", threshold: 0 },
+    );
+    itemRefs.current.forEach((el) => el && observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div className="mt-16 grid gap-10 lg:grid-cols-[1.05fr_1fr] lg:gap-16">
+      {/* Scroll-driven / click-to-expand list */}
+      <ul className="divide-y divide-border border-y border-border">
         {FEATURE_BLOCKS.map((b, i) => {
-          const isActive = active === i;
+          const isActive = i === active;
           return (
-            <div
+            <li
               key={b.title}
-              aria-hidden={!isActive}
-              className={cn(
-                "[grid-area:1/1] grid gap-8 rounded-3xl border border-border bg-card p-8 sm:p-10 lg:grid-cols-2 lg:gap-12 transition-opacity duration-300",
-                isActive ? "opacity-100" : "pointer-events-none opacity-0",
-              )}
+              ref={(el) => {
+                itemRefs.current[i] = el;
+              }}
+              data-index={i}
+              className="py-6"
             >
-              <div>
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-cobalt/10 text-cobalt">
-                  <b.icon className="h-5 w-5" />
-                </div>
-                <h3 className="mt-4 text-2xl font-semibold tracking-tight text-foreground">
+              <button
+                type="button"
+                onClick={() => setActive(i)}
+                className="block w-full text-left"
+                aria-expanded={isActive}
+              >
+                <h3
+                  className={cn(
+                    "text-xl font-semibold tracking-tight transition-colors duration-500 sm:text-2xl",
+                    isActive
+                      ? "text-foreground"
+                      : "text-foreground/30 hover:text-foreground/60",
+                  )}
+                >
                   {b.title}
                 </h3>
-                <p className="mt-3 text-base leading-relaxed text-muted-foreground">
-                  {b.body}
-                </p>
+              </button>
+              <div
+                className={cn(
+                  "grid transition-all duration-500 ease-out",
+                  isActive
+                    ? "mt-4 grid-rows-[1fr] opacity-100"
+                    : "grid-rows-[0fr] opacity-0",
+                )}
+              >
+                <div className="overflow-hidden">
+                  <p className="text-base leading-relaxed text-muted-foreground">
+                    {b.body}
+                  </p>
+                  <ul className="mt-5 space-y-3">
+                    {b.items.map((it) => (
+                      <li key={it} className="flex items-start gap-3 text-sm">
+                        <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-cobalt" />
+                        <span>{it}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
-              <ul className="space-y-2">
-                {b.items.map((item) => (
-                  <li
-                    key={item}
-                    className="flex items-start gap-2 text-sm text-foreground"
-                  >
-                    <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-cobalt" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            </li>
           );
         })}
+      </ul>
+
+      {/* Sticky visual panel */}
+      <div className="lg:h-full">
+        <div className="lg:sticky lg:top-24">
+          <div
+            key={current.title}
+            className="animate-fade-in rounded-3xl border border-border bg-card p-8 sm:p-10"
+          >
+            <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-cobalt/10 text-cobalt">
+              <CurrentIcon className="h-7 w-7" />
+            </div>
+            <h3 className="mt-6 text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
+              {current.title}
+            </h3>
+            <p className="mt-4 text-base leading-relaxed text-muted-foreground">
+              {current.body}
+            </p>
+            <div className="mt-6 inline-flex items-center gap-2 rounded-full bg-cobalt/10 px-3 py-1 text-xs font-medium text-cobalt">
+              {active + 1} / {FEATURE_BLOCKS.length}
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
