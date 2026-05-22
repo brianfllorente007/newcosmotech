@@ -12,8 +12,9 @@ import { FaqSection } from "@/components/FaqSection";
 import { useReveal } from "@/hooks/use-reveal";
 import { PROJECTS, PRODUCTS } from "@/lib/site";
 import heroBg from "@/assets/hero-bg.mp4";
-import heroImage from "@/assets/hero-image.png";
-import ourClients from "@/assets/our-clients.png";
+import heroImage from "@/assets/hero-image.webp";
+import heroPoster from "@/assets/hero-poster.webp";
+import ourClients from "@/assets/our-clients.webp";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -58,10 +59,12 @@ function HomePage() {
       <section className="relative -mt-24 overflow-hidden gradient-hero pt-24 text-bone md:-mt-28 md:pt-28 before:pointer-events-none before:absolute before:inset-0 before:-z-10 before:bg-ink">
         <video
           src={heroBg}
+          poster={heroPoster}
           autoPlay
           loop
           muted
           playsInline
+          preload="metadata"
           aria-hidden="true"
           className="pointer-events-none absolute inset-0 h-full w-full object-cover"
         />
@@ -103,6 +106,10 @@ function HomePage() {
           <img
             src={heroImage}
             alt="IntegraHRIS Government dashboard preview"
+            width={1600}
+            height={900}
+            fetchPriority="high"
+            decoding="async"
             className="mt-8 sm:mt-10 mx-auto block w-full max-w-5xl h-auto px-2 sm:px-0"
           />
         </Container>
@@ -200,6 +207,9 @@ function HomePage() {
               src={ourClients}
               alt="Logos of Cosmotech clients including Philippine government agencies and enterprises"
               loading="lazy"
+              decoding="async"
+              width={1768}
+              height={717}
               className="h-auto w-full max-w-5xl"
             />
           </div>
