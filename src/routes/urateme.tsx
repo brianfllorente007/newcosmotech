@@ -14,7 +14,7 @@ import {
   BarChart3,
   Settings,
   MessageSquare,
-  Download,
+  
 } from "lucide-react";
 import { Container } from "@/components/Container";
 import { Eyebrow, SectionHeading } from "@/components/SectionHeading";
@@ -26,26 +26,27 @@ import {
 } from "@/components/ui/accordion";
 import { useReveal } from "@/hooks/use-reveal";
 import { cn } from "@/lib/utils";
+import urateMeHero from "@/assets/urateme/urateme-hero.png";
 
 export const Route = createFileRoute("/urateme")({
   head: () => ({
     meta: [
       {
-        title: "URateMe — Customer Feedback Management System | Cosmotech",
+        title: "URateMe — Feedback Management System | Cosmotech",
       },
       {
         name: "description",
         content:
-          "URateMe captures customer feedback at every branch, tracks employee performance, and surfaces insights in real time. Built for multi-branch operations.",
+          "Hear your clients. Improve your business. URateMe collects complaints, praises, and suggestions at the point of service, then consolidates every branch into one system.",
       },
       {
         property: "og:title",
-        content: "URateMe — Customer Feedback Management System",
+        content: "URateMe — Feedback Management System",
       },
       {
         property: "og:description",
         content:
-          "Capture customer feedback at every branch and turn scattered reactions into measurable performance signals — by branch, by employee, by segment.",
+          "Never miss what your customers are thinking. A direct line from clients to management, with real-time branch and employee performance reporting.",
       },
     ],
   }),
@@ -80,125 +81,128 @@ function Placeholder({
 // ---------- Data ----------
 const FEATURE_CARDS = [
   {
-    icon: Building2,
-    title: "Multi-branch visibility",
-    body: "Consolidate feedback from every branch into a single dashboard — transmitted securely over your company's VPN.",
+    icon: Sparkles,
+    title: "Point-of-service capture",
+    body: "Collects complaints, praises, and suggestions directly from clients — at the moment of service.",
   },
   {
     icon: BarChart3,
-    title: "Real-time performance signals",
-    body: "Patterns surface early — a branch slipping in scores, an employee consistently rated above average, an issue clustering in one segment.",
+    title: "Real-time branch monitoring",
+    body: "Monitors service delivery and flags defective processes and poor service practices as they happen.",
   },
   {
-    icon: Sparkles,
-    title: "Point-of-service capture",
-    body: "Customers rate their experience the moment it happens, tagged automatically by branch, employee, date, and demographic.",
+    icon: Building2,
+    title: "Consolidated multi-branch view",
+    body: "Consolidates data from all branches into one system, transmitted securely through your company VPN.",
   },
 ];
 
 const BENEFIT_CARDS = [
   {
-    icon: ShieldCheck,
-    title: "Faster problem detection",
-    body: "See issues the moment they happen — not weeks later when the customer is already gone.",
-  },
-  {
-    icon: TrendingUp,
-    title: "Fairer employee evaluation",
-    body: "Objective ratings and customer-served counts replace gut feel in performance reviews.",
+    icon: MessageSquare,
+    title: "Direct Customer Engagement",
+    body: "Clients can submit complaints, praises, and suggestions directly through the system, at the point of service.",
   },
   {
     icon: Zap,
-    title: "Action you can steer with",
-    body: "Customer experience data that actually drives decisions — service mix, branch positioning, coaching focus.",
+    title: "Improved Customer Service",
+    body: "Because deliverables are actively monitored, service becomes faster and more consistent.",
   },
   {
-    icon: Sparkles,
-    title: "Consistent service quality",
-    body: "Hold every branch to the same standard. Surface gaps before they become churn.",
-  },
-  {
-    icon: Users,
-    title: "Market profile of who you serve",
-    body: "Age, gender, civil status, owner-vs-representative ratio — know who's actually walking in.",
+    icon: TrendingUp,
+    title: "Improved Customer Loyalty",
+    body: "Customers who feel heard come back. Collecting and acting on feedback builds that trust.",
   },
   {
     icon: ShieldCheck,
-    title: "Role-protected admin",
-    body: "Username and password protected admin pages with role-based control over surveys, reports, and branch data.",
+    title: "Standard Treatment",
+    body: "Every client receives the same quality of service regardless of nationality, occupation, or socio-economic status.",
+  },
+  {
+    icon: Building2,
+    title: "Branch Performance Profile",
+    body: "See branch-level data including total customers served, satisfaction and dissatisfaction ratings, and top-performing employees per location.",
+  },
+  {
+    icon: UserRound,
+    title: "Employee Performance Profile",
+    body: "Track individual employees by number of customers served, satisfaction ratings per category, and specific client feedback.",
+  },
+  {
+    icon: Users,
+    title: "Client Demographics",
+    body: "Capture visitor profile data including age, gender, and civil status, and track the customer-to-employee representative ratio.",
   },
 ];
 
 const GENERAL_FEATURES = [
-  "Customizable questionnaires, greeting messages, and thank-you messages per branch or service type",
-  "Consolidated reporting across all branches over your company's VPN",
-  "Branch performance profiles — customers served, satisfaction and dissatisfaction ratings, top performers",
-  "Employee performance profiles — customers served, ratings, feedback by questionnaire category",
-  "Customer demographic capture — age, gender, civil status, customer-to-employee ratio",
-  "Reports daily, weekly, monthly, and yearly in graphical and tabular views",
-  "Username and password protected admin pages with role-based controls",
-  "User-maintainable records for employees, branches, survey questions, greetings, and thank-you messages",
+  "Graphical and tabular presentation of results",
+  "Data consolidation across all branches",
+  "Username and password-protected admin pages",
+  "User-customizable questionnaires, greeting messages, and thank-you messages",
+  "Maintainable records for employees, branches, and survey questions",
 ];
 
 const MODULES = [
   {
     icon: MessageSquare,
     title: "Feedback Capture — At the Point of Service",
-    body: "Customizable questionnaires, greeting messages, and thank-you messages. Surveys are configurable per branch or per service type. Customers submit complaints, compliments, and suggestions through the system, timestamped and tagged automatically.",
+    body: "Customers submit complaints, praises, and suggestions directly through the system. Questionnaires, greeting messages, and thank-you messages are user-customizable per branch or service type.",
     items: [
-      "Customizable questionnaires per branch or service type",
-      "Configurable greetings and thank-you messages",
-      "Automatic timestamping and tagging of every submission",
+      "User-customizable questionnaires per branch or service type",
+      "Configurable greeting and thank-you messages",
+      "Complaints, praises, and suggestions captured at the point of service",
     ],
   },
   {
     icon: Building2,
-    title: "Branch Performance Tracking — Side by Side",
-    body: "A consolidated profile for every branch, showing total customers served, satisfaction and dissatisfaction ratings, and the top-performing employee at that location. Compare branches against each other or against company-wide benchmarks.",
+    title: "Branch Performance Profile",
+    body: "A consolidated profile for every branch — total customers served, satisfaction and dissatisfaction ratings, and the top-performing employees at that location.",
     items: [
       "Total customers served per branch",
       "Satisfaction and dissatisfaction ratings",
-      "Top-performing employee per location",
+      "Top-performing employees per location",
     ],
   },
   {
     icon: UserRound,
-    title: "Employee Performance Tracking — Objective Ratings",
-    body: "Individual employee profiles showing customers served, satisfaction ratings, and feedback broken down by questionnaire category. Performance data supports objective evaluation, recognition, and coaching decisions.",
+    title: "Employee Performance Profile",
+    body: "Individual employee profiles tracking the number of customers served, satisfaction ratings per category, and the specific client feedback received.",
     items: [
-      "Customers served per employee",
+      "Number of customers served per employee",
       "Satisfaction ratings per criteria",
-      "Feedback grouped by questionnaire category",
+      "Specific client feedback per employee",
     ],
   },
   {
     icon: Users,
-    title: "Customer Demographics — Market Insight",
-    body: "Captured demographic data — age, gender, civil status, owner-versus-representative ratio — gives management a market profile of who's actually being served. Useful for service mix decisions, branch positioning, and identifying underserved segments.",
+    title: "Client Demographics",
+    body: "Visitor profile data — age, gender, and civil status — alongside the customer-to-employee representative ratio, giving management a clear picture of who's actually being served.",
     items: [
       "Age, gender, and civil status capture",
-      "Owner-vs-representative ratio per branch",
-      "Customer-to-employee ratio tracking",
+      "Customer-to-employee representative ratio",
+      "Owner-vs-representative tracking per branch",
     ],
   },
   {
     icon: LayoutDashboard,
-    title: "Dashboards and Reporting — On Demand",
-    body: "Graphical and tabular presentation of results, generated on demand. Standard reports cover performance summaries, demographic reports, employee rating per branch, and employee performance reports.",
+    title: "Reports — Graphical and Tabular",
+    body: "Graphical and tabular presentation of results, generated on demand. Standard reports cover performance summaries, demographics, and per-branch and per-employee ratings.",
     items: [
-      "Daily, weekly, monthly, and yearly performance summaries",
-      "Demographic reports with satisfaction per criteria",
-      "Employee rating per branch and employee performance reports",
+      "Standard Reports — daily, weekly, monthly, or yearly",
+      "Demographic Reports — satisfaction per age, gender, and owner/representative ratio",
+      "Employee Rating Per Branch — ratings broken down by employee across each branch",
+      "Employee Performance Report — customers served and satisfaction rating per criteria",
     ],
   },
   {
     icon: Settings,
-    title: "Administration and Security — Role-Based",
-    body: "Username and password protected admin pages. User-maintainable records for employees, branches, survey questions, greetings, and thank-you messages. Admin roles control who can configure surveys, view reports, and access branch data.",
+    title: "Administration and Security",
+    body: "Username and password-protected admin pages. User-maintainable records for employees, branches, and survey questions, plus greetings and thank-you messages.",
     items: [
-      "Username and password authentication",
-      "Role-based admin controls",
-      "User-maintainable employee, branch, and survey records",
+      "Username and password-protected admin pages",
+      "Maintainable records for employees, branches, and survey questions",
+      "User-customizable greetings and thank-you messages",
     ],
   },
 ];
@@ -362,13 +366,12 @@ function UrateMePage() {
             <div>
               <Eyebrow>URateMe</Eyebrow>
               <h1 className="mt-4 text-4xl font-semibold leading-[1.05] tracking-tight sm:text-5xl md:text-6xl">
-                Customer Feedback Management for Multi-Branch Businesses
+                Hear your clients. Improve your business.
               </h1>
               <p className="mt-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
-                Capture client complaints, compliments, and suggestions at the
-                point of service. Consolidate every branch into a single view —
-                and turn scattered reactions into measurable performance
-                signals by branch, by employee, by segment.
+                Never miss what your customers are thinking. URateMe is a
+                Feedback Management System that gives you a direct line to
+                your customers — and the tools to act on what they say.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
@@ -381,15 +384,35 @@ function UrateMePage() {
                   to="/contact"
                   className="inline-flex h-11 items-center gap-2 rounded-full border border-border bg-card px-5 text-sm font-medium text-foreground hover:bg-muted"
                 >
-                  <Download className="h-4 w-4" /> Download Brochure
+                  Talk to Sales
                 </Link>
               </div>
             </div>
-            <Placeholder
-              label="URateMe branch dashboard mock"
-              size="1600x1000"
-              className="aspect-[16/10]"
-            />
+            <div className="overflow-hidden rounded-3xl border border-border bg-card aspect-[16/10]">
+              <img
+                src={urateMeHero}
+                alt="Customer using a URateMe Port Customer Satisfaction Survey kiosk powered by Cosmotech"
+                className="h-full w-full object-cover"
+              />
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* THE PROBLEM */}
+      <section className="py-20 sm:py-24">
+        <Container>
+          <div className="reveal mx-auto max-w-3xl text-center">
+            <Eyebrow className="justify-center">The Problem</Eyebrow>
+            <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl md:text-5xl">
+              Feedback that isn't captured doesn't get fixed.
+            </h2>
+            <p className="mt-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
+              Most businesses collect customer feedback inconsistently.
+              Complaints get lost. Praise goes unrecorded. Managers have no
+              clear picture of how different branches or employees are
+              actually performing. URateMe fixes that.
+            </p>
           </div>
         </Container>
       </section>
@@ -419,25 +442,23 @@ function UrateMePage() {
         <Container>
           <div className="reveal grid gap-12 lg:grid-cols-2 lg:items-center lg:gap-16">
             <div>
-              <Eyebrow>About the product</Eyebrow>
+              <Eyebrow>What it does</Eyebrow>
               <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl md:text-5xl">
-                Why measure customer feedback systematically
+                A direct line to your customers — and the operating standard to back it up.
               </h2>
               <p className="mt-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
-                Feedback that lives in comment cards, complaint logs, or
-                word-of-mouth is invisible to management until something
-                escalates. By then the customer is gone and the damage is done.
-              </p>
-              <p className="mt-4 text-base leading-relaxed text-muted-foreground sm:text-lg">
-                URateMe makes feedback visible the moment it happens. Every
-                rating is tagged with branch, employee, date, and demographic —
-                and rolled into dashboards management actually checks.
+                URateMe is built to give companies a direct line to their
+                customers while establishing consistent operating standards.
+                It delivers an automated, accurate view of customer sentiment
+                and gives management the tools to act on that data
+                immediately.
               </p>
               <ul className="mt-6 space-y-3">
                 {[
-                  "Point-of-service capture across every branch",
-                  "Per-branch and per-employee performance profiles",
-                  "Demographic-aware reporting in graphs and tables",
+                  "Tracks the performance of individual employees and entire branches",
+                  "Consolidates data from all branches into one system",
+                  "Generates reports on a daily, weekly, monthly, or yearly basis",
+                  "Transmits branch data fast through a company VPN",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-3 text-sm">
                     <Check className="mt-0.5 h-5 w-5 shrink-0 text-cobalt" />
@@ -455,13 +476,14 @@ function UrateMePage() {
         </Container>
       </section>
 
+
       {/* BENEFITS */}
       <section className="bg-cobalt/5 py-20 sm:py-24">
         <Container>
           <div className="reveal">
             <SectionHeading
               eyebrow="Benefits"
-              title="What changes when feedback runs on URateMe"
+              title="What you get when feedback runs on URateMe"
             />
             <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {BENEFIT_CARDS.map(({ icon: Icon, title, body }) => (
@@ -486,15 +508,15 @@ function UrateMePage() {
         <Container>
           <div className="reveal grid gap-12 lg:grid-cols-2 lg:gap-16">
             <div className="lg:sticky lg:top-24 lg:self-start">
-              <Eyebrow>General features</Eyebrow>
+              <Eyebrow>Features and functionalities</Eyebrow>
               <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl md:text-5xl">
-                Built for businesses with more than one location
+                Works for one location — or every branch you run.
               </h2>
               <p className="mt-5 text-base leading-relaxed text-muted-foreground">
-                Banks, retail chains, clinics, government offices, and service
-                providers that need consistent customer experience across every
-                branch. Configurable surveys, consolidated reporting, role-based
-                admin — all in one system.
+                URateMe works for single-location businesses and multi-branch
+                operations alike. Reports from all branches can be transmitted
+                through a company VPN, making it practical for organizations
+                with distributed teams or locations spread across a region.
               </p>
               <div className="mt-8">
                 <Placeholder
@@ -570,11 +592,12 @@ function UrateMePage() {
               Get started
             </p>
             <h2 className="mt-4 text-3xl font-semibold tracking-tight text-bone sm:text-4xl md:text-5xl">
-              Hear Your Clients. Improve Your Business.
+              Ready to see what your customers are actually thinking?
             </h2>
             <p className="mt-4 text-base text-bone/80 sm:text-lg">
-              Walk through feedback capture, branch dashboards, and employee
-              performance reporting with our team — live demo, your scenarios.
+              Contact Cosmotech to set up URateMe for your business — we'll
+              walk you through feedback capture, branch dashboards, and
+              employee performance reporting, live.
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-3">
               <Link

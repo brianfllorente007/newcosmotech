@@ -1,43 +1,48 @@
-## Attach screenshots + refine Docutrakr "What's inside" interactions
+## Update `/urateme` copy + hero image
 
-The "What's inside" → Modules and Capabilities section on `/docutrakr` currently renders a `<Placeholder />` in the sticky right panel and uses an IntersectionObserver tuned to viewport center. I'll wire the uploaded screenshots in, calm the scroll behavior, add click-to-expand, and add a peek of the next image for a scrolling-stack feel.
+Rewrite the page copy in `src/routes/urateme.tsx` to follow the attached `URateMe_WebCopy.md` more closely (tone, headings, structure), and replace the hero `[PLACEHOLDER: URateMe branch dashboard mock]` with the uploaded photo `URateMe_Hero.png`.
 
-### 1. Wire screenshots to modules
+### 1. Hero image
 
-Copy the 8 uploads into `src/assets/docutrakr/modules/` (kebab-case), import them in `src/routes/docutrakr.tsx`, and add an `image` field to each `MODULES` entry:
+- Copy `user-uploads://URateMe_Hero.png` → `src/assets/urateme/urateme-hero.png`.
+- Import it in `urateme.tsx` and replace the hero `<Placeholder label="URateMe branch dashboard mock" ... />` with an `<img>` rendered inside a rounded card (`rounded-3xl overflow-hidden border border-border bg-card aspect-[16/10]`), `object-cover`, alt: "Customer using a URateMe Port Customer Satisfaction Survey kiosk powered by Cosmotech".
 
-| Module (in order) | Uploaded image |
+### 2. Copy rewrite (sections, in order)
+
+Map each existing section to the matching MD section. Keep the existing components (`Container`, `Eyebrow`, `SectionHeading`, `Placeholder`, `ModulesShowcase`, `Accordion`, gradient CTA) and the page structure — only swap text and a couple of list payloads.
+
+| Page section | Pull from MD |
 |---|---|
-| Document Receiving and Processing | `Document_Receiving_and_Processing.png` |
-| Workflow Management — Configurable Per Document Type | `Workflow_Management.png` |
-| Notifications — Email and In-App | `Notifications.png` |
-| Dashboard and Analytics — Real-Time | `Dashboard_Management.png` |
-| System Security — 2FA, Audit Trail, and Policy | `System_Security.png` |
-| Configurable Reference Tables | `Configurable_Reference_Tables.png` |
-| Report Management — Excel, CSV, PDF | `Report_Management.png` |
-| Filing and Archival | `Filing_and_Archival.png` |
+| Hero eyebrow | `URateMe` (keep) |
+| Hero H1 | `Hear your clients. Improve your business.` |
+| Hero subhead | `Never miss what your customers are thinking. URateMe is a Feedback Management System that gives you a direct line to customers and the tools to act on what they say.` (built from MD tagline + opening) |
+| Hero CTAs | `Request a Demo`, `Talk to Sales` (drop "Download Brochure" — not in MD) |
+| Section after hero — "The Problem" | New section using MD §"The Problem": eyebrow `The Problem`, heading `Feedback that doesn't get captured doesn't get fixed`, body verbatim from MD §The Problem. Single column, centered, no cards. |
+| Three feature cards | Rebuild from MD §"What It Does" bullets. Pick the three highest-signal ones: <br>• Point-of-service capture — "Collects complaints, praises, and suggestions directly from clients."<br>• Real-time branch monitoring — "Monitors service delivery and flags defective processes as they happen."<br>• Consolidated multi-branch view — "Consolidates data from all branches and transmits it through a company VPN." |
+| "What is" / About section | Eyebrow `What it does`, heading `A direct line to your customers — and the operating standard to back it up.`, body from MD §"What It Does" opening paragraph. Bullets replaced by the remaining 4 MD bullets not used in cards above (tracks branch + employee performance, generates daily/weekly/monthly/yearly reports, etc.). Keep the right-side `Placeholder` (mock) as-is for now. |
+| Benefits grid | Rebuild `BENEFIT_CARDS` to match MD §"Benefits" 1:1 (7 items): Direct Customer Engagement, Improved Customer Service, Improved Customer Loyalty, Standard Treatment, Branch Performance Profile, Employee Performance Profile, Client Demographics. Use the MD descriptions verbatim. Section heading: `Benefits`. |
+| General features | Replace `GENERAL_FEATURES` with MD §"Features and Functionalities" (5 items, verbatim). Heading: `Features and functionalities`. Intro paragraph adapted from MD §"Setup and Deployment" (single- or multi-branch, VPN transmission). |
+| Modules / "What's inside" | Keep the existing 6-module `ModulesShowcase` structure but trim the body/items copy to echo MD vocabulary (complaints / praises / suggestions, "standard treatment", "graphical and tabular presentation", "VPN"). Module titles stay; the dashboards module gets a new "Reports" sub-bullet list from MD §"Reports" (Standard, Demographic, Employee Rating Per Branch, Employee Performance). |
+| New "Reports" callout (optional, small) | Skip a dedicated section — fold the report types into the Dashboards module's `items` so the page doesn't grow another full section. |
+| FAQ | Keep existing 8 Q&As — they already align with the MD. Lightly adjust 1–2 answers to use the MD's exact phrasing where it conflicts (e.g. "complaints, praises, and suggestions" instead of "complaints, compliments, and suggestions"). |
+| Final CTA | Heading: `Ready to see what your customers are actually thinking?` (from MD §"Get Started"). Subhead: `Contact Cosmotech to set up URateMe for your business.` Buttons: `Request a Demo`, `Talk to Sales`. |
 
-### 2. Calmer scroll behavior (match Integra fix)
+### 3. Terminology cleanup
 
-Replace the IntersectionObserver in `ModulesShowcase` with a `scroll` listener that only switches the active module when a heading's top crosses an "anchor line" at roughly 40% of viewport height (same approach now used on Integra). This prevents the jump-to-next-feature behavior when the user is just scrolling to read expanded content.
+- Replace all instances of `compliments` with `praises` (MD uses "praises").
+- Replace `Integra` mentions if any appear in body copy with `Cosmotech` for brand consistency on this site. (The MD says "by Integra" — confirm in step below.)
 
-### 3. Click to expand
+### Open question before implementing
 
-Make each module heading a `<button>` that calls `setActive(i)` on click (and also scrolls the heading into view smoothly so the right panel updates predictably). Hover/focus styles on the heading; cursor-pointer; keyboard-accessible. Scroll still works independently.
+The MD says "URateMe (by Integra)". The current page is on the Cosmotech site and the existing CTA copy says "with our team". Should the page:
+- (a) Keep Cosmotech branding throughout and drop the "by Integra" attribution, or
+- (b) Add a small "by Integra" line under the H1 (e.g. as a tag under the eyebrow)?
 
-### 4. "Peek" of the next image — scrolling stack effect
-
-Replace the single sticky `<Placeholder />` with a stacked image panel:
-
-- The active module's screenshot fills the main rounded card (border, `overflow-hidden`, `aspect-[3/2]`, `animate-fade-in` keyed on `current.title`).
-- The next module's screenshot is rendered behind it, offset down and to the right (~12px) and slightly scaled-down (~96%), with reduced opacity (~60%) and a soft shadow, peeking out from the bottom-right corner of the active card. This signals "more coming" and creates a card-stack scrolling effect as users move through the list.
-- On the last module, no peek is rendered.
-- The small icon chip stays above the stack.
-
-Layered with `relative` + absolutely positioned peek, no extra layout shift. Hidden on small screens (`lg:` only) since the panel itself is already lg-sticky.
+I'll default to (a) unless you say otherwise.
 
 ### Files touched
-- `src/assets/docutrakr/modules/*.png` (new — 8 files)
-- `src/routes/docutrakr.tsx` (imports, MODULES data, ModulesShowcase scroll handler, button heading, stacked image panel)
 
-`Placeholder` helper stays in the file (unused, harmless) in case it's reused later.
+- `src/assets/urateme/urateme-hero.png` (new — copied from upload)
+- `src/routes/urateme.tsx` (hero image import + JSX swap; rewrite of `FEATURE_CARDS`, `BENEFIT_CARDS`, `GENERAL_FEATURES`, `MODULES[dashboards].items`, FAQ tweaks, hero/about/CTA strings; add new "Problem" section)
+
+No new components, no routing changes, no behavior changes to `ModulesShowcase`.
