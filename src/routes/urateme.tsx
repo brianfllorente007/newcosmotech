@@ -483,7 +483,7 @@ function UrateMePage() {
           <div className="reveal">
             <SectionHeading
               eyebrow="Benefits"
-              title="What changes when feedback runs on URateMe"
+              title="What you get when feedback runs on URateMe"
             />
             <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {BENEFIT_CARDS.map(({ icon: Icon, title, body }) => (
