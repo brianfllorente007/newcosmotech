@@ -485,16 +485,15 @@ function HelpdeskPage() {
       </section>
 
       {/* MODULES */}
-      <section className="bg-cobalt/5 py-20 sm:py-24">
+      <section className="bg-cobalt/5 py-12 sm:py-16">
         <Container>
-          <div className="reveal">
+          <div>
             <SectionHeading
               eyebrow="What's inside"
               title="Features and Functionality"
               intro="HelpDesk ships with every module included — dashboards, knowledge base, workflows, security, and ticketing across every channel."
             />
             <ModulesShowcase modules={MODULE_VISUALS} />
-
           </div>
         </Container>
       </section>
