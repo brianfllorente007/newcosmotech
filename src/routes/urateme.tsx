@@ -592,11 +592,12 @@ function UrateMePage() {
               Get started
             </p>
             <h2 className="mt-4 text-3xl font-semibold tracking-tight text-bone sm:text-4xl md:text-5xl">
-              Hear Your Clients. Improve Your Business.
+              Ready to see what your customers are actually thinking?
             </h2>
             <p className="mt-4 text-base text-bone/80 sm:text-lg">
-              Walk through feedback capture, branch dashboards, and employee
-              performance reporting with our team — live demo, your scenarios.
+              Contact Cosmotech to set up URateMe for your business — we'll
+              walk you through feedback capture, branch dashboards, and
+              employee performance reporting, live.
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-3">
               <Link
