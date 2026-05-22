@@ -117,7 +117,7 @@ function HomePage() {
             <SectionHeading
               eyebrow="Our solutions"
               title={<>Software built for Philippine workplaces</>}
-              intro="For over three decades, we have been the trusted technology partner of the Philippines government and enterprise institutions delivering secure, scalable, and mission-critical systems that power essential operations nationwide."
+              intro="From HR and payroll to queue management and document tracking, our solutions are purpose-built for Philippine organizations designed to support local operations, government compliance, and evolving business needs."
             />
           </div>
           <div className="reveal">
