@@ -28,6 +28,12 @@ import {
 import { useReveal } from "@/hooks/use-reveal";
 import { cn } from "@/lib/utils";
 import urateMeHero from "@/assets/urateme/urateme-hero.png";
+import modFeedbackCapture from "@/assets/urateme/modules/feedback-capture.png";
+import modBranchPerformance from "@/assets/urateme/modules/branch-performance.png";
+import modEmployeePerformance from "@/assets/urateme/modules/employee-performance.png";
+import modClientDemographics from "@/assets/urateme/modules/client-demographics.png";
+import modReports from "@/assets/urateme/modules/reports.png";
+import modAdminSecurity from "@/assets/urateme/modules/administration-security.png";
 
 export const Route = createFileRoute("/urateme")({
   head: () => ({
@@ -243,17 +249,30 @@ const FAQS = [
   },
 ];
 
+const MODULE_IMAGES: Record<string, string> = {
+  "Feedback Capture — At the Point of Service": modFeedbackCapture,
+  "Branch Performance Profile": modBranchPerformance,
+  "Employee Performance Profile": modEmployeePerformance,
+  "Client Demographics": modClientDemographics,
+  "Reports — Graphical and Tabular": modReports,
+  "Administration and Security": modAdminSecurity,
+};
+
+
+
 // ---------- Modules Showcase data → shared component ----------
 const MODULE_VISUALS = MODULES.map((m) => ({
   icon: m.icon,
   title: m.title,
   body: m.body,
   items: m.items,
+  preloadSrc: MODULE_IMAGES[m.title],
   visual: (
-    <Placeholder
-      label={`${m.title.split(" — ")[0]} screenshot`}
-      size="1200x800"
-      className="h-full w-full"
+    <img
+      src={MODULE_IMAGES[m.title]}
+      alt={`${m.title.split(" — ")[0]} — URateMe UI screenshot`}
+      className="h-full w-full object-contain object-top"
+      decoding="sync"
     />
   ),
 }));
