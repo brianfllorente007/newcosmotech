@@ -18,7 +18,7 @@ import docutrakrDark from "@/assets/logos/products/docutrakr-dark.png";
 import shotUrateme from "@/assets/products/urateme.webp";
 import gpmsLight from "@/assets/logos/products/gpms-light.png";
 import shotGpms from "@/assets/products/gpms.webp";
-import logoPpa from "@/assets/logos/agencies/ppa.png";
+import logoPpa from "@/assets/logos/agencies/ppa.svg";
 import logoBoc from "@/assets/logos/agencies/boc.png";
 import logoGsis from "@/assets/logos/agencies/gsis.svg";
 import logoDpwh from "@/assets/logos/agencies/dpwh.png";
