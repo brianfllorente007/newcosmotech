@@ -14,7 +14,7 @@ import {
   BarChart3,
   Settings,
   MessageSquare,
-  Download,
+  
 } from "lucide-react";
 import { Container } from "@/components/Container";
 import { Eyebrow, SectionHeading } from "@/components/SectionHeading";
