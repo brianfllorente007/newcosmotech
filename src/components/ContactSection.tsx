@@ -202,6 +202,12 @@ export function ContactSection({ headingLevel = "h2" }: { headingLevel?: "h1" | 
                 By sending, you agree to be contacted by Cosmotech Philippines about your inquiry.
               </p>
 
+              {submitted && (
+                <p className="mt-3 rounded-lg bg-cobalt/10 px-4 py-3 text-sm font-medium text-cobalt">
+                  Thank you for reaching out! A representative from our team will contact you shortly.
+                </p>
+              )}
+
               <div className="mt-10 flex items-center gap-4 border-t border-border/60 pt-6">
                 <img
                   src={dpoBadge}
