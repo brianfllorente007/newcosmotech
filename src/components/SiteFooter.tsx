@@ -48,6 +48,7 @@ export function SiteFooter() {
               <li><Link to="/about" className="text-ink-foreground/85 hover:text-ink-foreground">About</Link></li>
               <li><Link to="/projects" className="text-ink-foreground/85 hover:text-ink-foreground">Projects</Link></li>
               <li><Link to="/contact" className="text-ink-foreground/85 hover:text-ink-foreground">Contact</Link></li>
+              <li><Link to="/privacy" className="text-ink-foreground/85 hover:text-ink-foreground">Privacy Policy</Link></li>
             </ul>
           </div>
 

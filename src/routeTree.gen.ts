@@ -14,6 +14,7 @@ import { Route as SolutionsRouteImport } from './routes/solutions'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as QmasterRouteImport } from './routes/qmaster'
 import { Route as ProjectsRouteImport } from './routes/projects'
+import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as IntegrahrisGovernmentRouteImport } from './routes/integrahris-government'
 import { Route as Integrahris365RouteImport } from './routes/integrahris-365'
 import { Route as IntegraRouteImport } from './routes/integra'
@@ -48,6 +49,11 @@ const QmasterRoute = QmasterRouteImport.update({
 const ProjectsRoute = ProjectsRouteImport.update({
   id: '/projects',
   path: '/projects',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IntegrahrisGovernmentRoute = IntegrahrisGovernmentRouteImport.update({
@@ -111,6 +117,7 @@ export interface FileRoutesByFullPath {
   '/integra': typeof IntegraRoute
   '/integrahris-365': typeof Integrahris365Route
   '/integrahris-government': typeof IntegrahrisGovernmentRoute
+  '/privacy': typeof PrivacyRoute
   '/projects': typeof ProjectsRoute
   '/qmaster': typeof QmasterRoute
   '/services': typeof ServicesRoute
@@ -128,6 +135,7 @@ export interface FileRoutesByTo {
   '/integra': typeof IntegraRoute
   '/integrahris-365': typeof Integrahris365Route
   '/integrahris-government': typeof IntegrahrisGovernmentRoute
+  '/privacy': typeof PrivacyRoute
   '/projects': typeof ProjectsRoute
   '/qmaster': typeof QmasterRoute
   '/services': typeof ServicesRoute
@@ -146,6 +154,7 @@ export interface FileRoutesById {
   '/integra': typeof IntegraRoute
   '/integrahris-365': typeof Integrahris365Route
   '/integrahris-government': typeof IntegrahrisGovernmentRoute
+  '/privacy': typeof PrivacyRoute
   '/projects': typeof ProjectsRoute
   '/qmaster': typeof QmasterRoute
   '/services': typeof ServicesRoute
@@ -165,6 +174,7 @@ export interface FileRouteTypes {
     | '/integra'
     | '/integrahris-365'
     | '/integrahris-government'
+    | '/privacy'
     | '/projects'
     | '/qmaster'
     | '/services'
@@ -182,6 +192,7 @@ export interface FileRouteTypes {
     | '/integra'
     | '/integrahris-365'
     | '/integrahris-government'
+    | '/privacy'
     | '/projects'
     | '/qmaster'
     | '/services'
@@ -199,6 +210,7 @@ export interface FileRouteTypes {
     | '/integra'
     | '/integrahris-365'
     | '/integrahris-government'
+    | '/privacy'
     | '/projects'
     | '/qmaster'
     | '/services'
@@ -217,6 +229,7 @@ export interface RootRouteChildren {
   IntegraRoute: typeof IntegraRoute
   Integrahris365Route: typeof Integrahris365Route
   IntegrahrisGovernmentRoute: typeof IntegrahrisGovernmentRoute
+  PrivacyRoute: typeof PrivacyRoute
   ProjectsRoute: typeof ProjectsRoute
   QmasterRoute: typeof QmasterRoute
   ServicesRoute: typeof ServicesRoute
@@ -259,6 +272,13 @@ declare module '@tanstack/react-router' {
       path: '/projects'
       fullPath: '/projects'
       preLoaderRoute: typeof ProjectsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/integrahris-government': {
@@ -356,6 +376,7 @@ const rootRouteChildren: RootRouteChildren = {
   IntegraRoute: IntegraRoute,
   Integrahris365Route: Integrahris365Route,
   IntegrahrisGovernmentRoute: IntegrahrisGovernmentRoute,
+  PrivacyRoute: PrivacyRoute,
   ProjectsRoute: ProjectsRoute,
   QmasterRoute: QmasterRoute,
   ServicesRoute: ServicesRoute,
@@ -365,3 +386,12 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { createStart } from '@tanstack/react-start'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+  }
+}
