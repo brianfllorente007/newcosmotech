@@ -156,6 +156,7 @@ const GENERAL_FEATURES = [
 const MODULES = [
   {
     icon: QrCode,
+    image: modReceiving,
     title: "Document Receiving and Processing",
     body: "Assign, generate, and print QR codes or document codes at the point of receipt. Print the checklist of required processes and the workflow that applies. Attach related documents to the parent record. The workflow assigned at receipt determines who processes it and how long each step should take.",
     items: [
@@ -166,6 +167,7 @@ const MODULES = [
   },
   {
     icon: Workflow,
+    image: modWorkflow,
     title: "Workflow Management — Configurable Per Document Type",
     body: "Configure the workflow for each document type with a defined sequence of steps, processor assignments, and turnaround time per step. Sequences are flexible and re-orderable. The system computes time spent per processor and per department, and generates a workflow diagram for every document.",
     items: [
@@ -176,6 +178,7 @@ const MODULES = [
   },
   {
     icon: Bell,
+    image: modNotifications,
     title: "Notifications — Email and In-App",
     body: "Email and in-app notifications fire automatically. Requestors are notified each time the document is received by a new processor, with the current status. Processors are notified when a document arrives in their queue.",
     items: [
@@ -186,6 +189,7 @@ const MODULES = [
   },
   {
     icon: LayoutDashboard,
+    image: modDashboard,
     title: "Dashboard and Analytics — Real-Time",
     body: "A customizable dashboard displays real-time summaries of document volume, status, and processing performance in charts and graphs. Built-in analytics surface insights for management decision-making — which departments are processing fastest, which documents are overdue, where bottlenecks are forming.",
     items: [
@@ -196,6 +200,7 @@ const MODULES = [
   },
   {
     icon: ShieldCheck,
+    image: modSecurity,
     title: "System Security — 2FA, Audit Trail, and Policy",
     body: "Two-factor authentication using password and CAPTCHA. Configurable password policy. Full audit trail of every user action, retrievable and printable for internal governance and external audit.",
     items: [
@@ -206,6 +211,7 @@ const MODULES = [
   },
   {
     icon: Settings,
+    image: modReference,
     title: "Configurable Reference Tables",
     body: "Adapt the system to any organization's structure — organizational units with multiple levels, employees by assignment, locations with multiple tiers, document statuses per phase, and processes with definable turnaround time per step.",
     items: [
@@ -216,6 +222,7 @@ const MODULES = [
   },
   {
     icon: BarChart3,
+    image: modReports,
     title: "Report Management — Excel, CSV, PDF",
     body: "Generate document tracking reports in Excel, CSV, or PDF: received documents for the day or period, per organizational unit, processed-on-schedule lists, top-performing departments and employees, customizable reports, and a printable audit trail report.",
     items: [
@@ -226,6 +233,7 @@ const MODULES = [
   },
   {
     icon: FileText,
+    image: modFiling,
     title: "Filing and Archival",
     body: "Log the filing location of every document and its attachments — with multiple definable tiers like building, floor, cabinet, and folder. Find any archived document by scanning its code or searching.",
     items: [
