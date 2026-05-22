@@ -1,5 +1,5 @@
 import { Container } from "./Container";
-import { Eyebrow } from "./SectionHeading";
+
 import {
   Award,
   BadgeCheck,
