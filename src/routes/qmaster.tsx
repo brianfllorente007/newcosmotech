@@ -21,7 +21,7 @@ import {
   LayoutDashboard,
 } from "lucide-react";
 import heroImage from "@/assets/qmaster/hero.png";
-import modulesImage from "@/assets/qmaster-modules.png";
+
 import { Container } from "@/components/Container";
 import { Eyebrow, SectionHeading } from "@/components/SectionHeading";
 import {
