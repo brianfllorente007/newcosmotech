@@ -282,119 +282,138 @@ const FAQS = [
 // ---------- Modules Showcase ----------
 function ModulesShowcase() {
   const [active, setActive] = useState(0);
-  const itemRefs = useRef<Array<HTMLLIElement | null>>([]);
+  const wrapperRef = useRef<HTMLDivElement | null>(null);
   const current = MODULES[active];
   const next = MODULES[active + 1];
   const CurrentIcon = current.icon;
 
+  // Each module gets one "viewport" of scroll while the section is pinned.
+  const STEP_VH = 90;
+
   useEffect(() => {
     const handleScroll = () => {
-      const anchor = window.innerHeight * 0.4;
-      let idx = 0;
-      for (let i = 0; i < itemRefs.current.length; i++) {
-        const el = itemRefs.current[i];
-        if (!el) continue;
-        if (el.getBoundingClientRect().top <= anchor) idx = i;
+      const el = wrapperRef.current;
+      if (!el) return;
+      // On small screens we don't pin — fall back to first module.
+      if (window.innerWidth < 1024) {
+        setActive(0);
+        return;
       }
+      const rect = el.getBoundingClientRect();
+      const total = el.offsetHeight - window.innerHeight;
+      const scrolled = Math.min(Math.max(-rect.top, 0), total);
+      const progress = total > 0 ? scrolled / total : 0;
+      const idx = Math.min(
+        MODULES.length - 1,
+        Math.floor(progress * MODULES.length),
+      );
       setActive(idx);
     };
     handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener("resize", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
+    };
   }, []);
 
   const handleSelect = (i: number) => {
     setActive(i);
-    const el = itemRefs.current[i];
-    if (el) {
-      const top = el.getBoundingClientRect().top + window.scrollY - window.innerHeight * 0.35;
-      window.scrollTo({ top, behavior: "smooth" });
-    }
+    const el = wrapperRef.current;
+    if (!el || window.innerWidth < 1024) return;
+    const total = el.offsetHeight - window.innerHeight;
+    const targetProgress = (i + 0.5) / MODULES.length;
+    const top = el.offsetTop + total * targetProgress;
+    window.scrollTo({ top, behavior: "smooth" });
   };
 
   return (
-    <div className="mt-16 grid gap-10 lg:grid-cols-[1.05fr_1fr] lg:gap-16">
-      <ul className="divide-y divide-border border-y border-border">
-        {MODULES.map((m, i) => {
-          const isActive = i === active;
-          return (
-            <li
-              key={m.title}
-              ref={(el) => {
-                itemRefs.current[i] = el;
-              }}
-              data-index={i}
-              className="py-6"
-            >
-              <button
-                type="button"
-                onClick={() => handleSelect(i)}
-                className="block w-full text-left focus:outline-none"
-                aria-expanded={isActive}
-              >
-                <h3
-                  className={cn(
-                    "text-xl font-semibold tracking-tight transition-colors duration-500 sm:text-2xl",
-                    isActive
-                      ? "text-foreground"
-                      : "text-foreground/30 hover:text-foreground/60",
-                  )}
-                >
-                  {m.title}
-                </h3>
-              </button>
-              <div
-                className={cn(
-                  "grid transition-all duration-500 ease-out",
-                  isActive ? "mt-4 grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0",
-                )}
-              >
-                <div className="overflow-hidden">
-                  <p className="text-base leading-relaxed text-muted-foreground">{m.body}</p>
-                  <ul className="mt-5 space-y-3">
-                    {m.items.map((it) => (
-                      <li key={it} className="flex items-start gap-3 text-sm">
-                        <Check className="mt-0.5 h-5 w-5 shrink-0 text-cobalt" />
-                        <span>{it}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </li>
-          );
-        })}
-      </ul>
+    <div
+      ref={wrapperRef}
+      className="mt-16 lg:relative"
+      style={{ height: `${MODULES.length * STEP_VH}vh` }}
+    >
+      <div className="lg:sticky lg:top-0 lg:flex lg:h-screen lg:items-center">
+        <div className="grid w-full gap-10 lg:grid-cols-[1.05fr_1fr] lg:gap-16">
+          {/* Left: feature list */}
+          <ul className="divide-y divide-border border-y border-border">
+            {MODULES.map((m, i) => {
+              const isActive = i === active;
+              return (
+                <li key={m.title} className="py-4">
+                  <button
+                    type="button"
+                    onClick={() => handleSelect(i)}
+                    className="block w-full text-left focus:outline-none"
+                    aria-expanded={isActive}
+                  >
+                    <h3
+                      className={cn(
+                        "text-lg font-semibold tracking-tight transition-colors duration-500 sm:text-xl",
+                        isActive
+                          ? "text-foreground"
+                          : "text-foreground/30 hover:text-foreground/60",
+                      )}
+                    >
+                      {m.title}
+                    </h3>
+                  </button>
+                  <div
+                    className={cn(
+                      "grid transition-all duration-500 ease-out",
+                      isActive ? "mt-3 grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0",
+                    )}
+                  >
+                    <div className="overflow-hidden">
+                      <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
+                        {m.body}
+                      </p>
+                      <ul className="mt-4 space-y-2">
+                        {m.items.map((it) => (
+                          <li key={it} className="flex items-start gap-3 text-sm">
+                            <Check className="mt-0.5 h-5 w-5 shrink-0 text-cobalt" />
+                            <span>{it}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </li>
+              );
+            })}
+          </ul>
 
-      <div className="lg:h-full">
-        <div className="lg:sticky lg:top-24">
-          <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-cobalt/10 text-cobalt transition-colors">
-            <CurrentIcon className="h-6 w-6" />
-          </div>
-          <div className="relative">
-            {next && (
+          {/* Right: pinned image */}
+          <div>
+            <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-cobalt/10 text-cobalt transition-colors">
+              <CurrentIcon className="h-6 w-6" />
+            </div>
+            <div className="relative">
+              {next && (
+                <div
+                  key={`peek-${next.title}`}
+                  aria-hidden
+                  className="pointer-events-none absolute inset-0 hidden translate-x-3 translate-y-3 scale-[0.96] overflow-hidden rounded-3xl opacity-60 lg:block"
+                >
+                  <img
+                    src={next.image}
+                    alt=""
+                    className="h-full w-full object-contain object-top"
+                  />
+                </div>
+              )}
               <div
-                key={`peek-${next.title}`}
-                aria-hidden
-                className="pointer-events-none absolute inset-0 hidden translate-x-3 translate-y-3 scale-[0.96] overflow-hidden rounded-3xl opacity-60 lg:block"
+                key={current.title}
+                className="relative aspect-[3/2] animate-fade-in overflow-hidden rounded-3xl"
               >
                 <img
-                  src={next.image}
-                  alt=""
+                  src={current.image}
+                  alt={`${current.title} — Docutrakr UI screenshot`}
                   className="h-full w-full object-contain object-top"
+                  loading="lazy"
                 />
               </div>
-            )}
-            <div
-              key={current.title}
-              className="relative aspect-[3/2] animate-fade-in overflow-hidden rounded-3xl"
-            >
-              <img
-                src={current.image}
-                alt={`${current.title} — Docutrakr UI screenshot`}
-                className="h-full w-full object-contain object-top"
-                loading="lazy"
-              />
             </div>
           </div>
         </div>
