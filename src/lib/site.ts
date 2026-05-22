@@ -17,6 +17,7 @@ import docutrakrLight from "@/assets/logos/products/docutrakr-light.png";
 import docutrakrDark from "@/assets/logos/products/docutrakr-dark.png";
 import shotUrateme from "@/assets/products/urateme.webp";
 import gpmsLight from "@/assets/logos/products/gpms-light.png";
+import shotGpms from "@/assets/products/gpms.png";
 import gpmsDark from "@/assets/logos/products/gpms-dark.png";
 import integraAssetLight from "@/assets/logos/products/integra-asset-light.png";
 import integraAssetDark from "@/assets/logos/products/integra-asset-dark.png";
