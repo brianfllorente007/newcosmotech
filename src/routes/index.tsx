@@ -39,7 +39,7 @@ export const Route = createFileRoute("/")({
       {
         rel: "preload",
         as: "image",
-        href: PRODUCTS[0].screenshot,
+        href: heroImage,
         type: "image/webp",
       },
     ],
