@@ -284,31 +284,33 @@ function ModulesShowcase() {
   const [active, setActive] = useState(0);
   const itemRefs = useRef<Array<HTMLLIElement | null>>([]);
   const current = MODULES[active];
+  const next = MODULES[active + 1];
   const CurrentIcon = current.icon;
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        let bestIdx = -1;
-        let bestDist = Infinity;
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-          const rect = entry.boundingClientRect;
-          const center = rect.top + rect.height / 2;
-          const dist = Math.abs(center - window.innerHeight / 2);
-          const idx = Number((entry.target as HTMLElement).dataset.index);
-          if (dist < bestDist) {
-            bestDist = dist;
-            bestIdx = idx;
-          }
-        });
-        if (bestIdx !== -1) setActive(bestIdx);
-      },
-      { rootMargin: "-40% 0px -40% 0px", threshold: 0 },
-    );
-    itemRefs.current.forEach((el) => el && observer.observe(el));
-    return () => observer.disconnect();
+    const handleScroll = () => {
+      const anchor = window.innerHeight * 0.4;
+      let idx = 0;
+      for (let i = 0; i < itemRefs.current.length; i++) {
+        const el = itemRefs.current[i];
+        if (!el) continue;
+        if (el.getBoundingClientRect().top <= anchor) idx = i;
+      }
+      setActive(idx);
+    };
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const handleSelect = (i: number) => {
+    setActive(i);
+    const el = itemRefs.current[i];
+    if (el) {
+      const top = el.getBoundingClientRect().top + window.scrollY - window.innerHeight * 0.35;
+      window.scrollTo({ top, behavior: "smooth" });
+    }
+  };
 
   return (
     <div className="mt-16 grid gap-10 lg:grid-cols-[1.05fr_1fr] lg:gap-16">
@@ -324,14 +326,23 @@ function ModulesShowcase() {
               data-index={i}
               className="py-6"
             >
-              <h3
-                className={cn(
-                  "text-xl font-semibold tracking-tight transition-colors duration-500 sm:text-2xl",
-                  isActive ? "text-foreground" : "text-foreground/30",
-                )}
+              <button
+                type="button"
+                onClick={() => handleSelect(i)}
+                className="block w-full text-left focus:outline-none"
+                aria-expanded={isActive}
               >
-                {m.title}
-              </h3>
+                <h3
+                  className={cn(
+                    "text-xl font-semibold tracking-tight transition-colors duration-500 sm:text-2xl",
+                    isActive
+                      ? "text-foreground"
+                      : "text-foreground/30 hover:text-foreground/60",
+                  )}
+                >
+                  {m.title}
+                </h3>
+              </button>
               <div
                 className={cn(
                   "grid transition-all duration-500 ease-out",
@@ -360,12 +371,32 @@ function ModulesShowcase() {
           <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-cobalt/10 text-cobalt transition-colors">
             <CurrentIcon className="h-6 w-6" />
           </div>
-          <Placeholder
-            key={current.title}
-            label={`${current.title.split(" — ")[0]} screenshot`}
-            size="1200x800"
-            className="aspect-[3/2] animate-fade-in"
-          />
+          <div className="relative">
+            {next && (
+              <div
+                key={`peek-${next.title}`}
+                aria-hidden
+                className="pointer-events-none absolute inset-0 hidden translate-x-3 translate-y-3 scale-[0.96] overflow-hidden rounded-3xl border border-border bg-card opacity-60 shadow-[0_20px_50px_-20px_rgba(15,23,42,0.25)] lg:block"
+              >
+                <img
+                  src={next.image}
+                  alt=""
+                  className="h-full w-full object-cover object-top"
+                />
+              </div>
+            )}
+            <div
+              key={current.title}
+              className="relative aspect-[3/2] animate-fade-in overflow-hidden rounded-3xl border border-border bg-card shadow-[0_30px_80px_-30px_rgba(15,23,42,0.35)]"
+            >
+              <img
+                src={current.image}
+                alt={`${current.title} — Docutrakr UI screenshot`}
+                className="h-full w-full object-cover object-top"
+                loading="lazy"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </div>
