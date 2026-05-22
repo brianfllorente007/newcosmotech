@@ -249,12 +249,6 @@ const FAQS = [
   },
 ];
 
-// ---------- Modules Showcase data → shared component ----------
-const MODULE_VISUALS = MODULES.map((m) => ({
-  icon: m.icon,
-  title: m.title,
-  body: m.body,
-  items: m.items,
 const MODULE_IMAGES: Record<string, string> = {
   "Feedback Capture — At the Point of Service": modFeedbackCapture,
   "Branch Performance Profile": modBranchPerformance,
@@ -263,6 +257,8 @@ const MODULE_IMAGES: Record<string, string> = {
   "Reports — Graphical and Tabular": modReports,
   "Administration and Security": modAdminSecurity,
 };
+
+
 
 // ---------- Modules Showcase data → shared component ----------
 const MODULE_VISUALS = MODULES.map((m) => ({
