@@ -59,10 +59,12 @@ function HomePage() {
       <section className="relative -mt-24 overflow-hidden gradient-hero pt-24 text-bone md:-mt-28 md:pt-28 before:pointer-events-none before:absolute before:inset-0 before:-z-10 before:bg-ink">
         <video
           src={heroBg}
+          poster={heroPoster}
           autoPlay
           loop
           muted
           playsInline
+          preload="metadata"
           aria-hidden="true"
           className="pointer-events-none absolute inset-0 h-full w-full object-cover"
         />
