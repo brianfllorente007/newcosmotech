@@ -8,7 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { SITE } from "@/lib/site";
-import dpoBadge from "@/assets/dpo-dps-badge.png";
+import dpoBadge from "@/assets/dpo-dps-badge.webp";
 
 export function ContactSection({ headingLevel = "h2" }: { headingLevel?: "h1" | "h2" }) {
   const [submitting, setSubmitting] = useState(false);
