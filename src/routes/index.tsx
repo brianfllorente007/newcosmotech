@@ -12,7 +12,6 @@ import { FaqSection } from "@/components/FaqSection";
 import { useReveal } from "@/hooks/use-reveal";
 import { PROJECTS, PRODUCTS } from "@/lib/site";
 import heroImage from "@/assets/hero-image.png";
-import ourClients from "@/assets/our-clients.webp";
 
 export const Route = createFileRoute("/")({
   head: () => ({
