@@ -5,6 +5,12 @@ import fab from "@/assets/logos/clients/fab.png";
 import pdea from "@/assets/logos/clients/pdea.png";
 import hsbc from "@/assets/logos/clients/hsbc.png";
 import landbank from "@/assets/logos/clients/landbank.png";
+import philhealth from "@/assets/logos/clients/philhealth.png";
+import pdic from "@/assets/logos/clients/pdic.png";
+import bir from "@/assets/logos/clients/bir.png";
+import ntc from "@/assets/logos/clients/ntc.png";
+import lto from "@/assets/logos/clients/lto.png";
+import dti from "@/assets/logos/clients/dti.png";
 
 export const CLIENT_LOGOS = [
   { src: ppa, alt: "Philippine Ports Authority" },
@@ -14,6 +20,12 @@ export const CLIENT_LOGOS = [
   { src: pdea, alt: "Philippine Drug Enforcement Agency" },
   { src: hsbc, alt: "HSBC" },
   { src: landbank, alt: "Landbank" },
+  { src: philhealth, alt: "PhilHealth" },
+  { src: pdic, alt: "Philippine Deposit Insurance Corporation" },
+  { src: bir, alt: "Bureau of Internal Revenue" },
+  { src: ntc, alt: "National Telecommunications Commission" },
+  { src: lto, alt: "Land Transportation Office" },
+  { src: dti, alt: "Department of Trade and Industry" },
 ];
 
 export const AGENCY_LOGOS = CLIENT_LOGOS;
