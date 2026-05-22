@@ -32,7 +32,7 @@ export const Route = createFileRoute("/")({
       {
         property: "og:description",
         content:
-          "People management, queueing, helpdesk and document software, built in the Philippines since 1994.",
+          "People management, queueing, helpdesk, and document tracking software built in the Philippines, since 1994.",
       },
     ],
     links: [

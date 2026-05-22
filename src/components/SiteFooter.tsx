@@ -16,7 +16,7 @@ export function SiteFooter() {
           <div className="lg:col-span-2">
             <img src={logo} alt="Cosmotech Philippines" className="h-12 w-auto md:h-14" />
             <p className="mt-4 max-w-xs text-sm text-ink-foreground/70">
-              People management, queueing, helpdesk, and document tracking software — built in the
+              People management, queueing, helpdesk, and document tracking software built in the
               Philippines, since 1994.
             </p>
           </div>
