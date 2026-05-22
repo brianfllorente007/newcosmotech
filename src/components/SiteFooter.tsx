@@ -120,32 +120,6 @@ export function SiteFooter() {
               </a>
             </div>
           </div>
-
-          <div className="md:col-span-3 lg:col-span-5">
-            <h3 className="text-xs font-semibold uppercase tracking-wider text-ink-foreground/60">
-              Certifications
-            </h3>
-            <div className="mt-4 flex flex-wrap items-center gap-4">
-              <img
-                src={certSocotec}
-                alt="SOCOTEC ISO 9001 and PAB accredited QMS certification body — Certificate No. SCP000931QM"
-                loading="lazy"
-                className="h-24 w-auto rounded-md bg-bone p-2"
-              />
-              <img
-                src={certIso27001}
-                alt="ISO 27001:2022 Certified"
-                loading="lazy"
-                className="h-24 w-auto rounded-md bg-bone p-2"
-              />
-              <img
-                src={certNpc}
-                alt="National Privacy Commission DPO/DPS Registered"
-                loading="lazy"
-                className="h-24 w-auto rounded-md bg-bone p-2"
-              />
-            </div>
-          </div>
         </div>
 
         <p className="mt-12 max-w-3xl text-xs leading-relaxed text-ink-foreground/55">
