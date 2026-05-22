@@ -32,21 +32,21 @@ export const Route = createFileRoute("/urateme")({
   head: () => ({
     meta: [
       {
-        title: "URateMe — Customer Feedback Management System | Cosmotech",
+        title: "URateMe — Feedback Management System | Cosmotech",
       },
       {
         name: "description",
         content:
-          "URateMe captures customer feedback at every branch, tracks employee performance, and surfaces insights in real time. Built for multi-branch operations.",
+          "Hear your clients. Improve your business. URateMe collects complaints, praises, and suggestions at the point of service, then consolidates every branch into one system.",
       },
       {
         property: "og:title",
-        content: "URateMe — Customer Feedback Management System",
+        content: "URateMe — Feedback Management System",
       },
       {
         property: "og:description",
         content:
-          "Capture customer feedback at every branch and turn scattered reactions into measurable performance signals — by branch, by employee, by segment.",
+          "Never miss what your customers are thinking. A direct line from clients to management, with real-time branch and employee performance reporting.",
       },
     ],
   }),
