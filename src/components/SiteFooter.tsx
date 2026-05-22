@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router";
+import { Facebook, Linkedin } from "lucide-react";
 import { Container } from "./Container";
 import { PRODUCTS, SITE } from "@/lib/site";
 import logo from "@/assets/logo-cosmotech.png";
@@ -63,6 +64,26 @@ export function SiteFooter() {
                 </a>
               </li>
             </ul>
+            <div className="mt-4 flex items-center gap-3">
+              <a
+                href="https://www.facebook.com/cosmotechph"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Cosmotech on Facebook"
+                className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/15 text-ink-foreground/80 transition hover:border-white/40 hover:text-ink-foreground"
+              >
+                <Facebook className="h-4 w-4" />
+              </a>
+              <a
+                href="https://www.linkedin.com/company/cosmotech-philippines-inc-/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Cosmotech on LinkedIn"
+                className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/15 text-ink-foreground/80 transition hover:border-white/40 hover:text-ink-foreground"
+              >
+                <Linkedin className="h-4 w-4" />
+              </a>
+            </div>
           </div>
 
           <div className="md:col-span-3 lg:col-span-5">
