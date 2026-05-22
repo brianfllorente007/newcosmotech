@@ -391,39 +391,53 @@ function ModulesShowcase() {
               <CurrentIcon className="h-6 w-6" />
             </div>
             <div className="relative">
-              <div
-                key={current.title}
-                className="relative aspect-[3/2] animate-fade-in overflow-hidden rounded-3xl"
-              >
-                <img
-                  src={current.image}
-                  alt={`${current.title} — Docutrakr UI screenshot`}
-                  className="h-full w-full object-contain object-top"
-                  loading="lazy"
-                />
+              {/* Preload all module images so swaps are instant (decoded + cached). */}
+              <div aria-hidden className="pointer-events-none absolute h-0 w-0 overflow-hidden opacity-0">
+                {MODULES.map((m) => (
+                  <img key={`preload-${m.title}`} src={m.image} alt="" decoding="async" />
+                ))}
               </div>
-              {next && (
-                <div
-                  key={`peek-${next.title}`}
-                  aria-hidden
-                  className="pointer-events-none absolute inset-0 hidden overflow-hidden rounded-3xl lg:block"
-                  style={{
-                    transform: `translateY(calc(${(1 - stepProgress) * 100}% + ${(1 - stepProgress) * 16}px))`,
-                  }}
-                >
-                  <img
-                    src={next.image}
-                    alt=""
-                    className="h-full w-full object-contain object-top"
-                    style={{
-                      maskImage:
-                        "linear-gradient(to bottom, black 60%, transparent 100%)",
-                      WebkitMaskImage:
-                        "linear-gradient(to bottom, black 60%, transparent 100%)",
-                    }}
-                  />
-                </div>
-              )}
+              {MODULES.map((m, i) => {
+                const isCurrent = i === active;
+                const isNext = i === active + 1;
+                if (!isCurrent && !isNext) return null;
+                return (
+                  <div
+                    key={m.title}
+                    aria-hidden={!isCurrent}
+                    className={cn(
+                      "relative aspect-[3/2] overflow-hidden rounded-3xl",
+                      isNext &&
+                        "pointer-events-none absolute inset-0 hidden lg:block",
+                    )}
+                    style={
+                      isNext
+                        ? {
+                            transform: `translateY(calc(${(1 - stepProgress) * 100}% + ${(1 - stepProgress) * 16}px))`,
+                          }
+                        : undefined
+                    }
+                  >
+                    <img
+                      src={m.image}
+                      alt={isCurrent ? `${m.title} — Docutrakr UI screenshot` : ""}
+                      className="h-full w-full object-contain object-top"
+                      decoding="sync"
+                      fetchPriority={isCurrent ? "high" : "low"}
+                      style={
+                        isNext
+                          ? {
+                              maskImage:
+                                "linear-gradient(to bottom, black 60%, transparent 100%)",
+                              WebkitMaskImage:
+                                "linear-gradient(to bottom, black 60%, transparent 100%)",
+                            }
+                          : undefined
+                      }
+                    />
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
