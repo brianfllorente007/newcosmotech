@@ -210,12 +210,12 @@ export type Project = {
 
 export const PROJECTS: Project[] = [
   { agency: "Philippine Ports Authority", scope: "Facial Recognition for Contactless Attendance Tracking", sector: "Government" },
-  { agency: "Bureau of Customs", scope: "Human Resource Information System", sector: "Government" },
+  { agency: "Bureau of Customs", scope: " Internal Administration Management System (IAMS)", sector: "Government" },
   { agency: "Government Service Insurance System (GSIS)", scope: "Queue Management System — 42 branches nationwide", sector: "Government" },
   { agency: "Department of Public Works and Highways (DPWH)", scope: "Biometrics Time and Attendance; Physical Resource Management System (PRMS)", sector: "Government" },
   { agency: "Energy Regulatory Commission (ERC)", scope: "Uniform Reportorial Requirements System", sector: "Government" },
-  { agency: "National Telecommunications Commission", scope: "Human Resource Information System", sector: "Government" },
-  { agency: "Philippine Deposit Insurance Corporation (PDIC)", scope: "Human Resource Information System", sector: "Government" },
+  { agency: "National Telecommunications Commission", scope: " Internal Administration Management System (IAMS)", sector: "Government" },
+  { agency: "Philippine Deposit Insurance Corporation (PDIC)", scope: " Internal Administration Management System (IAMS)", sector: "Government" },
   { agency: "Freeport Area of Bataan", scope: "Billing and Collection System", sector: "Government" },
   { agency: "Land Management Bureau", scope: "Survey Information Management System", sector: "Government" },
   { agency: "DENR", scope: "Online Leave Management System (OLMS)", sector: "Government" },
