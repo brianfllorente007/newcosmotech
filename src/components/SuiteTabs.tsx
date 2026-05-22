@@ -48,9 +48,8 @@ export function SuiteTabs() {
                       src={p.logoDark}
                       alt=""
                       aria-hidden="true"
-                      loading="eager"
+                      loading="lazy"
                       decoding="async"
-                      fetchPriority="high"
                       className="absolute inset-0 m-auto max-h-10 w-auto max-w-[140px] object-contain transition-opacity duration-150"
                       style={{ opacity: isActive ? 0 : 1 }}
                     />
@@ -58,9 +57,8 @@ export function SuiteTabs() {
                       src={p.logoLight}
                       alt=""
                       aria-hidden="true"
-                      loading="eager"
+                      loading="lazy"
                       decoding="async"
-                      fetchPriority="high"
                       className="absolute inset-0 m-auto max-h-10 w-auto max-w-[140px] object-contain transition-opacity duration-150"
                       style={{ opacity: isActive ? 1 : 0 }}
                     />
