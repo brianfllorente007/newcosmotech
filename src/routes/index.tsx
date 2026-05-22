@@ -164,7 +164,7 @@ function HomePage() {
             <SectionHeading
               eyebrow="FEATURED WORK"
               title={<>Trusted by Government and Enterprise Organizations Nationwide</>}
-              intro="We have delivered projects for some of the largest government institutions in the country. Here's a sample of what we've built and deployed."
+              intro="We deliver secure and scalable systems for the Philippines' leading government institutions designed, developed, and successfully deployed at scale. Explore our selected implementations."
             />
             <Link
               to="/projects"
