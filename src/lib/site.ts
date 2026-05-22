@@ -198,6 +198,7 @@ export const PRODUCTS: Product[] = [
     ],
     logoLight: gpmsLight,
     logoDark: gpmsDark,
+    screenshot: shotGpms,
   },
 ];
 
