@@ -26,6 +26,7 @@ import {
 } from "@/components/ui/accordion";
 import { useReveal } from "@/hooks/use-reveal";
 import { cn } from "@/lib/utils";
+import urateMeHero from "@/assets/urateme/urateme-hero.png";
 
 export const Route = createFileRoute("/urateme")({
   head: () => ({
