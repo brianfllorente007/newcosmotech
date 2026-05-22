@@ -279,172 +279,22 @@ const FAQS = [
   },
 ];
 
-// ---------- Modules Showcase ----------
-function ModulesShowcase() {
-  const [active, setActive] = useState(0);
-  const [stepProgress, setStepProgress] = useState(0);
-  const wrapperRef = useRef<HTMLDivElement | null>(null);
-  const current = MODULES[active];
-  const next = MODULES[active + 1];
-  const CurrentIcon = current.icon;
-
-  // Each module gets one "viewport" of scroll while the section is pinned.
-  const STEP_VH = 90;
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const el = wrapperRef.current;
-      if (!el) return;
-      if (window.innerWidth < 1024) {
-        setActive(0);
-        setStepProgress(0);
-        return;
-      }
-      const rect = el.getBoundingClientRect();
-      const total = el.offsetHeight - window.innerHeight;
-      const scrolled = Math.min(Math.max(-rect.top, 0), total);
-      const progress = total > 0 ? scrolled / total : 0;
-      const scaled = progress * MODULES.length;
-      const idx = Math.min(MODULES.length - 1, Math.floor(scaled));
-      setActive(idx);
-      setStepProgress(Math.min(1, Math.max(0, scaled - idx)));
-    };
-    handleScroll();
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    window.addEventListener("resize", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("resize", handleScroll);
-    };
-  }, []);
-
-
-  const handleSelect = (i: number) => {
-    setActive(i);
-    const el = wrapperRef.current;
-    if (!el || window.innerWidth < 1024) return;
-    const total = el.offsetHeight - window.innerHeight;
-    const targetProgress = (i + 0.5) / MODULES.length;
-    const top = el.offsetTop + total * targetProgress;
-    window.scrollTo({ top, behavior: "smooth" });
-  };
-
-  return (
-    <div
-      ref={wrapperRef}
-      className="mt-6 lg:relative"
-      style={{ height: `${MODULES.length * STEP_VH}vh` }}
-    >
-      <div className="lg:sticky lg:top-28 lg:flex lg:h-[calc(100vh-7rem)] lg:items-center lg:py-4">
-        <div className="grid w-full gap-8 lg:grid-cols-[1.05fr_1fr] lg:gap-12">
-          {/* Left: feature list */}
-          <ul className="divide-y divide-border border-y border-border">
-            {MODULES.map((m, i) => {
-              const isActive = i === active;
-              return (
-                <li key={m.title} className="py-2">
-                  <button
-                    type="button"
-                    onClick={() => handleSelect(i)}
-                    className="block w-full text-left focus:outline-none"
-                    aria-expanded={isActive}
-                  >
-                    <h3
-                      className={cn(
-                        "text-lg font-semibold tracking-tight transition-colors duration-500 sm:text-xl",
-                        isActive
-                          ? "text-foreground"
-                          : "text-foreground/30 hover:text-foreground/60",
-                      )}
-                    >
-                      {m.title}
-                    </h3>
-                  </button>
-                  <div
-                    className={cn(
-                      "grid transition-all duration-500 ease-out",
-                      isActive ? "mt-2 grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0",
-                    )}
-                  >
-                    <div className="overflow-hidden">
-                      <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
-                        {m.body}
-                      </p>
-                      <ul className="mt-3 space-y-1.5">
-                        {m.items.map((it) => (
-                          <li key={it} className="flex items-start gap-3 text-sm">
-                            <Check className="mt-0.5 h-5 w-5 shrink-0 text-cobalt" />
-                            <span>{it}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                </li>
-              );
-            })}
-          </ul>
-
-          {/* Right: pinned image */}
-          <div>
-            <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-cobalt/10 text-cobalt transition-colors">
-              <CurrentIcon className="h-6 w-6" />
-            </div>
-            <div className="relative">
-              {/* Preload all module images so swaps are instant (decoded + cached). */}
-              <div aria-hidden className="pointer-events-none absolute h-0 w-0 overflow-hidden opacity-0">
-                {MODULES.map((m) => (
-                  <img key={`preload-${m.title}`} src={m.image} alt="" decoding="async" />
-                ))}
-              </div>
-              {MODULES.map((m, i) => {
-                const isCurrent = i === active;
-                const isNext = i === active + 1;
-                if (!isCurrent && !isNext) return null;
-                return (
-                  <div
-                    key={m.title}
-                    aria-hidden={!isCurrent}
-                    className={cn(
-                      "relative aspect-[3/2] overflow-hidden rounded-3xl",
-                      isNext &&
-                        "pointer-events-none absolute inset-0 hidden lg:block",
-                    )}
-                    style={
-                      isNext
-                        ? {
-                            transform: `translateY(calc(${(1 - stepProgress) * 100}% + ${(1 - stepProgress) * 16}px))`,
-                          }
-                        : undefined
-                    }
-                  >
-                    <img
-                      src={m.image}
-                      alt={isCurrent ? `${m.title} — Docutrakr UI screenshot` : ""}
-                      className="h-full w-full object-contain object-top"
-                      decoding="sync"
-                      fetchPriority={isCurrent ? "high" : "low"}
-                      style={
-                        isNext
-                          ? {
-                              maskImage:
-                                "linear-gradient(to bottom, black 60%, transparent 100%)",
-                              WebkitMaskImage:
-                                "linear-gradient(to bottom, black 60%, transparent 100%)",
-                            }
-                          : undefined
-                      }
-                    />
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
+// ---------- Modules Showcase data → shared component ----------
+const MODULE_VISUALS = MODULES.map((m) => ({
+  icon: m.icon,
+  title: m.title,
+  body: m.body,
+  items: m.items,
+  preloadSrc: m.image,
+  visual: (
+    <img
+      src={m.image}
+      alt={`${m.title} — Docutrakr UI screenshot`}
+      className="h-full w-full object-contain object-top"
+      decoding="sync"
+    />
+  ),
+}));
 
 // ---------- Page ----------
 function DocutrakrPage() {
