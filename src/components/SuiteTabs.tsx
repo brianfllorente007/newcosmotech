@@ -6,6 +6,19 @@ import { FeatureCheckList } from "./FeatureCheckList";
 import { DocMock } from "./ProductMock";
 import { cn } from "@/lib/utils";
 
+const PRODUCT_HREF: Record<string, string> = {
+  integrahris: "/integrahris-365",
+  "integrahris-government": "/integrahris-government",
+  qmaster: "/qmaster",
+  helpdesk: "/helpdesk",
+  docutrakr: "/docutrakr",
+  urateme: "/urateme",
+  "integra-asset": "/integra",
+  "cosmotech-gpms": "/gpms",
+};
+const productHref = (slug: string) => PRODUCT_HREF[slug] ?? "/solutions";
+
+
 export function SuiteTabs() {
   const [active, setActive] = useState<string>(PRODUCTS[0].slug);
 
