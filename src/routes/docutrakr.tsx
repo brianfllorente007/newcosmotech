@@ -502,7 +502,7 @@ function DocutrakrPage() {
                 intro="Docutrakr ships with everything you need — QR-coded receiving, configurable workflows, notifications, dashboards, security, and report management."
               />
             </div>
-            <ModulesShowcase />
+            <ModulesShowcase modules={MODULE_VISUALS} />
           </div>
         </Container>
       </section>
