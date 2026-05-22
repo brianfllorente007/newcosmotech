@@ -331,17 +331,17 @@ function ModulesShowcase() {
   return (
     <div
       ref={wrapperRef}
-      className="mt-16 lg:relative"
+      className="mt-10 lg:relative"
       style={{ height: `${MODULES.length * STEP_VH}vh` }}
     >
-      <div className="lg:sticky lg:top-0 lg:flex lg:h-screen lg:items-center">
-        <div className="grid w-full gap-10 lg:grid-cols-[1.05fr_1fr] lg:gap-16">
+      <div className="lg:sticky lg:top-0 lg:flex lg:h-screen lg:items-center lg:py-8">
+        <div className="grid w-full gap-8 lg:grid-cols-[1.05fr_1fr] lg:gap-12">
           {/* Left: feature list */}
           <ul className="divide-y divide-border border-y border-border">
             {MODULES.map((m, i) => {
               const isActive = i === active;
               return (
-                <li key={m.title} className="py-4">
+                <li key={m.title} className="py-2">
                   <button
                     type="button"
                     onClick={() => handleSelect(i)}
@@ -362,14 +362,14 @@ function ModulesShowcase() {
                   <div
                     className={cn(
                       "grid transition-all duration-500 ease-out",
-                      isActive ? "mt-3 grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0",
+                      isActive ? "mt-2 grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0",
                     )}
                   >
                     <div className="overflow-hidden">
                       <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
                         {m.body}
                       </p>
-                      <ul className="mt-4 space-y-2">
+                      <ul className="mt-3 space-y-1.5">
                         {m.items.map((it) => (
                           <li key={it} className="flex items-start gap-3 text-sm">
                             <Check className="mt-0.5 h-5 w-5 shrink-0 text-cobalt" />
