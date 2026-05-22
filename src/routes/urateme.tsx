@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useEffect, useRef, useState } from "react";
+import { useEffect } from "react";
+import { ModulesShowcase } from "@/components/ModulesShowcase";
 import {
   ArrowRight,
   Check,
@@ -242,98 +243,20 @@ const FAQS = [
   },
 ];
 
-// ---------- Modules Showcase ----------
-function ModulesShowcase() {
-  const [active, setActive] = useState(0);
-  const itemRefs = useRef<Array<HTMLLIElement | null>>([]);
-  const current = MODULES[active];
-  const CurrentIcon = current.icon;
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        let bestIdx = -1;
-        let bestDist = Infinity;
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-          const rect = entry.boundingClientRect;
-          const center = rect.top + rect.height / 2;
-          const dist = Math.abs(center - window.innerHeight / 2);
-          const idx = Number((entry.target as HTMLElement).dataset.index);
-          if (dist < bestDist) {
-            bestDist = dist;
-            bestIdx = idx;
-          }
-        });
-        if (bestIdx !== -1) setActive(bestIdx);
-      },
-      { rootMargin: "-40% 0px -40% 0px", threshold: 0 },
-    );
-    itemRefs.current.forEach((el) => el && observer.observe(el));
-    return () => observer.disconnect();
-  }, []);
-
-  return (
-    <div className="mt-16 grid gap-10 lg:grid-cols-[1.05fr_1fr] lg:gap-16">
-      <ul className="divide-y divide-border border-y border-border">
-        {MODULES.map((m, i) => {
-          const isActive = i === active;
-          return (
-            <li
-              key={m.title}
-              ref={(el) => {
-                itemRefs.current[i] = el;
-              }}
-              data-index={i}
-              className="py-6"
-            >
-              <h3
-                className={cn(
-                  "text-xl font-semibold tracking-tight transition-colors duration-500 sm:text-2xl",
-                  isActive ? "text-foreground" : "text-foreground/30",
-                )}
-              >
-                {m.title}
-              </h3>
-              <div
-                className={cn(
-                  "grid transition-all duration-500 ease-out",
-                  isActive ? "mt-4 grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0",
-                )}
-              >
-                <div className="overflow-hidden">
-                  <p className="text-base leading-relaxed text-muted-foreground">{m.body}</p>
-                  <ul className="mt-5 space-y-3">
-                    {m.items.map((it) => (
-                      <li key={it} className="flex items-start gap-3 text-sm">
-                        <Check className="mt-0.5 h-5 w-5 shrink-0 text-cobalt" />
-                        <span>{it}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </li>
-          );
-        })}
-      </ul>
-
-      <div className="lg:h-full">
-        <div className="lg:sticky lg:top-24">
-          <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-cobalt/10 text-cobalt transition-colors">
-            <CurrentIcon className="h-6 w-6" />
-          </div>
-          <Placeholder
-            key={current.title}
-            label={`${current.title.split(" — ")[0]} screenshot`}
-            size="1200x800"
-            className="aspect-[3/2] animate-fade-in"
-          />
-        </div>
-      </div>
-    </div>
-  );
-}
+// ---------- Modules Showcase data → shared component ----------
+const MODULE_VISUALS = MODULES.map((m) => ({
+  icon: m.icon,
+  title: m.title,
+  body: m.body,
+  items: m.items,
+  visual: (
+    <Placeholder
+      label={`${m.title.split(" — ")[0]} screenshot`}
+      size="1200x800"
+      className="h-full w-full"
+    />
+  ),
+}));
 
 // ---------- Page ----------
 function UrateMePage() {
@@ -542,15 +465,15 @@ function UrateMePage() {
       </section>
 
       {/* MODULES */}
-      <section className="bg-cobalt/5 py-20 sm:py-24">
+      <section className="bg-cobalt/5 py-12 sm:py-16">
         <Container>
-          <div className="reveal">
+          <div>
             <SectionHeading
               eyebrow="What's inside"
               title="Modules and Capabilities"
               intro="URateMe ships with everything you need — feedback capture, branch and employee performance tracking, demographics, reporting, and admin controls."
             />
-            <ModulesShowcase />
+            <ModulesShowcase modules={MODULE_VISUALS} />
           </div>
         </Container>
       </section>

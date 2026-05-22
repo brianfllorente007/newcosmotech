@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useEffect, useRef, useState } from "react";
+import { useEffect } from "react";
+import { ModulesShowcase } from "@/components/ModulesShowcase";
 import {
   ArrowRight,
   Check,
@@ -20,7 +21,7 @@ import {
   LayoutDashboard,
 } from "lucide-react";
 import heroImage from "@/assets/qmaster/hero.png";
-import modulesImage from "@/assets/qmaster-modules.png";
+
 import { Container } from "@/components/Container";
 import { Eyebrow, SectionHeading } from "@/components/SectionHeading";
 import {
@@ -290,110 +291,20 @@ const FAQS = [
   },
 ];
 
-// ---------- Modules Showcase ----------
-function ModulesShowcase() {
-  const [active, setActive] = useState(0);
-  const itemRefs = useRef<Array<HTMLLIElement | null>>([]);
-  const current = MODULES[active];
-  const CurrentIcon = current.icon;
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        let bestIdx = -1;
-        let bestDist = Infinity;
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-          const rect = entry.boundingClientRect;
-          const center = rect.top + rect.height / 2;
-          const dist = Math.abs(center - window.innerHeight / 2);
-          const idx = Number((entry.target as HTMLElement).dataset.index);
-          if (dist < bestDist) {
-            bestDist = dist;
-            bestIdx = idx;
-          }
-        });
-        if (bestIdx !== -1) setActive(bestIdx);
-      },
-      { rootMargin: "-40% 0px -40% 0px", threshold: 0 },
-    );
-    itemRefs.current.forEach((el) => el && observer.observe(el));
-    return () => observer.disconnect();
-  }, []);
-
-  return (
-    <div className="mt-16 grid gap-10 lg:grid-cols-[1fr_1.4fr] lg:gap-16">
-      <ul className="divide-y divide-border border-y border-border">
-        {MODULES.map((m, i) => {
-          const isActive = i === active;
-          return (
-            <li
-              key={m.title}
-              ref={(el) => {
-                itemRefs.current[i] = el;
-              }}
-              data-index={i}
-              className="py-6"
-            >
-              <button
-                type="button"
-                onClick={() => {
-                  setActive(i);
-                  itemRefs.current[i]?.scrollIntoView({
-                    behavior: "smooth",
-                    block: "center",
-                  });
-                }}
-                aria-expanded={isActive}
-                className="w-full text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-cobalt rounded-sm cursor-pointer"
-              >
-                <h3
-                  className={cn(
-                    "text-xl font-semibold tracking-tight transition-colors duration-500 sm:text-2xl hover:text-foreground",
-                    isActive ? "text-foreground" : "text-foreground/30",
-                  )}
-                >
-                  {m.title}
-                </h3>
-              </button>
-              <div
-                className={cn(
-                  "grid transition-all duration-500 ease-out",
-                  isActive ? "mt-4 grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0",
-                )}
-              >
-                <div className="overflow-hidden">
-                  <p className="text-base leading-relaxed text-muted-foreground">{m.body}</p>
-                  <ul className="mt-5 space-y-3">
-                    {m.items.map((it) => (
-                      <li key={it} className="flex items-start gap-3 text-sm">
-                        <Check className="mt-0.5 h-5 w-5 shrink-0 text-cobalt" />
-                        <span>{it}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </li>
-          );
-        })}
-      </ul>
-
-      <div className="lg:h-full">
-        <div className="lg:sticky lg:top-24">
-          <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-cobalt/10 text-cobalt transition-colors">
-            <CurrentIcon className="h-6 w-6" />
-          </div>
-          <img
-            src={modulesImage}
-            alt="QMaster deployed across Philippine government offices and branches"
-            className="w-full h-auto lg:scale-110 lg:origin-left"
-          />
-        </div>
-      </div>
-    </div>
-  );
-}
+// ---------- Modules Showcase data → shared component ----------
+const MODULE_VISUALS = MODULES.map((m) => ({
+  icon: m.icon,
+  title: m.title,
+  body: m.body,
+  items: m.items,
+  visual: (
+    <Placeholder
+      label={`${m.title.split(" — ")[0]} screenshot`}
+      size="1200x800"
+      className="h-full w-full"
+    />
+  ),
+}));
 
 // ---------- Page ----------
 function QMasterPage() {
@@ -536,9 +447,9 @@ function QMasterPage() {
       </section>
 
       {/* MODULES */}
-      <section className="border-b border-border bg-background py-20 sm:py-24">
+      <section className="border-b border-border bg-background py-12 sm:py-16">
         <Container>
-          <div className="reveal max-w-3xl">
+          <div className="max-w-3xl">
             <Eyebrow>Modules</Eyebrow>
             <h2 className="mt-4 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl md:text-5xl">
               Every module, working together.
@@ -548,7 +459,7 @@ function QMasterPage() {
               and analytics in a single system.
             </p>
           </div>
-          <ModulesShowcase />
+          <ModulesShowcase modules={MODULE_VISUALS} />
         </Container>
       </section>
 
