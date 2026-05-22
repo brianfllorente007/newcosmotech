@@ -105,7 +105,7 @@ export function SuiteTabs() {
                 </p>
                 <FeatureCheckList items={p.features.slice(0, 4)} />
                 <Link
-                  to={productHref(p.slug)}
+                  to={productHref(p.slug) as string}
                   tabIndex={isActive ? 0 : -1}
                   className="mt-8 inline-flex items-center gap-2 self-start text-sm font-medium text-cobalt hover:gap-3 transition-all"
                 >
