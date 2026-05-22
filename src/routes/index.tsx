@@ -105,10 +105,13 @@ function HomePage() {
           </div>
 
           <img
-            src={heroImage}
+            src={heroImage1600}
+            srcSet={heroSrcSet}
+            sizes={heroSizes}
             alt="IntegraHRIS Government dashboard preview"
             width={1600}
             height={900}
+            loading="eager"
             fetchPriority="high"
             decoding="async"
             className="mt-8 sm:mt-10 mx-auto block w-full max-w-5xl h-auto px-2 sm:px-0"
