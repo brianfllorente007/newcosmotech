@@ -9,6 +9,8 @@ import logo from "@/assets/cosmotech-logo.png";
 const SOLUTIONS_DROPDOWN = [
   { to: "/integrahris-365", label: "IntegraHRIS 365" },
   { to: "/integrahris-government", label: "IntegraHRIS Government" },
+  { to: "/integra", label: "Integra Asset Management" },
+  { to: "/gpms", label: "GPMS" },
   { to: "/qmaster", label: "QMaster" },
   { to: "/helpdesk", label: "HelpDesk" },
   { to: "/docutrakr", label: "Docutrakr" },
