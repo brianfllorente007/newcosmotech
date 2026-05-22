@@ -92,8 +92,7 @@ export function SuiteTabs() {
                 </p>
                 <FeatureCheckList items={p.features.slice(0, 4)} />
                 <Link
-                  to={p.slug === "integrahris" || p.slug === "integra-asset" ? "/integra" : "/solutions/$slug"}
-                  params={p.slug === "integrahris" || p.slug === "integra-asset" ? undefined : { slug: p.slug }}
+                  to={productHref(p.slug)}
                   tabIndex={isActive ? 0 : -1}
                   className="mt-8 inline-flex items-center gap-2 self-start text-sm font-medium text-cobalt hover:gap-3 transition-all"
                 >
