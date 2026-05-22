@@ -642,6 +642,60 @@ function IntegraHrisGovernmentPage() {
         </Container>
       </section>
 
+      {/* FAQ */}
+      <section className="py-16 sm:py-20 md:py-24">
+        <Container>
+          <SectionHeading eyebrow="FAQ" title={<>Questions, answered.</>} align="center" />
+          <div className="mx-auto mt-10 max-w-3xl">
+            <Accordion type="single" collapsible className="w-full">
+              {[
+                {
+                  q: "What is Integra HRIS Government Edition?",
+                  a: "The Integra HRIS Government Edition is a CSC-aligned, end-to-end HR management system designed for Philippine government agencies. It simplifies and unifies HR operations by centralizing recruitment, payroll, attendance, performance management, and employee records into one secure and integrated platform.",
+                },
+                {
+                  q: "Is it compliant with CSC PRIME-HRM requirements?",
+                  a: "Yes. The system is aligned with the Civil Service Commission's PRIME-HRM program, helping government agencies institutionalize meritocracy, accountability, and excellence in human resource management.",
+                },
+                {
+                  q: "Does it integrate with biometric devices?",
+                  a: "Yes. Integra HRIS supports biometric device integration for automated DTR processing, leave monitoring, and overtime computation. Fully aligned with CSC attendance policies.",
+                },
+                {
+                  q: "Does it support GSIS, PhilHealth, BIR, and Pag-IBIG reporting?",
+                  a: "Yes. The payroll module automatically computes and generates remittance reports for GSIS, PhilHealth, BIR withholding tax, and Pag-IBIG ensuring timely compliance with all mandatory government contribution requirements.",
+                },
+                {
+                  q: "Is it compliant with the Data Privacy Act (RA 10173)?",
+                  a: "Yes. Cosmotech is a registered DPO/DPS with the NPC. The system includes role-based access control, audit trails, and data encryption to ensure full RA 10173 compliance.",
+                },
+                {
+                  q: "How long does implementation take?",
+                  a: "Implementation timelines vary depending on agency size and project scope, including system setup, data migration, user training, parallel testing, and go-live support, with a dedicated Cosmotech implementation team involved throughout the process.",
+                },
+                {
+                  q: "Can it scale to large agencies with thousands of employees?",
+                  a: "Yes. The platform is built to handle agencies of all sizes, supporting high-volume data processing and concurrent multi-user access for both plantilla and non-plantilla personnel.",
+                },
+                {
+                  q: "Is it available as cloud-based or on-premise?",
+                  a: "Both options are available on-premise, cloud, or hybrid depending on your agency's infrastructure, security requirements, and budget. Cosmotech provides guidance on the best fit.",
+                },
+              ].map((item, i) => (
+                <AccordionItem key={i} value={`faq-${i}`}>
+                  <AccordionTrigger className="text-left text-base font-medium sm:text-lg">
+                    {item.q}
+                  </AccordionTrigger>
+                  <AccordionContent className="text-sm leading-relaxed text-muted-foreground sm:text-base">
+                    {item.a}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </div>
+        </Container>
+      </section>
+
       {/* FINAL CTA */}
       <CtaBand
         eyebrow="Ready when you are"
