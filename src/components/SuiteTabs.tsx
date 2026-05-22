@@ -120,9 +120,8 @@ export function SuiteTabs() {
                       aria-hidden="true"
                       width={1600}
                       height={1000}
-                      loading="eager"
+                      loading="lazy"
                       decoding="async"
-                      fetchPriority={index === 0 ? "high" : "low"}
                       className="absolute inset-0 h-full w-full object-contain object-center bg-white lg:object-cover lg:object-left-top"
                     />
                   </div>
