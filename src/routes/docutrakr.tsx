@@ -247,36 +247,40 @@ const MODULES = [
 
 const FAQS = [
   {
-    q: "What is Docutrakr used for?",
-    a: "Docutrakr is used to track physical and digital documents through their full processing lifecycle — from the moment they're received, through every approval or processing step, to their final filing location. It's commonly used by government agencies, HR departments, accounting teams, legal offices, and any unit that needs accountability over document movement.",
+    q: "What is Docutrakr?",
+    a: "DocuTrakr is a document tracking and workflow management system that enables organizations to monitor, manage, and retrieve documents in real time through a centralized digital platform.",
   },
   {
-    q: "How does the QR code tracking work?",
-    a: "When a document is received, Docutrakr assigns it a unique QR code or document code, stamps the receipt date and time, and prints a checklist of the workflow that applies. Anyone can later scan the QR code or search the document code to see who has the document, where it is in the workflow, how long each step has taken, and where it's filed.",
+    q: "How does Docutrakr improve document tracking?",
+    a: "DocuTrakr improves document tracking by enabling real-time monitoring of document status and location using unique QR or document codes, helping organizations reduce lost or misplaced files.",
   },
   {
-    q: "Is Docutrakr Data Privacy Act compliant?",
-    a: "Yes. Docutrakr is compliant with the Data Privacy Act of 2012 (RA 10173). It includes role-based access controls, two-factor authentication, configurable password policies, and a complete audit trail of user activity.",
+    q: "Can Docutrakr automate document workflows?",
+    a: "Yes. Docutrakr includes workflow automation features that streamline document routing, approvals, endorsements, and processing to improve operational efficiency and turnaround times.",
   },
   {
-    q: "Can workflows be customized per document type?",
-    a: "Yes. Each document type can have its own workflow, with a configurable sequence of processes, pre-assigned processors, and an expected turnaround time per step. Sequences are re-orderable, and the system generates a workflow diagram for every submitted document.",
+    q: "Does Docutrakr support document retrieval and inquiry handling?",
+    a: "Yes. Docutrakr allows users to quickly locate and retrieve documents, helping organizations respond faster to inquiries and improve overall service efficiency.",
   },
   {
-    q: "How does Docutrakr handle document attachments?",
-    a: "Related documents can be attached to a parent record at receipt. Attachments are tracked alongside the main document throughout the workflow, and their filing location is recorded with the parent.",
+    q: "How does Docutrakr help monitor employee efficiency?",
+    a: "Docutrakr includes a Workflow Management module with Turnaround Time (TAT) tracking that helps organizations monitor processing efficiency and identify workflow bottlenecks.",
   },
   {
-    q: "Does Docutrakr work for cloud or on-premise deployments?",
-    a: "Both. Docutrakr is available as a cloud-hosted SaaS for organizations that prefer no infrastructure overhead, and as an on-premise deployment for organizations with data residency, security, or internal IT requirements.",
+    q: "Does Docutrakr provide dashboards and analytics?",
+    a: "Yes. Docutrakr includes dashboards and reporting tools that provide summarized views of document activities, workflow status, and operational insights to support monitoring and decision-making.",
   },
   {
-    q: "What kind of reports can Docutrakr generate?",
-    a: "Reports include received and processed documents by day, period, or organizational unit; documents completed on schedule versus delayed; top-performing departments and employees for the month; a full audit trail report; and customizable reports. All exportable to Excel, CSV, or PDF.",
+    q: "Does Docutrakr send notifications and document updates?",
+    a: "Yes. Docutrakr supports email and in-app notifications to keep users informed of document movements, status changes, approvals, and workflow updates in real time.",
   },
   {
-    q: "How does Docutrakr measure processing performance?",
-    a: "Each workflow step has an expected turnaround time. The system records the actual time spent at every step and compares it to the expected time, surfacing delays and identifying bottlenecks. Performance can be reviewed per processor, per department, or per document type.",
+    q: "Can Docutrakr be customized based on organizational requirements?",
+    a: "Yes. Docutrakr supports configurable references that allow organizations to customize units, employee roles, document classifications, locations, and workflow processes according to operational requirements.",
+  },
+  {
+    q: "What industries can use Docutrakr?",
+    a: "Docutrakr is suitable for government agencies, enterprises, educational institutions, healthcare organizations, and businesses that require secure, efficient, and traceable document management and workflow processes.",
   },
 ];
 
