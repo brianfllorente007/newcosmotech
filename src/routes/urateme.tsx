@@ -508,15 +508,15 @@ function UrateMePage() {
         <Container>
           <div className="reveal grid gap-12 lg:grid-cols-2 lg:gap-16">
             <div className="lg:sticky lg:top-24 lg:self-start">
-              <Eyebrow>General features</Eyebrow>
+              <Eyebrow>Features and functionalities</Eyebrow>
               <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl md:text-5xl">
-                Built for businesses with more than one location
+                Works for one location — or every branch you run.
               </h2>
               <p className="mt-5 text-base leading-relaxed text-muted-foreground">
-                Banks, retail chains, clinics, government offices, and service
-                providers that need consistent customer experience across every
-                branch. Configurable surveys, consolidated reporting, role-based
-                admin — all in one system.
+                URateMe works for single-location businesses and multi-branch
+                operations alike. Reports from all branches can be transmitted
+                through a company VPN, making it practical for organizations
+                with distributed teams or locations spread across a region.
               </p>
               <div className="mt-8">
                 <Placeholder
