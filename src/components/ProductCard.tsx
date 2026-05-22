@@ -2,23 +2,22 @@ import { Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
 import type { Product } from "@/lib/site";
 
+const PRODUCT_HREF: Record<string, string> = {
+  integrahris: "/integrahris-365",
+  "integrahris-government": "/integrahris-government",
+  qmaster: "/qmaster",
+  helpdesk: "/helpdesk",
+  docutrakr: "/docutrakr",
+  urateme: "/urateme",
+  "integra-asset": "/integra",
+  "cosmotech-gpms": "/gpms",
+};
+
 export function ProductCard({ product }: { product: Product }) {
+  const href = PRODUCT_HREF[product.slug] ?? "/solutions";
   return (
     <Link
-      to={
-        product.slug === "integrahris"
-          ? "/integrahris-365"
-          : product.slug === "integrahris-government"
-            ? "/integrahris-government"
-            : product.slug === "integra-asset"
-              ? "/integra"
-              : "/solutions/$slug"
-      }
-      params={
-        product.slug === "integrahris" || product.slug === "integrahris-government" || product.slug === "integra-asset"
-          ? undefined
-          : { slug: product.slug }
-      }
+      to={href as string}
       className="group flex h-full flex-col rounded-2xl border border-border bg-card p-6 transition-all hover:-translate-y-1 hover:shadow-[0_24px_60px_-24px_rgba(15,23,42,0.25)]"
     >
       <div className="flex items-start justify-between">
