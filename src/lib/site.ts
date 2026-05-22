@@ -18,6 +18,12 @@ import docutrakrDark from "@/assets/logos/products/docutrakr-dark.png";
 import shotUrateme from "@/assets/products/urateme.webp";
 import gpmsLight from "@/assets/logos/products/gpms-light.png";
 import shotGpms from "@/assets/products/gpms.webp";
+import logoPpa from "@/assets/logos/agencies/ppa.png";
+import logoBoc from "@/assets/logos/agencies/boc.png";
+import logoGsis from "@/assets/logos/agencies/gsis.svg";
+import logoDpwh from "@/assets/logos/agencies/dpwh.png";
+import logoErc from "@/assets/logos/agencies/erc.png";
+import logoNtc from "@/assets/logos/agencies/ntc.png";
 import gpmsDark from "@/assets/logos/products/gpms-dark.png";
 import integraAssetLight from "@/assets/logos/products/integra-asset-light.png";
 import integraAssetDark from "@/assets/logos/products/integra-asset-dark.png";
@@ -202,19 +208,21 @@ export const PRODUCTS: Product[] = [
   },
 ];
 
+
 export type Project = {
   agency: string;
   scope: string;
   sector: "Government" | "Enterprise";
+  logo?: string;
 };
 
 export const PROJECTS: Project[] = [
-  { agency: "Philippine Ports Authority", scope: "Facial Recognition for Contactless Attendance Tracking", sector: "Government" },
-  { agency: "Bureau of Customs", scope: " Internal Administration Management System (IAMS)", sector: "Government" },
-  { agency: "Government Service Insurance System (GSIS)", scope: "Queue Management System — 42 branches nationwide", sector: "Government" },
-  { agency: "Department of Public Works and Highways (DPWH)", scope: "Biometrics Time and Attendance; Physical Resource Management System (PRMS)", sector: "Government" },
-  { agency: "Energy Regulatory Commission (ERC)", scope: "Uniform Reportorial Requirements System", sector: "Government" },
-  { agency: "National Telecommunications Commission", scope: " Internal Administration Management System (IAMS)", sector: "Government" },
+  { agency: "Philippine Ports Authority", scope: "Facial Recognition for Contactless Attendance Tracking", sector: "Government", logo: logoPpa },
+  { agency: "Bureau of Customs", scope: " Internal Administration Management System (IAMS)", sector: "Government", logo: logoBoc },
+  { agency: "Government Service Insurance System (GSIS)", scope: "Queue Management System — 42 branches nationwide", sector: "Government", logo: logoGsis },
+  { agency: "Department of Public Works and Highways (DPWH)", scope: "Biometrics Time and Attendance; Physical Resource Management System (PRMS)", sector: "Government", logo: logoDpwh },
+  { agency: "Energy Regulatory Commission (ERC)", scope: "Uniform Reportorial Requirements System", sector: "Government", logo: logoErc },
+  { agency: "National Telecommunications Commission", scope: " Internal Administration Management System (IAMS)", sector: "Government", logo: logoNtc },
   { agency: "Philippine Deposit Insurance Corporation (PDIC)", scope: " Internal Administration Management System (IAMS)", sector: "Government" },
   { agency: "Freeport Area of Bataan", scope: "Billing and Collection System", sector: "Government" },
   { agency: "Land Management Bureau", scope: "Survey Information Management System", sector: "Government" },
