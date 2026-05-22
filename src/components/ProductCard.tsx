@@ -10,10 +10,12 @@ export function ProductCard({ product }: { product: Product }) {
           ? "/integrahris-365"
           : product.slug === "integrahris-government"
             ? "/integrahris-government"
-            : "/solutions/$slug"
+            : product.slug === "integra-asset"
+              ? "/integra"
+              : "/solutions/$slug"
       }
       params={
-        product.slug === "integrahris" || product.slug === "integrahris-government"
+        product.slug === "integrahris" || product.slug === "integrahris-government" || product.slug === "integra-asset"
           ? undefined
           : { slug: product.slug }
       }
