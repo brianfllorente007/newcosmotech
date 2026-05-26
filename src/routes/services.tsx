@@ -112,14 +112,14 @@ const INFRASTRUCTURE: {
     icon: Fingerprint,
     title: "Union Biometrics: Advanced Identity Solutions",
     body:
-      "Industry-leading biometric manufacturing technology for secure identity verification across government and enterprise.",
+      "Secure Biometric Identity Verification for Government and Enterprise. Advanced biometric technologies for secure identity authentication, access control, and workforce verification designed for government agencies, enterprises, and high-security environments.",
     image: biometricsImg,
     capabilities: [
-      "Face Recognition",
+      "Facial Recognition",
       "Iris Recognition",
-      "Fingerprint",
+      "Fingerprint Authentication",
       "Live Fake Detection",
-      "Optical Sensor",
+      "Optical Sensor Technology",
     ],
   },
 ];
