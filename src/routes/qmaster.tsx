@@ -21,6 +21,15 @@ import {
   LayoutDashboard,
 } from "lucide-react";
 import heroImage from "@/assets/qmaster/hero-cropped.png";
+import operationsDashboardImg from "@/assets/qmaster/modules/operations-dashboard.png";
+import ticketIssuanceImg from "@/assets/qmaster/modules/ticket-issuance.png";
+import routingEngineImg from "@/assets/qmaster/modules/routing-engine.png";
+import customerDisplayImg from "@/assets/qmaster/modules/customer-display.png";
+import tellerConsoleImg from "@/assets/qmaster/modules/teller-console.png";
+import notificationsImg from "@/assets/qmaster/modules/notifications.png";
+import analyticsImg from "@/assets/qmaster/modules/analytics.png";
+import configurationImg from "@/assets/qmaster/modules/configuration.png";
+import securityImg from "@/assets/qmaster/modules/security.png";
 
 import { Container } from "@/components/Container";
 import { Eyebrow, SectionHeading } from "@/components/SectionHeading";
