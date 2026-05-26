@@ -78,7 +78,7 @@ function HomePage() {
               Leveraging AI to Automate, Optimize, and Elevate Operations
             </h1>
             <p className="mx-auto mt-6 max-w-3xl text-base leading-relaxed text-bone/75 sm:text-lg">
-              From manual processes to intelligent automation, empowering your organizations to
+              From manual processes to intelligent digitalization, empowering your organizations to
               accelerate efficiency, reduce operational friction, and deliver smarter services at
               scale.
             </p>
