@@ -85,21 +85,19 @@ const INFRASTRUCTURE: {
 }[] = [
   {
     icon: Network,
-    title: "Digital Network Infrastructure",
+    title: "Full Stack Infrastructure and Hardware Network Solutions",
     body:
-      "Enterprise-grade digital infrastructure spanning cloud, compute, networking, and security for mission-critical deployments.",
+      "We deliver fully integrated infrastructure and hardware solutions that power secure, reliable, and scalable operations. From networking and compute systems to smart devices and enterprise security, our solutions support high-performance and mission-critical environments.",
     image: infrastructureImg,
     capabilities: [
-      "Cloud Computing",
-      "Virtualization",
-      "HCI",
-      "Switches",
-      "Cloudnet",
-      "Network Mgmt",
-      "AD-DC / WAN",
-      "Server Mgmt",
-      "Storage",
-      "Security",
+      "SD-WAN",
+      "Active Security",
+      "Wi-Fi Ready AP Products",
+      "High-Density Switches",
+      "Intelligent Routers",
+      "CAS",
+      "Hyper Converged Computing",
+      "UniServers",
     ],
   },
   {
