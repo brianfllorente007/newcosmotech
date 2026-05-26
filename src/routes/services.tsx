@@ -230,14 +230,14 @@ function InfrastructureTabs() {
                 onClick={() => setActive(idx)}
                 aria-pressed={isActive}
                 className={cn(
-                  "flex h-16 shrink-0 snap-start items-center justify-center gap-3 rounded-2xl border px-5 text-sm font-semibold transition-colors sm:w-auto sm:shrink",
+                  "flex min-h-16 shrink-0 snap-start items-center justify-center gap-3 rounded-2xl border px-5 py-3 text-sm font-semibold leading-tight transition-colors sm:w-auto sm:shrink",
                   isActive
                     ? "border-foreground bg-background text-foreground shadow-sm"
                     : "border-transparent bg-transparent text-foreground/55 hover:text-foreground",
                 )}
               >
-                <Icon className={cn("h-5 w-5", isActive ? "text-cobalt" : "text-foreground/55")} />
-                <span className="whitespace-nowrap">{item.title}</span>
+                <Icon className={cn("h-5 w-5 shrink-0", isActive ? "text-cobalt" : "text-foreground/55")} />
+                <span className="text-center sm:whitespace-normal whitespace-nowrap">{item.title}</span>
               </button>
             );
           })}
