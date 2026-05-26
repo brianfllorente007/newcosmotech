@@ -20,7 +20,7 @@ import {
   MessageSquare,
   LayoutDashboard,
 } from "lucide-react";
-import heroImage from "@/assets/qmaster/hero.png";
+import heroImage from "@/assets/qmaster/hero-cropped.png";
 
 import { Container } from "@/components/Container";
 import { Eyebrow, SectionHeading } from "@/components/SectionHeading";
@@ -331,10 +331,10 @@ function QMasterPage() {
   return (
     <>
       {/* HERO */}
-      <section className="border-b border-border bg-bone py-20 sm:py-28">
+      <section className="overflow-hidden border-b border-border bg-bone pt-20 sm:pt-28">
         <Container>
-          <div className="reveal grid gap-12 lg:grid-cols-2 lg:items-center lg:gap-16">
-            <div>
+          <div className="reveal grid gap-12 lg:grid-cols-2 lg:items-end lg:gap-8">
+            <div className="pb-20 sm:pb-28">
               <Eyebrow>QMaster</Eyebrow>
               <h1 className="mt-4 text-4xl font-semibold leading-[1.05] tracking-tight sm:text-5xl md:text-6xl">
                 The Queue Management System That Runs the Floor
@@ -359,13 +359,13 @@ function QMasterPage() {
                 </Link>
               </div>
             </div>
-            <div className="lg:pl-8">
+            <div className="relative flex items-end justify-center lg:justify-end">
               <img
                 src={heroImage}
                 alt="QMaster queue management system showing kiosk and teller console"
                 loading="eager"
                 fetchPriority="high"
-                className="w-full h-auto"
+                className="block h-auto w-full max-w-none lg:w-[130%] lg:-mr-[15%]"
               />
             </div>
           </div>
