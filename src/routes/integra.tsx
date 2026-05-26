@@ -340,7 +340,7 @@ function IntegraPage() {
   return (
     <>
       {/* HERO */}
-      <section className="overflow-hidden border-b border-border bg-background py-20 sm:py-28">
+      <section className="overflow-hidden border-b border-border py-20 sm:py-28" style={{ backgroundColor: "#FFFFFF" }}>
         <Container>
           <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-8">
             <div className="reveal">
