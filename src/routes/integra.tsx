@@ -335,10 +335,10 @@ function IntegraPage() {
                 Asset Management System for Philippine Government Agencies
               </h1>
               <p className="mt-5 text-lg leading-relaxed text-muted-foreground sm:text-xl">
-                Cosmotech Integra is a web-based platform that helps government
-                agencies manage the full lifecycle of assets — centralized in
-                one system, aligned with government processes and COA
-                requirements.
+                Web-based asset lifecycle management system aligned with
+                government processes and COA requirements—covering inventory
+                monitoring, asset accountability, transfers, reporting, and
+                audit-ready documentation.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
