@@ -94,7 +94,7 @@ export const PRODUCTS: Product[] = [
   {
     slug: "qmaster",
     name: "QMaster",
-    tagline: "Modern queue management for public service.",
+    tagline: "Intelligent Queue Management for High-Volume Service Environments",
     short:
       "Modern queue management and customer flow system with real-time monitoring, analytics, digital ticketing, SMS notifications, and kiosk integration for faster and more efficient public service.",
     description:
