@@ -37,6 +37,13 @@ import {
 } from "@/components/ui/accordion";
 import { useReveal } from "@/hooks/use-reveal";
 import { CtaBand } from "@/components/CtaBand";
+import featAcquisition from "@/assets/integra/acquisition-recording.png";
+import featIssuance from "@/assets/integra/issuance-of-asset.png";
+import featReturnDisposal from "@/assets/integra/return-disposal.png";
+import featTransfer from "@/assets/integra/transfer-of-property.png";
+import featInventory from "@/assets/integra/asset-inventory-reporting.png";
+import featInsurance from "@/assets/integra/insurance-reports.png";
+import featSystemAdmin from "@/assets/integra/system-admin.png";
 
 export const Route = createFileRoute("/integra")({
   head: () => ({
