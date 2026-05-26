@@ -75,7 +75,7 @@ function HomePage() {
               Pioneering Intelligent Automation
             </p>
             <h1 className="mt-5 break-words max-[360px]:text-[2rem] text-4xl font-semibold leading-[1.05] tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
-              Leveraging AI to Automate, Optimize, and Elevate Operations
+              Leveraging AI to Digitalize, Optimize, and Elevate Operations
             </h1>
             <p className="mx-auto mt-6 max-w-3xl text-base leading-relaxed text-bone/75 sm:text-lg">
               From manual processes to intelligent digitalization, empowering your organizations to
