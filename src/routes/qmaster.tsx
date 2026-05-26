@@ -20,7 +20,7 @@ import {
   MessageSquare,
   LayoutDashboard,
 } from "lucide-react";
-import heroImage from "@/assets/qmaster/hero.png";
+import heroImage from "@/assets/qmaster/hero-cropped.png";
 
 import { Container } from "@/components/Container";
 import { Eyebrow, SectionHeading } from "@/components/SectionHeading";
