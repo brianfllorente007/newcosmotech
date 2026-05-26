@@ -1,8 +1,6 @@
 import ppa from "@/assets/logos/clients/ppa.webp";
 import dfa from "@/assets/logos/clients/dfa.webp";
 import boc from "@/assets/logos/clients/boc.webp";
-import fab from "@/assets/logos/clients/fab.webp";
-import pdea from "@/assets/logos/clients/pdea.webp";
 import hsbc from "@/assets/logos/clients/hsbc.webp";
 import landbank from "@/assets/logos/clients/landbank.webp";
 import philhealth from "@/assets/logos/clients/philhealth.webp";
@@ -16,8 +14,6 @@ export const CLIENT_LOGOS = [
   { src: ppa, alt: "Philippine Ports Authority" },
   { src: dfa, alt: "Department of Foreign Affairs" },
   { src: boc, alt: "Bureau of Customs" },
-  { src: fab, alt: "Freeport Area of Bataan" },
-  { src: pdea, alt: "Philippine Drug Enforcement Agency" },
   { src: hsbc, alt: "HSBC" },
   { src: landbank, alt: "Landbank" },
   { src: philhealth, alt: "PhilHealth" },
