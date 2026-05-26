@@ -37,6 +37,13 @@ import {
 } from "@/components/ui/accordion";
 import { useReveal } from "@/hooks/use-reveal";
 import { CtaBand } from "@/components/CtaBand";
+import featAcquisition from "@/assets/integra/acquisition-recording.png";
+import featIssuance from "@/assets/integra/issuance-of-asset.png";
+import featReturnDisposal from "@/assets/integra/return-disposal.png";
+import featTransfer from "@/assets/integra/transfer-of-property.png";
+import featInventory from "@/assets/integra/asset-inventory-reporting.png";
+import featInsurance from "@/assets/integra/insurance-reports.png";
+import featSystemAdmin from "@/assets/integra/system-admin.png";
 
 export const Route = createFileRoute("/integra")({
   head: () => ({
@@ -163,6 +170,7 @@ const FEATURE_BLOCKS = [
     icon: Database,
     title: "Acquisition & recording",
     body: "Record and classify every asset from the moment it enters your agency.",
+    image: featAcquisition,
     items: [
       "Inventory of Office Supplies",
       "Inventory of Semi-Expendables",
@@ -176,6 +184,7 @@ const FEATURE_BLOCKS = [
     icon: FileCheck2,
     title: "Issuance of asset",
     body: "Manage issuances, reissuances, and returns with full approval workflows.",
+    image: featIssuance,
     items: [
       "Create, edit, review, approve, and disapprove issuances",
       "Track reissuances and returns to and from employees and offices",
@@ -188,6 +197,7 @@ const FEATURE_BLOCKS = [
     icon: RefreshCw,
     title: "Return & disposal",
     body: "Close the loop on every asset with proper condition tracking and inventory updates.",
+    image: featReturnDisposal,
     items: [
       "Record the details of returned or disposed items and properties",
       "Tag the condition of each returned or disposed item",
@@ -199,6 +209,7 @@ const FEATURE_BLOCKS = [
     icon: ClipboardList,
     title: "Transfer of property",
     body: "Track property transfers between offices and employees with full documentation.",
+    image: featTransfer,
     items: [
       "Record the details of each property transfer",
       "Generate a Property Transfer Report with complete details",
@@ -210,6 +221,7 @@ const FEATURE_BLOCKS = [
     icon: FileBarChart,
     title: "Asset inventory & reporting",
     body: "Generate the physical count reports your agency needs for COA submission.",
+    image: featInventory,
     items: [
       "Semi-annual Report on the Physical Count of Inventories (RPCI) by item type and fund cluster",
       "Annual RPCPPE-ICS and RPCPPE-PAR",
@@ -222,6 +234,7 @@ const FEATURE_BLOCKS = [
     icon: Scale,
     title: "Insure asset",
     body: "Generate per-office insurance reports for every category of insured asset.",
+    image: featInsurance,
     items: [
       "Consolidated Report of Items Subject for Fire Insurance",
       "Consolidated Report of Items Subject for Floater Insurance",
@@ -233,6 +246,7 @@ const FEATURE_BLOCKS = [
     icon: ShieldCheck,
     title: "System administration & security",
     body: "Control access and protect agency data with role-based permissions and strong authentication.",
+    image: featSystemAdmin,
     items: [
       "Role-based access system based on privileges granted per user",
       "Login and password protection",
@@ -860,23 +874,15 @@ function FeatureDeepDiveTabs() {
         <div className="lg:sticky lg:top-24">
           <div
             key={current.title}
-            className="animate-fade-in overflow-hidden rounded-3xl border border-border bg-muted"
+            className="animate-fade-in overflow-hidden rounded-3xl border border-border bg-card shadow-sm"
           >
-            <div className="flex aspect-[4/3] w-full items-center justify-center bg-gradient-to-br from-muted to-card">
-              <div className="flex flex-col items-center gap-3 text-center">
-                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-cobalt/10 text-cobalt">
-                  <CurrentIcon className="h-7 w-7" />
-                </div>
-                <p className="text-sm font-medium text-muted-foreground">
-                  UI screenshot placeholder
-                </p>
-                <p className="text-xs text-muted-foreground/70">
-                  {current.title} · {active + 1} / {FEATURE_BLOCKS.length}
-                </p>
-              </div>
-            </div>
+            <img
+              src={current.image}
+              alt={`${current.title} — Integra UI screenshot`}
+              loading="lazy"
+              className="block h-auto w-full object-contain"
+            />
           </div>
-
         </div>
       </div>
     </div>
