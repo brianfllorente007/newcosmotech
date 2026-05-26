@@ -55,11 +55,11 @@ export const PRODUCTS: Product[] = [
   {
     slug: "integrahris",
     name: "IntegraHRIS 365",
-    tagline: "Downloadable, subscription HRIS for private companies.",
+    tagline: "Scalable HR and payroll for private companies.",
     short:
-      "Cloud-ready HRIS for enterprises. Scalable HR, payroll, and workforce management for today's fast-moving organizations.",
+      "Scalable HR, payroll, and workforce management software designed for private companies streamlining employee management, payroll processing, attendance, and HR operations in one centralized platform.",
     description:
-      "Cloud-ready HRIS for enterprises. Scalable HR, payroll, and workforce management for today's fast-moving organizations.",
+      "Scalable HR, payroll, and workforce management software designed for private companies streamlining employee management, payroll processing, attendance, and HR operations in one centralized platform.",
     features: [
       "Human Resources, Payroll, and Timekeeping in one platform",
       "Scales from 1 to 4,000 employees",
@@ -74,11 +74,11 @@ export const PRODUCTS: Product[] = [
   {
     slug: "integrahris-government",
     name: "IntegraHRIS Government",
-    tagline: "End-to-end HRIS for Philippine government agencies.",
+    tagline: "End-to-End HRIS for Philippine Government Agencies",
     short:
-      "Complete HR and payroll management for government agencies; plantilla, payroll, leave, performance management, and PRIME-HRM compliance.",
+      "CSC-aligned HR and payroll management system for government agencies covering plantilla, recruitment, payroll, leave management, performance evaluation, and PRIME-HRM compliance.",
     description:
-      "Complete HR and payroll management for government agencies; plantilla, payroll, leave, performance management, and PRIME-HRM compliance.",
+      "CSC-aligned HR and payroll management system for government agencies covering plantilla, recruitment, payroll, leave management, performance evaluation, and PRIME-HRM compliance.",
     features: [
       "Recruitment, 201 file, and onboarding",
       "Biometric timekeeping and DTR generation",
@@ -94,11 +94,11 @@ export const PRODUCTS: Product[] = [
   {
     slug: "qmaster",
     name: "QMaster",
-    tagline: "Queue management for high-volume frontline service.",
+    tagline: "Modern queue management for public service.",
     short:
-      "Intelligent queue management and customer flow — real-time monitoring, analytics, kiosk integration, and digital ticketing.",
+      "Modern queue management and customer flow system with real-time monitoring, analytics, digital ticketing, SMS notifications, and kiosk integration for faster and more efficient public service.",
     description:
-      "Intelligent queue management and customer flow — real-time monitoring, analytics, kiosk integration, and digital ticketing.",
+      "Modern queue management and customer flow system with real-time monitoring, analytics, digital ticketing, SMS notifications, and kiosk integration for faster and more efficient public service.",
     features: [
       "Multiple ticket printers and queue displays",
       "Unlimited transaction types and priority lanes",
@@ -114,11 +114,11 @@ export const PRODUCTS: Product[] = [
   {
     slug: "helpdesk",
     name: "HelpDesk",
-    tagline: "Route every inquiry. Lose none.",
+    tagline: "Centralized Support Ticketing and Service Management",
     short:
-      "Streamline support requests with a centralized ticketing platform that improves response time and service efficiency.",
+      "Streamline issue resolution, service requests, and technical support through an automated helpdesk platform that improves response time, accountability, and operational efficiency.",
     description:
-      "Streamline support requests with a centralized ticketing platform that improves response time and service efficiency.",
+      "Streamline issue resolution, service requests, and technical support through an automated helpdesk platform that improves response time, accountability, and operational efficiency.",
     features: [
       "Automatic ticket routing by team and topic",
       "Customizable workflows and SLAs",
@@ -133,11 +133,11 @@ export const PRODUCTS: Product[] = [
   {
     slug: "docutrakr",
     name: "Docutrakr",
-    tagline: "QR-coded document tracking, in real time.",
+    tagline: "Real-Time Document Tracking and Workflow Management",
     short:
-      "Document tracking with full visibility and traceability across departments, approvals, and document workflows.",
+      "Track, monitor, and retrieve documents with complete visibility across departments using QR-based tracking, workflow automation, notifications, and centralized document monitoring.",
     description:
-      "Document tracking with full visibility and traceability across departments, approvals, and document workflows.",
+      "Track, monitor, and retrieve documents with complete visibility across departments using QR-based tracking, workflow automation, notifications, and centralized document monitoring.",
     features: [
       "Unique QR code per document",
       "Real-time location and status tracking",
@@ -152,11 +152,11 @@ export const PRODUCTS: Product[] = [
   {
     slug: "urateme",
     name: "URateMe",
-    tagline: "Customer feedback that turns into action.",
+    tagline: "Real-Time Customer Feedback and Satisfaction Monitoring",
     short:
-      "Real-time citizen and customer feedback satisfaction ratings, service quality scores, and actionable insights at the point of service.",
+      "Capture customer and citizen feedback through digital surveys and AI-driven insights to monitor service quality, satisfaction ratings, and operational performance in real time.",
     description:
-      "Real-time citizen and customer feedback satisfaction ratings, service quality scores, and actionable insights at the point of service.",
+      "Capture customer and citizen feedback through digital surveys and AI-driven insights to monitor service quality, satisfaction ratings, and operational performance in real time.",
     features: [
       "Post-transaction rating capture",
       "Trend analysis and recurring-issue detection",
@@ -173,9 +173,9 @@ export const PRODUCTS: Product[] = [
     name: "Integra Asset Management",
     tagline: "Asset Management System for Philippine Government Agencies",
     short:
-      "Cosmotech Integra is a web-based platform that helps government agencies manage the full lifecycle of assets — centralized in one system, aligned with government processes and COA requirements.",
+      "Web-based asset lifecycle management system aligned with government processes and COA requirements—covering inventory monitoring, asset accountability, transfers, reporting, and audit-ready documentation.",
     description:
-      "Cosmotech Integra is a web-based platform that helps government agencies manage the full lifecycle of assets — centralized in one system, aligned with government processes and COA requirements.",
+      "Web-based asset lifecycle management system aligned with government processes and COA requirements—covering inventory monitoring, asset accountability, transfers, reporting, and audit-ready documentation.",
     features: [
       "Full asset lifecycle management",
       "COA-ready reports and compliance",
@@ -190,11 +190,11 @@ export const PRODUCTS: Product[] = [
   {
     slug: "cosmotech-gpms",
     name: "CosmotechGPMS",
-    tagline: "Government procurement, transparent end to end.",
+    tagline: "Government Procurement Management System",
     short:
-      "Government Procurement Management System for full procurement transparency and accountability.",
+      "Digitize and streamline government procurement processes with a centralized platform designed to improve transparency, accountability, workflow efficiency, and compliance monitoring from requisition to procurement completion.",
     description:
-      "Government Procurement Management System for full procurement transparency and accountability.",
+      "Digitize and streamline government procurement processes with a centralized platform designed to improve transparency, accountability, workflow efficiency, and compliance monitoring from requisition to procurement completion.",
     features: [
       "Procurement planning and APP management",
       "End-to-end bidding workflow",

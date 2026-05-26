@@ -86,13 +86,6 @@ export function SiteHeader() {
                             {d.label}
                           </Link>
                         ))}
-                        <div className="my-1 border-t border-border" />
-                        <Link
-                          to="/solutions"
-                          className="block px-4 py-2 text-sm font-medium text-cobalt hover:bg-muted"
-                        >
-                          View all solutions →
-                        </Link>
                       </div>
                     </div>
                   )}
