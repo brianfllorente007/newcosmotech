@@ -340,9 +340,9 @@ function IntegraPage() {
   return (
     <>
       {/* HERO */}
-      <section className="border-b border-border bg-bone py-20 sm:py-28">
+      <section className="overflow-hidden border-b border-border bg-bone py-20 sm:py-28">
         <Container>
-          <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+          <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-8">
             <div className="reveal">
               <Eyebrow>Integra</Eyebrow>
               <h1 className="mt-4 text-4xl font-semibold leading-[1.05] tracking-tight sm:text-5xl md:text-6xl">
@@ -370,13 +370,11 @@ function IntegraPage() {
               </div>
             </div>
 
-            <div className="reveal">
+            <div className="reveal relative lg:h-[520px]">
               <img
                 src={integraHero}
                 alt="Cosmotech Integra asset management dashboard"
-                width={1280}
-                height={1024}
-                className="h-auto w-full object-contain"
+                className="w-full object-contain lg:absolute lg:left-0 lg:top-1/2 lg:h-auto lg:max-w-none lg:-translate-y-1/2 lg:w-[140%]"
               />
             </div>
           </div>
