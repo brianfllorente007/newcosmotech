@@ -301,19 +301,38 @@ const FAQS = [
 ];
 
 // ---------- Modules Showcase data → shared component ----------
-const MODULE_VISUALS = MODULES.map((m) => ({
-  icon: m.icon,
-  title: m.title,
-  body: m.body,
-  items: m.items,
-  visual: (
-    <Placeholder
-      label={`${m.title.split(" — ")[0]} screenshot`}
-      size="1200x800"
-      className="h-full w-full"
-    />
-  ),
-}));
+const MODULE_IMAGES: Record<string, string> = {
+  "Operations Dashboard": operationsDashboardImg,
+  "Ticket Issuance": ticketIssuanceImg,
+  "Routing Engine": routingEngineImg,
+  "Customer-Facing Display": customerDisplayImg,
+  "Teller Console": tellerConsoleImg,
+  "Notifications": notificationsImg,
+  "Analytics & Reporting": analyticsImg,
+  "Configuration Management": configurationImg,
+  "Security": securityImg,
+};
+
+const MODULE_VISUALS = MODULES.map((m) => {
+  const key = m.title.split(" — ")[0];
+  const img = MODULE_IMAGES[key];
+  return {
+    icon: m.icon,
+    title: m.title,
+    body: m.body,
+    items: m.items,
+    visual: img ? (
+      <img
+        src={img}
+        alt={`${key} screenshot`}
+        loading="lazy"
+        className="h-full w-full rounded-2xl object-contain"
+      />
+    ) : (
+      <Placeholder label={`${key} screenshot`} size="1200x800" className="h-full w-full" />
+    ),
+  };
+});
 
 // ---------- Page ----------
 function QMasterPage() {
