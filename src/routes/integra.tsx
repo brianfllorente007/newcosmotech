@@ -874,20 +874,15 @@ function FeatureDeepDiveTabs() {
         <div className="lg:sticky lg:top-24">
           <div
             key={current.title}
-            className="animate-fade-in overflow-hidden rounded-3xl border border-border bg-muted"
+            className="animate-fade-in overflow-hidden rounded-3xl border border-border bg-card shadow-sm"
           >
-            <div className="flex aspect-[4/3] w-full items-center justify-center bg-gradient-to-br from-muted to-card">
-              <div className="flex flex-col items-center gap-3 text-center">
-                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-cobalt/10 text-cobalt">
-                  <CurrentIcon className="h-7 w-7" />
-                </div>
-                <p className="text-sm font-medium text-muted-foreground">
-                  UI screenshot placeholder
-                </p>
-                <p className="text-xs text-muted-foreground/70">
-                  {current.title} · {active + 1} / {FEATURE_BLOCKS.length}
-                </p>
-              </div>
+            <img
+              src={current.image}
+              alt={`${current.title} — Integra UI screenshot`}
+              loading="lazy"
+              className="block h-auto w-full object-contain"
+            />
+          </div>
             </div>
           </div>
 
