@@ -21,6 +21,15 @@ import {
   LayoutDashboard,
 } from "lucide-react";
 import heroImage from "@/assets/qmaster/hero-cropped.png";
+import operationsDashboardImg from "@/assets/qmaster/modules/operations-dashboard.png";
+import ticketIssuanceImg from "@/assets/qmaster/modules/ticket-issuance.png";
+import routingEngineImg from "@/assets/qmaster/modules/routing-engine.png";
+import customerDisplayImg from "@/assets/qmaster/modules/customer-display.png";
+import tellerConsoleImg from "@/assets/qmaster/modules/teller-console.png";
+import notificationsImg from "@/assets/qmaster/modules/notifications.png";
+import analyticsImg from "@/assets/qmaster/modules/analytics.png";
+import configurationImg from "@/assets/qmaster/modules/configuration.png";
+import securityImg from "@/assets/qmaster/modules/security.png";
 
 import { Container } from "@/components/Container";
 import { Eyebrow, SectionHeading } from "@/components/SectionHeading";
@@ -292,19 +301,38 @@ const FAQS = [
 ];
 
 // ---------- Modules Showcase data → shared component ----------
-const MODULE_VISUALS = MODULES.map((m) => ({
-  icon: m.icon,
-  title: m.title,
-  body: m.body,
-  items: m.items,
-  visual: (
-    <Placeholder
-      label={`${m.title.split(" — ")[0]} screenshot`}
-      size="1200x800"
-      className="h-full w-full"
-    />
-  ),
-}));
+const MODULE_IMAGES: Record<string, string> = {
+  "Operations Dashboard": operationsDashboardImg,
+  "Ticket Issuance": ticketIssuanceImg,
+  "Routing Engine": routingEngineImg,
+  "Customer-Facing Display": customerDisplayImg,
+  "Teller Console": tellerConsoleImg,
+  "Notifications": notificationsImg,
+  "Analytics & Reporting": analyticsImg,
+  "Configuration Management": configurationImg,
+  "Security": securityImg,
+};
+
+const MODULE_VISUALS = MODULES.map((m) => {
+  const key = m.title.split(" — ")[0];
+  const img = MODULE_IMAGES[key];
+  return {
+    icon: m.icon,
+    title: m.title,
+    body: m.body,
+    items: m.items,
+    visual: img ? (
+      <img
+        src={img}
+        alt={`${key} screenshot`}
+        loading="lazy"
+        className="h-full w-full rounded-2xl object-contain"
+      />
+    ) : (
+      <Placeholder label={`${key} screenshot`} size="1200x800" className="h-full w-full" />
+    ),
+  };
+});
 
 // ---------- Page ----------
 function QMasterPage() {
