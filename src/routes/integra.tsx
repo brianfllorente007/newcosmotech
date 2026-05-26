@@ -27,7 +27,7 @@ import {
 } from "lucide-react";
 import { Container } from "@/components/Container";
 import { cn } from "@/lib/utils";
-import integraHero from "@/assets/integra-hero.jpg";
+import integraHero from "@/assets/integra/hero-issuance.png";
 import { Eyebrow, SectionHeading } from "@/components/SectionHeading";
 import {
   Accordion,
@@ -371,15 +371,13 @@ function IntegraPage() {
             </div>
 
             <div className="reveal">
-              <div className="overflow-hidden rounded-3xl border border-border bg-card shadow-sm">
-                <img
-                  src={integraHero}
-                  alt="Cosmotech Integra asset management dashboard"
-                  width={1280}
-                  height={1024}
-                  className="h-full w-full object-cover"
-                />
-              </div>
+              <img
+                src={integraHero}
+                alt="Cosmotech Integra asset management dashboard"
+                width={1280}
+                height={1024}
+                className="h-auto w-full object-contain"
+              />
             </div>
           </div>
         </Container>
