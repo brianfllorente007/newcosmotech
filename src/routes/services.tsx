@@ -102,11 +102,11 @@ const INFRASTRUCTURE: {
   },
   {
     icon: MonitorPlay,
-    title: "Horion Smart Display",
+    title: "Horion Smart Interactive Display",
     body:
-      "Interactive panels and smart lecterns for classrooms and government briefing halls.",
+      "Smart Collaboration Solutions for Modern Workspaces and Learning Environments. Interactive display and smart presentation solutions designed for boardrooms, classrooms, training centers, and government briefing facilities enabling smarter collaboration, communication, and engagement.",
     image: smartDisplayImg,
-    capabilities: ["Smart Interactive Display", "Smart Lectern", "Conference Solutions"],
+    capabilities: ["Smart Interactive Displays", "Smart Lecterns", "Conference & Collaboration Solutions"],
   },
   {
     icon: Fingerprint,
