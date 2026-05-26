@@ -371,15 +371,13 @@ function IntegraPage() {
             </div>
 
             <div className="reveal">
-              <div className="overflow-hidden rounded-3xl border border-border bg-card shadow-sm">
-                <img
-                  src={integraHero}
-                  alt="Cosmotech Integra asset management dashboard"
-                  width={1280}
-                  height={1024}
-                  className="h-full w-full object-cover"
-                />
-              </div>
+              <img
+                src={integraHero}
+                alt="Cosmotech Integra asset management dashboard"
+                width={1280}
+                height={1024}
+                className="h-auto w-full object-contain"
+              />
             </div>
           </div>
         </Container>
