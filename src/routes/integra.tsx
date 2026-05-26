@@ -170,6 +170,7 @@ const FEATURE_BLOCKS = [
     icon: Database,
     title: "Acquisition & recording",
     body: "Record and classify every asset from the moment it enters your agency.",
+    image: featAcquisition,
     items: [
       "Inventory of Office Supplies",
       "Inventory of Semi-Expendables",
@@ -183,6 +184,7 @@ const FEATURE_BLOCKS = [
     icon: FileCheck2,
     title: "Issuance of asset",
     body: "Manage issuances, reissuances, and returns with full approval workflows.",
+    image: featIssuance,
     items: [
       "Create, edit, review, approve, and disapprove issuances",
       "Track reissuances and returns to and from employees and offices",
@@ -195,6 +197,7 @@ const FEATURE_BLOCKS = [
     icon: RefreshCw,
     title: "Return & disposal",
     body: "Close the loop on every asset with proper condition tracking and inventory updates.",
+    image: featReturnDisposal,
     items: [
       "Record the details of returned or disposed items and properties",
       "Tag the condition of each returned or disposed item",
@@ -206,6 +209,7 @@ const FEATURE_BLOCKS = [
     icon: ClipboardList,
     title: "Transfer of property",
     body: "Track property transfers between offices and employees with full documentation.",
+    image: featTransfer,
     items: [
       "Record the details of each property transfer",
       "Generate a Property Transfer Report with complete details",
@@ -217,6 +221,7 @@ const FEATURE_BLOCKS = [
     icon: FileBarChart,
     title: "Asset inventory & reporting",
     body: "Generate the physical count reports your agency needs for COA submission.",
+    image: featInventory,
     items: [
       "Semi-annual Report on the Physical Count of Inventories (RPCI) by item type and fund cluster",
       "Annual RPCPPE-ICS and RPCPPE-PAR",
@@ -229,6 +234,7 @@ const FEATURE_BLOCKS = [
     icon: Scale,
     title: "Insure asset",
     body: "Generate per-office insurance reports for every category of insured asset.",
+    image: featInsurance,
     items: [
       "Consolidated Report of Items Subject for Fire Insurance",
       "Consolidated Report of Items Subject for Floater Insurance",
@@ -240,6 +246,7 @@ const FEATURE_BLOCKS = [
     icon: ShieldCheck,
     title: "System administration & security",
     body: "Control access and protect agency data with role-based permissions and strong authentication.",
+    image: featSystemAdmin,
     items: [
       "Role-based access system based on privileges granted per user",
       "Login and password protection",
