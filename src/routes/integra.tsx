@@ -883,9 +883,6 @@ function FeatureDeepDiveTabs() {
               className="block h-auto w-full object-contain"
             />
           </div>
-            </div>
-          </div>
-
         </div>
       </div>
     </div>
