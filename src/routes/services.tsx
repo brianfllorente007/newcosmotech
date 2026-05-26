@@ -135,12 +135,10 @@ function ServicesPage() {
           <div className="max-w-4xl">
             <Eyebrow>Services & Consulting</Eyebrow>
             <h1 className="mt-4 text-4xl font-semibold leading-[1.05] tracking-tight sm:text-5xl md:text-6xl">
-              Custom solutions and consulting for end-to-end digital transformation.
+              Custom Solutions for End-to-End Digital Transformation
             </h1>
             <p className="mt-6 text-base leading-relaxed text-muted-foreground sm:text-lg">
-              From custom software and system integration to enterprise infrastructure, smart
-              displays, and biometric identity — we design, build, and support technology that
-              fits the way Philippine organizations actually work.
+              From custom software development and system integration to enterprise infrastructure, smart interactive displays, and biometric identity solutions. We design, implement, and support technology tailored to Philippine government and enterprise organizations.
             </p>
             <div className="mt-8">
               <Link
