@@ -31,6 +31,7 @@ import modReference from "@/assets/docutrakr/modules/reference-tables.png";
 import modReports from "@/assets/docutrakr/modules/reports.png";
 import modFiling from "@/assets/docutrakr/modules/filing-archival.png";
 import { Eyebrow, SectionHeading } from "@/components/SectionHeading";
+import docutrakrLogo from "@/assets/logos/products/docutrakr-dark.png";
 import {
   Accordion,
   AccordionContent,
@@ -329,7 +330,7 @@ function DocutrakrPage() {
       <section className="flex flex-col overflow-hidden border-b border-border bg-bone pt-20 sm:pt-28">
         <Container>
           <div className="reveal mx-auto flex max-w-3xl flex-col items-center text-center">
-            <Eyebrow>Docutrakr</Eyebrow>
+            <img src={docutrakrLogo} alt="Docutrakr" className="h-10 w-auto sm:h-12" />
             <h1 className="mt-4 text-4xl font-semibold leading-[1.05] tracking-tight sm:text-5xl md:text-6xl">
               Document Tracking with QR Code Workflow Automation
             </h1>
