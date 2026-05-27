@@ -217,36 +217,36 @@ const MODULES = [
 
 const FAQS = [
   {
-    q: "What is URateMe?",
-    a: "URateMe is a customer feedback management system that captures customer ratings, complaints, and suggestions at the point of service and consolidates them across all branches into a single reporting system. It's designed for multi-branch operations that need visibility into customer experience and employee performance at every location.",
+    q: "What is URateMe Feedback Management System?",
+    a: "URateMe is a feedback management system that helps organizations collect, analyze, and understand customer feedback to improve service quality, customer satisfaction, and operational performance.",
   },
   {
-    q: "How does URateMe capture customer feedback?",
-    a: "Customers submit feedback through customizable questionnaires at the point of service. Each submission is timestamped and tagged with the branch, employee, and demographic information of the customer, then transmitted to the central system for reporting.",
+    q: "How does URateMe collect customer feedback?",
+    a: "URateMe captures customer feedback through digital surveys, online forms, and customizable feedback channels, allowing organizations to gather insights across different products, services, and departments.",
   },
   {
-    q: "Can URateMe track employee performance?",
-    a: "Yes. Each employee has a performance profile showing how many customers they served, their satisfaction ratings, and feedback grouped by questionnaire category. This data supports objective performance evaluation, recognition programs, and coaching.",
+    q: "Can URateMe monitor customer satisfaction and service performance?",
+    a: "Yes. URateMe includes KPI monitoring tools that track customer satisfaction, service quality, product performance, and operational responsiveness in real time.",
   },
   {
-    q: "Can URateMe be customized per branch?",
-    a: "Yes. Questionnaires, greeting messages, and thank-you messages can be customized for each branch or service type. Branch managers can run surveys specific to their location while head office maintains visibility across the whole network.",
+    q: "Does URateMe provide analytics and reporting tools?",
+    a: "Yes. URateMe generates reports, dashboards, and visual insights that help organizations identify feedback trends, monitor performance, and make data-driven improvement decisions.",
   },
   {
-    q: "What demographic data does URateMe collect?",
-    a: "URateMe captures age, gender, and civil status of customers, along with the customer-to-employee representative ratio per branch. This gives management a market profile of who's actually being served — useful for service planning and identifying underserved segments.",
+    q: "Does URateMe send alerts for negative feedback?",
+    a: "Yes. URateMe provides real-time alerts and notifications for negative feedback, enabling organizations to respond quickly and address concerns before they escalate.",
   },
   {
-    q: "What kinds of reports does URateMe generate?",
-    a: "Reports include daily, weekly, monthly, and yearly performance summaries; demographic reports with satisfaction ratings per criteria; employee rating per branch; and employee performance reports. All results can be viewed in graphical or tabular format.",
+    q: "Can URateMe support benchmarking and performance comparison?",
+    a: "Yes. URateMe includes benchmarking capabilities that allow organizations to compare customer satisfaction and service performance against internal targets, industry standards, or competitors.",
   },
   {
-    q: "How does URateMe work across multiple branches?",
-    a: "Each branch captures feedback locally and transmits data to the central system through the company's VPN. Head office sees consolidated results across all branches; individual branch managers see their own location's data.",
+    q: "Is URateMe suitable for government agencies?",
+    a: "Yes. URateMe supports ARTA Client Satisfaction Measurement (CSM) requirements, helping government agencies monitor customer experience, ease of doing business, and public service satisfaction.",
   },
   {
-    q: "Is admin access secured?",
-    a: "Yes. Admin pages are protected by username and password, with role-based controls over who can configure surveys, view reports, and access branch data.",
+    q: "What industries can use URateMe?",
+    a: "URateMe is suitable for government agencies, enterprises, healthcare organizations, educational institutions, retail businesses, and service-oriented organizations seeking to improve customer experience and service quality through data-driven feedback management.",
   },
 ];
 

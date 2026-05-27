@@ -305,19 +305,19 @@ const PRICING = [
 const FAQS = [
   {
     q: "What is IntegraHRIS 365?",
-    a: "IntegraHRIS 365 is a downloadable HRIS and payroll software for Philippine businesses. You install it on your own computer or server, pay a yearly subscription, and use it to manage employee records, timekeeping, payroll, leave, and reports — all with built-in SSS, PhilHealth, Pag-IBIG, and BIR compliance.",
+    a: "IntegraHRIS 365 is a subscription-based HRIS platform for Philippine businesses, offering a scalable solution for HR, payroll, and timekeeping management. Streamlining processes and improving workforce efficiency without additional manpower.",
   },
   {
     q: "Is IntegraHRIS 365 cloud-based or on-premise?",
-    a: "IntegraHRIS 365 is on-premise — you install it on your own hardware. This is different from our cloud edition, Integra HRIS Payroll Master Cloud, which runs on our servers. On-premise means your employee data stays in your office and you don't need a continuous internet connection to run payroll.",
+    a: "IntegraHRIS 365 is an on-premise HRIS solution deployed within the organization's own infrastructure. It ensures full data control by keeping employee information inside the agency's environment and supports system operation even without continuous internet connectivity.",
   },
   {
     q: "Is IntegraHRIS 365 BIR, SSS, PhilHealth, and Pag-IBIG compliant?",
-    a: "Yes. IntegraHRIS 365 automatically computes all four Philippine statutory deductions during payroll runs. When the government updates contribution tables or tax brackets, we release a free update you download and apply.",
+    a: "Yes. IntegraHRIS 365 automatically computes statutory deductions for BIR, SSS, PhilHealth, and Pag-IBIG during payroll processing. The system is regularly updated to reflect changes in government-mandated contribution tables and tax regulations.",
   },
   {
     q: "How many employees can IntegraHRIS 365 handle?",
-    a: "IntegraHRIS 365 has nine subscription tiers ranging from 19 employees (Micro plan) to 4,000 employees (Enterprise Max). For organizations above 4,000 employees, we offer custom enterprise pricing — contact our sales team.",
+    a: "IntegraHRIS 365 offers scalable subscription tiers supporting organizations from small teams (19 employees) up to large enterprises (4,000 employees). For organizations exceeding 4,000 employees, custom enterprise solutions and pricing are available.",
   },
   {
     q: "How much does IntegraHRIS 365 cost?",
@@ -328,32 +328,16 @@ const FAQS = [
     a: "Yes. A 5-year subscription saves you 50% off total fees compared to paying year by year, and includes the Employee Self-Service (ESS) module free of charge.",
   },
   {
-    q: "How long is the minimum contract?",
-    a: "The minimum subscription term is 1 year. Most customers renew annually, though 5-year subscriptions offer the best value.",
-  },
-  {
-    q: "What payment methods do you accept?",
-    a: "We accept BDO bank deposit, bank transfer, and corporate check payments. Contact our sales team for invoice processing, purchase orders, and enterprise billing arrangements.",
-  },
-  {
-    q: "How do I install IntegraHRIS 365?",
-    a: "After you subscribe, we email a download link and license key. Run the installer on your computer or server, enter the license key, and follow the built-in setup wizard. Most teams process their first payroll within 5 business days of installing.",
-  },
-  {
     q: "Does IntegraHRIS 365 integrate with biometric devices?",
-    a: "Yes. IntegraHRIS 365 integrates directly with Virdi biometric devices and imports time logs automatically, eliminating manual DTR encoding. Other biometric brands are supported through CSV or TXT file imports.",
+    a: "Yes. IntegraHRIS 365 integrates directly with Virdi biometric devices and imports time logs, eliminating manual DTR encoding.",
   },
   {
     q: "Can I transfer my license to a different computer?",
-    a: "Yes. Your IntegraHRIS 365 license is transferable at no cost. If you change computers, upgrade servers, or move offices, contact support and we'll reassign the license.",
+    a: "Yes. Your IntegraHRIS 365 license is transferable at no cost through email assistance. If you change computers, upgrade servers, or move offices, contact support and we'll reactivate the license.",
   },
   {
-    q: "Where can I access IntegraHRIS 365?",
-    a: "The main IntegraHRIS 365 application runs on the computer or server where you installed it. The optional Employee Self-Service (ESS) module — included free with 5-year subscriptions — can be accessed by employees from any desktop, laptop, tablet, or mobile browser.",
-  },
-  {
-    q: "What's the difference between IntegraHRIS 365 and IntegraHRIS Government?",
-    a: "IntegraHRIS 365 is our commercial edition for private companies. IntegraHRIS Government is tailored for Philippine government agencies with GSIS contribution tracking, plantilla management, and Civil Service Commission reporting. Both are built on the same core platform.",
+    q: "Can existing employee data be migrated to IntegraHRIS 365?",
+    a: "Yes. IntegraHRIS 365 supports data migration from Integra Payroll Master Edition for free of charge. Our implementation team assists in validating, importing, and organizing employee records to help ensure a smooth and accurate system transition.",
   },
 ];
 

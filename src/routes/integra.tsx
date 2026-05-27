@@ -287,32 +287,40 @@ const REPORTS = [
 
 const FAQS = [
   {
-    q: "Is Integra aligned with the Government Accounting Manual (GAM)?",
-    a: "Yes. Integra is aligned with the Government Accounting Manual from the ground up — not retrofitted. Every form, workflow, and report reflects the standards government agencies are already required to follow, including ICS, PAR, RIS, PTR, RPCPPE, RPCI, RSMI/RSPI, WMR, and Stock Card.",
+    q: "What is the Asset Management System?",
+    a: "The Asset Management System is a web-based platform designed to help government agencies manage the complete lifecycle of assets from acquisition and issuance to inventory monitoring, transfer, and disposal through a centralized and COA-aligned system.",
   },
   {
-    q: "What types of assets can Integra track?",
-    a: "Integra tracks office supplies, computers and laptops, printers, ink cartridges, copiers, furniture and fixtures, semi-expendables, equipment above ₱50,000, and company cars and vehicles. Each asset can be tagged via RFID or QR Code for a full traceable history.",
+    q: "Is the Asset Management System aligned with government and COA requirements?",
+    a: "Yes. The system is aligned with Government Accounting Manual (GAM) processes and supports COA-compliant asset monitoring, inventory management, reporting, and audit documentation requirements.",
   },
   {
-    q: "Does Integra support COA-required reports?",
-    a: "Yes. Integra generates the complete set of COA-required forms and reports — IAR, IIRUP, ICS, PAR, Property Card, PTR, RLSDDP, RSMI/RSPI, RPCI, RPCPPE, RIS, Stock Card, and WMR — all printable, exportable, and ready for audit.",
+    q: "What government forms are supported by the system?",
+    a: "The system supports standard government property and inventory forms including ICS, PAR, RIS, PTR, RPCPPE, RPCI, RSMI, RSPI, WMR, and Stock Card reports.",
   },
   {
-    q: "Can Integra interface with our existing systems?",
-    a: "Yes. Integra is built to interface with existing application systems and can be configured to your agency's workflows. It is web-based and accessible via any browser.",
+    q: "Can the system track the full lifecycle of government assets?",
+    a: "Yes. The system manages the complete asset lifecycle, including acquisition, recording, issuance, accountability, transfer, relocation, inventory monitoring, return, and disposal.",
   },
   {
-    q: "How does Integra handle vehicle and fleet assets?",
-    a: "For fleet assets, Integra tracks maintenance schedules, vehicle insurance, tire monitoring, battery status, and spare parts — keeping the full service history in one record.",
+    q: "Does the system support asset accountability and traceability?",
+    a: "Yes. The system tracks asset assignments per employee or office and maintains complete movement history, condition records, and audit trails for full accountability and traceability.",
   },
   {
-    q: "Is Integra secure for handling government asset data?",
-    a: "Integra uses a role-based access system, login and password protection with mandatory 30-day password changes, strong authentication with enforced password policies, and configurable session timeout set by the administrator.",
+    q: "Can the Asset Management System monitor inventories and physical counts?",
+    a: "Yes. The system supports inventory monitoring, physical count reporting, supplies and materials tracking, and consolidated or per-office inventory reporting aligned with government compliance requirements.",
   },
   {
-    q: "How are insurance reports handled?",
-    a: "Integra generates per-office insurance reports for fire insurance, floater insurance, and Engineering Electronic Equipment Insurance (EEEI), paired with RPCPPE-ICS and RPCPPE-PAR records.",
+    q: "Does the system support audit-ready documentation?",
+    a: "Yes. The system includes audit-ready features such as document attachment, approval workflows, transaction history, printable reports, and exportable audit trails for compliance and verification purposes.",
+  },
+  {
+    q: "Can the Asset Management System send notifications and alerts?",
+    a: "Yes. The system supports in-app notifications, email alerts, and system reminders to help users monitor asset-related activities, approvals, and inventory updates in real time.",
+  },
+  {
+    q: "Is the Asset Management System customizable?",
+    a: "Yes. The system supports configurable workflows, customizable processes, advanced search capabilities, and integration with existing application systems based on organizational requirements.",
   },
 ];
 

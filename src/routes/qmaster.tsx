@@ -271,32 +271,36 @@ const MODULES = [
 
 const FAQS = [
   {
-    q: "What is QMaster?",
-    a: "QMaster is Cosmotech's queue management system. It runs the floor for branches that serve thousands a day — ticketing, routing, displays, and analytics in one system. Deployed across 42 GSIS offices and counting.",
+    q: "What is QMaster Queue Management System?",
+    a: "QMaster is an intelligent queue management system designed to streamline customer flow, reduce waiting time, and improve service efficiency in high-volume environments. It centralizes ticketing, queue routing, digital displays, notifications, and analytics into one unified platform.",
   },
   {
-    q: "How quickly can a branch go live?",
-    a: "A standard pilot runs in seven days from signed scope: site survey on day one, hardware staged and configured by day three, training and dry-run on day five, live counter on day seven.",
+    q: "How does QMaster improve customer experience?",
+    a: "QMaster improves customer experience by reducing physical waiting lines, organizing customer flow, and providing real-time queue updates through digital displays and SMS notifications. This helps create faster, more convenient, and more efficient service interactions.",
   },
   {
-    q: "Do we need to replace our ticket printers and displays?",
-    a: "No. QMaster is hardware-agnostic. We support standard 80mm thermal printers and any HDMI/web-capable display. We'll certify your existing fleet during the site survey.",
+    q: "What industries can use the QMaster Queue Management System?",
+    a: "QMaster is ideal for government agencies, banks, healthcare facilities, retail stores, telecommunications providers, educational institutions, and other organizations managing high customer traffic and service queues.",
   },
   {
-    q: "What happens if the internet drops mid-day?",
-    a: "Each branch runs a local node. Tickets keep printing, queues keep moving, and dashboards keep updating on the LAN. Data syncs to head office automatically when the link returns.",
+    q: "Does QMaster support SMS notifications and digital displays?",
+    a: "Yes. QMaster supports SMS notifications, digital queue displays, counter displays, and announcement systems to keep customers informed about their queue status and service progress in real time.",
   },
   {
-    q: "Can we customize transaction types and priority rules?",
-    a: "Yes. Branch managers create unlimited groups, set per-group SLAs, and configure priority handling for SC, PWD, pregnant clients, and any custom flag — without writing code.",
+    q: "Can QMaster be customized based on operational requirements?",
+    a: "Yes. QMaster is designed to be scalable and configurable, allowing organizations to customize queue workflows, ticket categories, service counters, reporting dashboards, and user access controls according to operational requirements.",
   },
   {
-    q: "Is QMaster compliant with Philippine data privacy regulations?",
-    a: "Yes. QMaster is built to be Data Privacy Act (RA 10173) compliant, with role-based access, audit trails, and configurable password policies. It has passed VAPT security testing and is built against the OWASP Top 10 reference standard.",
+    q: "Does QMaster provide analytics and reporting?",
+    a: "Yes. QMaster includes real-time analytics and reporting tools that help organizations monitor queue performance, customer volume, service efficiency, waiting times, and operational trends for better decision-making.",
   },
   {
-    q: "Does QMaster integrate with our other systems?",
-    a: "QMaster ships with native integrations to URateMe (post-service ratings) and HelpDesk (escalations), plus a documented REST API for HRIS, CRM, and core banking systems.",
+    q: "Is QMaster suitable for government agencies and large organizations?",
+    a: "Yes. QMaster is built for high-volume service environments and is trusted by government institutions and enterprise organizations to manage customer flow efficiently across multiple branches and service areas.",
+  },
+  {
+    q: "Can QMaster operate across multiple branches or locations?",
+    a: "Yes. QMaster supports multi-branch deployment, enabling centralized monitoring and management of queue operations across multiple offices, branches, or service centers from a unified system.",
   },
 ];
 
