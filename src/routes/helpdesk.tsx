@@ -251,31 +251,35 @@ const MODULES = [
 const FAQS = [
   {
     q: "What is HelpDesk?",
-    a: "HelpDesk is a web/cloud-based support platform that automates how an organization handles customer complaints, incidents, and issues — providing real-time assistance to customers and complete visibility for the teams behind them.",
+    a: "HelpDesk is a web and cloud-based support management platform designed to streamline issue handling, automate service workflows, and enable real-time technical assistance. It helps organizations improve response efficiency, user satisfaction, service quality, and operational productivity.",
   },
   {
-    q: "Is HelpDesk delivered on-premise or in the cloud?",
-    a: "HelpDesk is a web/cloud-based solution and can be hosted in the cloud or deployed inside your own infrastructure, depending on your data residency requirements.",
+    q: "Can HelpDesk automate workflows and ticket routing?",
+    a: "Yes. HelpDesk supports customizable workflow automation, including ticket routing, escalation processes, notifications, and approval flows tailored to organizational requirements.",
   },
   {
-    q: "Is the system compliant with Philippine data privacy regulations?",
-    a: "Yes. HelpDesk is built to be Data Privacy Act (RA 10173) compliant, with role-based access, audit trails, and configurable password policies.",
+    q: "Does HelpDesk provide analytics and reporting?",
+    a: "Yes. HelpDesk includes analytics and reporting tools that help organizations monitor support performance, identify service trends, measure response times, and continuously improve service quality.",
   },
   {
-    q: "Has the system been security-tested?",
-    a: "HelpDesk has passed VAPT security testing and is built against the OWASP Top 10 reference standard. Two-Factor Authentication and configurable password policies are included.",
+    q: "Is HelpDesk secure and compliant?",
+    a: "Yes. HelpDesk is designed with role-based access controls, audit trails, security policies, and data privacy compliance features to help organizations maintain secure and accountable support operations.",
   },
   {
-    q: "Can workflows be changed without involving developers?",
-    a: "Yes. Workflows, reference tables, libraries, and forms are user-maintainable. Process changes do not require hard-coding or new releases.",
+    q: "Does HelpDesk include a knowledge base feature?",
+    a: "Yes. HelpDesk includes a centralized knowledge base that allows users and support teams to quickly access information, troubleshoot common issues, and improve resolution efficiency.",
   },
   {
-    q: "Does HelpDesk integrate with our existing systems?",
-    a: "Yes. HelpDesk is built to be interoperable with other IT systems — supporting integrations for user data, ticket sources, and downstream reporting.",
+    q: "Can HelpDesk help reduce recurring technical issues?",
+    a: "Yes. HelpDesk supports root-cause analysis to help organizations identify recurring issues, address underlying causes, and improve long-term service reliability.",
   },
   {
-    q: "Can requesters submit tickets from different channels?",
-    a: "Yes. Requesters can create, modify, escalate, resolve, close, and cancel incidents, issues, and service requests from various channels — keeping every party in the loop via in-app and email notifications.",
+    q: "Is HelpDesk scalable for growing organizations?",
+    a: "Yes. HelpDesk is built to scale with organizational growth, enabling teams to manage increasing support demands across multiple departments, branches, or operational units from a centralized platform.",
+  },
+  {
+    q: "What industries can use HelpDesk?",
+    a: "HelpDesk is suitable for government agencies, enterprises, educational institutions, healthcare organizations, and businesses requiring structured, secure, and efficient support management processes.",
   },
 ];
 
