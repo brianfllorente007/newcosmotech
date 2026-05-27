@@ -330,7 +330,7 @@ function DocutrakrPage() {
       <section className="flex flex-col overflow-hidden border-b border-border bg-bone pt-20 sm:pt-28">
         <Container>
           <div className="reveal mx-auto flex max-w-3xl flex-col items-center text-center">
-            <img src={docutrakrLogo} alt="Docutrakr" className="mb-6 h-7 w-auto sm:h-8" />
+            <img src={docutrakrLogo} alt="Docutrakr" className="mb-6 h-9 w-auto sm:h-11" />
             <h1 className="mt-4 text-4xl font-semibold leading-[1.05] tracking-tight sm:text-5xl md:text-6xl">
               Document Tracking with QR Code Workflow Automation
             </h1>
