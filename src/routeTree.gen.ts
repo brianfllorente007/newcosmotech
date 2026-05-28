@@ -26,6 +26,7 @@ import { Route as CareersRouteImport } from './routes/careers'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as SolutionsSlugRouteImport } from './routes/solutions.$slug'
+import { Route as CareersSlugRouteImport } from './routes/careers.$slug'
 import { Route as LovableEmailQueueProcessRouteImport } from './routes/lovable/email/queue/process'
 
 const UratemeRoute = UratemeRouteImport.update({
@@ -113,6 +114,11 @@ const SolutionsSlugRoute = SolutionsSlugRouteImport.update({
   path: '/$slug',
   getParentRoute: () => SolutionsRoute,
 } as any)
+const CareersSlugRoute = CareersSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => CareersRoute,
+} as any)
 const LovableEmailQueueProcessRoute =
   LovableEmailQueueProcessRouteImport.update({
     id: '/lovable/email/queue/process',
@@ -123,7 +129,7 @@ const LovableEmailQueueProcessRoute =
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/careers': typeof CareersRoute
+  '/careers': typeof CareersRouteWithChildren
   '/contact': typeof ContactRoute
   '/docutrakr': typeof DocutrakrRoute
   '/gpms': typeof GpmsRoute
@@ -137,13 +143,14 @@ export interface FileRoutesByFullPath {
   '/services': typeof ServicesRoute
   '/solutions': typeof SolutionsRouteWithChildren
   '/urateme': typeof UratemeRoute
+  '/careers/$slug': typeof CareersSlugRoute
   '/solutions/$slug': typeof SolutionsSlugRoute
   '/lovable/email/queue/process': typeof LovableEmailQueueProcessRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/careers': typeof CareersRoute
+  '/careers': typeof CareersRouteWithChildren
   '/contact': typeof ContactRoute
   '/docutrakr': typeof DocutrakrRoute
   '/gpms': typeof GpmsRoute
@@ -157,6 +164,7 @@ export interface FileRoutesByTo {
   '/services': typeof ServicesRoute
   '/solutions': typeof SolutionsRouteWithChildren
   '/urateme': typeof UratemeRoute
+  '/careers/$slug': typeof CareersSlugRoute
   '/solutions/$slug': typeof SolutionsSlugRoute
   '/lovable/email/queue/process': typeof LovableEmailQueueProcessRoute
 }
@@ -164,7 +172,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/careers': typeof CareersRoute
+  '/careers': typeof CareersRouteWithChildren
   '/contact': typeof ContactRoute
   '/docutrakr': typeof DocutrakrRoute
   '/gpms': typeof GpmsRoute
@@ -178,6 +186,7 @@ export interface FileRoutesById {
   '/services': typeof ServicesRoute
   '/solutions': typeof SolutionsRouteWithChildren
   '/urateme': typeof UratemeRoute
+  '/careers/$slug': typeof CareersSlugRoute
   '/solutions/$slug': typeof SolutionsSlugRoute
   '/lovable/email/queue/process': typeof LovableEmailQueueProcessRoute
 }
@@ -200,6 +209,7 @@ export interface FileRouteTypes {
     | '/services'
     | '/solutions'
     | '/urateme'
+    | '/careers/$slug'
     | '/solutions/$slug'
     | '/lovable/email/queue/process'
   fileRoutesByTo: FileRoutesByTo
@@ -220,6 +230,7 @@ export interface FileRouteTypes {
     | '/services'
     | '/solutions'
     | '/urateme'
+    | '/careers/$slug'
     | '/solutions/$slug'
     | '/lovable/email/queue/process'
   id:
@@ -240,6 +251,7 @@ export interface FileRouteTypes {
     | '/services'
     | '/solutions'
     | '/urateme'
+    | '/careers/$slug'
     | '/solutions/$slug'
     | '/lovable/email/queue/process'
   fileRoutesById: FileRoutesById
@@ -247,7 +259,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
-  CareersRoute: typeof CareersRoute
+  CareersRoute: typeof CareersRouteWithChildren
   ContactRoute: typeof ContactRoute
   DocutrakrRoute: typeof DocutrakrRoute
   GpmsRoute: typeof GpmsRoute
@@ -385,6 +397,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SolutionsSlugRouteImport
       parentRoute: typeof SolutionsRoute
     }
+    '/careers/$slug': {
+      id: '/careers/$slug'
+      path: '/$slug'
+      fullPath: '/careers/$slug'
+      preLoaderRoute: typeof CareersSlugRouteImport
+      parentRoute: typeof CareersRoute
+    }
     '/lovable/email/queue/process': {
       id: '/lovable/email/queue/process'
       path: '/lovable/email/queue/process'
@@ -394,6 +413,17 @@ declare module '@tanstack/react-router' {
     }
   }
 }
+
+interface CareersRouteChildren {
+  CareersSlugRoute: typeof CareersSlugRoute
+}
+
+const CareersRouteChildren: CareersRouteChildren = {
+  CareersSlugRoute: CareersSlugRoute,
+}
+
+const CareersRouteWithChildren =
+  CareersRoute._addFileChildren(CareersRouteChildren)
 
 interface SolutionsRouteChildren {
   SolutionsSlugRoute: typeof SolutionsSlugRoute
@@ -410,7 +440,7 @@ const SolutionsRouteWithChildren = SolutionsRoute._addFileChildren(
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
-  CareersRoute: CareersRoute,
+  CareersRoute: CareersRouteWithChildren,
   ContactRoute: ContactRoute,
   DocutrakrRoute: DocutrakrRoute,
   GpmsRoute: GpmsRoute,
@@ -429,3 +459,12 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { createStart } from '@tanstack/react-start'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+  }
+}
