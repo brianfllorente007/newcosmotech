@@ -1,0 +1,342 @@
+<!--
+  Docutrakr — Modules and Capabilities (Embeddable HTML widget)
+  Self-contained: HTML + CSS + vanilla JS. No frameworks, no dependencies.
+  Drop into Elementor HTML widget, WordPress Custom HTML block, or any CMS.
+
+  Features:
+    • Pinned sticky visual on the right (desktop ≥1024px)
+    • Scroll-driven active feature on the left (always in view while scrolling)
+    • Click any title to smooth-scroll to that segment
+    • Fade swap of the product image as you scroll between features
+    • All 8 product images preloaded for instant swaps
+    • Mobile (<1024px): pinned behavior off, a mini visual appears under each item
+
+  Setup:
+    1. Replace the 8 https://YOUR-CDN/docutrakr/*.png URLs (data-img attributes
+       AND the initial <img src=…> below) with your WP Media Library URLs.
+    2. Optional: tweak the CSS variables at the top of .dtf (accent, bg, max width).
+-->
+<section class="dtf" aria-label="Docutrakr modules and capabilities">
+  <div class="dtf-container">
+    <header class="dtf-head">
+      <span class="dtf-eyebrow">What's inside</span>
+      <h2 class="dtf-title">Modules and Capabilities</h2>
+      <p class="dtf-sub">Docutrakr ships with everything you need — QR-coded receiving, configurable workflows, notifications, dashboards, security, and report management.</p>
+    </header>
+
+    <!-- Scroll-driver: outer wrapper is tall (N * 90vh on desktop). Inner is sticky. -->
+    <div class="dtf-driver" data-step-vh="90">
+      <div class="dtf-sticky">
+        <div class="dtf-grid">
+          <!-- LEFT: feature list -->
+          <ul class="dtf-list" role="tablist">
+            <li class="dtf-item is-active" data-img="https://YOUR-CDN/docutrakr/document-receiving.png">
+              <button type="button" class="dtf-trigger" aria-expanded="true">
+                <span class="dtf-h3">Document Receiving and Processing</span>
+              </button>
+              <div class="dtf-panel">
+                <p class="dtf-body">Every document gets a unique QR or document code at the point of receipt, with a printable workflow checklist and full timestamp record.</p>
+                <ul class="dtf-checks">
+                  <li>QR code / document code generation at receipt</li>
+                  <li>Printable workflow checklist per document</li>
+                  <li>Attach related documents to a parent record</li>
+                </ul>
+              </div>
+            </li>
+
+            <li class="dtf-item" data-img="https://YOUR-CDN/docutrakr/workflow-management.png">
+              <button type="button" class="dtf-trigger" aria-expanded="false">
+                <span class="dtf-h3">Workflow Management — Configurable Per Document Type</span>
+              </button>
+              <div class="dtf-panel">
+                <p class="dtf-body">Configure the workflow for each document type with a defined sequence of steps, processor assignments, and turnaround time per step. Sequences are flexible and re-orderable. The system computes time spent per processor and per department, and generates a workflow diagram for every document.</p>
+                <ul class="dtf-checks">
+                  <li>Per-step processors and turnaround times</li>
+                  <li>Re-orderable workflow sequences</li>
+                  <li>Auto-generated workflow diagrams</li>
+                </ul>
+              </div>
+            </li>
+
+            <li class="dtf-item" data-img="https://YOUR-CDN/docutrakr/notifications.png">
+              <button type="button" class="dtf-trigger" aria-expanded="false">
+                <span class="dtf-h3">Notifications — Email and In-App</span>
+              </button>
+              <div class="dtf-panel">
+                <p class="dtf-body">Email and in-app notifications fire automatically. Requestors are notified each time the document is received by a new processor, with the current status. Processors are notified when a document arrives in their queue.</p>
+                <ul class="dtf-checks">
+                  <li>Requestor notifications on every status change</li>
+                  <li>Processor notifications on new arrivals</li>
+                  <li>Configurable templates per event</li>
+                </ul>
+              </div>
+            </li>
+
+            <li class="dtf-item" data-img="https://YOUR-CDN/docutrakr/dashboard.png">
+              <button type="button" class="dtf-trigger" aria-expanded="false">
+                <span class="dtf-h3">Dashboard and Analytics — Real-Time</span>
+              </button>
+              <div class="dtf-panel">
+                <p class="dtf-body">A customizable dashboard displays real-time summaries of document volume, status, and processing performance in charts and graphs. Built-in analytics surface insights for management decision-making — which departments are processing fastest, which documents are overdue, where bottlenecks are forming.</p>
+                <ul class="dtf-checks">
+                  <li>Real-time document volume and status</li>
+                  <li>Processing performance in charts and graphs</li>
+                  <li>Bottleneck and overdue document surfacing</li>
+                </ul>
+              </div>
+            </li>
+
+            <li class="dtf-item" data-img="https://YOUR-CDN/docutrakr/security.png">
+              <button type="button" class="dtf-trigger" aria-expanded="false">
+                <span class="dtf-h3">System Security — 2FA, Audit Trail, and Policy</span>
+              </button>
+              <div class="dtf-panel">
+                <p class="dtf-body">Two-factor authentication using password and CAPTCHA. Configurable password policy. Full audit trail of every user action, retrievable and printable for internal governance and external audit.</p>
+                <ul class="dtf-checks">
+                  <li>Two-factor authentication (password + CAPTCHA)</li>
+                  <li>Configurable password policy</li>
+                  <li>Retrievable, printable audit trail</li>
+                </ul>
+              </div>
+            </li>
+
+            <li class="dtf-item" data-img="https://YOUR-CDN/docutrakr/reference-tables.png">
+              <button type="button" class="dtf-trigger" aria-expanded="false">
+                <span class="dtf-h3">Configurable Reference Tables</span>
+              </button>
+              <div class="dtf-panel">
+                <p class="dtf-body">Adapt the system to any organization's structure — organizational units with multiple levels, employees by assignment, locations with multiple tiers, document statuses per phase, and processes with definable turnaround time per step.</p>
+                <ul class="dtf-checks">
+                  <li>Multi-level organizational units</li>
+                  <li>Multi-tier storage locations</li>
+                  <li>Per-phase document statuses and TATs</li>
+                </ul>
+              </div>
+            </li>
+
+            <li class="dtf-item" data-img="https://YOUR-CDN/docutrakr/reports.png">
+              <button type="button" class="dtf-trigger" aria-expanded="false">
+                <span class="dtf-h3">Report Management — Excel, CSV, PDF</span>
+              </button>
+              <div class="dtf-panel">
+                <p class="dtf-body">Generate document tracking reports in Excel, CSV, or PDF: received documents for the day or period, per organizational unit, processed-on-schedule lists, top-performing departments and employees, customizable reports, and a printable audit trail report.</p>
+                <ul class="dtf-checks">
+                  <li>Received and processed documents by day, period, or org unit</li>
+                  <li>On-schedule vs delayed reporting</li>
+                  <li>Top-performing departments and employees of the month</li>
+                </ul>
+              </div>
+            </li>
+
+            <li class="dtf-item" data-img="https://YOUR-CDN/docutrakr/filing-archival.png">
+              <button type="button" class="dtf-trigger" aria-expanded="false">
+                <span class="dtf-h3">Filing and Archival</span>
+              </button>
+              <div class="dtf-panel">
+                <p class="dtf-body">Log the filing location of every document and its attachments — with multiple definable tiers like building, floor, cabinet, and folder. Find any archived document by scanning its code or searching.</p>
+                <ul class="dtf-checks">
+                  <li>Multi-tier filing location capture</li>
+                  <li>Attachment filing tracked with parent</li>
+                  <li>Searchable archive by QR or document code</li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+
+          <!-- RIGHT: pinned visual -->
+          <div class="dtf-visual">
+            <div class="dtf-visual-frame">
+              <img class="dtf-visual-img" alt="Docutrakr feature preview"
+                   src="https://YOUR-CDN/docutrakr/document-receiving.png" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .dtf{
+    --dtf-accent:#2747d6;
+    --dtf-bg:#f7f7f2;
+    --dtf-fg:#0b1220;
+    --dtf-muted:#6b7280;
+    --dtf-border:rgba(11,18,32,.10);
+    --dtf-radius:24px;
+    --dtf-max:1200px;
+
+    background:var(--dtf-bg);
+    color:var(--dtf-fg);
+    font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+    padding:clamp(48px,8vw,96px) 0;
+  }
+  .dtf *,.dtf *::before,.dtf *::after{box-sizing:border-box}
+  .dtf-container{max-width:var(--dtf-max);margin:0 auto;padding:0 clamp(16px,4vw,32px)}
+
+  /* Header */
+  .dtf-head{max-width:760px;margin:0 0 clamp(32px,4vw,56px)}
+  .dtf-eyebrow{
+    display:inline-block;font-size:.75rem;font-weight:600;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--dtf-accent);margin-bottom:14px;
+  }
+  .dtf-title{
+    font-size:clamp(1.75rem,3.4vw,2.75rem);font-weight:700;
+    letter-spacing:-.02em;line-height:1.1;margin:0 0 14px;
+  }
+  .dtf-sub{font-size:clamp(1rem,1.2vw,1.125rem);color:var(--dtf-muted);margin:0;line-height:1.55}
+
+  /* Scroll driver — height set by JS = items * step-vh on desktop */
+  .dtf-driver{position:relative}
+  .dtf-sticky{position:relative}
+
+  .dtf-grid{display:grid;gap:32px;grid-template-columns:1fr}
+
+  /* List */
+  .dtf-list{list-style:none;margin:0;padding:0;border-top:1px solid var(--dtf-border)}
+  .dtf-item{border-bottom:1px solid var(--dtf-border);padding:14px 0}
+  .dtf-trigger{
+    appearance:none;background:none;border:0;padding:0;margin:0;width:100%;text-align:left;
+    cursor:pointer;color:inherit;font:inherit;
+  }
+  .dtf-trigger:focus-visible{outline:2px solid var(--dtf-accent);outline-offset:4px;border-radius:4px}
+  .dtf-h3{
+    display:block;font-size:clamp(1.125rem,1.7vw,1.375rem);font-weight:600;
+    letter-spacing:-.01em;line-height:1.25;
+    color:rgba(11,18,32,.30);transition:color .5s ease;
+  }
+  .dtf-trigger:hover .dtf-h3{color:rgba(11,18,32,.60)}
+  .dtf-item.is-active .dtf-h3{color:var(--dtf-fg)}
+
+  .dtf-panel{
+    display:grid;grid-template-rows:0fr;opacity:0;
+    transition:grid-template-rows .5s ease, opacity .5s ease, margin-top .5s ease;
+    margin-top:0;
+  }
+  .dtf-item.is-active .dtf-panel{grid-template-rows:1fr;opacity:1;margin-top:10px}
+  .dtf-panel > *{min-height:0;overflow:hidden}
+  .dtf-body{margin:0;color:var(--dtf-muted);font-size:.975rem;line-height:1.6}
+  .dtf-checks{list-style:none;margin:12px 0 4px;padding:0;display:grid;gap:8px}
+  .dtf-checks li{
+    position:relative;padding-left:30px;font-size:.95rem;line-height:1.5;color:var(--dtf-fg);
+  }
+  .dtf-checks li::before{
+    content:"";position:absolute;left:0;top:.2em;width:20px;height:20px;background:var(--dtf-accent);
+    -webkit-mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><polyline points='20 6 9 17 4 12'/></svg>") center/contain no-repeat;
+            mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><polyline points='20 6 9 17 4 12'/></svg>") center/contain no-repeat;
+  }
+
+  /* Visual */
+  .dtf-visual{display:none}
+  .dtf-visual-frame{
+    position:relative;aspect-ratio:3/2;border-radius:var(--dtf-radius);overflow:hidden;
+    background:rgba(11,18,32,.04);
+  }
+  .dtf-visual-img{
+    position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:top;
+    transition:opacity .35s ease;
+  }
+  .dtf-visual-img.is-swapping{opacity:0}
+
+  /* Mobile-only inline visual under each active item */
+  .dtf-item .dtf-mini{
+    display:block;margin-top:14px;aspect-ratio:3/2;border-radius:18px;overflow:hidden;
+    background:rgba(11,18,32,.04);
+  }
+  .dtf-item .dtf-mini img{width:100%;height:100%;object-fit:contain;object-position:top;display:block}
+
+  /* Desktop ≥1024px: pinned scroll layout */
+  @media (min-width:1024px){
+    .dtf-sticky{position:sticky;top:96px;min-height:calc(100vh - 7rem);display:flex;align-items:center;padding:16px 0}
+    .dtf-grid{grid-template-columns:1.05fr 1fr;gap:56px;width:100%}
+    .dtf-visual{display:block}
+    .dtf-item .dtf-mini{display:none}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .dtf-h3,.dtf-panel,.dtf-visual-img{transition:none !important}
+  }
+</style>
+
+<script>
+(function(){
+  const section = document.querySelector('.dtf');
+  if(!section) return;
+  const driver = section.querySelector('.dtf-driver');
+  const items  = Array.from(section.querySelectorAll('.dtf-item'));
+  const visual = section.querySelector('.dtf-visual-img');
+  const stepVH = parseFloat(driver.dataset.stepVh || '90');
+  const isDesktop = () => window.matchMedia('(min-width:1024px)').matches;
+
+  // Preload all images so swaps are instant
+  items.forEach(it => { const u = it.dataset.img; if(u){ const i = new Image(); i.src = u; } });
+
+  // Inject a mobile mini-visual inside each item
+  items.forEach(it => {
+    const url = it.dataset.img;
+    if(!url) return;
+    const mini = document.createElement('div');
+    mini.className = 'dtf-mini';
+    mini.innerHTML = '<img loading="lazy" alt="" src="'+url+'">';
+    it.appendChild(mini);
+  });
+
+  let active = 0;
+  function setActive(i, doSwap=true){
+    if(i === active) return;
+    active = i;
+    items.forEach((it, idx) => {
+      const on = idx === i;
+      it.classList.toggle('is-active', on);
+      const btn = it.querySelector('.dtf-trigger');
+      if(btn) btn.setAttribute('aria-expanded', on ? 'true' : 'false');
+    });
+    if(visual && doSwap){
+      const url = items[i].dataset.img;
+      if(url && visual.getAttribute('src') !== url){
+        visual.classList.add('is-swapping');
+        setTimeout(() => {
+          visual.setAttribute('src', url);
+          requestAnimationFrame(() => requestAnimationFrame(() => visual.classList.remove('is-swapping')));
+        }, 180);
+      }
+    }
+  }
+
+  function setHeight(){
+    if(isDesktop()){
+      driver.style.height = (items.length * stepVH) + 'vh';
+    } else {
+      driver.style.height = 'auto';
+    }
+  }
+
+  function onScroll(){
+    if(!isDesktop()){ if(active!==0) setActive(0,false); return; }
+    const rect = driver.getBoundingClientRect();
+    const total = driver.offsetHeight - window.innerHeight;
+    const scrolled = Math.min(Math.max(-rect.top, 0), total);
+    const progress = total > 0 ? scrolled / total : 0;
+    const idx = Math.min(items.length - 1, Math.floor(progress * items.length));
+    if(idx !== active) setActive(idx);
+  }
+
+  // Click title → scroll to that segment
+  items.forEach((it, i) => {
+    const btn = it.querySelector('.dtf-trigger');
+    if(!btn) return;
+    btn.addEventListener('click', () => {
+      if(!isDesktop()){ setActive(i); return; }
+      const total = driver.offsetHeight - window.innerHeight;
+      const targetProgress = (i + 0.5) / items.length;
+      const top = driver.offsetTop + total * targetProgress;
+      window.scrollTo({ top, behavior:'smooth' });
+    });
+  });
+
+  setHeight();
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive:true });
+  window.addEventListener('resize', () => { setHeight(); onScroll(); });
+})();
+</script>
