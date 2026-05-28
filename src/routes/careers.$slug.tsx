@@ -89,7 +89,7 @@ function JobDetailPage() {
           <div className="grid gap-12 lg:grid-cols-[1.5fr_1fr] lg:gap-16">
             <div className="min-w-0">
               <div className="space-y-4 text-base leading-relaxed text-muted-foreground sm:text-lg">
-                {job.summary.map((p, i) => (
+                {job.summary.map((p: string, i: number) => (
                   <p key={i}>{p}</p>
                 ))}
               </div>
@@ -99,7 +99,7 @@ function JobDetailPage() {
                   Primary Responsibilities
                 </h2>
                 <ul className="mt-5 space-y-3">
-                  {job.responsibilities.map((r, i) => (
+                  {job.responsibilities.map((r: string, i: number) => (
                     <li
                       key={i}
                       className="flex gap-3 text-sm leading-relaxed text-muted-foreground sm:text-base"
@@ -119,7 +119,7 @@ function JobDetailPage() {
                   Qualifications
                 </h2>
                 <ul className="mt-5 space-y-3">
-                  {job.qualifications.map((q, i) => (
+                  {job.qualifications.map((q: string, i: number) => (
                     <li
                       key={i}
                       className="flex gap-3 text-sm leading-relaxed text-muted-foreground sm:text-base"
