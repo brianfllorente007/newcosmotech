@@ -22,9 +22,9 @@ import { Route as HelpdeskRouteImport } from './routes/helpdesk'
 import { Route as GpmsRouteImport } from './routes/gpms'
 import { Route as DocutrakrRouteImport } from './routes/docutrakr'
 import { Route as ContactRouteImport } from './routes/contact'
-import { Route as CareersRouteImport } from './routes/careers'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CareersIndexRouteImport } from './routes/careers.index'
 import { Route as SolutionsSlugRouteImport } from './routes/solutions.$slug'
 import { Route as CareersQaTesterAutomationRouteImport } from './routes/careers.qa-tester-automation'
 import { Route as CareersItTraineeRouteImport } from './routes/careers.it-trainee'
@@ -97,11 +97,6 @@ const ContactRoute = ContactRouteImport.update({
   path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
-const CareersRoute = CareersRouteImport.update({
-  id: '/careers',
-  path: '/careers',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
@@ -110,6 +105,11 @@ const AboutRoute = AboutRouteImport.update({
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CareersIndexRoute = CareersIndexRouteImport.update({
+  id: '/careers/',
+  path: '/careers/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SolutionsSlugRoute = SolutionsSlugRouteImport.update({
@@ -149,7 +149,6 @@ const LovableEmailQueueProcessRoute =
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/careers': typeof CareersRouteWithChildren
   '/contact': typeof ContactRoute
   '/docutrakr': typeof DocutrakrRoute
   '/gpms': typeof GpmsRoute
@@ -168,12 +167,12 @@ export interface FileRoutesByFullPath {
   '/careers/it-trainee': typeof CareersItTraineeRoute
   '/careers/qa-tester-automation': typeof CareersQaTesterAutomationRoute
   '/solutions/$slug': typeof SolutionsSlugRoute
+  '/careers/': typeof CareersIndexRoute
   '/lovable/email/queue/process': typeof LovableEmailQueueProcessRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/careers': typeof CareersRouteWithChildren
   '/contact': typeof ContactRoute
   '/docutrakr': typeof DocutrakrRoute
   '/gpms': typeof GpmsRoute
@@ -192,13 +191,13 @@ export interface FileRoutesByTo {
   '/careers/it-trainee': typeof CareersItTraineeRoute
   '/careers/qa-tester-automation': typeof CareersQaTesterAutomationRoute
   '/solutions/$slug': typeof SolutionsSlugRoute
+  '/careers': typeof CareersIndexRoute
   '/lovable/email/queue/process': typeof LovableEmailQueueProcessRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/careers': typeof CareersRouteWithChildren
   '/contact': typeof ContactRoute
   '/docutrakr': typeof DocutrakrRoute
   '/gpms': typeof GpmsRoute
@@ -217,6 +216,7 @@ export interface FileRoutesById {
   '/careers/it-trainee': typeof CareersItTraineeRoute
   '/careers/qa-tester-automation': typeof CareersQaTesterAutomationRoute
   '/solutions/$slug': typeof SolutionsSlugRoute
+  '/careers/': typeof CareersIndexRoute
   '/lovable/email/queue/process': typeof LovableEmailQueueProcessRoute
 }
 export interface FileRouteTypes {
@@ -224,7 +224,6 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
-    | '/careers'
     | '/contact'
     | '/docutrakr'
     | '/gpms'
@@ -243,12 +242,12 @@ export interface FileRouteTypes {
     | '/careers/it-trainee'
     | '/careers/qa-tester-automation'
     | '/solutions/$slug'
+    | '/careers/'
     | '/lovable/email/queue/process'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
-    | '/careers'
     | '/contact'
     | '/docutrakr'
     | '/gpms'
@@ -267,12 +266,12 @@ export interface FileRouteTypes {
     | '/careers/it-trainee'
     | '/careers/qa-tester-automation'
     | '/solutions/$slug'
+    | '/careers'
     | '/lovable/email/queue/process'
   id:
     | '__root__'
     | '/'
     | '/about'
-    | '/careers'
     | '/contact'
     | '/docutrakr'
     | '/gpms'
@@ -291,13 +290,13 @@ export interface FileRouteTypes {
     | '/careers/it-trainee'
     | '/careers/qa-tester-automation'
     | '/solutions/$slug'
+    | '/careers/'
     | '/lovable/email/queue/process'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
-  CareersRoute: typeof CareersRouteWithChildren
   ContactRoute: typeof ContactRoute
   DocutrakrRoute: typeof DocutrakrRoute
   GpmsRoute: typeof GpmsRoute
@@ -311,6 +310,7 @@ export interface RootRouteChildren {
   ServicesRoute: typeof ServicesRoute
   SolutionsRoute: typeof SolutionsRouteWithChildren
   UratemeRoute: typeof UratemeRoute
+  CareersIndexRoute: typeof CareersIndexRoute
   LovableEmailQueueProcessRoute: typeof LovableEmailQueueProcessRoute
 }
 
@@ -407,13 +407,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/careers': {
-      id: '/careers'
-      path: '/careers'
-      fullPath: '/careers'
-      preLoaderRoute: typeof CareersRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/about': {
       id: '/about'
       path: '/about'
@@ -426,6 +419,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/careers/': {
+      id: '/careers/'
+      path: '/careers'
+      fullPath: '/careers/'
+      preLoaderRoute: typeof CareersIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/solutions/$slug': {
@@ -473,23 +473,6 @@ declare module '@tanstack/react-router' {
   }
 }
 
-interface CareersRouteChildren {
-  CareersAccountManagementTraineeRoute: typeof CareersAccountManagementTraineeRoute
-  CareersBackendDeveloperRoute: typeof CareersBackendDeveloperRoute
-  CareersItTraineeRoute: typeof CareersItTraineeRoute
-  CareersQaTesterAutomationRoute: typeof CareersQaTesterAutomationRoute
-}
-
-const CareersRouteChildren: CareersRouteChildren = {
-  CareersAccountManagementTraineeRoute: CareersAccountManagementTraineeRoute,
-  CareersBackendDeveloperRoute: CareersBackendDeveloperRoute,
-  CareersItTraineeRoute: CareersItTraineeRoute,
-  CareersQaTesterAutomationRoute: CareersQaTesterAutomationRoute,
-}
-
-const CareersRouteWithChildren =
-  CareersRoute._addFileChildren(CareersRouteChildren)
-
 interface SolutionsRouteChildren {
   SolutionsSlugRoute: typeof SolutionsSlugRoute
 }
@@ -505,7 +488,6 @@ const SolutionsRouteWithChildren = SolutionsRoute._addFileChildren(
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
-  CareersRoute: CareersRouteWithChildren,
   ContactRoute: ContactRoute,
   DocutrakrRoute: DocutrakrRoute,
   GpmsRoute: GpmsRoute,
@@ -519,8 +501,18 @@ const rootRouteChildren: RootRouteChildren = {
   ServicesRoute: ServicesRoute,
   SolutionsRoute: SolutionsRouteWithChildren,
   UratemeRoute: UratemeRoute,
+  CareersIndexRoute: CareersIndexRoute,
   LovableEmailQueueProcessRoute: LovableEmailQueueProcessRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { createStart } from '@tanstack/react-start'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+  }
+}
