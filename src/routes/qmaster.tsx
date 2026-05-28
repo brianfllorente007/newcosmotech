@@ -33,6 +33,7 @@ import securityImg from "@/assets/qmaster/modules/security.png";
 
 import { Container } from "@/components/Container";
 import { Eyebrow, SectionHeading } from "@/components/SectionHeading";
+import productLogo from "@/assets/logos/products/qmaster-dark.webp";
 import {
   Accordion,
   AccordionContent,
@@ -367,7 +368,7 @@ function QMasterPage() {
         <Container>
           <div className="reveal grid gap-12 lg:grid-cols-2 lg:items-end lg:gap-8">
             <div className="pb-20 sm:pb-28">
-              <Eyebrow>QMaster</Eyebrow>
+              <img src={productLogo} alt="QMaster" className="mb-6 h-9 w-auto sm:h-11" />
               <h1 className="mt-4 text-4xl font-semibold leading-[1.05] tracking-tight sm:text-5xl md:text-6xl">
                 The Queue Management System That Runs the Floor
               </h1>

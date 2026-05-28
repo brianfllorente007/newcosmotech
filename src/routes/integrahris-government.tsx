@@ -45,6 +45,7 @@ import {
 } from "lucide-react";
 import { Container } from "@/components/Container";
 import { Eyebrow, SectionHeading } from "@/components/SectionHeading";
+import productLogo from "@/assets/logos/products/integrahris-govt-dark.webp";
 import {
   Accordion,
   AccordionContent,
@@ -352,7 +353,7 @@ function IntegraHrisGovernmentPage() {
           <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
             {/* TEXT — LEFT */}
             <div className="reveal order-2 lg:order-1">
-              <Eyebrow>IntegraHRIS Government Edition</Eyebrow>
+              <img src={productLogo} alt="IntegraHRIS Government Edition" className="mb-6 h-9 w-auto sm:h-11" />
               <h1 className="mt-4 text-4xl font-semibold leading-[1.05] tracking-tight sm:text-5xl md:text-6xl">
                 Internal Administration Management System (IAMS) for Philippine Agencies
               </h1>

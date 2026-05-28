@@ -29,6 +29,7 @@ import { Container } from "@/components/Container";
 import { cn } from "@/lib/utils";
 import integraHero from "@/assets/integra/hero-issuance.png";
 import { Eyebrow, SectionHeading } from "@/components/SectionHeading";
+import productLogo from "@/assets/logos/products/integra-asset-dark.png";
 import {
   Accordion,
   AccordionContent,
@@ -352,7 +353,7 @@ function IntegraPage() {
         <Container>
           <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-8">
             <div className="reveal">
-              <Eyebrow>Integra</Eyebrow>
+              <img src={productLogo} alt="Integra Asset Management" className="mb-6 h-9 w-auto sm:h-11" />
               <h1 className="mt-4 text-4xl font-semibold leading-[1.05] tracking-tight sm:text-5xl md:text-6xl">
                 Asset Management System for Philippine Government Agencies
               </h1>
