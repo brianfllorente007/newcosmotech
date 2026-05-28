@@ -82,7 +82,10 @@ function AccountManagementTraineePage() {
               </h3>
               <ul className="mt-6 space-y-4">
                 {job.responsibilities.map((responsibility) => (
-                  <li key={responsibility} className="flex gap-3 text-sm leading-relaxed text-muted-foreground sm:text-base">
+                  <li
+                    key={responsibility}
+                    className="flex gap-3 text-sm leading-relaxed text-muted-foreground sm:text-base"
+                  >
                     <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-cobalt" />
                     <span>{responsibility}</span>
                   </li>
@@ -99,7 +102,10 @@ function AccountManagementTraineePage() {
               </h3>
               <ul className="mt-6 space-y-4">
                 {job.qualifications.map((qualification) => (
-                  <li key={qualification} className="flex gap-3 text-sm leading-relaxed text-muted-foreground sm:text-base">
+                  <li
+                    key={qualification}
+                    className="flex gap-3 text-sm leading-relaxed text-muted-foreground sm:text-base"
+                  >
                     <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-brass" />
                     <span>{qualification}</span>
                   </li>
@@ -114,7 +120,8 @@ function AccountManagementTraineePage() {
                 Ready to apply?
               </h2>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground sm:text-base">
-                Send your CV and a short note about why you'd be a great fit for the Account Management Trainee role.
+                Send your CV and a short note about why you'd be a great fit for the Account
+                Management Trainee role.
               </p>
             </div>
             <a
