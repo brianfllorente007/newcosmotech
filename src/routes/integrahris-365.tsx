@@ -39,6 +39,7 @@ const MODULE_IMAGES: Record<string, { src: string; alt: string }> = {
 
 };
 import { Eyebrow, SectionHeading } from "@/components/SectionHeading";
+import productLogo from "@/assets/logos/products/integrahris365-dark.webp";
 import {
   Accordion,
   AccordionContent,
@@ -379,7 +380,7 @@ function IntegraHris365Page() {
       <section className="border-b border-border bg-bone pt-20 sm:pt-24 pb-0">
         <Container>
           <div className="reveal mx-auto max-w-3xl text-center">
-            <Eyebrow className="justify-center">IntegraHRIS 365</Eyebrow>
+            <img src={productLogo} alt="IntegraHRIS 365" className="mx-auto mb-6 h-9 w-auto sm:h-11" />
             <h1 className="mt-4 text-4xl font-semibold leading-[1.05] tracking-tight sm:text-5xl md:text-6xl">
               The Downloadable HRIS and Payroll Software for the Philippines
             </h1>

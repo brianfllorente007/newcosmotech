@@ -23,6 +23,7 @@ import { Container } from "@/components/Container";
 import { cn } from "@/lib/utils";
 import gpmsHero from "@/assets/gpms-hero.jpg";
 import { Eyebrow, SectionHeading } from "@/components/SectionHeading";
+import productLogo from "@/assets/logos/products/gpms-dark.png";
 import {
   Accordion,
   AccordionContent,
@@ -402,7 +403,7 @@ function GpmsPage() {
         <Container>
           <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
             <div className="reveal">
-              <Eyebrow>GPMS</Eyebrow>
+              <img src={productLogo} alt="CosmotechGPMS" className="mb-6 h-9 w-auto sm:h-11" />
               <h1 className="mt-4 text-4xl font-semibold leading-[1.05] tracking-tight sm:text-5xl md:text-6xl">
                 Government Procurement Management System for Philippine Agencies
               </h1>

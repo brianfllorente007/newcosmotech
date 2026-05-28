@@ -21,6 +21,7 @@ import {
 } from "lucide-react";
 import { Container } from "@/components/Container";
 import { Eyebrow, SectionHeading } from "@/components/SectionHeading";
+import productLogo from "@/assets/logos/products/helpdesk-dark.webp";
 import {
   Accordion,
   AccordionContent,
@@ -327,7 +328,7 @@ function HelpdeskPage() {
         <Container>
           <div className="reveal grid gap-12 lg:grid-cols-2 lg:items-center lg:gap-16">
             <div>
-              <Eyebrow>HelpDesk</Eyebrow>
+              <img src={productLogo} alt="HelpDesk" className="mb-6 h-9 w-auto sm:h-11" />
               <h1 className="mt-4 text-4xl font-semibold leading-[1.05] tracking-tight sm:text-5xl md:text-6xl">
                 The Cloud Helpdesk That Routes Every Inquiry
               </h1>
