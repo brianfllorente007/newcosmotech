@@ -73,39 +73,48 @@ function CareersPage() {
           </div>
 
           <ul className="grid gap-5 sm:grid-cols-2">
-            {JOBS.map((job) => (
-              <li key={job.slug}>
-                <Link
-                  to="/careers/$slug"
-                  params={{ slug: job.slug }}
-                  className="group flex h-full flex-col rounded-3xl border border-border bg-card p-7 transition-all hover:border-cobalt/40 hover:shadow-sm sm:p-9"
-                >
-                  <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-cobalt/10 text-cobalt">
-                    <Briefcase className="h-5 w-5" />
-                  </div>
-                  <h3 className="mt-6 text-xl font-semibold tracking-tight text-foreground sm:text-2xl">
-                    {job.title}
-                  </h3>
-                  <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1.5 text-xs text-muted-foreground sm:text-sm">
-                    <span className="inline-flex items-center gap-1.5">
-                      <Briefcase className="h-3.5 w-3.5" />
-                      {job.type}
+            {JOBS.map((job) => {
+              const to =
+                job.slug === "account-management-trainee"
+                  ? "/careers/account-management-trainee"
+                  : job.slug === "it-trainee"
+                    ? "/careers/it-trainee"
+                    : job.slug === "backend-developer"
+                      ? "/careers/backend-developer"
+                      : "/careers/qa-tester-automation";
+              return (
+                <li key={job.slug}>
+                  <Link
+                    to={to}
+                    className="group flex h-full flex-col rounded-3xl border border-border bg-card p-7 transition-all hover:border-cobalt/40 hover:shadow-sm sm:p-9"
+                  >
+                    <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-cobalt/10 text-cobalt">
+                      <Briefcase className="h-5 w-5" />
+                    </div>
+                    <h3 className="mt-6 text-xl font-semibold tracking-tight text-foreground sm:text-2xl">
+                      {job.title}
+                    </h3>
+                    <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1.5 text-xs text-muted-foreground sm:text-sm">
+                      <span className="inline-flex items-center gap-1.5">
+                        <Briefcase className="h-3.5 w-3.5" />
+                        {job.type}
+                      </span>
+                      <span className="inline-flex items-center gap-1.5">
+                        <MapPin className="h-3.5 w-3.5" />
+                        {job.location}
+                      </span>
+                    </div>
+                    <p className="mt-5 text-sm leading-relaxed text-muted-foreground sm:text-base">
+                      {job.intro}
+                    </p>
+                    <span className="mt-7 inline-flex items-center gap-1.5 text-sm font-medium text-cobalt">
+                      View role
+                      <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
                     </span>
-                    <span className="inline-flex items-center gap-1.5">
-                      <MapPin className="h-3.5 w-3.5" />
-                      {job.location}
-                    </span>
-                  </div>
-                  <p className="mt-5 text-sm leading-relaxed text-muted-foreground sm:text-base">
-                    {job.intro}
-                  </p>
-                  <span className="mt-7 inline-flex items-center gap-1.5 text-sm font-medium text-cobalt">
-                    View role
-                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-                  </span>
-                </Link>
-              </li>
-            ))}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </Container>
       </section>

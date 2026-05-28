@@ -1,59 +1,12 @@
-import { createFileRoute, Link, notFound } from "@tanstack/react-router";
+import { Link } from "@tanstack/react-router";
 import { ArrowLeft, Briefcase, MapPin, Mail } from "lucide-react";
 import { Container } from "@/components/Container";
 import { Eyebrow } from "@/components/SectionHeading";
 import { CtaBand } from "@/components/CtaBand";
 import { SITE } from "@/lib/site";
-import { getJob, JOBS } from "@/lib/jobs";
+import { JOBS, type Job } from "@/lib/jobs";
 
-export const Route = createFileRoute("/careers/$slug")({
-  loader: ({ params }) => {
-    const job = getJob(params.slug);
-    if (!job) throw notFound();
-    return { job };
-  },
-  head: ({ loaderData }) => {
-    const title = loaderData?.job
-      ? `${loaderData.job.title} — Careers — Cosmotech Philippines`
-      : "Careers — Cosmotech Philippines";
-    const description = loaderData?.job?.intro ?? "Open roles at Cosmotech Philippines.";
-    return {
-      meta: [
-        { title },
-        { name: "description", content: description },
-        { property: "og:title", content: title },
-        { property: "og:description", content: description },
-      ],
-    };
-  },
-  notFoundComponent: () => (
-    <section className="py-24">
-      <Container>
-        <h1 className="text-3xl font-semibold tracking-tight">Role not found</h1>
-        <p className="mt-3 text-muted-foreground">
-          This position may no longer be open.{" "}
-          <Link to="/careers" className="text-cobalt underline-offset-4 hover:underline">
-            See all open roles
-          </Link>
-          .
-        </p>
-      </Container>
-    </section>
-  ),
-  errorComponent: ({ error }) => (
-    <section className="py-24">
-      <Container>
-        <h1 className="text-3xl font-semibold tracking-tight">Something went wrong</h1>
-        <p className="mt-3 text-muted-foreground">{error.message}</p>
-      </Container>
-    </section>
-  ),
-  component: JobDetailPage,
-});
-
-function JobDetailPage() {
-  const { job } = Route.useLoaderData();
-
+export function JobDetail({ job }: { job: Job }) {
   return (
     <>
       <section className="border-b border-border bg-bone py-16 sm:py-20">
@@ -89,7 +42,7 @@ function JobDetailPage() {
           <div className="grid gap-12 lg:grid-cols-[1.5fr_1fr] lg:gap-16">
             <div className="min-w-0">
               <div className="space-y-4 text-base leading-relaxed text-muted-foreground sm:text-lg">
-                {job.summary.map((p: string, i: number) => (
+                {job.summary.map((p, i) => (
                   <p key={i}>{p}</p>
                 ))}
               </div>
@@ -99,7 +52,7 @@ function JobDetailPage() {
                   Primary Responsibilities
                 </h2>
                 <ul className="mt-5 space-y-3">
-                  {job.responsibilities.map((r: string, i: number) => (
+                  {job.responsibilities.map((r, i) => (
                     <li
                       key={i}
                       className="flex gap-3 text-sm leading-relaxed text-muted-foreground sm:text-base"
@@ -119,7 +72,7 @@ function JobDetailPage() {
                   Qualifications
                 </h2>
                 <ul className="mt-5 space-y-3">
-                  {job.qualifications.map((q: string, i: number) => (
+                  {job.qualifications.map((q, i) => (
                     <li
                       key={i}
                       className="flex gap-3 text-sm leading-relaxed text-muted-foreground sm:text-base"
@@ -163,25 +116,34 @@ function JobDetailPage() {
               Other open roles
             </h2>
             <ul className="mt-5 grid gap-3 sm:grid-cols-2">
-              {JOBS.filter((j) => j.slug !== job.slug).map((j) => (
-                <li key={j.slug}>
-                  <Link
-                    to="/careers/$slug"
-                    params={{ slug: j.slug }}
-                    className="group flex items-center justify-between gap-4 rounded-2xl border border-border bg-card px-5 py-4 transition-colors hover:border-cobalt/40"
-                  >
-                    <div className="min-w-0">
-                      <div className="truncate text-sm font-semibold text-foreground sm:text-base">
-                        {j.title}
+              {JOBS.filter((j) => j.slug !== job.slug).map((j) => {
+                const to =
+                  j.slug === "account-management-trainee"
+                    ? "/careers/account-management-trainee"
+                    : j.slug === "it-trainee"
+                      ? "/careers/it-trainee"
+                      : j.slug === "backend-developer"
+                        ? "/careers/backend-developer"
+                        : "/careers/qa-tester-automation";
+                return (
+                  <li key={j.slug}>
+                    <Link
+                      to={to}
+                      className="group flex items-center justify-between gap-4 rounded-2xl border border-border bg-card px-5 py-4 transition-colors hover:border-cobalt/40"
+                    >
+                      <div className="min-w-0">
+                        <div className="truncate text-sm font-semibold text-foreground sm:text-base">
+                          {j.title}
+                        </div>
+                        <div className="mt-0.5 truncate text-xs text-muted-foreground">
+                          {j.type} · {j.location}
+                        </div>
                       </div>
-                      <div className="mt-0.5 truncate text-xs text-muted-foreground">
-                        {j.type} · {j.location}
-                      </div>
-                    </div>
-                    <ArrowLeft className="h-4 w-4 shrink-0 rotate-180 text-muted-foreground transition-colors group-hover:text-cobalt" />
-                  </Link>
-                </li>
-              ))}
+                      <ArrowLeft className="h-4 w-4 shrink-0 rotate-180 text-muted-foreground transition-colors group-hover:text-cobalt" />
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
           </div>
         </Container>
@@ -190,4 +152,20 @@ function JobDetailPage() {
       <CtaBand />
     </>
   );
+}
+
+export function jobHead(slug: string) {
+  const job = JOBS.find((j) => j.slug === slug);
+  const title = job
+    ? `${job.title} — Careers — Cosmotech Philippines`
+    : "Careers — Cosmotech Philippines";
+  const description = job?.intro ?? "Open roles at Cosmotech Philippines.";
+  return {
+    meta: [
+      { title },
+      { name: "description", content: description },
+      { property: "og:title", content: title },
+      { property: "og:description", content: description },
+    ],
+  };
 }
