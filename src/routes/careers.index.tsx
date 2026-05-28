@@ -6,7 +6,7 @@ import { CtaBand } from "@/components/CtaBand";
 import { SITE } from "@/lib/site";
 import { JOBS } from "@/lib/jobs";
 
-export const Route = createFileRoute("/careers")({
+export const Route = createFileRoute("/careers/")({
   head: () => ({
     meta: [
       { title: "Careers — Cosmotech Philippines" },
