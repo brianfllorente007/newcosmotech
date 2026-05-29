@@ -127,8 +127,8 @@ function HomePage() {
           <div className="reveal">
             <SectionHeading
               eyebrow="Our solutions"
-              title={<>Software built for Philippine workplaces</>}
-              intro="From HR and payroll systems to queue management and document tracking, our solutions are purpose-built for how Philippine organizations operate, aligned with government compliance, local regulations, and real-world operational requirements."
+              title={<>Software Solutions Built for Philippine Government and Enterprise Operations</>}
+              intro="From HRIS and payroll systems to queue management, document tracking, and digital workflow automation, our solutions are designed to support the operational, compliance, and service requirements of Philippine government agencies and private organizations."
             />
           </div>
           <div className="reveal">
