@@ -21,7 +21,7 @@ import {
 } from "lucide-react";
 import { Container } from "@/components/Container";
 import { cn } from "@/lib/utils";
-import gpmsHero from "@/assets/gpms-hero.jpg";
+import gpmsHero from "@/assets/gpms-hero.png";
 import { Eyebrow, SectionHeading } from "@/components/SectionHeading";
 import productLogo from "@/assets/logos/products/gpms-dark.png";
 import {
