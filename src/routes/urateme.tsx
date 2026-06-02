@@ -36,6 +36,7 @@ import modEmployeePerformance from "@/assets/urateme/modules/employee-performanc
 import modClientDemographics from "@/assets/urateme/modules/client-demographics.png";
 import modReports from "@/assets/urateme/modules/reports.png";
 import modAdminSecurity from "@/assets/urateme/modules/administration-security.png";
+import ppaKioskPhoto from "@/assets/urateme/ppa-kiosk.jpg.asset.json";
 
 export const Route = createFileRoute("/urateme")({
   head: () => ({
@@ -465,12 +466,14 @@ function UrateMePage() {
                 with distributed teams or locations spread across a region.
               </p>
               <div className="mt-8">
-                <Placeholder
-                  label="Reporting / demographics screenshot"
-                  size="1000x600"
-                  className="aspect-[5/3]"
+                <img
+                  src={ppaKioskPhoto.url}
+                  alt="URateMe kiosk in use at a Philippine Ports Authority branch"
+                  className="aspect-[5/3] w-full rounded-3xl object-cover shadow-lg"
+                  loading="lazy"
                 />
               </div>
+
             </div>
             <ul className="space-y-3">
               {GENERAL_FEATURES.map((f) => (
