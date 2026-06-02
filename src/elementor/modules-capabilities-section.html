@@ -1,0 +1,492 @@
+<!--
+  Modules and Capabilities — standalone, embeddable section.
+  Paste into an Elementor HTML widget (or any CMS).
+  Self-contained: HTML + scoped CSS + tiny JS.
+
+  Behavior:
+   - Desktop (≥ 1024px): two-column layout. Click a module title on the left
+     to expand its description + checklist and swap the image on the right.
+     The right column is sticky so the image stays in view while reading.
+   - Tablet / mobile (< 1024px): single column accordion. Tap a title to
+     expand description, checklist, and inline image.
+
+  To customize:
+   1. Edit the eyebrow / title / intro at the top of <header>.
+   2. Edit each <article class="ctf-mc__item"> — title, body, list, image.
+   3. Swap data-image="..." with your hosted image URLs.
+   4. Tweak the CSS variables in the :root block (colors, radius, etc.).
+-->
+<section class="ctf-mc" aria-labelledby="ctf-mc-title">
+  <div class="ctf-mc__container">
+
+    <!-- Header -->
+    <header class="ctf-mc__header">
+      <div class="ctf-mc__eyebrow">
+        <span class="ctf-mc__dot" aria-hidden="true"></span>
+        What's inside
+      </div>
+      <h2 id="ctf-mc-title" class="ctf-mc__title">Modules and Capabilities</h2>
+      <p class="ctf-mc__intro">
+        URateMe ships with everything you need — feedback capture, branch and
+        employee performance tracking, demographics, reporting, and admin
+        controls.
+      </p>
+    </header>
+
+    <!-- Showcase -->
+    <div class="ctf-mc__showcase" data-ctf-mc>
+
+      <!-- Left column: module list -->
+      <ul class="ctf-mc__list" role="tablist" aria-label="Modules">
+
+        <!-- 1. Feedback Capture (active by default) -->
+        <li class="ctf-mc__item is-active"
+            data-image="https://via.placeholder.com/900x600/eef2ff/1f2a44?text=Feedback+Capture">
+          <button type="button" class="ctf-mc__trigger" aria-expanded="true">
+            <span class="ctf-mc__item-title">Feedback Capture — At the Point of Service</span>
+            <svg class="ctf-mc__chevron" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="ctf-mc__panel">
+            <p class="ctf-mc__body">
+              Customers submit complaints, praises, and suggestions directly
+              through the system. Questionnaires, greeting messages, and
+              thank-you messages are user-customizable per branch or service
+              type.
+            </p>
+            <ul class="ctf-mc__checks">
+              <li>User-customizable questionnaires per branch or service type</li>
+              <li>Configurable greeting and thank-you messages</li>
+              <li>Complaints, praises, and suggestions captured at the point of service</li>
+            </ul>
+            <img class="ctf-mc__inline-image"
+                 src="https://via.placeholder.com/900x600/eef2ff/1f2a44?text=Feedback+Capture"
+                 alt="Feedback Capture — URateMe UI screenshot"
+                 loading="lazy" />
+          </div>
+        </li>
+
+        <!-- 2. Branch Performance Profile -->
+        <li class="ctf-mc__item"
+            data-image="https://via.placeholder.com/900x600/eef2ff/1f2a44?text=Branch+Performance">
+          <button type="button" class="ctf-mc__trigger" aria-expanded="false">
+            <span class="ctf-mc__item-title">Branch Performance Profile</span>
+            <svg class="ctf-mc__chevron" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="ctf-mc__panel">
+            <p class="ctf-mc__body">
+              A consolidated profile for every branch — total customers served,
+              satisfaction and dissatisfaction ratings, and the top-performing
+              employees at that location.
+            </p>
+            <ul class="ctf-mc__checks">
+              <li>Total customers served per branch</li>
+              <li>Satisfaction and dissatisfaction ratings</li>
+              <li>Top-performing employees per location</li>
+            </ul>
+            <img class="ctf-mc__inline-image"
+                 src="https://via.placeholder.com/900x600/eef2ff/1f2a44?text=Branch+Performance"
+                 alt="Branch Performance Profile — URateMe UI screenshot"
+                 loading="lazy" />
+          </div>
+        </li>
+
+        <!-- 3. Employee Performance Profile -->
+        <li class="ctf-mc__item"
+            data-image="https://via.placeholder.com/900x600/eef2ff/1f2a44?text=Employee+Performance">
+          <button type="button" class="ctf-mc__trigger" aria-expanded="false">
+            <span class="ctf-mc__item-title">Employee Performance Profile</span>
+            <svg class="ctf-mc__chevron" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="ctf-mc__panel">
+            <p class="ctf-mc__body">
+              Individual employee profiles tracking the number of customers
+              served, satisfaction ratings per category, and the specific
+              client feedback received.
+            </p>
+            <ul class="ctf-mc__checks">
+              <li>Number of customers served per employee</li>
+              <li>Satisfaction ratings per criteria</li>
+              <li>Specific client feedback per employee</li>
+            </ul>
+            <img class="ctf-mc__inline-image"
+                 src="https://via.placeholder.com/900x600/eef2ff/1f2a44?text=Employee+Performance"
+                 alt="Employee Performance Profile — URateMe UI screenshot"
+                 loading="lazy" />
+          </div>
+        </li>
+
+        <!-- 4. Client Demographics -->
+        <li class="ctf-mc__item"
+            data-image="https://via.placeholder.com/900x600/eef2ff/1f2a44?text=Client+Demographics">
+          <button type="button" class="ctf-mc__trigger" aria-expanded="false">
+            <span class="ctf-mc__item-title">Client Demographics</span>
+            <svg class="ctf-mc__chevron" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="ctf-mc__panel">
+            <p class="ctf-mc__body">
+              Visitor profile data — age, gender, and civil status — alongside
+              the customer-to-employee representative ratio, giving management
+              a clear picture of who's actually being served.
+            </p>
+            <ul class="ctf-mc__checks">
+              <li>Age, gender, and civil status capture</li>
+              <li>Customer-to-employee representative ratio</li>
+              <li>Owner-vs-representative tracking per branch</li>
+            </ul>
+            <img class="ctf-mc__inline-image"
+                 src="https://via.placeholder.com/900x600/eef2ff/1f2a44?text=Client+Demographics"
+                 alt="Client Demographics — URateMe UI screenshot"
+                 loading="lazy" />
+          </div>
+        </li>
+
+        <!-- 5. Reports -->
+        <li class="ctf-mc__item"
+            data-image="https://via.placeholder.com/900x600/eef2ff/1f2a44?text=Reports">
+          <button type="button" class="ctf-mc__trigger" aria-expanded="false">
+            <span class="ctf-mc__item-title">Reports — Graphical and Tabular</span>
+            <svg class="ctf-mc__chevron" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="ctf-mc__panel">
+            <p class="ctf-mc__body">
+              Graphical and tabular presentation of results, generated on
+              demand. Standard reports cover performance summaries,
+              demographics, and per-branch and per-employee ratings.
+            </p>
+            <ul class="ctf-mc__checks">
+              <li>Standard Reports — daily, weekly, monthly, or yearly</li>
+              <li>Demographic Reports — satisfaction per age, gender, and owner/representative ratio</li>
+              <li>Employee Rating Per Branch — ratings broken down by employee across each branch</li>
+              <li>Employee Performance Report — customers served and satisfaction rating per criteria</li>
+            </ul>
+            <img class="ctf-mc__inline-image"
+                 src="https://via.placeholder.com/900x600/eef2ff/1f2a44?text=Reports"
+                 alt="Reports — URateMe UI screenshot"
+                 loading="lazy" />
+          </div>
+        </li>
+
+        <!-- 6. Administration and Security -->
+        <li class="ctf-mc__item"
+            data-image="https://via.placeholder.com/900x600/eef2ff/1f2a44?text=Administration+%26+Security">
+          <button type="button" class="ctf-mc__trigger" aria-expanded="false">
+            <span class="ctf-mc__item-title">Administration and Security</span>
+            <svg class="ctf-mc__chevron" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="ctf-mc__panel">
+            <p class="ctf-mc__body">
+              Username and password-protected admin pages. User-maintainable
+              records for employees, branches, and survey questions, plus
+              greetings and thank-you messages.
+            </p>
+            <ul class="ctf-mc__checks">
+              <li>Username and password-protected admin pages</li>
+              <li>Maintainable records for employees, branches, and survey questions</li>
+              <li>User-customizable greetings and thank-you messages</li>
+            </ul>
+            <img class="ctf-mc__inline-image"
+                 src="https://via.placeholder.com/900x600/eef2ff/1f2a44?text=Administration+%26+Security"
+                 alt="Administration and Security — URateMe UI screenshot"
+                 loading="lazy" />
+          </div>
+        </li>
+
+      </ul>
+
+      <!-- Right column: pinned image (desktop only) -->
+      <div class="ctf-mc__visual" aria-hidden="true">
+        <div class="ctf-mc__visual-frame">
+          <img class="ctf-mc__visual-img"
+               src="https://via.placeholder.com/900x600/eef2ff/1f2a44?text=Feedback+Capture"
+               alt="" />
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  .ctf-mc {
+    /* === Theme tokens === */
+    --mc-bg: #f5f7fb;
+    --mc-fg: #0f172a;
+    --mc-muted: #5b6478;
+    --mc-faded: rgba(15, 23, 42, 0.28);
+    --mc-border: #e3e7ef;
+    --mc-card: #ffffff;
+    --mc-accent: #1d4ed8;       /* cobalt */
+    --mc-accent-soft: rgba(29, 78, 216, 0.08);
+    --mc-radius-lg: 28px;
+    --mc-radius-md: 16px;
+    --mc-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+    background: var(--mc-bg);
+    color: var(--mc-fg);
+    font-family: var(--mc-font);
+    padding: 56px 0;
+    box-sizing: border-box;
+  }
+  .ctf-mc *,
+  .ctf-mc *::before,
+  .ctf-mc *::after { box-sizing: border-box; }
+
+  .ctf-mc__container {
+    max-width: 1152px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  /* === Header === */
+  .ctf-mc__header { max-width: 720px; }
+  .ctf-mc__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--mc-muted);
+    margin-bottom: 16px;
+  }
+  .ctf-mc__dot {
+    width: 6px; height: 6px; border-radius: 999px; background: var(--mc-accent);
+  }
+  .ctf-mc__title {
+    margin: 0;
+    font-size: clamp(28px, 4.2vw, 48px);
+    line-height: 1.05;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--mc-fg);
+  }
+  .ctf-mc__intro {
+    margin: 16px 0 0;
+    font-size: clamp(15px, 1.6vw, 18px);
+    line-height: 1.6;
+    color: var(--mc-muted);
+  }
+
+  /* === Showcase layout === */
+  .ctf-mc__showcase {
+    margin-top: 40px;
+    display: grid;
+    gap: 32px;
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 1024px) {
+    .ctf-mc__showcase {
+      grid-template-columns: 1.05fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+  }
+
+  /* === List (left column) === */
+  .ctf-mc__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid var(--mc-border);
+    border-bottom: 1px solid var(--mc-border);
+  }
+  .ctf-mc__item {
+    border-bottom: 1px solid var(--mc-border);
+    padding: 8px 0;
+  }
+  .ctf-mc__item:last-child { border-bottom: 0; }
+
+  .ctf-mc__trigger {
+    all: unset;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    width: 100%;
+    cursor: pointer;
+    padding: 12px 4px;
+    font-family: inherit;
+  }
+  .ctf-mc__trigger:focus-visible {
+    outline: 2px solid var(--mc-accent);
+    outline-offset: 4px;
+    border-radius: 8px;
+  }
+  .ctf-mc__item-title {
+    font-size: clamp(17px, 1.8vw, 20px);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1.3;
+    color: var(--mc-faded);
+    transition: color 400ms ease;
+  }
+  .ctf-mc__item.is-active .ctf-mc__item-title { color: var(--mc-fg); }
+  .ctf-mc__trigger:hover .ctf-mc__item-title { color: rgba(15, 23, 42, 0.7); }
+  .ctf-mc__item.is-active .ctf-mc__trigger:hover .ctf-mc__item-title { color: var(--mc-fg); }
+
+  .ctf-mc__chevron {
+    flex-shrink: 0;
+    color: var(--mc-muted);
+    transition: transform 300ms ease;
+  }
+  .ctf-mc__item.is-active .ctf-mc__chevron { transform: rotate(180deg); }
+
+  /* Panel: smooth expand/collapse using grid trick */
+  .ctf-mc__panel {
+    display: grid;
+    grid-template-rows: 0fr;
+    opacity: 0;
+    transition: grid-template-rows 450ms ease, opacity 450ms ease, margin 450ms ease;
+  }
+  .ctf-mc__item.is-active .ctf-mc__panel {
+    grid-template-rows: 1fr;
+    opacity: 1;
+    margin-top: 4px;
+  }
+  .ctf-mc__panel > * { min-height: 0; }
+  .ctf-mc__panel {
+    /* Wrap children in single overflow container */
+  }
+  .ctf-mc__panel::before { content: ""; display: none; }
+
+  /* Inner content wrapper for overflow:hidden during transition */
+  .ctf-mc__panel > .ctf-mc__body,
+  .ctf-mc__panel > .ctf-mc__checks,
+  .ctf-mc__panel > .ctf-mc__inline-image {
+    overflow: hidden;
+  }
+
+  .ctf-mc__body {
+    margin: 0;
+    padding: 4px 4px 0;
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--mc-muted);
+  }
+  .ctf-mc__checks {
+    list-style: none;
+    margin: 12px 0 12px;
+    padding: 0 4px;
+    display: grid;
+    gap: 8px;
+  }
+  .ctf-mc__checks li {
+    position: relative;
+    padding-left: 28px;
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--mc-fg);
+  }
+  .ctf-mc__checks li::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 4px;
+    width: 18px; height: 18px;
+    background-color: var(--mc-accent);
+    -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><polyline points='20 6 9 17 4 12'/></svg>") no-repeat center / contain;
+            mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><polyline points='20 6 9 17 4 12'/></svg>") no-repeat center / contain;
+  }
+
+  /* Inline image — visible on mobile/tablet only */
+  .ctf-mc__inline-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 12px 0 8px;
+    border-radius: var(--mc-radius-md);
+    background: var(--mc-card);
+    border: 1px solid var(--mc-border);
+  }
+  @media (min-width: 1024px) {
+    .ctf-mc__inline-image { display: none; }
+  }
+
+  /* === Visual (right column, desktop only) === */
+  .ctf-mc__visual { display: none; }
+  @media (min-width: 1024px) {
+    .ctf-mc__visual {
+      display: block;
+      position: sticky;
+      top: 96px;
+    }
+    .ctf-mc__visual-frame {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 3 / 2;
+      overflow: hidden;
+      border-radius: var(--mc-radius-lg);
+      background: var(--mc-card);
+      border: 1px solid var(--mc-border);
+    }
+    .ctf-mc__visual-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: top;
+      opacity: 1;
+      transition: opacity 400ms ease, transform 500ms ease;
+    }
+    .ctf-mc__visual-img.is-swapping {
+      opacity: 0;
+      transform: translateY(8%);
+    }
+  }
+</style>
+
+<script>
+  (function () {
+    var roots = document.querySelectorAll('[data-ctf-mc]');
+    roots.forEach(function (root) {
+      var items = root.querySelectorAll('.ctf-mc__item');
+      var visualImg = root.querySelector('.ctf-mc__visual-img');
+
+      function activate(target) {
+        if (target.classList.contains('is-active')) return;
+
+        items.forEach(function (it) {
+          it.classList.remove('is-active');
+          var btn = it.querySelector('.ctf-mc__trigger');
+          if (btn) btn.setAttribute('aria-expanded', 'false');
+        });
+
+        target.classList.add('is-active');
+        var trigger = target.querySelector('.ctf-mc__trigger');
+        if (trigger) trigger.setAttribute('aria-expanded', 'true');
+
+        // Swap pinned image on desktop
+        var nextSrc = target.getAttribute('data-image');
+        if (visualImg && nextSrc && visualImg.getAttribute('src') !== nextSrc) {
+          visualImg.classList.add('is-swapping');
+          window.setTimeout(function () {
+            visualImg.setAttribute('src', nextSrc);
+            // Force reflow then remove class for fade-in
+            // eslint-disable-next-line no-unused-expressions
+            visualImg.offsetWidth;
+            visualImg.classList.remove('is-swapping');
+          }, 250);
+        }
+      }
+
+      items.forEach(function (item) {
+        var trigger = item.querySelector('.ctf-mc__trigger');
+        if (!trigger) return;
+        trigger.addEventListener('click', function () { activate(item); });
+      });
+    });
+  })();
+</script>
