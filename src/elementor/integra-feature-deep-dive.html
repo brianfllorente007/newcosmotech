@@ -1,0 +1,330 @@
+<!--
+  Integra — Feature deep dive (Elementor HTML widget)
+  Self-contained: HTML + CSS + vanilla JS. No frameworks. No build step.
+
+  HOW TO UPDATE LATER:
+  1) Copy text inside each <li class="fdd-item"> — title, body, checklist items.
+  2) Replace each image URL in TWO places per item:
+       - data-img="..."  on the <li>
+       - the <img src="..."> inside the same <li> (mobile/tablet inline image)
+     Use the SAME URL in both spots.
+
+  Behavior:
+  - Desktop (≥1024px): sticky image on the right, scroll-driven active item on the left.
+    Clicking a title smooth-scrolls to its segment.
+  - Tablet & mobile: each item shows its own image inline beneath it.
+-->
+<section class="fdd" aria-label="Feature deep dive">
+  <div class="fdd-container">
+    <header class="fdd-head">
+      <span class="fdd-eyebrow">Feature deep dive</span>
+      <h2 class="fdd-title">A closer look at what Integra can do</h2>
+    </header>
+
+    <div class="fdd-driver" data-step-vh="90">
+      <div class="fdd-sticky">
+        <div class="fdd-grid">
+          <!-- LEFT: feature list -->
+          <ul class="fdd-list" role="tablist">
+
+            <li class="fdd-item is-active" data-img="https://YOUR-CDN/integra/acquisition-recording.png">
+              <button type="button" class="fdd-trigger" aria-expanded="true">
+                <span class="fdd-h3">Acquisition &amp; recording</span>
+              </button>
+              <div class="fdd-panel">
+                <p class="fdd-body">Record and classify every asset from the moment it enters your agency.</p>
+                <ul class="fdd-checks">
+                  <li>Inventory of Office Supplies</li>
+                  <li>Inventory of Semi-Expendables</li>
+                  <li>Inventory of Equipment: Semi-Expendables (above ₱50,000)</li>
+                  <li>Inventory of Computers, Printers &amp; Peripherals</li>
+                  <li>Furniture and Fixtures</li>
+                  <li>Company Cars and Vehicles</li>
+                </ul>
+              </div>
+              <div class="fdd-mini"><img loading="lazy" alt="Acquisition & recording" src="https://YOUR-CDN/integra/acquisition-recording.png"></div>
+            </li>
+
+            <li class="fdd-item" data-img="https://YOUR-CDN/integra/issuance-of-asset.png">
+              <button type="button" class="fdd-trigger" aria-expanded="false">
+                <span class="fdd-h3">Issuance of asset</span>
+              </button>
+              <div class="fdd-panel">
+                <p class="fdd-body">Manage issuances, reissuances, and returns with full approval workflows.</p>
+                <ul class="fdd-checks">
+                  <li>Create, edit, review, approve, and disapprove issuances</li>
+                  <li>Track reissuances and returns to and from employees and offices</li>
+                  <li>Check supply, item, and equipment availability before issuance</li>
+                  <li>Record asset movements and assign accountability</li>
+                  <li>Generate a daily report summarizing issuance of semi-expendable assets and inventories</li>
+                </ul>
+              </div>
+              <div class="fdd-mini"><img loading="lazy" alt="Issuance of asset" src="https://YOUR-CDN/integra/issuance-of-asset.png"></div>
+            </li>
+
+            <li class="fdd-item" data-img="https://YOUR-CDN/integra/return-disposal.png">
+              <button type="button" class="fdd-trigger" aria-expanded="false">
+                <span class="fdd-h3">Return &amp; disposal</span>
+              </button>
+              <div class="fdd-panel">
+                <p class="fdd-body">Close the loop on every asset with proper condition tracking and inventory updates.</p>
+                <ul class="fdd-checks">
+                  <li>Record the details of returned or disposed items and properties</li>
+                  <li>Tag the condition of each returned or disposed item</li>
+                  <li>Automatically update inventory once an item is returned in good condition or disposed</li>
+                  <li>Maintain a complete history of returns and disposals</li>
+                </ul>
+              </div>
+              <div class="fdd-mini"><img loading="lazy" alt="Return & disposal" src="https://YOUR-CDN/integra/return-disposal.png"></div>
+            </li>
+
+            <li class="fdd-item" data-img="https://YOUR-CDN/integra/transfer-of-property.png">
+              <button type="button" class="fdd-trigger" aria-expanded="false">
+                <span class="fdd-h3">Transfer of property</span>
+              </button>
+              <div class="fdd-panel">
+                <p class="fdd-body">Track property transfers between offices and employees with full documentation.</p>
+                <ul class="fdd-checks">
+                  <li>Record the details of each property transfer</li>
+                  <li>Generate a Property Transfer Report with complete details</li>
+                  <li>Attach supporting documents to any transfer transaction</li>
+                  <li>Maintain transfer history per asset and per office</li>
+                </ul>
+              </div>
+              <div class="fdd-mini"><img loading="lazy" alt="Transfer of property" src="https://YOUR-CDN/integra/transfer-of-property.png"></div>
+            </li>
+
+            <li class="fdd-item" data-img="https://YOUR-CDN/integra/asset-inventory-reporting.png">
+              <button type="button" class="fdd-trigger" aria-expanded="false">
+                <span class="fdd-h3">Asset inventory &amp; reporting</span>
+              </button>
+              <div class="fdd-panel">
+                <p class="fdd-body">Generate the physical count reports your agency needs for COA submission.</p>
+                <ul class="fdd-checks">
+                  <li>Semi-annual Report on the Physical Count of Inventories (RPCI) by item type and fund cluster</li>
+                  <li>Annual RPCPPE-ICS and RPCPPE-PAR</li>
+                  <li>Per-office and per-individual reporting</li>
+                  <li>Records of accountable semi-expendable assets and PPE</li>
+                  <li>Consolidated reporting across departments</li>
+                </ul>
+              </div>
+              <div class="fdd-mini"><img loading="lazy" alt="Asset inventory & reporting" src="https://YOUR-CDN/integra/asset-inventory-reporting.png"></div>
+            </li>
+
+            <li class="fdd-item" data-img="https://YOUR-CDN/integra/insurance-reports.png">
+              <button type="button" class="fdd-trigger" aria-expanded="false">
+                <span class="fdd-h3">Insure asset</span>
+              </button>
+              <div class="fdd-panel">
+                <p class="fdd-body">Generate per-office insurance reports for every category of insured asset.</p>
+                <ul class="fdd-checks">
+                  <li>Consolidated Report of Items Subject for Fire Insurance</li>
+                  <li>Consolidated Report of Items Subject for Floater Insurance</li>
+                  <li>Consolidated Report of Items Subject for Engineering Electronic Equipment Insurance (EEEI)</li>
+                  <li>Insurance reports paired with RPCPPE-ICS and RPCPPE-PAR</li>
+                </ul>
+              </div>
+              <div class="fdd-mini"><img loading="lazy" alt="Insure asset" src="https://YOUR-CDN/integra/insurance-reports.png"></div>
+            </li>
+
+            <li class="fdd-item" data-img="https://YOUR-CDN/integra/system-admin.png">
+              <button type="button" class="fdd-trigger" aria-expanded="false">
+                <span class="fdd-h3">System administration &amp; security</span>
+              </button>
+              <div class="fdd-panel">
+                <p class="fdd-body">Control access and protect agency data with role-based permissions and strong authentication.</p>
+                <ul class="fdd-checks">
+                  <li>Role-based access system based on privileges granted per user</li>
+                  <li>Login and password protection</li>
+                  <li>Mandatory password changes every 30 calendar days</li>
+                  <li>Strong authentication with enforced password policies</li>
+                  <li>Configurable session timeout set by the administrator</li>
+                </ul>
+              </div>
+              <div class="fdd-mini"><img loading="lazy" alt="System administration & security" src="https://YOUR-CDN/integra/system-admin.png"></div>
+            </li>
+
+          </ul>
+
+          <!-- RIGHT: pinned visual (desktop only) -->
+          <div class="fdd-visual">
+            <div class="fdd-visual-frame">
+              <img class="fdd-visual-img" alt="Feature preview"
+                   src="https://YOUR-CDN/integra/acquisition-recording.png" />
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .fdd{
+    --fdd-accent:#2747d6;
+    --fdd-bg:#f7f7f2;
+    --fdd-fg:#0b1220;
+    --fdd-muted:#6b7280;
+    --fdd-border:rgba(11,18,32,.10);
+    --fdd-radius:24px;
+    --fdd-max:1200px;
+
+    background:var(--fdd-bg);
+    color:var(--fdd-fg);
+    font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+    padding:clamp(48px,8vw,96px) 0;
+  }
+  .fdd *,.fdd *::before,.fdd *::after{box-sizing:border-box}
+  .fdd-container{max-width:var(--fdd-max);margin:0 auto;padding:0 clamp(16px,4vw,32px)}
+
+  .fdd-head{max-width:760px;margin:0 0 clamp(32px,4vw,56px)}
+  .fdd-eyebrow{
+    display:inline-block;font-size:.75rem;font-weight:600;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--fdd-accent);margin-bottom:14px;
+  }
+  .fdd-title{
+    font-size:clamp(1.75rem,3.4vw,2.75rem);font-weight:700;
+    letter-spacing:-.02em;line-height:1.1;margin:0;
+  }
+
+  .fdd-driver{position:relative}
+  .fdd-sticky{position:relative}
+  .fdd-grid{display:grid;gap:32px;grid-template-columns:1fr}
+
+  .fdd-list{list-style:none;margin:0;padding:0;border-top:1px solid var(--fdd-border)}
+  .fdd-item{border-bottom:1px solid var(--fdd-border);padding:18px 0}
+  .fdd-trigger{
+    appearance:none;background:none;border:0;padding:0;margin:0;width:100%;text-align:left;
+    cursor:pointer;color:inherit;font:inherit;
+  }
+  .fdd-trigger:focus-visible{outline:2px solid var(--fdd-accent);outline-offset:4px;border-radius:4px}
+  .fdd-h3{
+    display:block;font-size:clamp(1.125rem,1.7vw,1.5rem);font-weight:600;
+    letter-spacing:-.01em;line-height:1.25;
+    color:rgba(11,18,32,.30);transition:color .5s ease;
+  }
+  .fdd-trigger:hover .fdd-h3{color:rgba(11,18,32,.60)}
+  .fdd-item.is-active .fdd-h3{color:var(--fdd-fg)}
+
+  .fdd-panel{
+    display:grid;grid-template-rows:0fr;opacity:0;
+    transition:grid-template-rows .5s ease, opacity .5s ease, margin-top .5s ease;
+    margin-top:0;
+  }
+  .fdd-item.is-active .fdd-panel{grid-template-rows:1fr;opacity:1;margin-top:12px}
+  .fdd-panel > *{min-height:0;overflow:hidden}
+  .fdd-body{margin:0;color:var(--fdd-muted);font-size:1rem;line-height:1.6}
+  .fdd-checks{list-style:none;margin:14px 0 4px;padding:0;display:grid;gap:10px}
+  .fdd-checks li{
+    position:relative;padding-left:30px;font-size:.95rem;line-height:1.5;color:var(--fdd-fg);
+  }
+  .fdd-checks li::before{
+    content:"";position:absolute;left:0;top:.2em;width:20px;height:20px;background:var(--fdd-accent);
+    -webkit-mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><polyline points='20 6 9 17 4 12'/></svg>") center/contain no-repeat;
+            mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><polyline points='20 6 9 17 4 12'/></svg>") center/contain no-repeat;
+  }
+
+  .fdd-visual{display:none}
+  .fdd-visual-frame{
+    position:relative;aspect-ratio:3/2;border-radius:var(--fdd-radius);overflow:hidden;
+    background:rgba(11,18,32,.04);border:1px solid var(--fdd-border);
+  }
+  .fdd-visual-img{
+    position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+    transition:opacity .35s ease;
+  }
+  .fdd-visual-img.is-swapping{opacity:0}
+
+  /* Mobile / tablet inline image */
+  .fdd-mini{
+    display:none;margin-top:16px;aspect-ratio:3/2;border-radius:18px;overflow:hidden;
+    background:rgba(11,18,32,.04);border:1px solid var(--fdd-border);
+  }
+  .fdd-mini img{width:100%;height:100%;object-fit:cover;display:block}
+  .fdd-item.is-active .fdd-mini{display:block}
+
+  /* Desktop ≥1024px: pinned scroll layout */
+  @media (min-width:1024px){
+    .fdd-sticky{position:sticky;top:96px;min-height:calc(100vh - 7rem);display:flex;align-items:center;padding:16px 0}
+    .fdd-grid{grid-template-columns:1.05fr 1fr;gap:56px;width:100%;align-items:center}
+    .fdd-visual{display:block}
+    .fdd-item.is-active .fdd-mini{display:none}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .fdd-h3,.fdd-panel,.fdd-visual-img{transition:none !important}
+  }
+</style>
+
+<script>
+(function(){
+  const section = document.querySelector('.fdd');
+  if(!section) return;
+  const driver = section.querySelector('.fdd-driver');
+  const items  = Array.from(section.querySelectorAll('.fdd-item'));
+  const visual = section.querySelector('.fdd-visual-img');
+  const stepVH = parseFloat(driver.dataset.stepVh || '90');
+  const isDesktop = () => window.matchMedia('(min-width:1024px)').matches;
+
+  // Preload all images
+  items.forEach(it => { const u = it.dataset.img; if(u){ const i = new Image(); i.src = u; } });
+
+  let active = 0;
+  function setActive(i, swap=true){
+    if(i === active) return;
+    active = i;
+    items.forEach((it, idx) => {
+      const on = idx === i;
+      it.classList.toggle('is-active', on);
+      const btn = it.querySelector('.fdd-trigger');
+      if(btn) btn.setAttribute('aria-expanded', on ? 'true' : 'false');
+    });
+    if(visual && swap){
+      const url = items[i].dataset.img;
+      if(url && visual.getAttribute('src') !== url){
+        visual.classList.add('is-swapping');
+        setTimeout(() => {
+          visual.setAttribute('src', url);
+          requestAnimationFrame(() => requestAnimationFrame(() => visual.classList.remove('is-swapping')));
+        }, 180);
+      }
+    }
+  }
+
+  function setHeight(){
+    if(isDesktop()){
+      driver.style.height = (items.length * stepVH) + 'vh';
+    } else {
+      driver.style.height = 'auto';
+    }
+  }
+
+  function onScroll(){
+    if(!isDesktop()){ return; }
+    const rect = driver.getBoundingClientRect();
+    const total = driver.offsetHeight - window.innerHeight;
+    const scrolled = Math.min(Math.max(-rect.top, 0), total);
+    const progress = total > 0 ? scrolled / total : 0;
+    const idx = Math.min(items.length - 1, Math.floor(progress * items.length));
+    if(idx !== active) setActive(idx);
+  }
+
+  items.forEach((it, i) => {
+    const btn = it.querySelector('.fdd-trigger');
+    if(!btn) return;
+    btn.addEventListener('click', () => {
+      if(!isDesktop()){ setActive(i); return; }
+      const total = driver.offsetHeight - window.innerHeight;
+      const targetProgress = (i + 0.5) / items.length;
+      const top = driver.offsetTop + total * targetProgress;
+      window.scrollTo({ top, behavior:'smooth' });
+    });
+  });
+
+  setHeight();
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive:true });
+  window.addEventListener('resize', () => { setHeight(); onScroll(); });
+})();
+</script>
