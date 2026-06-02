@@ -1,0 +1,232 @@
+<!-- GPMS — Feature deep dive
+     Self-contained: paste into a WordPress/Elementor HTML widget.
+     To edit copy: change the text inside each <article data-fdd-panel>.
+     To add/remove a feature: add or remove a matching <button data-fdd-tab>
+     AND <article data-fdd-panel> pair with the same data-key. -->
+<section class="fdd" aria-labelledby="fdd-title">
+  <div class="fdd__inner">
+    <header class="fdd__head">
+      <p class="fdd__eyebrow">Feature deep dive</p>
+      <h2 id="fdd-title" class="fdd__title">A closer look at what GPMS can do</h2>
+    </header>
+
+    <div class="fdd__tabs" role="tablist" aria-label="GPMS features">
+      <button data-fdd-tab="end-to-end" role="tab" aria-selected="true" class="fdd__tab is-active">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12h-4l-3 9L9 3l-3 9H2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>End-to-end procurement tracking</span>
+      </button>
+      <button data-fdd-tab="ppmp" role="tab" aria-selected="false" class="fdd__tab">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 2h6a1 1 0 0 1 1 1v2H8V3a1 1 0 0 1 1-1Z M6 5h12a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z M9 12h6 M9 16h6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>PPMP and APP management</span>
+      </button>
+      <button data-fdd-tab="pr" role="tab" aria-selected="false" class="fdd__tab">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z M14 2v6h6 M9 14l2 2 4-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>Purchase request management</span>
+      </button>
+      <button data-fdd-tab="activities" role="tab" aria-selected="false" class="fdd__tab">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 12 7 5 3 9l7 7 M11 8l4-4 6 6-4 4 M3 21l4-2 M16 21h6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>Procurement activities monitoring</span>
+      </button>
+      <button data-fdd-tab="contracts" role="tab" aria-selected="false" class="fdd__tab">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z M14 2v6h6 M8 13h8 M8 17h5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>Contract and project implementation monitoring</span>
+      </button>
+      <button data-fdd-tab="billing" role="tab" aria-selected="false" class="fdd__tab">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 7H4a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2Z M18 11h.01 M2 11h20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>Billing and payments</span>
+      </button>
+      <button data-fdd-tab="dashboard" role="tab" aria-selected="false" class="fdd__tab">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="9" rx="1" fill="none" stroke="currentColor" stroke-width="2"/><rect x="14" y="3" width="7" height="5" rx="1" fill="none" stroke="currentColor" stroke-width="2"/><rect x="14" y="12" width="7" height="9" rx="1" fill="none" stroke="currentColor" stroke-width="2"/><rect x="3" y="16" width="7" height="5" rx="1" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+        <span>Dashboard and business intelligence</span>
+      </button>
+      <button data-fdd-tab="security" role="tab" aria-selected="false" class="fdd__tab">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z M9 12l2 2 4-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>Security and audit trail</span>
+      </button>
+    </div>
+
+    <div class="fdd__stage">
+      <article data-fdd-panel="end-to-end" class="fdd__panel is-active" role="tabpanel">
+        <div class="fdd__lead">
+          <span class="fdd__badge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12h-4l-3 9L9 3l-3 9H2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <h3>End-to-end procurement tracking</h3>
+          <p>GPMS tracks the full procurement lifecycle, from pre-procurement planning to procurement activities, project implementation, contract monitoring, billing, and completion.</p>
+        </div>
+        <ul class="fdd__list">
+          <li>Track procurement activities across all stages</li>
+          <li>Monitor project status in real time</li>
+          <li>View activity progress through dashboards and reports</li>
+          <li>Keep procurement documents organized by project</li>
+          <li>Record timelines and action history for transparency</li>
+        </ul>
+      </article>
+
+      <article data-fdd-panel="ppmp" class="fdd__panel" role="tabpanel" hidden>
+        <div class="fdd__lead">
+          <span class="fdd__badge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 2h6a1 1 0 0 1 1 1v2H8V3a1 1 0 0 1 1-1Z M6 5h12a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z M9 12h6 M9 16h6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <h3>PPMP and APP management</h3>
+          <p>The PPMP and APP module lets departments prepare, submit, and approve procurement plans.</p>
+        </div>
+        <ul class="fdd__list">
+          <li>Encode procurement projects per department</li>
+          <li>Track approval of PPMPs</li>
+          <li>Consolidate approved PPMPs into the Annual Procurement Plan</li>
+          <li>Generate annual procurement reports</li>
+          <li>Link approved budget per project and department</li>
+          <li>Send email notifications during approval workflows</li>
+        </ul>
+      </article>
+
+      <article data-fdd-panel="pr" class="fdd__panel" role="tabpanel" hidden>
+        <div class="fdd__lead">
+          <span class="fdd__badge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z M14 2v6h6 M9 14l2 2 4-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <h3>Purchase request management</h3>
+          <p>GPMS provides a workflow for managing purchase requests from submission to approval.</p>
+        </div>
+        <ul class="fdd__list">
+          <li>Submit purchase requests per department</li>
+          <li>Track pending, approved, and disapproved requests</li>
+          <li>Receive email notifications for request updates</li>
+          <li>Approve or disapprove purchase requests anytime</li>
+          <li>Monitor purchase request progress through dashboards</li>
+        </ul>
+      </article>
+
+      <article data-fdd-panel="activities" class="fdd__panel" role="tabpanel" hidden>
+        <div class="fdd__lead">
+          <span class="fdd__badge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 12 7 5 3 9l7 7 M11 8l4-4 6 6-4 4 M3 21l4-2 M16 21h6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <h3>Procurement activities monitoring</h3>
+          <p>Monitor procurement activities with pre-determined schedules, action periods, and activity timelines based on the mode of procurement.</p>
+        </div>
+        <ul class="fdd__list">
+          <li>Invitation to Bid</li>
+          <li>Bid Bulletin</li>
+          <li>Abstract of Bids</li>
+          <li>Notice of Award</li>
+          <li>Notice to Proceed</li>
+          <li>Post-Qualification</li>
+          <li>Submission of Additional Documents</li>
+          <li>Contract preparation and signing</li>
+          <li>Supplier and bidder monitoring</li>
+        </ul>
+      </article>
+
+      <article data-fdd-panel="contracts" class="fdd__panel" role="tabpanel" hidden>
+        <div class="fdd__lead">
+          <span class="fdd__badge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z M14 2v6h6 M8 13h8 M8 17h5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <h3>Contract and project implementation monitoring</h3>
+          <p>Track detailed contract information, suppliers, implementation status, and project completion.</p>
+        </div>
+        <ul class="fdd__list">
+          <li>Contract number, date, and due date</li>
+          <li>Company or supplier name and contact details</li>
+          <li>Contract deliverables and project description</li>
+          <li>Contract price and performance bond details</li>
+          <li>Contract status and implementation status</li>
+          <li>Liquidated damages and warranty information</li>
+          <li>Summary reports for expiring, multi-year, consultancy, infrastructure, and goods contracts</li>
+        </ul>
+      </article>
+
+      <article data-fdd-panel="billing" class="fdd__panel" role="tabpanel" hidden>
+        <div class="fdd__lead">
+          <span class="fdd__badge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 7H4a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2Z M2 11h20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <h3>Billing and payments</h3>
+          <p>Record and monitor payment details for contracts and projects.</p>
+        </div>
+        <ul class="fdd__list">
+          <li>Payment terms and contract price</li>
+          <li>Payment due date and computed amount due</li>
+          <li>Statement of Account and printed vouchers</li>
+          <li>Amount paid per contract and OR/reference number</li>
+          <li>Total paid amount per contract</li>
+        </ul>
+      </article>
+
+      <article data-fdd-panel="dashboard" class="fdd__panel" role="tabpanel" hidden>
+        <div class="fdd__lead">
+          <span class="fdd__badge"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="9" rx="1" fill="none" stroke="currentColor" stroke-width="2"/><rect x="14" y="3" width="7" height="5" rx="1" fill="none" stroke="currentColor" stroke-width="2"/><rect x="14" y="12" width="7" height="9" rx="1" fill="none" stroke="currentColor" stroke-width="2"/><rect x="3" y="16" width="7" height="5" rx="1" fill="none" stroke="currentColor" stroke-width="2"/></svg></span>
+          <h3>Dashboard and business intelligence</h3>
+          <p>The GPMS dashboard summarizes procurement information for monitoring and decision-making.</p>
+        </div>
+        <ul class="fdd__list">
+          <li>Total completed projects for the year, per month</li>
+          <li>Total awarded contracts and expiring contracts</li>
+          <li>Deliverables for the period</li>
+          <li>PPMPs for purchase request and PPMPs with contract</li>
+          <li>Procurement activity status</li>
+          <li>Graphical reports and charts</li>
+        </ul>
+      </article>
+
+      <article data-fdd-panel="security" class="fdd__panel" role="tabpanel" hidden>
+        <div class="fdd__lead">
+          <span class="fdd__badge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z M9 12l2 2 4-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <h3>Security and audit trail</h3>
+          <p>GPMS includes security controls based on user roles, access rights, and permissions.</p>
+        </div>
+        <ul class="fdd__list">
+          <li>Role-based access control</li>
+          <li>User permission management</li>
+          <li>Audit trail of user actions</li>
+          <li>Record history showing before-and-after changes</li>
+          <li>Identification of action makers</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<style>
+  .fdd{--fdd-bg:#f7f7f2;--fdd-card:#fff;--fdd-fg:#0b1220;--fdd-muted:#5b6473;--fdd-border:#e5e7eb;--fdd-accent:#2747d6;--fdd-radius:24px;background:var(--fdd-bg);color:var(--fdd-fg);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;padding:clamp(48px,7vw,96px) clamp(20px,5vw,40px);border-top:1px solid var(--fdd-border);border-bottom:1px solid var(--fdd-border)}
+  .fdd *{box-sizing:border-box}
+  .fdd__inner{max-width:1200px;margin:0 auto}
+  .fdd__head{text-align:center;margin-bottom:clamp(32px,4vw,48px)}
+  .fdd__eyebrow{margin:0 0 12px;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--fdd-accent)}
+  .fdd__title{margin:0;font-size:clamp(28px,4vw,44px);line-height:1.15;font-weight:700;letter-spacing:-.02em}
+  .fdd__tabs{display:flex;gap:8px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;margin:0 -20px;padding:4px 20px 12px}
+  .fdd__tabs::-webkit-scrollbar{display:none}
+  @media (min-width:768px){.fdd__tabs{flex-wrap:wrap;overflow:visible;margin:0;padding:0;justify-content:center}}
+  .fdd__tab{display:inline-flex;align-items:center;gap:8px;flex:0 0 auto;scroll-snap-align:start;height:44px;padding:0 16px;border-radius:999px;border:1px solid var(--fdd-border);background:var(--fdd-card);color:rgba(11,18,32,.75);font:inherit;font-size:14px;font-weight:500;cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+  .fdd__tab svg{width:16px;height:16px;flex:0 0 auto}
+  .fdd__tab:hover{color:var(--fdd-fg)}
+  .fdd__tab.is-active{background:var(--fdd-fg);color:#fff;border-color:var(--fdd-fg)}
+  .fdd__stage{margin-top:clamp(24px,3vw,32px)}
+  .fdd__panel{display:grid;gap:32px;background:var(--fdd-card);border:1px solid var(--fdd-border);border-radius:var(--fdd-radius);padding:clamp(24px,4vw,40px);animation:fddIn .25s ease-out}
+  .fdd__panel[hidden]{display:none}
+  @media (min-width:1024px){.fdd__panel{grid-template-columns:1fr 1fr;gap:48px;align-items:center}}
+  .fdd__badge{display:inline-flex;width:40px;height:40px;align-items:center;justify-content:center;border-radius:12px;background:color-mix(in srgb,var(--fdd-accent) 10%,transparent);color:var(--fdd-accent);margin-bottom:16px}
+  .fdd__badge svg{width:20px;height:20px}
+  .fdd__lead h3{margin:0 0 12px;font-size:clamp(22px,2.4vw,28px);line-height:1.2;font-weight:600;letter-spacing:-.01em}
+  .fdd__lead p{margin:0;font-size:16px;line-height:1.6;color:var(--fdd-muted)}
+  .fdd__list{margin:0;padding:0;list-style:none;display:grid;gap:10px}
+  .fdd__list li{position:relative;padding-left:28px;font-size:14px;line-height:1.5;color:var(--fdd-fg)}
+  .fdd__list li::before{content:"";position:absolute;left:0;top:2px;width:18px;height:18px;border-radius:50%;background:var(--fdd-accent);-webkit-mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><polyline points='20 6 9 17 4 12'/></svg>") center/12px no-repeat;mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><polyline points='20 6 9 17 4 12'/></svg>") center/12px no-repeat}
+  @keyframes fddIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  @media (prefers-reduced-motion:reduce){.fdd__panel{animation:none}.fdd__tab{transition:none}}
+</style>
+
+<script>
+(function(){
+  var root=document.currentScript.previousElementSibling;
+  while(root && !root.classList.contains('fdd')) root=root.previousElementSibling;
+  if(!root) return;
+  var tabs=root.querySelectorAll('[data-fdd-tab]');
+  var panels=root.querySelectorAll('[data-fdd-panel]');
+  tabs.forEach(function(tab){
+    tab.addEventListener('click',function(){
+      var key=tab.getAttribute('data-fdd-tab');
+      tabs.forEach(function(t){
+        var on=t===tab;
+        t.classList.toggle('is-active',on);
+        t.setAttribute('aria-selected',on?'true':'false');
+      });
+      panels.forEach(function(p){
+        var on=p.getAttribute('data-fdd-panel')===key;
+        p.hidden=!on;
+        p.classList.toggle('is-active',on);
+      });
+    });
+  });
+})();
+</script>
