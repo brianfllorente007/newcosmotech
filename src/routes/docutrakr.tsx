@@ -19,7 +19,8 @@ import {
   Download,
 } from "lucide-react";
 import { Container } from "@/components/Container";
-import docutrakrHero from "@/assets/docutrakr-hero.png";
+import docutrakrHeroAsset from "@/assets/docutrakr/docutrakr-hero.png.asset.json";
+const docutrakrHero = docutrakrHeroAsset.url;
 import docutrakrWorkflow from "@/assets/docutrakr-workflow.png";
 import docutrakrAudit from "@/assets/docutrakr-audit.png";
 import modReceiving from "@/assets/docutrakr/modules/document-receiving.png";
