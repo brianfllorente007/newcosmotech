@@ -829,44 +829,36 @@ function FeatureDeepDiveTabs() {
         />
       </div>
 
-      <div className="mt-8 grid">
-        {FEATURE_BLOCKS.map((b, i) => {
-          const isActive = active === i;
-          return (
-            <div
-              key={b.title}
-              aria-hidden={!isActive}
-              className={cn(
-                "[grid-area:1/1] grid gap-8 rounded-3xl border border-border bg-card p-8 sm:p-10 lg:grid-cols-2 lg:gap-12 transition-opacity duration-300",
-                isActive ? "opacity-100" : "pointer-events-none opacity-0",
-              )}
-            >
-              <div>
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-cobalt/10 text-cobalt">
-                  <b.icon className="h-5 w-5" />
-                </div>
-                <h3 className="mt-4 text-2xl font-semibold tracking-tight text-foreground">
-                  {b.title}
-                </h3>
-                <p className="mt-3 text-base leading-relaxed text-muted-foreground">
-                  {b.body}
-                </p>
-              </div>
-              <ul className="space-y-2">
-                {b.items.map((item) => (
-                  <li
-                    key={item}
-                    className="flex items-start gap-2 text-sm text-foreground"
-                  >
-                    <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-cobalt" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
+      <div className="mt-8">
+        <div
+          key={f.title}
+          className="grid gap-8 rounded-3xl border border-border bg-card p-8 sm:p-10 lg:grid-cols-2 lg:gap-12"
+        >
+          <div>
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-cobalt/10 text-cobalt">
+              <f.icon className="h-5 w-5" />
             </div>
-          );
-        })}
+            <h3 className="mt-4 text-2xl font-semibold tracking-tight text-foreground">
+              {f.title}
+            </h3>
+            <p className="mt-3 text-base leading-relaxed text-muted-foreground">
+              {f.body}
+            </p>
+          </div>
+          <ul className="space-y-2">
+            {f.items.map((item) => (
+              <li
+                key={item}
+                className="flex items-start gap-2 text-sm text-foreground"
+              >
+                <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-cobalt" />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
+
     </div>
   );
 }
