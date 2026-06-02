@@ -1,0 +1,416 @@
+<!--
+  Features and Modules — standalone, embeddable section.
+  Paste into an Elementor HTML widget (or any CMS).
+  Self-contained: HTML + scoped CSS + tiny JS for single-open accordion.
+
+  To customize:
+   1. Change the eyebrow / title / intro at the top of <header>.
+   2. Edit each <article class="ctf-fm__item"> — title, body, list, image src/alt.
+   3. Tweak the CSS variables in the :root block (colors, radius, padding).
+-->
+<section class="ctf-fm" aria-labelledby="ctf-fm-title">
+  <div class="ctf-fm__container">
+
+    <!-- Header -->
+    <header class="ctf-fm__header">
+      <div class="ctf-fm__eyebrow">
+        <span class="ctf-fm__dot" aria-hidden="true"></span>
+        What's inside
+      </div>
+      <h2 id="ctf-fm-title" class="ctf-fm__title">Features and Modules</h2>
+      <p class="ctf-fm__intro">
+        IntegraHRIS 365 ships with every module included — no upgrade paths,
+        no feature gates. Here's what's in the box.
+      </p>
+    </header>
+
+    <!-- Accordion -->
+    <div class="ctf-fm__list" data-ctf-fm-accordion>
+
+      <!-- 1. HR Dashboard (open by default) -->
+      <article class="ctf-fm__item">
+        <details open>
+          <summary class="ctf-fm__summary">
+            <span class="ctf-fm__summary-text">HR Dashboard — Real-Time Headcount, Payroll, and Attendance</span>
+            <svg class="ctf-fm__chevron" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </summary>
+          <div class="ctf-fm__body">
+            <div class="ctf-fm__grid">
+              <div class="ctf-fm__copy">
+                <p>The dashboard is the first screen you see when you log in. It pulls live data from every module so executives, HR managers, and payroll officers each see what matters to their role.</p>
+                <ul class="ctf-fm__checks">
+                  <li>Quick notes and reminders</li>
+                  <li>Birthday celebrants for the month</li>
+                  <li>Employees currently on leave</li>
+                  <li>Headcount by confidentiality level</li>
+                  <li>Headcount by employment status</li>
+                  <li>Organizational unit drill-down</li>
+                  <li>Monthly net pay summary</li>
+                  <li>Absenteeism and tardiness bar graph</li>
+                  <li>Salary adjustment tracker</li>
+                  <li>Bonus and 13th month tracker</li>
+                </ul>
+              </div>
+              <img
+                src="https://via.placeholder.com/1200x800?text=HR+Dashboard"
+                alt="IntegraHRIS 365 HR dashboard showing headcount, payroll, and attendance"
+                class="ctf-fm__image"
+                loading="lazy" decoding="async"
+              />
+            </div>
+          </div>
+        </details>
+      </article>
+
+      <!-- 2. Employee Record -->
+      <article class="ctf-fm__item">
+        <details>
+          <summary class="ctf-fm__summary">
+            <span class="ctf-fm__summary-text">Employee Record — Digital 201 File with Document Attachments</span>
+            <svg class="ctf-fm__chevron" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </summary>
+          <div class="ctf-fm__body">
+            <div class="ctf-fm__grid">
+              <div class="ctf-fm__copy">
+                <p>Store, update, and retrieve everything about each employee. Personal information, employment details, salary history, and scanned documents all live in one record.</p>
+                <ul class="ctf-fm__checks">
+                  <li>Full personal, contact, and dependent details</li>
+                  <li>Employment history with position and salary changes</li>
+                  <li>Document attachments (PDF, JPG, PNG) with no file count limit</li>
+                  <li>Automatic age and tenure calculations</li>
+                  <li>Export any record to PDF for filing or audit</li>
+                </ul>
+              </div>
+              <img src="https://via.placeholder.com/1200x800?text=Employee+Record" alt="Employee 201 file record" class="ctf-fm__image" loading="lazy" decoding="async"/>
+            </div>
+          </div>
+        </details>
+      </article>
+
+      <!-- 3. Leave Management -->
+      <article class="ctf-fm__item">
+        <details>
+          <summary class="ctf-fm__summary">
+            <span class="ctf-fm__summary-text">Leave Management — Automatic Balance Tracking and VL Cash Conversion</span>
+            <svg class="ctf-fm__chevron" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </summary>
+          <div class="ctf-fm__body">
+            <div class="ctf-fm__grid">
+              <div class="ctf-fm__copy">
+                <p>Define your company's leave types, set the accrual rules, and let IntegraHRIS 365 track the rest.</p>
+                <ul class="ctf-fm__checks">
+                  <li>Configurable leave types with per-employee or per-group accrual</li>
+                  <li>Application and approval workflow with audit trail</li>
+                  <li>Automatic balance updates after each approval</li>
+                  <li>VL cash conversion with automatic computation</li>
+                  <li>Leave history reports per employee, department, or date range</li>
+                </ul>
+              </div>
+              <img src="https://via.placeholder.com/1200x800?text=Leave+Management" alt="Leave management screen" class="ctf-fm__image" loading="lazy" decoding="async"/>
+            </div>
+          </div>
+        </details>
+      </article>
+
+      <!-- 4. Timekeeping -->
+      <article class="ctf-fm__item">
+        <details>
+          <summary class="ctf-fm__summary">
+            <span class="ctf-fm__summary-text">Timekeeping — DTR Processing with Biometric Integration</span>
+            <svg class="ctf-fm__chevron" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </summary>
+          <div class="ctf-fm__body">
+            <div class="ctf-fm__grid">
+              <div class="ctf-fm__copy">
+                <p>Turn raw time logs into processed daily time records in one click. Direct Virdi integration plus CSV/TXT imports for other brands.</p>
+                <ul class="ctf-fm__checks">
+                  <li>Direct Virdi biometric integration (automatic log capture)</li>
+                  <li>CSV and TXT log imports for other biometric brands</li>
+                  <li>Automatic tardiness, undertime, and overtime identification</li>
+                  <li>Holiday and leave reconciliation during DTR processing</li>
+                  <li>Batch DTR generation for the entire company in one operation</li>
+                </ul>
+              </div>
+              <img src="https://via.placeholder.com/1200x800?text=Timekeeping" alt="Timekeeping and DTR processing" class="ctf-fm__image" loading="lazy" decoding="async"/>
+            </div>
+          </div>
+        </details>
+      </article>
+
+      <!-- 5. Payroll -->
+      <article class="ctf-fm__item">
+        <details>
+          <summary class="ctf-fm__summary">
+            <span class="ctf-fm__summary-text">Payroll Management — Automated Philippine Payroll</span>
+            <svg class="ctf-fm__chevron" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </summary>
+          <div class="ctf-fm__body">
+            <div class="ctf-fm__grid">
+              <div class="ctf-fm__copy">
+                <p>Compute gross pay, apply all Philippine statutory deductions, and generate payslips in one process. Pulls directly from timekeeping and leave.</p>
+                <ul class="ctf-fm__checks">
+                  <li>Automatic SSS, PhilHealth, Pag-IBIG, and BIR computation</li>
+                  <li>Free updates when contribution tables or tax brackets change</li>
+                  <li>13th month and year-end tax adjustment in a single run</li>
+                  <li>Bonuses, allowances, and custom earnings per employee or group</li>
+                  <li>Payslip generation (print, PDF, email) with your template</li>
+                  <li>Bank file export for BDO, BPI, Metrobank, and other banks</li>
+                </ul>
+              </div>
+              <img src="https://via.placeholder.com/1200x800?text=Payroll" alt="Payroll processing screen" class="ctf-fm__image" loading="lazy" decoding="async"/>
+            </div>
+          </div>
+        </details>
+      </article>
+
+      <!-- 6. Reports -->
+      <article class="ctf-fm__item">
+        <details>
+          <summary class="ctf-fm__summary">
+            <span class="ctf-fm__summary-text">Reports — Over 100 Ready-Made HR and Payroll Reports</span>
+            <svg class="ctf-fm__chevron" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </summary>
+          <div class="ctf-fm__body">
+            <div class="ctf-fm__grid">
+              <div class="ctf-fm__copy">
+                <p>Pre-built reports covering payroll, timekeeping, leave, employee records, and government compliance. Every report exports to Excel or PDF.</p>
+                <ul class="ctf-fm__checks">
+                  <li>Payroll register and payroll summary</li>
+                  <li>SSS R-3, PhilHealth RF-1, Pag-IBIG M1-1 contribution reports</li>
+                  <li>BIR Alphalist and 2316 forms</li>
+                  <li>Attendance and DTR summaries</li>
+                  <li>Leave balance and history per employee</li>
+                  <li>Certificate of Employment and Certificate of Compensation templates</li>
+                </ul>
+              </div>
+              <img src="https://via.placeholder.com/1200x800?text=Reports" alt="Reports library" class="ctf-fm__image" loading="lazy" decoding="async"/>
+            </div>
+          </div>
+        </details>
+      </article>
+
+      <!-- 7. Loan Management -->
+      <article class="ctf-fm__item">
+        <details>
+          <summary class="ctf-fm__summary">
+            <span class="ctf-fm__summary-text">Loan Management — Scheduled Deductions with Auto-Stop</span>
+            <svg class="ctf-fm__chevron" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </summary>
+          <div class="ctf-fm__body">
+            <div class="ctf-fm__grid">
+              <div class="ctf-fm__copy">
+                <p>Track SSS salary loans, Pag-IBIG MPL, company loans, and cash advances with flexible deduction schedules.</p>
+                <ul class="ctf-fm__checks">
+                  <li>Configurable deduction schedules per loan</li>
+                  <li>Automatic deduction during payroll runs</li>
+                  <li>Auto-stop when balance reaches zero (no overpayment risk)</li>
+                  <li>Temporary suspension by tagging a loan inactive</li>
+                  <li>Loan balance and payment history per employee</li>
+                </ul>
+              </div>
+              <img src="https://via.placeholder.com/1200x800?text=Loan+Management" alt="Loan management" class="ctf-fm__image" loading="lazy" decoding="async"/>
+            </div>
+          </div>
+        </details>
+      </article>
+
+      <!-- 8. Security -->
+      <article class="ctf-fm__item">
+        <details>
+          <summary class="ctf-fm__summary">
+            <span class="ctf-fm__summary-text">Security — Role-Based Access, Backup, and Encryption</span>
+            <svg class="ctf-fm__chevron" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </summary>
+          <div class="ctf-fm__body">
+            <div class="ctf-fm__grid">
+              <div class="ctf-fm__copy">
+                <p>Built to help you meet Philippine Data Privacy Act (RA 10173) requirements.</p>
+                <ul class="ctf-fm__checks">
+                  <li>Role-based user access — control view, edit, and export per role</li>
+                  <li>Configurable password policies (length, complexity, expiration)</li>
+                  <li>Encrypted data storage</li>
+                  <li>One-click database backup</li>
+                  <li>Database restore from any backup file</li>
+                  <li>Full audit log of user activity</li>
+                </ul>
+              </div>
+              <img src="https://via.placeholder.com/1200x800?text=Security" alt="Security and access controls" class="ctf-fm__image" loading="lazy" decoding="async"/>
+            </div>
+          </div>
+        </details>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  .ctf-fm {
+    /* ===== Theme tokens ===== */
+    --ctf-bg:        #EEF2FF;   /* soft cobalt tint (matches bg-cobalt/5) */
+    --ctf-surface:   #FFFFFF;   /* card background */
+    --ctf-fg:        #0B1220;   /* ink */
+    --ctf-muted:     #6B7280;   /* muted text */
+    --ctf-border:    #E5E7EB;   /* borders */
+    --ctf-accent:    #2D4BD8;   /* cobalt */
+    --ctf-radius:    24px;
+
+    background: var(--ctf-bg);
+    color: var(--ctf-fg);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-feature-settings: "ss01", "cv11";
+    -webkit-font-smoothing: antialiased;
+    padding: clamp(56px, 9vw, 96px) 20px;
+  }
+  .ctf-fm *,
+  .ctf-fm *::before,
+  .ctf-fm *::after { box-sizing: border-box; }
+
+  .ctf-fm__container { max-width: 1152px; margin: 0 auto; }
+
+  /* ===== Header ===== */
+  .ctf-fm__header { max-width: 768px; }
+  .ctf-fm__eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 12px; font-weight: 500; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--ctf-muted);
+  }
+  .ctf-fm__dot {
+    width: 6px; height: 6px; border-radius: 999px;
+    background: var(--ctf-accent); display: inline-block;
+  }
+  .ctf-fm__title {
+    margin: 16px 0 0;
+    font-size: clamp(30px, 4.4vw, 48px);
+    font-weight: 600; line-height: 1.1; letter-spacing: -0.02em;
+  }
+  .ctf-fm__intro {
+    margin: 16px 0 0;
+    font-size: clamp(15px, 1.6vw, 18px);
+    line-height: 1.65; color: var(--ctf-muted); max-width: 65ch;
+  }
+
+  /* ===== Accordion list ===== */
+  .ctf-fm__list {
+    margin-top: 48px;
+    display: flex; flex-direction: column; gap: 16px;
+  }
+  .ctf-fm__item {
+    background: var(--ctf-surface);
+    border: 1px solid var(--ctf-border);
+    border-radius: var(--ctf-radius);
+    overflow: hidden;
+  }
+  .ctf-fm__item details { width: 100%; }
+  .ctf-fm__item summary { list-style: none; cursor: pointer; }
+  .ctf-fm__item summary::-webkit-details-marker { display: none; }
+
+  .ctf-fm__summary {
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    padding: 20px 24px;
+    font-size: 16px; font-weight: 600; line-height: 1.4;
+    color: var(--ctf-fg);
+    transition: background-color .2s ease;
+  }
+  @media (min-width: 640px) {
+    .ctf-fm__summary { padding: 22px 28px; font-size: 18px; }
+  }
+  .ctf-fm__summary:hover { background: rgba(45, 75, 216, 0.03); }
+  .ctf-fm__summary:focus-visible {
+    outline: none;
+    box-shadow: inset 0 0 0 2px var(--ctf-accent);
+  }
+  .ctf-fm__summary-text { flex: 1; }
+  .ctf-fm__chevron {
+    flex-shrink: 0; color: var(--ctf-muted);
+    transition: transform .25s ease;
+  }
+  .ctf-fm__item details[open] .ctf-fm__chevron { transform: rotate(180deg); }
+
+  /* ===== Body ===== */
+  .ctf-fm__body {
+    padding: 0 24px 24px;
+    animation: ctf-fm-slide 240ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  @media (min-width: 640px) { .ctf-fm__body { padding: 0 28px 28px; } }
+
+  @keyframes ctf-fm-slide {
+    from { opacity: 0; transform: translateY(-4px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .ctf-fm__grid {
+    display: grid; gap: 24px;
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 1024px) {
+    .ctf-fm__grid { grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+  }
+
+  .ctf-fm__copy p {
+    margin: 0;
+    font-size: 14px; line-height: 1.65; color: var(--ctf-muted);
+  }
+  .ctf-fm__checks {
+    margin: 20px 0 0; padding: 0; list-style: none;
+    display: flex; flex-direction: column; gap: 10px;
+  }
+  .ctf-fm__checks li {
+    position: relative;
+    padding-left: 28px;
+    font-size: 14px; line-height: 1.5; color: var(--ctf-fg);
+  }
+  .ctf-fm__checks li::before {
+    content: "";
+    position: absolute; left: 0; top: 2px;
+    width: 16px; height: 16px;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232D4BD8' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><polyline points='20 6 9 17 4 12'/></svg>");
+    background-repeat: no-repeat; background-size: contain;
+  }
+
+  .ctf-fm__image {
+    width: 100%; height: auto;
+    aspect-ratio: 3 / 2;
+    object-fit: cover; object-position: left top;
+    border: 1px solid var(--ctf-border);
+    border-radius: var(--ctf-radius);
+    display: block;
+  }
+
+  /* ===== Dark mode override (optional) ===== */
+  @media (prefers-color-scheme: dark) {
+    .ctf-fm {
+      --ctf-bg:      #0B1220;
+      --ctf-surface: #111827;
+      --ctf-fg:      #F3F4F6;
+      --ctf-muted:   #9CA3AF;
+      --ctf-border:  #1F2937;
+    }
+    .ctf-fm__summary:hover { background: rgba(255,255,255,0.03); }
+  }
+</style>
+
+<script>
+  /* Single-open accordion: closing siblings when one opens.
+     Remove this block if you want multiple items open at once. */
+  (function () {
+    document.querySelectorAll('[data-ctf-fm-accordion]').forEach(function (root) {
+      var items = root.querySelectorAll('details');
+      items.forEach(function (d) {
+        d.addEventListener('toggle', function () {
+          if (d.open) {
+            items.forEach(function (other) {
+              if (other !== d) other.open = false;
+            });
+          }
+        });
+      });
+    });
+  })();
+</script>
