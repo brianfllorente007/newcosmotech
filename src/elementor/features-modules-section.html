@@ -383,17 +383,7 @@
     display: block;
   }
 
-  /* ===== Dark mode override (optional) ===== */
-  @media (prefers-color-scheme: dark) {
-    .ctf-fm {
-      --ctf-bg:      #0B1220;
-      --ctf-surface: #111827;
-      --ctf-fg:      #F3F4F6;
-      --ctf-muted:   #9CA3AF;
-      --ctf-border:  #1F2937;
-    }
-    .ctf-fm__summary:hover { background: rgba(255,255,255,0.03); }
-  }
+  /* Light mode is enforced — no prefers-color-scheme override. */
 </style>
 
 <script>
