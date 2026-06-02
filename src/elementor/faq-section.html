@@ -1,0 +1,180 @@
+<!--
+  Cosmotech FAQ Section — embeddable
+  ----------------------------------
+  How to use in WordPress / Elementor:
+  1. Add an "HTML" widget to your page (Elementor: Basic > HTML).
+  2. Paste this entire file's contents into the widget.
+  3. Save. No external CSS/JS required — fully self-contained, mobile responsive,
+     accessible (keyboard + ARIA), and theme-friendly.
+
+  Customize:
+  - Edit the questions/answers inside the <details> blocks below.
+  - Change accent color via the --ctf-accent CSS variable in :root.
+-->
+<section class="ctf-faq" aria-labelledby="ctf-faq-title">
+  <div class="ctf-faq__inner">
+    <header class="ctf-faq__header">
+      <div class="ctf-faq__eyebrow">
+        <span class="ctf-faq__dot" aria-hidden="true"></span>
+        FAQ
+      </div>
+      <h2 id="ctf-faq-title" class="ctf-faq__title">Questions, answered.</h2>
+    </header>
+
+    <div class="ctf-faq__list" role="list">
+      <details class="ctf-faq__item" role="listitem">
+        <summary class="ctf-faq__q">
+          <span>What industries does Cosmotech serve?</span>
+          <svg class="ctf-faq__chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </summary>
+        <div class="ctf-faq__a">
+          Cosmotech has over 31 years of experience serving a wide range of sectors, including Government Agencies, Large Enterprises, Healthcare, Education, and Financial Institutions across the Philippines.
+        </div>
+      </details>
+
+      <details class="ctf-faq__item" role="listitem">
+        <summary class="ctf-faq__q">
+          <span>Are your software solutions customizable?</span>
+          <svg class="ctf-faq__chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </summary>
+        <div class="ctf-faq__a">
+          Our software solutions, including Integra HRIS, DocuTrakr, QMaster, and other platforms, are designed to be scalable and adaptable, enabling organizations to expand functionalities according to their operational requirements.
+        </div>
+      </details>
+
+      <details class="ctf-faq__item" role="listitem">
+        <summary class="ctf-faq__q">
+          <span>Is Cosmotech ISO certified?</span>
+          <svg class="ctf-faq__chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </summary>
+        <div class="ctf-faq__a">
+          Yes. Cosmotech Philippines, Inc. is ISO 9001:2015 certified for Quality Management Systems and ISO/IEC 27001:2022 certified for Information Security Management Systems. The company is also fully compliant with the Data Privacy Act of 2012 (RA 10173).
+        </div>
+      </details>
+
+      <details class="ctf-faq__item" role="listitem">
+        <summary class="ctf-faq__q">
+          <span>How do I request a product demo or proposal?</span>
+          <svg class="ctf-faq__chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </summary>
+        <div class="ctf-faq__a">
+          You can request a demo or proposal by clicking the "Book a Demo" button in the navigation bar or by completing the contact form at the bottom of this page. Our team will get in touch with you within 24–48 hours.
+        </div>
+      </details>
+
+      <details class="ctf-faq__item" role="listitem">
+        <summary class="ctf-faq__q">
+          <span>Does Cosmotech provide implementation, training, and technical support?</span>
+          <svg class="ctf-faq__chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </summary>
+        <div class="ctf-faq__a">
+          Yes. We provide end-to-end implementation services, including system deployment, user training, technical support, maintenance, and continuous system enhancement to ensure successful adoption across your organization.
+        </div>
+      </details>
+
+      <details class="ctf-faq__item" role="listitem">
+        <summary class="ctf-faq__q">
+          <span>Where can your solutions be deployed?</span>
+          <svg class="ctf-faq__chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </summary>
+        <div class="ctf-faq__a">
+          Our solutions can be deployed on-premise, or cloud-based environments depending on your organization's infrastructure, security, and operational requirements.
+        </div>
+      </details>
+
+      <details class="ctf-faq__item" role="listitem">
+        <summary class="ctf-faq__q">
+          <span>How does Cosmotech help organizations with digital transformation?</span>
+          <svg class="ctf-faq__chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </summary>
+        <div class="ctf-faq__a">
+          Cosmotech Philippines, Inc. helps organizations modernize operations through integrated software systems, AI-powered technologies, workflow automation, infrastructure solutions, and end-to-end IT services tailored to their operational needs.
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<style>
+  .ctf-faq {
+    --ctf-fg: #0b1220;
+    --ctf-muted: #5b6473;
+    --ctf-border: rgba(11, 18, 32, 0.12);
+    --ctf-accent: #1d4ed8;
+    --ctf-bg: transparent;
+    --ctf-radius: 10px;
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: var(--ctf-fg);
+    background: var(--ctf-bg);
+    padding: clamp(48px, 8vw, 96px) 20px;
+    box-sizing: border-box;
+  }
+  .ctf-faq *, .ctf-faq *::before, .ctf-faq *::after { box-sizing: border-box; }
+
+  .ctf-faq__inner { max-width: 768px; margin: 0 auto; }
+
+  .ctf-faq__header { text-align: center; margin-bottom: 32px; }
+  .ctf-faq__eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--ctf-muted);
+  }
+  .ctf-faq__dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--ctf-accent);
+  }
+  .ctf-faq__title {
+    margin: 14px 0 0;
+    font-size: clamp(28px, 4.5vw, 44px);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+  }
+
+  .ctf-faq__list { margin-top: 40px; }
+
+  .ctf-faq__item {
+    border-bottom: 1px solid var(--ctf-border);
+  }
+  .ctf-faq__item[open] .ctf-faq__chev { transform: rotate(180deg); }
+
+  .ctf-faq__q {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 16px;
+    padding: 18px 4px;
+    cursor: pointer;
+    font-size: clamp(15px, 2.1vw, 18px);
+    font-weight: 500;
+    line-height: 1.4;
+    list-style: none;
+    outline: none;
+  }
+  .ctf-faq__q::-webkit-details-marker { display: none; }
+  .ctf-faq__q:focus-visible {
+    border-radius: var(--ctf-radius);
+    box-shadow: 0 0 0 2px var(--ctf-accent);
+  }
+
+  .ctf-faq__chev {
+    flex: none;
+    width: 18px; height: 18px;
+    color: var(--ctf-muted);
+    transition: transform 200ms ease;
+  }
+
+  .ctf-faq__a {
+    padding: 0 4px 20px;
+    color: var(--ctf-muted);
+    font-size: clamp(14px, 1.9vw, 16px);
+    line-height: 1.65;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .ctf-faq {
+      --ctf-fg: #f5f7fb;
+      --ctf-muted: #a4adbb;
+      --ctf-border: rgba(245, 247, 251, 0.14);
+      --ctf-accent: #60a5fa;
+    }
+  }
+</style>
