@@ -1,16 +1,20 @@
 <!--
-  Cosmotech FAQ Section — embeddable
-  ----------------------------------
+  Cosmotech FAQ Section — embeddable (matches live site)
+  ------------------------------------------------------
   How to use in WordPress / Elementor:
-  1. Add an "HTML" widget to your page (Elementor: Basic > HTML).
+  1. Add an "HTML" widget (Elementor: Basic > HTML).
   2. Paste this entire file's contents into the widget.
-  3. Save. No external CSS/JS required — fully self-contained, mobile responsive,
-     accessible (keyboard + ARIA), and theme-friendly.
+  3. Save. Self-contained: includes Google Fonts, scoped CSS, no JS deps.
 
-  Customize:
-  - Edit the questions/answers inside the <details> blocks below.
-  - Change accent color via the --ctf-accent CSS variable in :root.
+  Brand tokens used (Cosmotech):
+    - Bone (warm off-white) background  #F7F7F2
+    - Ink  (deep navy)      foreground  #0B1220
+    - Cobalt accent dot                 #2D4BD8
 -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
 <section class="ctf-faq" aria-labelledby="ctf-faq-title">
   <div class="ctf-faq__inner">
     <header class="ctf-faq__header">
@@ -21,8 +25,8 @@
       <h2 id="ctf-faq-title" class="ctf-faq__title">Questions, answered.</h2>
     </header>
 
-    <div class="ctf-faq__list" role="list">
-      <details class="ctf-faq__item" role="listitem">
+    <div class="ctf-faq__list">
+      <details class="ctf-faq__item">
         <summary class="ctf-faq__q">
           <span>What industries does Cosmotech serve?</span>
           <svg class="ctf-faq__chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -32,7 +36,7 @@
         </div>
       </details>
 
-      <details class="ctf-faq__item" role="listitem">
+      <details class="ctf-faq__item">
         <summary class="ctf-faq__q">
           <span>Are your software solutions customizable?</span>
           <svg class="ctf-faq__chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -42,7 +46,7 @@
         </div>
       </details>
 
-      <details class="ctf-faq__item" role="listitem">
+      <details class="ctf-faq__item">
         <summary class="ctf-faq__q">
           <span>Is Cosmotech ISO certified?</span>
           <svg class="ctf-faq__chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -52,7 +56,7 @@
         </div>
       </details>
 
-      <details class="ctf-faq__item" role="listitem">
+      <details class="ctf-faq__item">
         <summary class="ctf-faq__q">
           <span>How do I request a product demo or proposal?</span>
           <svg class="ctf-faq__chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -62,7 +66,7 @@
         </div>
       </details>
 
-      <details class="ctf-faq__item" role="listitem">
+      <details class="ctf-faq__item">
         <summary class="ctf-faq__q">
           <span>Does Cosmotech provide implementation, training, and technical support?</span>
           <svg class="ctf-faq__chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -72,7 +76,7 @@
         </div>
       </details>
 
-      <details class="ctf-faq__item" role="listitem">
+      <details class="ctf-faq__item">
         <summary class="ctf-faq__q">
           <span>Where can your solutions be deployed?</span>
           <svg class="ctf-faq__chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -82,7 +86,7 @@
         </div>
       </details>
 
-      <details class="ctf-faq__item" role="listitem">
+      <details class="ctf-faq__item">
         <summary class="ctf-faq__q">
           <span>How does Cosmotech help organizations with digital transformation?</span>
           <svg class="ctf-faq__chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -97,40 +101,51 @@
 
 <style>
   .ctf-faq {
-    --ctf-fg: #0b1220;
-    --ctf-muted: #5b6473;
+    /* Cosmotech brand tokens */
+    --ctf-bg: #F7F7F2;          /* bone */
+    --ctf-fg: #0B1220;          /* ink */
+    --ctf-muted: #6B7280;       /* slate-500 ~ muted-foreground */
     --ctf-border: rgba(11, 18, 32, 0.12);
-    --ctf-accent: #1d4ed8;
-    --ctf-bg: transparent;
-    --ctf-radius: 10px;
-    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --ctf-accent: #2D4BD8;      /* cobalt */
+
+    font-family: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    font-feature-settings: "ss01", "cv11";
+    -webkit-font-smoothing: antialiased;
     color: var(--ctf-fg);
     background: var(--ctf-bg);
-    padding: clamp(48px, 8vw, 96px) 20px;
+    padding: clamp(64px, 10vw, 96px) 20px;
     box-sizing: border-box;
   }
   .ctf-faq *, .ctf-faq *::before, .ctf-faq *::after { box-sizing: border-box; }
 
-  .ctf-faq__inner { max-width: 768px; margin: 0 auto; }
+  .ctf-faq__inner {
+    max-width: 768px;     /* matches max-w-3xl of original */
+    margin: 0 auto;
+    padding: 0 12px;
+  }
 
-  .ctf-faq__header { text-align: center; margin-bottom: 32px; }
+  /* Header */
+  .ctf-faq__header { text-align: center; margin-bottom: 40px; }
   .ctf-faq__eyebrow {
     display: inline-flex; align-items: center; gap: 8px;
-    font-size: 12px; font-weight: 600; letter-spacing: 0.18em;
+    font-size: 12px; font-weight: 500; letter-spacing: 0.18em;
     text-transform: uppercase; color: var(--ctf-muted);
   }
   .ctf-faq__dot {
-    width: 6px; height: 6px; border-radius: 50%;
+    width: 6px; height: 6px; border-radius: 9999px;
     background: var(--ctf-accent);
   }
   .ctf-faq__title {
-    margin: 14px 0 0;
-    font-size: clamp(28px, 4.5vw, 44px);
+    margin: 16px 0 0;
+    font-family: inherit;
     font-weight: 600;
     letter-spacing: -0.02em;
-    line-height: 1.15;
+    line-height: 1.1;
+    font-size: clamp(30px, 5vw, 48px);
+    color: var(--ctf-fg);
   }
 
+  /* List */
   .ctf-faq__list { margin-top: 40px; }
 
   .ctf-faq__item {
@@ -138,43 +153,53 @@
   }
   .ctf-faq__item[open] .ctf-faq__chev { transform: rotate(180deg); }
 
+  /* Trigger */
   .ctf-faq__q {
     display: flex; align-items: center; justify-content: space-between;
     gap: 16px;
-    padding: 18px 4px;
+    padding: 16px 0;
     cursor: pointer;
-    font-size: clamp(15px, 2.1vw, 18px);
+    font: inherit;
     font-weight: 500;
-    line-height: 1.4;
+    line-height: 1.5;
+    color: var(--ctf-fg);
+    font-size: 16px;
     list-style: none;
     outline: none;
+    transition: color 150ms ease;
   }
+  @media (min-width: 640px) { .ctf-faq__q { font-size: 18px; } }
   .ctf-faq__q::-webkit-details-marker { display: none; }
+  .ctf-faq__q:hover { text-decoration: underline; text-underline-offset: 4px; }
   .ctf-faq__q:focus-visible {
-    border-radius: var(--ctf-radius);
     box-shadow: 0 0 0 2px var(--ctf-accent);
+    border-radius: 4px;
   }
 
   .ctf-faq__chev {
     flex: none;
-    width: 18px; height: 18px;
+    width: 16px; height: 16px;
     color: var(--ctf-muted);
     transition: transform 200ms ease;
   }
 
+  /* Answer */
   .ctf-faq__a {
-    padding: 0 4px 20px;
+    padding: 0 0 16px;
     color: var(--ctf-muted);
-    font-size: clamp(14px, 1.9vw, 16px);
-    line-height: 1.65;
+    font-size: 14px;
+    line-height: 1.7;
   }
+  @media (min-width: 640px) { .ctf-faq__a { font-size: 16px; } }
 
-  @media (prefers-color-scheme: dark) {
-    .ctf-faq {
-      --ctf-fg: #f5f7fb;
-      --ctf-muted: #a4adbb;
-      --ctf-border: rgba(245, 247, 251, 0.14);
-      --ctf-accent: #60a5fa;
+  /* Smooth open/close */
+  @media (prefers-reduced-motion: no-preference) {
+    .ctf-faq__item[open] .ctf-faq__a {
+      animation: ctf-faq-slide 220ms cubic-bezier(0.2, 0.7, 0.2, 1);
+    }
+    @keyframes ctf-faq-slide {
+      from { opacity: 0; transform: translateY(-4px); }
+      to   { opacity: 1; transform: translateY(0); }
     }
   }
 </style>
