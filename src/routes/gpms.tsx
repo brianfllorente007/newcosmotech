@@ -832,7 +832,7 @@ function FeatureDeepDiveTabs() {
       <div className="mt-8">
         <div
           key={f.title}
-          className="grid gap-8 rounded-3xl border border-border bg-card p-8 sm:p-10 lg:grid-cols-2 lg:gap-12"
+          className="grid gap-8 rounded-3xl border border-border bg-card p-8 sm:p-10 lg:grid-cols-2 lg:items-center lg:gap-12"
         >
           <div>
             <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-cobalt/10 text-cobalt">
