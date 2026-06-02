@@ -36,6 +36,7 @@ import modEmployeePerformance from "@/assets/urateme/modules/employee-performanc
 import modClientDemographics from "@/assets/urateme/modules/client-demographics.png";
 import modReports from "@/assets/urateme/modules/reports.png";
 import modAdminSecurity from "@/assets/urateme/modules/administration-security.png";
+import ppaKioskPhoto from "@/assets/urateme/ppa-kiosk.jpg.asset.json";
 
 export const Route = createFileRoute("/urateme")({
   head: () => ({
