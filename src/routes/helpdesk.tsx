@@ -358,7 +358,7 @@ function HelpdeskPage() {
             <img
               src={helpdeskHero.url}
               alt="HelpDesk dashboard preview showing ticket detail, AI assistant, case details, and engagement signals"
-              className="aspect-[16/10] w-full rounded-3xl object-cover shadow-lg"
+              className="w-full rounded-3xl object-contain shadow-lg lg:scale-110 lg:origin-left"
               loading="eager"
             />
           </div>
