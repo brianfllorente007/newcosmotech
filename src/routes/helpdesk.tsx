@@ -354,10 +354,11 @@ function HelpdeskPage() {
                 </Link>
               </div>
             </div>
-            <Placeholder
-              label="HelpDesk dashboard mock"
-              size="1600x1000"
-              className="aspect-[16/10]"
+            <img
+              src={helpdeskHero.url}
+              alt="HelpDesk dashboard preview showing ticket detail, AI assistant, case details, and engagement signals"
+              className="aspect-[16/10] w-full rounded-3xl object-cover shadow-lg"
+              loading="eager"
             />
           </div>
         </Container>
