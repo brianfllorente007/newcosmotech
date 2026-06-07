@@ -419,10 +419,11 @@ function HelpdeskPage() {
                 ))}
               </ul>
             </div>
-            <Placeholder
-              label="Ticket detail / workflow mock"
-              size="1200x900"
-              className="aspect-[4/3]"
+            <img
+              src={helpdeskAbout.url}
+              alt="HelpDesk ticket detail with AI system summary"
+              className="aspect-[4/3] w-full rounded-3xl object-cover shadow-lg"
+              loading="lazy"
             />
           </div>
         </Container>
