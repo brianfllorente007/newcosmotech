@@ -22,6 +22,7 @@ import {
 import { Container } from "@/components/Container";
 import { Eyebrow, SectionHeading } from "@/components/SectionHeading";
 import productLogo from "@/assets/logos/products/helpdesk-dark.webp";
+import helpdeskHero from "@/assets/helpdesk/helpdesk-hero.png.asset.json";
 import {
   Accordion,
   AccordionContent,
