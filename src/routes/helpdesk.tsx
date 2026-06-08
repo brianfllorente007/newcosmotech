@@ -24,6 +24,7 @@ import { Eyebrow, SectionHeading } from "@/components/SectionHeading";
 import productLogo from "@/assets/logos/products/helpdesk-dark.webp";
 import helpdeskHero from "@/assets/helpdesk/helpdesk-hero.png.asset.json";
 import helpdeskAbout from "@/assets/helpdesk/helpdesk-about.png.asset.json";
+import helpdeskTeams from "@/assets/helpdesk/helpdesk-teams.png.asset.json";
 import {
   Accordion,
   AccordionContent,
@@ -471,10 +472,11 @@ function HelpdeskPage() {
                 no upgrade paths, no feature gates.
               </p>
               <div className="mt-8">
-                <Placeholder
-                  label="Workflow / audit trail screenshot"
-                  size="1000x600"
-                  className="aspect-[5/3]"
+                <img
+                  src={helpdeskTeams.url}
+                  alt="Team collaborating on support workflows with laptops and notebooks"
+                  className="aspect-[5/3] w-full rounded-3xl object-cover shadow-lg"
+                  loading="lazy"
                 />
               </div>
             </div>
