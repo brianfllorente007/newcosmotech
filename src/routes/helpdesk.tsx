@@ -472,10 +472,11 @@ function HelpdeskPage() {
                 no upgrade paths, no feature gates.
               </p>
               <div className="mt-8">
-                <Placeholder
-                  label="Workflow / audit trail screenshot"
-                  size="1000x600"
-                  className="aspect-[5/3]"
+                <img
+                  src={helpdeskTeams.url}
+                  alt="Team collaborating on support workflows with laptops and notebooks"
+                  className="aspect-[5/3] w-full rounded-3xl object-cover shadow-lg"
+                  loading="lazy"
                 />
               </div>
             </div>
