@@ -1,0 +1,127 @@
+<!-- GPMS — Reports & Forms section
+     Self-contained: paste into a WordPress/Elementor HTML widget.
+     Mobile responsive. No external dependencies. -->
+<section class="rfs" aria-labelledby="rfs-title">
+  <div class="rfs__inner">
+    <header class="rfs__head">
+      <p class="rfs__eyebrow"><span class="rfs__dot"></span>Reports &amp; forms</p>
+      <h2 id="rfs-title" class="rfs__title">Reports and forms you can generate</h2>
+      <p class="rfs__intro">GPMS can generate the procurement reports and forms your office needs for compliance and day-to-day operations.</p>
+    </header>
+
+    <div class="rfs__grid">
+      <!-- Reports card -->
+      <article class="rfs__card">
+        <h3 class="rfs__cardTitle">Reports</h3>
+        <p class="rfs__cardLead">GPMS can generate procurement and contract reports, including:</p>
+        <ul class="rfs__list" data-rfs-list="reports">
+          <li>Procurement Monitoring Report for all projects, items procured, and classified procurement modes</li>
+          <li>Consolidated Procurement Monitoring Report</li>
+          <li>Annual Agency Procurement Compliance and Performance Indicator report</li>
+          <li>Projects with failed bids or cancelled projects, with reasons</li>
+          <li>Contracts issued to suppliers with no deliveries yet</li>
+          <li hidden>Delivered items not yet paid</li>
+          <li hidden>Expiring contracts with time limits set</li>
+          <li hidden>Total number and amount of alternative methods per mode</li>
+          <li hidden>Summary of issued purchase orders and job orders per contract</li>
+          <li hidden>Summary of disbursement vouchers per purchase order or job order</li>
+          <li hidden>Total number of suppliers invited per canvass</li>
+          <li hidden>Total number of contracts awarded</li>
+          <li hidden>Summary of items purchased through RF per account code</li>
+          <li hidden>List of contracts per category</li>
+          <li hidden>Infrastructure and consultancy summaries</li>
+          <li hidden>Summary of multi-year contracts</li>
+          <li hidden>Summary of one-year contracts</li>
+          <li hidden>Contracts with partial or complete delivery</li>
+          <li hidden>Pending transactions</li>
+          <li hidden>Summary of public bidding</li>
+          <li hidden>Summary of shopping above ₱50,000 and other shopping</li>
+          <li hidden>Summary of direct contracting</li>
+          <li hidden>Summary of repeat orders</li>
+          <li hidden>Summary of limited source bidding</li>
+          <li hidden>Summary of negotiation modes</li>
+          <li hidden>Contracts about to expire</li>
+          <li hidden>Suppliers with liquidated damages</li>
+          <li hidden>Contracts with penalties</li>
+          <li hidden>Performance evaluation summaries</li>
+          <li hidden>Retention fees deducted</li>
+          <li hidden>Performance bond refunds</li>
+        </ul>
+        <button type="button" class="rfs__toggle" data-rfs-toggle aria-expanded="false">
+          <span data-rfs-toggle-label>Show all 31 reports</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </article>
+
+      <!-- Forms card -->
+      <article class="rfs__card">
+        <h3 class="rfs__cardTitle">Forms</h3>
+        <p class="rfs__cardLead">GPMS can generate common procurement forms, including:</p>
+        <ul class="rfs__list">
+          <li>Invitation to Bid</li>
+          <li>Bid Bulletin</li>
+          <li>Abstract of Bids</li>
+          <li>Notice for Submission of Additional Documents</li>
+          <li>Notice of Award</li>
+          <li>Notice of the Bidding Results to Bidders</li>
+          <li>Notice of Post Disqualification</li>
+          <li>Notice to Proceed</li>
+          <li>Canvass Form and Summary of Canvass</li>
+          <li>Referrals to proponents or end-users for evaluation</li>
+          <li>BAC Referral Form</li>
+          <li>Job Order / Letter Order / Purchase Order Form</li>
+          <li>Certificate of Sealed Canvass for Opening</li>
+          <li>Certificate of Submitted Quotation</li>
+          <li>Requisition and Issue Voucher Form</li>
+          <li>Voucher for Revolving Fund</li>
+          <li>Disbursement Voucher</li>
+          <li>Delivery Penalty Computation</li>
+          <li>Supplier / Contractor / Consultant Performance Evaluation Form</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<style>
+  .rfs{--rfs-bg:#f7f7f2;--rfs-card:#fff;--rfs-fg:#0b1220;--rfs-muted:#5b6473;--rfs-border:#e2e4e9;--rfs-accent:#2747d6;--rfs-radius:24px;background:var(--rfs-bg);color:var(--rfs-fg);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;padding:clamp(48px,7vw,96px) clamp(20px,5vw,40px);border-top:1px solid var(--rfs-border);border-bottom:1px solid var(--rfs-border)}
+  .rfs *{box-sizing:border-box}
+  .rfs__inner{max-width:1200px;margin:0 auto}
+  .rfs__head{max-width:760px;margin:0 0 clamp(32px,4vw,48px)}
+  .rfs__eyebrow{margin:0 0 14px;display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--rfs-muted)}
+  .rfs__dot{width:6px;height:6px;border-radius:50%;background:var(--rfs-accent)}
+  .rfs__title{margin:0;font-size:clamp(28px,4vw,44px);line-height:1.15;font-weight:700;letter-spacing:-.02em}
+  .rfs__intro{margin:16px 0 0;font-size:clamp(16px,1.6vw,18px);line-height:1.6;color:var(--rfs-muted)}
+  .rfs__grid{display:grid;gap:24px}
+  @media (min-width:900px){.rfs__grid{grid-template-columns:1fr 1fr;gap:32px}}
+  .rfs__card{background:var(--rfs-card);border:1px solid var(--rfs-border);border-radius:var(--rfs-radius);padding:clamp(24px,3.5vw,32px)}
+  .rfs__cardTitle{margin:0;font-size:20px;line-height:1.2;font-weight:600;letter-spacing:-.01em}
+  .rfs__cardLead{margin:8px 0 0;font-size:14px;line-height:1.6;color:var(--rfs-muted)}
+  .rfs__list{margin:24px 0 0;padding:0;list-style:none;display:grid;gap:10px}
+  .rfs__list li{position:relative;padding-left:28px;font-size:14px;line-height:1.55;color:var(--rfs-fg)}
+  .rfs__list li::before{content:"";position:absolute;left:0;top:2px;width:18px;height:18px;border-radius:50%;background:var(--rfs-accent);-webkit-mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><polyline points='20 6 9 17 4 12'/></svg>") center/12px no-repeat;mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><polyline points='20 6 9 17 4 12'/></svg>") center/12px no-repeat}
+  .rfs__toggle{margin-top:24px;display:inline-flex;align-items:center;gap:6px;background:none;border:0;padding:0;font:inherit;font-size:14px;font-weight:500;color:var(--rfs-accent);cursor:pointer}
+  .rfs__toggle:hover{text-decoration:underline}
+  .rfs__toggle svg{width:16px;height:16px}
+</style>
+
+<script>
+(function(){
+  var root=document.currentScript.previousElementSibling;
+  while(root && !root.classList.contains('rfs')) root=root.previousElementSibling;
+  if(!root) return;
+  var btn=root.querySelector('[data-rfs-toggle]');
+  var label=root.querySelector('[data-rfs-toggle-label]');
+  var list=root.querySelector('[data-rfs-list="reports"]');
+  if(!btn||!list||!label) return;
+  var items=list.querySelectorAll('li');
+  var total=items.length;
+  var expanded=false;
+  btn.addEventListener('click',function(){
+    expanded=!expanded;
+    items.forEach(function(li,i){ if(i>=5) li.hidden=!expanded; });
+    btn.setAttribute('aria-expanded',expanded?'true':'false');
+    label.textContent=expanded?'Show fewer reports':('Show all '+total+' reports');
+  });
+})();
+</script>
