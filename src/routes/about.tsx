@@ -48,6 +48,25 @@ function AboutPage() {
         </Container>
       </section>
 
+      <section className="border-b border-border bg-bone py-20 sm:py-28">
+        <Container>
+          <div className="grid gap-12 lg:grid-cols-2">
+            <div>
+              <Eyebrow>Our Vision</Eyebrow>
+              <h2 className="mt-4 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+                Our vision is to lead in the development of human-centric solutions that transform the way we work.
+              </h2>
+            </div>
+            <div>
+              <Eyebrow>Our Mission</Eyebrow>
+              <h2 className="mt-4 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+                Our mission is to drive relentless tech innovation, deliver VIP client experiences and cultivate creativity in a vibrant work environment all while ensuring continuous profitability for our shareholders.
+              </h2>
+            </div>
+          </div>
+        </Container>
+      </section>
+
       <WhyCosmotech />
 
       <section className="py-20">
