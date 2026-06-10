@@ -6,6 +6,7 @@ import { CtaBand } from "@/components/CtaBand";
 import { WhyCosmotech } from "@/components/WhyCosmotech";
 import { SITE } from "@/lib/site";
 import ourClientsImg from "@/assets/our-clients.png";
+import aboutCosmotechAsset from "@/assets/about-cosmotech.png.asset.json";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -69,7 +70,11 @@ function AboutPage() {
                 </p>
               </div>
             </div>
-            <div className="aspect-[4/3] w-full rounded-3xl bg-muted shadow-lg" aria-label="Cosmotech office reception" />
+            <img
+              src={aboutCosmotechAsset.url}
+              alt="Cosmotech office reception"
+              className="aspect-[4/3] w-full rounded-3xl object-cover shadow-lg"
+            />
           </div>
         </Container>
       </section>
