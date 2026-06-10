@@ -69,7 +69,7 @@ function AboutPage() {
                 </p>
               </div>
             </div>
-            <div className="[PLACEHOLDER: Cosmotech office / reception photo]aspect-[4/3] w-full rounded-3xl bg-muted shadow-lg" />
+            <div className="aspect-[4/3] w-full rounded-3xl bg-muted shadow-lg" aria-label="Cosmotech office reception" />
           </div>
         </Container>
       </section>
