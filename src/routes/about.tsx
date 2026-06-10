@@ -50,22 +50,30 @@ function AboutPage() {
 
       <section className="border-b border-border bg-bone py-20 sm:py-28">
         <Container>
-          <div className="grid gap-12 lg:grid-cols-2">
-            <div>
-              <Eyebrow>Our Vision</Eyebrow>
-              <h2 className="mt-4 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
-                Our vision is to lead in the development of human-centric solutions that transform the way we work.
-              </h2>
+          <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+            <div className="space-y-12">
+              <div>
+                <h2 className="text-4xl font-extrabold uppercase tracking-tight text-foreground sm:text-5xl">
+                  Our Vision
+                </h2>
+                <p className="mt-4 text-base leading-relaxed text-muted-foreground sm:text-lg">
+                  Our vision is to lead in the development of human-centric solutions that transform the way we work.
+                </p>
+              </div>
+              <div>
+                <h2 className="text-4xl font-extrabold uppercase tracking-tight text-foreground sm:text-5xl">
+                  Our Mission
+                </h2>
+                <p className="mt-4 text-base leading-relaxed text-muted-foreground sm:text-lg">
+                  Our mission is to drive relentless tech innovation, deliver VIP client experiences and cultivate creativity in a vibrant work environment all while ensuring continuous profitability for our shareholders.
+                </p>
+              </div>
             </div>
-            <div>
-              <Eyebrow>Our Mission</Eyebrow>
-              <h2 className="mt-4 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
-                Our mission is to drive relentless tech innovation, deliver VIP client experiences and cultivate creativity in a vibrant work environment all while ensuring continuous profitability for our shareholders.
-              </h2>
-            </div>
+            <div className="[PLACEHOLDER: Cosmotech office / reception photo]aspect-[4/3] w-full rounded-3xl bg-muted shadow-lg" />
           </div>
         </Container>
       </section>
+
 
       <WhyCosmotech />
 
