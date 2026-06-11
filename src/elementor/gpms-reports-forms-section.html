@@ -20,37 +20,33 @@
           <li>Annual Agency Procurement Compliance and Performance Indicator report</li>
           <li>Projects with failed bids or cancelled projects, with reasons</li>
           <li>Contracts issued to suppliers with no deliveries yet</li>
-          <li hidden>Delivered items not yet paid</li>
-          <li hidden>Expiring contracts with time limits set</li>
-          <li hidden>Total number and amount of alternative methods per mode</li>
-          <li hidden>Summary of issued purchase orders and job orders per contract</li>
-          <li hidden>Summary of disbursement vouchers per purchase order or job order</li>
-          <li hidden>Total number of suppliers invited per canvass</li>
-          <li hidden>Total number of contracts awarded</li>
-          <li hidden>Summary of items purchased through RF per account code</li>
-          <li hidden>List of contracts per category</li>
-          <li hidden>Infrastructure and consultancy summaries</li>
-          <li hidden>Summary of multi-year contracts</li>
-          <li hidden>Summary of one-year contracts</li>
-          <li hidden>Contracts with partial or complete delivery</li>
-          <li hidden>Pending transactions</li>
-          <li hidden>Summary of public bidding</li>
-          <li hidden>Summary of shopping above ₱50,000 and other shopping</li>
-          <li hidden>Summary of direct contracting</li>
-          <li hidden>Summary of repeat orders</li>
-          <li hidden>Summary of limited source bidding</li>
-          <li hidden>Summary of negotiation modes</li>
-          <li hidden>Contracts about to expire</li>
-          <li hidden>Suppliers with liquidated damages</li>
-          <li hidden>Contracts with penalties</li>
-          <li hidden>Performance evaluation summaries</li>
-          <li hidden>Retention fees deducted</li>
-          <li hidden>Performance bond refunds</li>
+          <li>Delivered items not yet paid</li>
+          <li>Expiring contracts with time limits set</li>
+          <li>Total number and amount of alternative methods per mode</li>
+          <li>Summary of issued purchase orders and job orders per contract</li>
+          <li>Summary of disbursement vouchers per purchase order or job order</li>
+          <li>Total number of suppliers invited per canvass</li>
+          <li>Total number of contracts awarded</li>
+          <li>Summary of items purchased through RF per account code</li>
+          <li>List of contracts per category</li>
+          <li>Infrastructure and consultancy summaries</li>
+          <li>Summary of multi-year contracts</li>
+          <li>Summary of one-year contracts</li>
+          <li>Contracts with partial or complete delivery</li>
+          <li>Pending transactions</li>
+          <li>Summary of public bidding</li>
+          <li>Summary of shopping above ₱50,000 and other shopping</li>
+          <li>Summary of direct contracting</li>
+          <li>Summary of repeat orders</li>
+          <li>Summary of limited source bidding</li>
+          <li>Summary of negotiation modes</li>
+          <li>Contracts about to expire</li>
+          <li>Suppliers with liquidated damages</li>
+          <li>Contracts with penalties</li>
+          <li>Performance evaluation summaries</li>
+          <li>Retention fees deducted</li>
+          <li>Performance bond refunds</li>
         </ul>
-        <button type="button" class="rfs__toggle" data-rfs-toggle aria-expanded="false">
-          <span data-rfs-toggle-label>Show all 31 reports</span>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </button>
       </article>
 
       <!-- Forms card -->
@@ -105,23 +101,3 @@
   .rfs__toggle svg{width:16px;height:16px}
 </style>
 
-<script>
-(function(){
-  var root=document.currentScript.previousElementSibling;
-  while(root && !root.classList.contains('rfs')) root=root.previousElementSibling;
-  if(!root) return;
-  var btn=root.querySelector('[data-rfs-toggle]');
-  var label=root.querySelector('[data-rfs-toggle-label]');
-  var list=root.querySelector('[data-rfs-list="reports"]');
-  if(!btn||!list||!label) return;
-  var items=list.querySelectorAll('li');
-  var total=items.length;
-  var expanded=false;
-  btn.addEventListener('click',function(){
-    expanded=!expanded;
-    items.forEach(function(li,i){ if(i>=5) li.hidden=!expanded; });
-    btn.setAttribute('aria-expanded',expanded?'true':'false');
-    label.textContent=expanded?'Show fewer reports':('Show all '+total+' reports');
-  });
-})();
-</script>

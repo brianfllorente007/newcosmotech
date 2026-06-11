@@ -377,7 +377,6 @@ const FAQS = [
 
 function GpmsPage() {
   useReveal();
-  const [showAllReports, setShowAllReports] = useState(false);
 
   useEffect(() => {
     const script = document.createElement("script");
@@ -626,7 +625,7 @@ function GpmsPage() {
                   GPMS can generate procurement and contract reports, including:
                 </p>
                 <ul className="mt-6 space-y-2">
-                  {(showAllReports ? REPORTS : REPORTS.slice(0, 5)).map((r) => (
+                  {REPORTS.map((r) => (
                     <li
                       key={r}
                       className="flex items-start gap-2 text-sm text-foreground"
@@ -636,16 +635,6 @@ function GpmsPage() {
                     </li>
                   ))}
                 </ul>
-                <button
-                  type="button"
-                  onClick={() => setShowAllReports((v) => !v)}
-                  className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-cobalt hover:underline"
-                >
-                  {showAllReports
-                    ? "Show fewer reports"
-                    : `Show all ${REPORTS.length} reports`}
-                  <ArrowRight className="h-4 w-4" />
-                </button>
               </div>
 
               {/* Forms */}
