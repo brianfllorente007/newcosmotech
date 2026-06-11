@@ -377,7 +377,6 @@ const FAQS = [
 
 function GpmsPage() {
   useReveal();
-  const [showAllReports, setShowAllReports] = useState(false);
 
   useEffect(() => {
     const script = document.createElement("script");
