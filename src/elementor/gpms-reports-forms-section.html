@@ -101,23 +101,3 @@
   .rfs__toggle svg{width:16px;height:16px}
 </style>
 
-<script>
-(function(){
-  var root=document.currentScript.previousElementSibling;
-  while(root && !root.classList.contains('rfs')) root=root.previousElementSibling;
-  if(!root) return;
-  var btn=root.querySelector('[data-rfs-toggle]');
-  var label=root.querySelector('[data-rfs-toggle-label]');
-  var list=root.querySelector('[data-rfs-list="reports"]');
-  if(!btn||!list||!label) return;
-  var items=list.querySelectorAll('li');
-  var total=items.length;
-  var expanded=false;
-  btn.addEventListener('click',function(){
-    expanded=!expanded;
-    items.forEach(function(li,i){ if(i>=5) li.hidden=!expanded; });
-    btn.setAttribute('aria-expanded',expanded?'true':'false');
-    label.textContent=expanded?'Show fewer reports':('Show all '+total+' reports');
-  });
-})();
-</script>
