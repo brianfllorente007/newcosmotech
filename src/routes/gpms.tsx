@@ -615,7 +615,7 @@ function GpmsPage() {
               title="Reports and forms you can generate"
               intro="GPMS can generate the procurement reports and forms your office needs for compliance and day-to-day operations."
             />
-            <div className="mt-12 grid gap-8 lg:grid-cols-2">
+            <div className="mt-12 grid gap-8 lg:grid-cols-2 lg:items-start">
               {/* Reports */}
               <div className="rounded-3xl border border-border bg-card p-8">
                 <h3 className="text-xl font-semibold tracking-tight text-foreground">
