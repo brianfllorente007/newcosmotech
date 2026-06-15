@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as UratemeRouteImport } from './routes/urateme'
+import { Route as SupportRouteImport } from './routes/support'
 import { Route as SolutionsRouteImport } from './routes/solutions'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as QmasterRouteImport } from './routes/qmaster'
@@ -35,6 +36,11 @@ import { Route as LovableEmailQueueProcessRouteImport } from './routes/lovable/e
 const UratemeRoute = UratemeRouteImport.update({
   id: '/urateme',
   path: '/urateme',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SupportRoute = SupportRouteImport.update({
+  id: '/support',
+  path: '/support',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SolutionsRoute = SolutionsRouteImport.update({
@@ -161,6 +167,7 @@ export interface FileRoutesByFullPath {
   '/qmaster': typeof QmasterRoute
   '/services': typeof ServicesRoute
   '/solutions': typeof SolutionsRouteWithChildren
+  '/support': typeof SupportRoute
   '/urateme': typeof UratemeRoute
   '/careers/account-management-trainee': typeof CareersAccountManagementTraineeRoute
   '/careers/backend-developer': typeof CareersBackendDeveloperRoute
@@ -185,6 +192,7 @@ export interface FileRoutesByTo {
   '/qmaster': typeof QmasterRoute
   '/services': typeof ServicesRoute
   '/solutions': typeof SolutionsRouteWithChildren
+  '/support': typeof SupportRoute
   '/urateme': typeof UratemeRoute
   '/careers/account-management-trainee': typeof CareersAccountManagementTraineeRoute
   '/careers/backend-developer': typeof CareersBackendDeveloperRoute
@@ -210,6 +218,7 @@ export interface FileRoutesById {
   '/qmaster': typeof QmasterRoute
   '/services': typeof ServicesRoute
   '/solutions': typeof SolutionsRouteWithChildren
+  '/support': typeof SupportRoute
   '/urateme': typeof UratemeRoute
   '/careers/account-management-trainee': typeof CareersAccountManagementTraineeRoute
   '/careers/backend-developer': typeof CareersBackendDeveloperRoute
@@ -236,6 +245,7 @@ export interface FileRouteTypes {
     | '/qmaster'
     | '/services'
     | '/solutions'
+    | '/support'
     | '/urateme'
     | '/careers/account-management-trainee'
     | '/careers/backend-developer'
@@ -260,6 +270,7 @@ export interface FileRouteTypes {
     | '/qmaster'
     | '/services'
     | '/solutions'
+    | '/support'
     | '/urateme'
     | '/careers/account-management-trainee'
     | '/careers/backend-developer'
@@ -284,6 +295,7 @@ export interface FileRouteTypes {
     | '/qmaster'
     | '/services'
     | '/solutions'
+    | '/support'
     | '/urateme'
     | '/careers/account-management-trainee'
     | '/careers/backend-developer'
@@ -309,6 +321,7 @@ export interface RootRouteChildren {
   QmasterRoute: typeof QmasterRoute
   ServicesRoute: typeof ServicesRoute
   SolutionsRoute: typeof SolutionsRouteWithChildren
+  SupportRoute: typeof SupportRoute
   UratemeRoute: typeof UratemeRoute
   CareersAccountManagementTraineeRoute: typeof CareersAccountManagementTraineeRoute
   CareersBackendDeveloperRoute: typeof CareersBackendDeveloperRoute
@@ -325,6 +338,13 @@ declare module '@tanstack/react-router' {
       path: '/urateme'
       fullPath: '/urateme'
       preLoaderRoute: typeof UratemeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/support': {
+      id: '/support'
+      path: '/support'
+      fullPath: '/support'
+      preLoaderRoute: typeof SupportRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/solutions': {
@@ -504,6 +524,7 @@ const rootRouteChildren: RootRouteChildren = {
   QmasterRoute: QmasterRoute,
   ServicesRoute: ServicesRoute,
   SolutionsRoute: SolutionsRouteWithChildren,
+  SupportRoute: SupportRoute,
   UratemeRoute: UratemeRoute,
   CareersAccountManagementTraineeRoute: CareersAccountManagementTraineeRoute,
   CareersBackendDeveloperRoute: CareersBackendDeveloperRoute,
