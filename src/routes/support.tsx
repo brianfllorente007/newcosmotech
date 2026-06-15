@@ -87,19 +87,19 @@ const CLIENTS: ClientTile[] = [
     name: "Online Leave Management System",
     shortName: "OLMS",
     portal: "https://helpdesk-olms.integrahris.com/Login/Index?ReturnUrl=%2F",
-    placeholder: true,
+    logo: logoOlms.url,
   },
   {
     name: "National Center for Mental Health",
     shortName: "NCMH",
     portal: "https://helpdesk-ncmh.integrahris.com/Login/Index?ReturnUrl=%2F",
-    placeholder: true,
+    logo: logoNcmh.url,
   },
   {
     name: "Universidad de Zamboanga",
     shortName: "UZ",
     portal: "https://helpdesk-uz.integrahris.com/Login/Index?ReturnUrl=%2F",
-    placeholder: true,
+    logo: logoUz.url,
   },
   {
     name: "Other clients",
