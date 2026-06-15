@@ -17,6 +17,9 @@ import logoErc from "@/assets/logos/agencies/erc.webp";
 import logoBsp from "@/assets/logos/clients/bsp.png";
 import logoFab from "@/assets/logos/clients/fab.webp";
 import logoCosmotech from "@/assets/cosmotech-logo.png";
+import logoOlms from "@/assets/logos/clients/denr.png.asset.json";
+import logoNcmh from "@/assets/logos/clients/ncmh.png.asset.json";
+import logoUz from "@/assets/logos/clients/uz.webp.asset.json";
 
 type ClientTile = {
   name: string;
@@ -84,19 +87,19 @@ const CLIENTS: ClientTile[] = [
     name: "Online Leave Management System",
     shortName: "OLMS",
     portal: "https://helpdesk-olms.integrahris.com/Login/Index?ReturnUrl=%2F",
-    placeholder: true,
+    logo: logoOlms.url,
   },
   {
     name: "National Center for Mental Health",
     shortName: "NCMH",
     portal: "https://helpdesk-ncmh.integrahris.com/Login/Index?ReturnUrl=%2F",
-    placeholder: true,
+    logo: logoNcmh.url,
   },
   {
     name: "Universidad de Zamboanga",
     shortName: "UZ",
     portal: "https://helpdesk-uz.integrahris.com/Login/Index?ReturnUrl=%2F",
-    placeholder: true,
+    logo: logoUz.url,
   },
   {
     name: "Other clients",
