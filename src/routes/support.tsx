@@ -17,6 +17,9 @@ import logoErc from "@/assets/logos/agencies/erc.webp";
 import logoBsp from "@/assets/logos/clients/bsp.png";
 import logoFab from "@/assets/logos/clients/fab.webp";
 import logoCosmotech from "@/assets/cosmotech-logo.png";
+import logoOlms from "@/assets/logos/clients/denr.png.asset.json";
+import logoNcmh from "@/assets/logos/clients/ncmh.png.asset.json";
+import logoUz from "@/assets/logos/clients/uz.webp.asset.json";
 
 type ClientTile = {
   name: string;
