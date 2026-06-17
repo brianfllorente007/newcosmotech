@@ -84,18 +84,18 @@ function HomePage() {
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-6 sm:gap-10">
               <div className="flex items-center gap-3">
-                <Shield className="h-8 w-8 text-brass" strokeWidth={1.5} />
+                <Shield className="h-10 w-10 text-brass" strokeWidth={1.5} />
                 <div className="text-left">
-                  <p className="text-sm font-semibold text-bone">31+ Years of</p>
-                  <p className="text-sm font-semibold text-bone">Technology Excellence</p>
+                  <p className="text-base font-semibold text-bone">31+ Years of</p>
+                  <p className="text-base font-semibold text-bone">Technology Excellence</p>
                 </div>
               </div>
               <div className="hidden h-10 w-px bg-bone/20 sm:block" />
               <div className="flex items-center gap-3">
-                <Award className="h-8 w-8 text-brass" strokeWidth={1.5} />
+                <Award className="h-10 w-10 text-brass" strokeWidth={1.5} />
                 <div className="text-left">
-                  <p className="text-sm font-semibold text-bone">ISO 9001:2015</p>
-                  <p className="text-sm font-semibold text-bone">Certified</p>
+                  <p className="text-base font-semibold text-bone">ISO 9001:2015</p>
+                  <p className="text-base font-semibold text-bone">Certified</p>
                 </div>
               </div>
             </div>
