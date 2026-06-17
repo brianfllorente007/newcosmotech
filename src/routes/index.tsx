@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Shield, Award } from "lucide-react";
 import { Container } from "@/components/Container";
 import { TrustBar } from "@/components/TrustBar";
 import { SectionHeading, Eyebrow } from "@/components/SectionHeading";
@@ -82,6 +82,23 @@ function HomePage() {
               accelerate efficiency, reduce operational friction, and deliver smarter services at
               scale.
             </p>
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-6 sm:gap-10">
+              <div className="flex items-center gap-3">
+                <Shield className="h-8 w-8 text-brass" strokeWidth={1.5} />
+                <div className="text-left">
+                  <p className="text-sm font-semibold text-bone">31+ Years of</p>
+                  <p className="text-sm font-semibold text-bone">Technology Excellence</p>
+                </div>
+              </div>
+              <div className="hidden h-10 w-px bg-bone/20 sm:block" />
+              <div className="flex items-center gap-3">
+                <Award className="h-8 w-8 text-brass" strokeWidth={1.5} />
+                <div className="text-left">
+                  <p className="text-sm font-semibold text-bone">ISO 9001:2015</p>
+                  <p className="text-sm font-semibold text-bone">Certified</p>
+                </div>
+              </div>
+            </div>
             <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <a
                 href="#solutions"
