@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Shield, Award } from "lucide-react";
 import { Container } from "@/components/Container";
 import { TrustBar } from "@/components/TrustBar";
 import { SectionHeading, Eyebrow } from "@/components/SectionHeading";
