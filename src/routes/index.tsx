@@ -82,20 +82,20 @@ function HomePage() {
               accelerate efficiency, reduce operational friction, and deliver smarter services at
               scale.
             </p>
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-6 sm:gap-10">
-              <div className="flex items-center gap-3">
-                <Shield className="h-10 w-10 text-brass" strokeWidth={1.5} />
+            <div className="mt-8 flex items-center justify-center gap-2 sm:gap-10">
+              <div className="flex items-center gap-1.5 sm:gap-3">
+                <Shield className="h-5 w-5 shrink-0 text-brass sm:h-10 sm:w-10" strokeWidth={1.5} />
                 <div className="text-left">
-                  <p className="text-base font-semibold text-bone">31+ Years of</p>
-                  <p className="text-base font-semibold text-bone">Technology Excellence</p>
+                  <p className="text-[10px] font-semibold leading-tight text-bone sm:text-base sm:leading-normal">31+ Years of</p>
+                  <p className="text-[10px] font-semibold leading-tight text-bone sm:text-base sm:leading-normal">Technology Excellence</p>
                 </div>
               </div>
-              <div className="hidden h-10 w-px bg-bone/20 sm:block" />
-              <div className="flex items-center gap-3">
-                <Award className="h-10 w-10 text-brass" strokeWidth={1.5} />
+              <div className="hidden h-5 w-px bg-bone/20 sm:block sm:h-10" />
+              <div className="flex items-center gap-1.5 sm:gap-3">
+                <Award className="h-5 w-5 shrink-0 text-brass sm:h-10 sm:w-10" strokeWidth={1.5} />
                 <div className="text-left">
-                  <p className="text-base font-semibold text-bone">ISO 9001:2015</p>
-                  <p className="text-base font-semibold text-bone">Certified</p>
+                  <p className="text-[10px] font-semibold leading-tight text-bone sm:text-base sm:leading-normal">ISO 9001:2015</p>
+                  <p className="text-[10px] font-semibold leading-tight text-bone sm:text-base sm:leading-normal">Certified</p>
                 </div>
               </div>
             </div>
