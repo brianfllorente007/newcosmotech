@@ -27,6 +27,7 @@ import { Route as BlogRouteImport } from './routes/blog'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as CareersIndexRouteImport } from './routes/careers.index'
+import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as SolutionsSlugRouteImport } from './routes/solutions.$slug'
 import { Route as CareersQaTesterAutomationRouteImport } from './routes/careers.qa-tester-automation'
 import { Route as CareersItTraineeRouteImport } from './routes/careers.it-trainee'
@@ -125,6 +126,11 @@ const CareersIndexRoute = CareersIndexRouteImport.update({
   path: '/careers/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BlogIndexRoute = BlogIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => BlogRoute,
+} as any)
 const SolutionsSlugRoute = SolutionsSlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
@@ -189,13 +195,13 @@ export interface FileRoutesByFullPath {
   '/careers/it-trainee': typeof CareersItTraineeRoute
   '/careers/qa-tester-automation': typeof CareersQaTesterAutomationRoute
   '/solutions/$slug': typeof SolutionsSlugRoute
+  '/blog/': typeof BlogIndexRoute
   '/careers/': typeof CareersIndexRoute
   '/lovable/email/queue/process': typeof LovableEmailQueueProcessRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/blog': typeof BlogRouteWithChildren
   '/contact': typeof ContactRoute
   '/docutrakr': typeof DocutrakrRoute
   '/gpms': typeof GpmsRoute
@@ -216,6 +222,7 @@ export interface FileRoutesByTo {
   '/careers/it-trainee': typeof CareersItTraineeRoute
   '/careers/qa-tester-automation': typeof CareersQaTesterAutomationRoute
   '/solutions/$slug': typeof SolutionsSlugRoute
+  '/blog': typeof BlogIndexRoute
   '/careers': typeof CareersIndexRoute
   '/lovable/email/queue/process': typeof LovableEmailQueueProcessRoute
 }
@@ -244,6 +251,7 @@ export interface FileRoutesById {
   '/careers/it-trainee': typeof CareersItTraineeRoute
   '/careers/qa-tester-automation': typeof CareersQaTesterAutomationRoute
   '/solutions/$slug': typeof SolutionsSlugRoute
+  '/blog/': typeof BlogIndexRoute
   '/careers/': typeof CareersIndexRoute
   '/lovable/email/queue/process': typeof LovableEmailQueueProcessRoute
 }
@@ -273,13 +281,13 @@ export interface FileRouteTypes {
     | '/careers/it-trainee'
     | '/careers/qa-tester-automation'
     | '/solutions/$slug'
+    | '/blog/'
     | '/careers/'
     | '/lovable/email/queue/process'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
-    | '/blog'
     | '/contact'
     | '/docutrakr'
     | '/gpms'
@@ -300,6 +308,7 @@ export interface FileRouteTypes {
     | '/careers/it-trainee'
     | '/careers/qa-tester-automation'
     | '/solutions/$slug'
+    | '/blog'
     | '/careers'
     | '/lovable/email/queue/process'
   id:
@@ -327,6 +336,7 @@ export interface FileRouteTypes {
     | '/careers/it-trainee'
     | '/careers/qa-tester-automation'
     | '/solutions/$slug'
+    | '/blog/'
     | '/careers/'
     | '/lovable/email/queue/process'
   fileRoutesById: FileRoutesById
@@ -485,6 +495,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CareersIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/blog/': {
+      id: '/blog/'
+      path: '/'
+      fullPath: '/blog/'
+      preLoaderRoute: typeof BlogIndexRouteImport
+      parentRoute: typeof BlogRoute
+    }
     '/solutions/$slug': {
       id: '/solutions/$slug'
       path: '/$slug'
@@ -539,10 +556,12 @@ declare module '@tanstack/react-router' {
 
 interface BlogRouteChildren {
   BlogIntegrahrisTransformingHrRoute: typeof BlogIntegrahrisTransformingHrRoute
+  BlogIndexRoute: typeof BlogIndexRoute
 }
 
 const BlogRouteChildren: BlogRouteChildren = {
   BlogIntegrahrisTransformingHrRoute: BlogIntegrahrisTransformingHrRoute,
+  BlogIndexRoute: BlogIndexRoute,
 }
 
 const BlogRouteWithChildren = BlogRoute._addFileChildren(BlogRouteChildren)
