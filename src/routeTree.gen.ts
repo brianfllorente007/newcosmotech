@@ -32,6 +32,7 @@ import { Route as CareersQaTesterAutomationRouteImport } from './routes/careers.
 import { Route as CareersItTraineeRouteImport } from './routes/careers.it-trainee'
 import { Route as CareersBackendDeveloperRouteImport } from './routes/careers.backend-developer'
 import { Route as CareersAccountManagementTraineeRouteImport } from './routes/careers.account-management-trainee'
+import { Route as BlogIntegrahrisTransformingHrRouteImport } from './routes/blog.integrahris-transforming-hr'
 import { Route as LovableEmailQueueProcessRouteImport } from './routes/lovable/email/queue/process'
 
 const UratemeRoute = UratemeRouteImport.update({
@@ -151,6 +152,12 @@ const CareersAccountManagementTraineeRoute =
     path: '/careers/account-management-trainee',
     getParentRoute: () => rootRouteImport,
   } as any)
+const BlogIntegrahrisTransformingHrRoute =
+  BlogIntegrahrisTransformingHrRouteImport.update({
+    id: '/integrahris-transforming-hr',
+    path: '/integrahris-transforming-hr',
+    getParentRoute: () => BlogRoute,
+  } as any)
 const LovableEmailQueueProcessRoute =
   LovableEmailQueueProcessRouteImport.update({
     id: '/lovable/email/queue/process',
@@ -161,7 +168,7 @@ const LovableEmailQueueProcessRoute =
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/blog': typeof BlogRoute
+  '/blog': typeof BlogRouteWithChildren
   '/contact': typeof ContactRoute
   '/docutrakr': typeof DocutrakrRoute
   '/gpms': typeof GpmsRoute
@@ -176,6 +183,7 @@ export interface FileRoutesByFullPath {
   '/solutions': typeof SolutionsRouteWithChildren
   '/support': typeof SupportRoute
   '/urateme': typeof UratemeRoute
+  '/blog/integrahris-transforming-hr': typeof BlogIntegrahrisTransformingHrRoute
   '/careers/account-management-trainee': typeof CareersAccountManagementTraineeRoute
   '/careers/backend-developer': typeof CareersBackendDeveloperRoute
   '/careers/it-trainee': typeof CareersItTraineeRoute
@@ -187,7 +195,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/blog': typeof BlogRoute
+  '/blog': typeof BlogRouteWithChildren
   '/contact': typeof ContactRoute
   '/docutrakr': typeof DocutrakrRoute
   '/gpms': typeof GpmsRoute
@@ -202,6 +210,7 @@ export interface FileRoutesByTo {
   '/solutions': typeof SolutionsRouteWithChildren
   '/support': typeof SupportRoute
   '/urateme': typeof UratemeRoute
+  '/blog/integrahris-transforming-hr': typeof BlogIntegrahrisTransformingHrRoute
   '/careers/account-management-trainee': typeof CareersAccountManagementTraineeRoute
   '/careers/backend-developer': typeof CareersBackendDeveloperRoute
   '/careers/it-trainee': typeof CareersItTraineeRoute
@@ -214,7 +223,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/blog': typeof BlogRoute
+  '/blog': typeof BlogRouteWithChildren
   '/contact': typeof ContactRoute
   '/docutrakr': typeof DocutrakrRoute
   '/gpms': typeof GpmsRoute
@@ -229,6 +238,7 @@ export interface FileRoutesById {
   '/solutions': typeof SolutionsRouteWithChildren
   '/support': typeof SupportRoute
   '/urateme': typeof UratemeRoute
+  '/blog/integrahris-transforming-hr': typeof BlogIntegrahrisTransformingHrRoute
   '/careers/account-management-trainee': typeof CareersAccountManagementTraineeRoute
   '/careers/backend-developer': typeof CareersBackendDeveloperRoute
   '/careers/it-trainee': typeof CareersItTraineeRoute
@@ -257,6 +267,7 @@ export interface FileRouteTypes {
     | '/solutions'
     | '/support'
     | '/urateme'
+    | '/blog/integrahris-transforming-hr'
     | '/careers/account-management-trainee'
     | '/careers/backend-developer'
     | '/careers/it-trainee'
@@ -283,6 +294,7 @@ export interface FileRouteTypes {
     | '/solutions'
     | '/support'
     | '/urateme'
+    | '/blog/integrahris-transforming-hr'
     | '/careers/account-management-trainee'
     | '/careers/backend-developer'
     | '/careers/it-trainee'
@@ -309,6 +321,7 @@ export interface FileRouteTypes {
     | '/solutions'
     | '/support'
     | '/urateme'
+    | '/blog/integrahris-transforming-hr'
     | '/careers/account-management-trainee'
     | '/careers/backend-developer'
     | '/careers/it-trainee'
@@ -321,7 +334,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
-  BlogRoute: typeof BlogRoute
+  BlogRoute: typeof BlogRouteWithChildren
   ContactRoute: typeof ContactRoute
   DocutrakrRoute: typeof DocutrakrRoute
   GpmsRoute: typeof GpmsRoute
@@ -507,6 +520,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CareersAccountManagementTraineeRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/blog/integrahris-transforming-hr': {
+      id: '/blog/integrahris-transforming-hr'
+      path: '/integrahris-transforming-hr'
+      fullPath: '/blog/integrahris-transforming-hr'
+      preLoaderRoute: typeof BlogIntegrahrisTransformingHrRouteImport
+      parentRoute: typeof BlogRoute
+    }
     '/lovable/email/queue/process': {
       id: '/lovable/email/queue/process'
       path: '/lovable/email/queue/process'
@@ -516,6 +536,16 @@ declare module '@tanstack/react-router' {
     }
   }
 }
+
+interface BlogRouteChildren {
+  BlogIntegrahrisTransformingHrRoute: typeof BlogIntegrahrisTransformingHrRoute
+}
+
+const BlogRouteChildren: BlogRouteChildren = {
+  BlogIntegrahrisTransformingHrRoute: BlogIntegrahrisTransformingHrRoute,
+}
+
+const BlogRouteWithChildren = BlogRoute._addFileChildren(BlogRouteChildren)
 
 interface SolutionsRouteChildren {
   SolutionsSlugRoute: typeof SolutionsSlugRoute
@@ -532,7 +562,7 @@ const SolutionsRouteWithChildren = SolutionsRoute._addFileChildren(
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
-  BlogRoute: BlogRoute,
+  BlogRoute: BlogRouteWithChildren,
   ContactRoute: ContactRoute,
   DocutrakrRoute: DocutrakrRoute,
   GpmsRoute: GpmsRoute,
