@@ -152,7 +152,7 @@ function BlogPage() {
                 </p>
               ))}
               <Link
-                to="/blog"
+                to="/blog/integrahris-transforming-hr"
                 className="mt-8 inline-flex items-center gap-1.5 border-b border-foreground/40 pb-1 text-sm font-medium text-foreground transition-colors hover:border-foreground"
               >
                 Read Article <ArrowUpRight className="h-4 w-4" />
