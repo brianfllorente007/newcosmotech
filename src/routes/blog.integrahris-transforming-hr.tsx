@@ -87,10 +87,7 @@ function Tag({ label }: { label: string }) {
 }
 
 function BlogPostPage() {
-  const shareUrl =
-    typeof window !== "undefined"
-      ? window.location.href
-      : "https://cosmotech.heybrianl.com/blog/integrahris-transforming-hr";
+  const shareUrl = "https://cosmotech.heybrianl.com/blog/integrahris-transforming-hr";
 
   const copyLink = () => {
     if (typeof navigator !== "undefined" && navigator.clipboard) {
